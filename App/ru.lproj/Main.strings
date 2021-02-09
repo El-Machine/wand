@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "RUd-Pe-o1p"; */
+"RUd-Pe-o1p.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "UXd-2N-tdN"; */
+"UXd-2N-tdN.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "XIj-Wf-UXR"; */
+"XIj-Wf-UXR.title" = "Item 2";
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "boI-Qv-WmW"; */
+"boI-Qv-WmW.title" = "Item 1";
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "dZx-zp-8Fg"; */
+"dZx-zp-8Fg.normalTitle" = "Войти";
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "ih2-On-sHv"; */
+"ih2-On-sHv.normalTitle" = "Войти";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "rlr-ZY-ZlU"; */
+"rlr-ZY-ZlU.title" = "Item";
