@@ -11,7 +11,6 @@ import XCTest
 class Math_Tests: XCTestCase {
 
     func testBoolNumeric() throws {
-        
         let intTrue: Double = true|
         let intFalse: Int = false|
         

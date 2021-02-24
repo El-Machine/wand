@@ -6,12 +6,15 @@
 //  Copyright © 2021 El Machine. All rights reserved.
 //
 
+postfix operator |
+prefix operator |
+
 import XCTest
 
 import CoreLocation
 
 class CoreLocation_Tests: XCTestCase {
-
+    
     func testLocation() {
         let e = expectation(description: "event")
         
