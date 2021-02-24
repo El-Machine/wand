@@ -59,3 +59,12 @@ Close Pipe adding sign | at the beginning
  ```swift
  |piped
  ```
+
+### Сoncept
+
+Pipe started from idea about receiving anything in most efficient and fast way  
+Just add one sign to completion and start receiving the result  
+Current implementation is not final solution, but main idea
+
+You ideas, comments, contribution are welcome  
+Main course is to add some new Pipable extensions for other types and add some features for piping any Pipable types between
