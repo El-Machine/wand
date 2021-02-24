@@ -6,8 +6,7 @@
 //  Copyright © 2020 El Machine. All rights reserved.
 //
 
-import CoreGraphics
-import UIKit.UIView
+import Foundation
 
 extension Bool {
     
@@ -21,14 +20,6 @@ extension Int {
 
     static postfix func |(p: Self) -> IndexSet {
         IndexSet(0...p)
-    }
-    
-    static postfix func |(p: Self) -> IndexPath {
-        IndexPath(row: p, section: 0)
-    }
-    
-    static postfix func |(p: Self) -> [IndexPath] {
-        [p|]
     }
 
 }

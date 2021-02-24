@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Pipe",
     platforms: [
-      .iOS(.v11)
+        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
     ],
     products: [
         .library(

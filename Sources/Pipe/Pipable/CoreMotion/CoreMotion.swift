@@ -16,21 +16,23 @@ extension CMPedometer: Source {
     
 }
 
-extension CMPedometerEvent: FromSource {
-    
-    typealias From = CMPedometer
-    
-    @discardableResult
-    static func | (from: Pipable?, _: CMPedometerEvent.Type) -> CMPedometer {
-        let piped: CMPedometer = from|
-        piped.startEventUpdates { (event, error) in
-            piped.pipe()?.expectations?.come(for: event, error: error)
+#if !os(macOS)
+    extension CMPedometerEvent: FromSource {
+        
+        typealias From = CMPedometer
+        
+        @discardableResult
+        static func | (from: Pipable?, _: CMPedometerEvent.Type) -> CMPedometer {
+            let piped: CMPedometer = from|
+            piped.startEventUpdates { (event, error) in
+                piped.pipe()?.expectations?.come(for: event, error: error)
+            }
+            
+            return piped
         }
-
-        return piped
+        
     }
-    
-}
+#endif
 
 extension CMPedometerData: FromSource {
     

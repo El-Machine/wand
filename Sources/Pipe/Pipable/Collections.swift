@@ -13,10 +13,6 @@ extension Array {
     static postfix func |(p: Self) -> Range<Int> {
         0..<p.count
     }
-    
-    static postfix func |(p: Self) -> [IndexPath] {
-        (0..<p.count)|
-    }
 
 }
 
@@ -30,12 +26,6 @@ extension Array where Element: BinaryInteger {
 
 
 extension Range where Bound == Int {
-
-    static postfix func |(p: Self) -> [IndexPath] {
-        p.map {
-            IndexPath(row: $0, section: 0)
-        }
-    }
     
     static postfix func |(p: Self) -> Int {
         .random(in: p)

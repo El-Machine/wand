@@ -108,14 +108,6 @@ extension CBCentralManager {
             pipe()?.expectations?.come(for: peripheral, with: "didDisconnectPeripheral", error: error)
         }
         
-        func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
-            pipe()?.expectations?.come(for: (event, peripheral))
-        }
-        
-        func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
-            pipe()?.expectations?.come(for: peripheral, with: "didUpdateANCSAuthorizationFor")
-        }
-        
         func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
             pipe()?.expectations?.come(for: peripheral.services, error: error)
         }
