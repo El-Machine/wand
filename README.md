@@ -39,6 +39,8 @@ let string: String = data|
 let front: UIColor = 0x554292|
 let back: UIColor? = "#554292"|
 
+let found: Date? = "tomorrow at 8 UTC+4" | .date
+
 //Anything from Nothing
 |{ (anything: Anything) in
 🧙🏼
@@ -77,8 +79,8 @@ URL(string: "http://example.com/image.jpg") | { (faces: [VNFaceObservation]) in
 
 }
 
-data | { (bodies: [VNHumanBodyPoseObservation]) in
-
+data | .while { (bodies: [VNHumanBodyPoseObservation]) in
+    bodies < 2
 }
 ```
 
