@@ -28,6 +28,7 @@ import PackageDescription
 
 let package = Package(
     name: "Pipe",
+    defaultLocalization: "ru",
     platforms: [
         .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
     ],

@@ -79,18 +79,18 @@ final class Pipe {
     }
 
 
-//    #if TESTING
+    #if TESTING
+    
+        init() {
+            print("|💪🏽 #init\n\(self)")
+        }
 
-    init() {
-        print("|💪🏽 #init\n\(self)")
-    }
 
+        deinit {
+            print("|✅ #bonsua\n\(self)\n")
+        }
 
-    deinit {
-        print("|✅ #bonsua\n\(self)\n")
-    }
-
-//    #endif
+    #endif
     
 }
 
