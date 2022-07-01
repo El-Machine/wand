@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,6 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 import QuartzCore

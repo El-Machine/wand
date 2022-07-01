@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,12 +19,11 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 import Contacts
 
-extension CNContactStore: Constructable {
+extension CNContactStore: Constructor {
     
     static func | (piped: Any?, type: CNContactStore.Type) -> Self {
         Self()
@@ -32,9 +31,9 @@ extension CNContactStore: Constructable {
     
 }
 
-extension CNContact: Expectable {
+extension CNContact: Asking {
 
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {        
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let source = with as? CNContactStore ?? pipe.get()
         let keys: [CNKeyDescriptor] = pipe.get() ?? []
 

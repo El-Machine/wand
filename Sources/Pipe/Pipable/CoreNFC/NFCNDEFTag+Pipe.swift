@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,69 +19,34 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
+#if canImport(CoreNFC)
 import CoreNFC
 
 @discardableResult
-prefix func |(handler: @escaping (NFCNDEFTag)->()) -> Pipe {
-    |.every(handler: handler)
+@available(iOS 13.0, *)
+func |(piped: Any?, event: Expect<NFCNDEFTag>) -> Pipe {
+    ((piped as? Pipable)?.pipe ?? Pipe()).add(event,
+                                              with: piped,
+                                              asking: NFCNDEFTagAsking.self)
 }
 
-prefix func |<H: Pipable>(handler: @escaping (NFCNDEFTag)->()) -> H? {
-    (|handler).get()
-}
-
-//
-@discardableResult
-prefix func |(event: Event<NFCNDEFTag>) -> Pipe {
-    Pipe().expect(event, with: nil, producer: NFCNDEFTagProducer.self)
-}
-
-prefix func |<H>(event: Event<NFCNDEFTag>) -> H? {
-    (|event).get()
-}
-
-//
-@discardableResult
-func |(piped: Any?, handler: @escaping (NFCNDEFTag)->()) -> Pipe {
-    piped | .every(handler: handler)
-}
-
-func |<H> (piped: Any?, handler: @escaping (NFCNDEFTag)->()) -> H? {
-    (piped | handler).get()
-}
-
-//
-@discardableResult
-func |(piped: Any?, event: Event<NFCNDEFTag>) -> Pipe {
-    ((piped as? Pipable)?.pipe ?? Pipe()).expect(event,
-                                                 with: piped,
-                                                 producer: NFCNDEFTagProducer.self)
-}
-
-func |<H> (piped: Any?, event: Event<NFCNDEFTag>) -> H? {
-    (piped | event).get()
-}
-
-//
+@available(iOS 13.0, *)
 func |(piped: NFCNDEFTag, handler: @escaping (NFCNDEFMessage?)->()) {
     piped.readNDEF { message, _ in
         handler(message)
     }
 }
 
+struct NFCNDEFTagAsking: Asking {
 
-
-struct NFCNDEFTagProducer: Producer {
-
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let source = with as? NFCNDEFReaderSession ?? pipe.get()
         source.alertMessage = ""
         source.begin()
 
-        expecting.cleaner = {
+        expect.cleaner = {
             source.invalidate()
         }
     }
@@ -92,14 +57,11 @@ extension NFCNDEFMessage: Pipable {
 
 }
 
-func | (piped: NFCNDEFReaderSession, message: NFCNDEFMessage) -> NFCNDEFMessage {
-    let session = piped
+@available(iOS 13.0, *)
+func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> NFCNDEFMessage {
+    let pipe = message.pipe
 
-    let pipe = session.pipe
-    let tag = (piped as? NFCNDEFTag) ?? pipe.get()!
-
-    pipe.put(message)
-
+    let session: NFCNDEFReaderSession = pipe.get()
     session.connect(to: tag) { (error: Error?) in
         if error != nil {
             session.restartPolling()
@@ -138,3 +100,5 @@ func | (piped: NFCNDEFReaderSession, message: NFCNDEFMessage) -> NFCNDEFMessage 
 
     return message
 }
+
+#endif

@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -11,7 +11,7 @@
 //  all copies or substantial portions of the Software.
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT L IMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -19,94 +19,132 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
-import Foundation
-import UIKit
-
 final class Pipe {
-    
-//    private
-    static var all = [String: Pipe]()
 
-    static subscript(p: Any?) -> Pipe? {
+    internal static var all = [String: Pipe]()
+    internal static subscript<P>(p: P) -> Pipe? {
         get {
-            guard let p = p else {
-                return nil
-            }
-            let key = String(describing: type(of: p))
-            return all[key]
+            all[type(of: p)|]
         }
         set {
-            guard let p = p else {
-                return
+            if let pipe = newValue {
+                all.updateValue(pipe, forKey: type(of: p)|)
             }
-            let key = String(describing: type(of: p))
-
-            var all = self.all
-            all[key] = newValue
-            self.all = all
         }
     }
     
-    lazy var piped: [String: Any] = {
-        ["Any": self]
-    }()
+    lazy var piped: [String: Any] = ["Pipe": self]
 
-    static var defaultExpectations: [String: [Any]] = [
-        "Error":
-            [
-                Event.every { (e: Error) in
-                    print("Received error:\n\(e)\n")
-                }
-            ],
-        Condition.Keys.all: [],
-        Condition.Keys.any: []
-    ]
-
-    lazy var expectations =  [String: [Any]]()
-    lazy var utils: [String: [Any]] = Pipe.defaultExpectations
-    
-    convenience init<T>(_ object: T) {
-        self.init()
-
-        Pipe[object as? Pipable] = self
-        piped[String(describing: T.self)] = object
+    func close() {
+        close(last: self)
     }
-    
-    init() {
-        print("#init\n\(self)")
-    }
-    
-    func closeIfNeed(last: Any) {
+
+    private func closeIfNeed(last: Any) {
         //TODO: CONCURENCYYYY!!!!
 
-        //Clean empty expectations arrays
-        self.expectations = self.expectations.filter {
-            !$0.value.isEmpty
+        //Try to close only if something expected before
+        guard !expectations.isEmpty else {
+            return
         }
 
-        //Close Pipe if opnly utilitary expectations is live
-        if self.expectations.isEmpty {
+        //Close Pipe if only inner expectations is live
+        var expectingSomething = false
+        root: for (_, list) in expectations {
+            for expectation in list {
+                if (expectation as? Expecting)?.inner == false {
+                    expectingSomething = true
+
+                    break root
+                }
+            }
+        }
+
+        if !expectingSomething {
             close(last: last)
         }
-        
-    }
 
-    func close(last: Any) {
-        (utils[Condition.Keys.all] as? [Condition])?.forEach {
+    }
+    private func close(last: Any) {
+        (expectations["All"] as? [Expect<Any>])?.forEach {
             _ = $0.handler(last)
         }
 
         piped.removeAll()
-        expectations.removeAll()
-        
+
         Pipe.all = Pipe.all.filter {
             $1 !== self
         }
     }
+
+
+//    #if TESTING
+
+    init() {
+        print("|💪🏽 #init\n\(self)")
+    }
+
+
+    deinit {
+        print("|✅ #bonsua\n\(self)\n")
+    }
+
+//    #endif
     
+}
+
+extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
+
+    typealias ArrayLiteralElement = Any
+
+    typealias Key = String
+    typealias Value = Any
+
+    convenience init(arrayLiteral elements: Any...) {
+        self.init(elements)
+    }
+
+    convenience init(dictionaryLiteral elements: (String, Any)...) {
+        self.init()
+
+        elements.forEach { (key, object) in
+            Pipe[object] = self
+            piped[key] = object
+        }
+    }
+
+    convenience init<P>(_ object: P?) {
+        self.init()
+
+        guard let object = object else {
+            return
+        }
+
+        Pipe[object] = self
+        piped[P.self|] = object
+    }
+
+    convenience init(_ array: [Any]) {
+        self.init()
+
+        array.forEach {
+            let key: String
+            let object: Any
+
+            if let keyValue = $0 as? (key: String, value: Any) {
+                object = keyValue.value
+                key = keyValue.key
+            } else {
+                object = $0
+                key = type(of: object)|
+            }
+
+            Pipe[object] = self
+            piped[key] = object
+        }
+    }
+
 }
 
 extension Pipe: Pipable {
@@ -117,10 +155,9 @@ extension Pipe: Pipable {
 
 }
 
-extension Pipe: Producer {
+extension Pipe: Asking {
 
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
-        //Sometimes we should just wait
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
     }
 
 }
@@ -129,7 +166,7 @@ extension Pipe: CustomDebugStringConvertible {
     
     var debugDescription: String {
             """
-            <Pipe \(String(describing: Unmanaged.passUnretained(self).toOpaque())) for
+            <Pipe \(Unmanaged.passUnretained(self).toOpaque()|)> for
             \(expectations.keys)
             >
             """
@@ -140,54 +177,16 @@ extension Pipe: CustomDebugStringConvertible {
 //Get
 extension Pipe {
     
-    func get<T>(or create: @autoclosure ()->(T)) -> T {
+    func get<E>(or create: @autoclosure ()->(E)) -> E {
         get() ?? put(create())
     }
     
-    func get<T>(for key: String? = nil) -> T? {
-        piped[key ?? String(describing: T.self)] as? T
-    }
-    
-}
-
-//Expect
-extension Pipe {
-
-    @discardableResult
-    func expect<T>(_ expectation: Event<T>,
-                   with: Any? = nil,
-                   producer: Producer.Type? = nil) -> Pipe {
-
-        let producer = producer ?? T.self as! Producer.Type
-        let key = producer.key(from: with as? Pipable) ?? T.self|
-
-        //Request object first time
-        let isFirst = add(expectation, key: key, to: &expectations)
-        if isFirst {
-            producer.produce(with: with, on: self, expecting: expectation)
-        }
-
-
-        return self
+    func get<E>(for key: String? = nil) -> E? {
+        piped[key ?? E.self|] as? E
     }
 
-    @discardableResult
-    func addCondition(_ condition: Condition) -> Pipe {
-        add(condition, key: condition.key, to: &utils)
-        return self
-    }
-
-    @discardableResult
-    private func add(_ event: Any, key: String, to: inout [String: [Any]]) -> Bool {
-        let isFirst: Bool
-
-        var stored = to[key, default: []]
-        isFirst = stored.isEmpty
-        stored.append(event)
-
-        to[key] = stored
-
-        return isFirst
+    static postfix func |<E>(pipe: Pipe) -> E? {
+        pipe.get()
     }
     
 }
@@ -196,17 +195,28 @@ extension Pipe {
 extension Pipe {
 
     @discardableResult
-    func put<T>(_ object: T, key: String? = nil) -> T {
-        let key = key ?? String(describing: T.self)
-        Pipe[object as? Pipable] = self
-        piped[key] = object
+    func put<E>(_ object: E, key: String? = nil) -> E {
+        let key = key ?? E.self|
+        Pipe[object] = self
+
+        piped.updateValue(object, forKey: key)
 
         //Make events happens
-        expectations[key] = (expectations[key] as? [Event<T>])?.filter {
-            $0.handler(object)
+        var inner = true
+        expectations[key] = (expectations[key] as? [Expect<E>])?.filter {
+            if inner && !$0.inner {
+                inner = false
+            }
+
+            return $0.handler(object)
         }
 
-        (utils[Condition.Keys.any] as? [Condition])?.forEach {
+        //Handle not inner expectations
+        guard !inner else {
+            return object
+        }
+
+        (expectations[Any.self|] as? [Expect<Any>])?.forEach {
             _ = $0.handler(object)
         }
 

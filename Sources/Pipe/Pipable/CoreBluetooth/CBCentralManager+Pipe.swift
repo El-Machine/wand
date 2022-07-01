@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,15 +19,14 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 import CoreBluetooth.CBCentralManager
 
-extension CBCentralManager: Constructable {
+extension CBCentralManager: Constructor {
     
     static func | (piped: Any?, type: CBCentralManager.Type) -> Self {
-        let pipe = (piped as? Pipable)?.pipe ?? Pipe()
+        let pipe = piped.pipe
 
         let delegate = pipe.put(Delegate())
         let source = Self(delegate: delegate,
@@ -37,10 +36,6 @@ extension CBCentralManager: Constructable {
 
         return source
     }
-    
-}
-
-extension CBCentralManager {
     
     class Delegate: NSObject, CBCentralManagerDelegate, Pipable {
         

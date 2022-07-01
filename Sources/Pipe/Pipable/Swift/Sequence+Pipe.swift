@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,6 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 func |<C: Sequence, T> (p: C, handler: @escaping (C.Element) throws -> T) -> [T] {
@@ -30,10 +29,18 @@ func |<C: Sequence> (p: C, handler: @escaping (C.Element) throws -> Bool) -> [C.
     try! p.filter(handler)
 }
 
+//forEach
 func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Void) {
     try? p?.forEach(handler)
 }
 
+func |<C: Sequence> (p: C?, handler: @escaping () throws -> Void) {
+    p?.forEach { _ in
+        try? handler()
+    }
+}
+
+//first
 func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Bool) -> C.Element? {
     try? p?.first(where: handler)
 }

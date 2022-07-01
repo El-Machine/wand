@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,6 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022
 //
 
 import Foundation
@@ -29,10 +28,13 @@ import Foundation
  - Parameters:
  - handler: Will be invoked only after error
  */
-func | (piped: Pipable, handler: @escaping (Error)->()) {
-    piped.pipe.expectations["Error"] = [
-        Event.every(handler: handler)
+func | (piped: Pipable, handler: @escaping (Error)->()) -> Pipe {
+    let pipe = piped.pipe
+    pipe.expectations["Error"] = [
+        Expect.every(handler: handler)
     ]
+
+    return pipe
 }
 
 /**
@@ -40,11 +42,12 @@ func | (piped: Pipable, handler: @escaping (Error)->()) {
  - Parameters:
  - handler: Will be invoked after success and error
  */
-func | (piped: Pipable, handler: @escaping (Error?)->()) {
+@discardableResult
+func | (piped: Pipable, handler: @escaping (Error?)->()) -> Pipe {
     //TODO: Rewrite "Error" expectations
     let pipe = piped.pipe
     pipe.expectations["Result<Int, Error>"] = [
-        Event.every { (result: Result<Int,Error>) in
+        Expect.every { (result: Result<Int,Error>) in
             switch result {
                 case .success(_):
                     handler(nil)
@@ -54,14 +57,20 @@ func | (piped: Pipable, handler: @escaping (Error?)->()) {
         }
     ]
     pipe.expectations["Error"] = [
-        Event.every(handler: handler)
+        Expect.every(handler: handler)
     ]
+
+    return pipe
 }
 
-extension Result: Producer {
+extension Result: WaitAsking {
 
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
-        //Sometimes we should just wait
+}
+
+extension Pipe {
+
+    enum Error: Swift.Error {
+        case vision(_ reason: String)
     }
 
 }

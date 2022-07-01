@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,13 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 import CoreMotion.CMPedometer
 
-extension CMPedometerData: Expectable {
+extension CMPedometerData: Expectable, Asking {
 
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let source = with as? CMPedometer ?? pipe.get()
         source.startUpdates(from: Date()) { (data, error) in
             if let error = error {
@@ -36,14 +35,18 @@ extension CMPedometerData: Expectable {
 
             pipe.put(data!)
         }
+
+        expect.cleaner = {
+            source.stopUpdates()
+        }
     }
     
 }
 
 #if !os(macOS)
-extension CMPedometerEvent: Expectable {
+extension CMPedometerEvent: Expectable, Asking {
 
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let source = with as? CMPedometer ?? pipe.get()
         source.startEventUpdates { (update, error) in            
             if let error = error {
@@ -52,6 +55,10 @@ extension CMPedometerEvent: Expectable {
             }
 
             pipe.put(update!)
+        }
+
+        expect.cleaner = {
+            source.stopEventUpdates()
         }
     }
 

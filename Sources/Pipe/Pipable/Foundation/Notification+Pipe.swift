@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 Alex Kozin
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,12 +19,11 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
 //
 
 import Foundation
 
-extension NotificationCenter: Constructable {
+extension NotificationCenter: Constructor {
 
     static func | (piped: Any?, type: NotificationCenter.Type) -> Self {
         Self.default as! Self
@@ -32,13 +31,13 @@ extension NotificationCenter: Constructable {
 
 }
 
-extension Notification: Expectable {
+extension Notification: Asking {
 
     static func key(from: Any?) -> String? {
         (from as? Notification.Name)?.rawValue
     }
     
-    static func produce<T>(with: Any?, on pipe: Pipe, expecting: Event<T>) {
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let name = with as? Notification.Name ?? pipe.get()!
         let key = key(from: with)
 
@@ -49,12 +48,10 @@ extension Notification: Expectable {
             pipe.put(notification, key: key)
         }
 
-        expecting.cleaner = {
+        expect.cleaner = {
             center.removeObserver(token)
         }
     }
-
-    
     
 }
 
