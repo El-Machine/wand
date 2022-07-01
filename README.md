@@ -48,6 +48,11 @@ let back: UIColor? = "#554292"|
 
 }
 
+["CLLocationDistance": 125,
+"CLLocationAccuracy": kCLLocationAccuracyBest] | .one { (location: CLLocation) in
+            
+}
+
 |{ (data: CMPedometerData) in 
 
 }
@@ -59,6 +64,35 @@ let back: UIColor? = "#554292"|
 UIWindow.keyboardWillShowNotification | { (n: Notification) in
             
 }
+
+CNContact.predicateForContacts(matchingName: "John Appleseed") | .every { (contact: CNContact) in
+                        
+}
+
+|{ (tag: NFCNDEFTag) in
+
+}
+
+URL(string: "http://example.com/image.jpg") | { (faces: [VNFaceObservation]) in
+
+}
+
+data | { (bodies: [VNHumanBodyPoseObservation]) in
+
+}
+```
+
+```
+//Customization
+let pipe = |{ (hands: [VNHumanHandPoseObservation]) in
+
+}
+
+let request: VNDetectHumanHandPoseRequest = pipe.get()
+request.maximumHandCount = 4
+
+let preview: AVCaptureVideoPreviewLayer = pipe.get()
+view.layer.addSublayer(preview!)
 
 ```
 ### Idea
