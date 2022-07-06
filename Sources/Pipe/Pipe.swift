@@ -94,6 +94,8 @@ final class Pipe {
     
 }
 
+typealias Pipeline = Pipe
+
 extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
     typealias ArrayLiteralElement = Any

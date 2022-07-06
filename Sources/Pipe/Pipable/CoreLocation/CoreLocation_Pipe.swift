@@ -23,7 +23,7 @@
 
 import CoreLocation.CLLocation
 
-extension CLLocation: Expectable, Asking {
+extension CLLocation: Asking, Expectable {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let source = with as? CLLocationManager ?? pipe.get()
@@ -34,21 +34,21 @@ extension CLLocation: Expectable, Asking {
             }
 
             switch (expect.condition) {
-                case .every, .while:
-                    source.startUpdatingLocation()
+                case .one:
+                    source.requestLocation()
 
                 default:
-                    source.requestLocation()
+                    source.startUpdatingLocation()
             }
 
             return false
         }
 
-        //wait for specific status
+        //Expect specific status
         if let status = with as? CLAuthorizationStatus ?? pipe.get() {
             status | .while(inner: true, handler: handler)
         } else {
-            //or start waiting from specific manager
+            //Or start expecting from specific manager
             source | .while(inner: true, handler: handler)
         }
 
