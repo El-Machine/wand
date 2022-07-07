@@ -3,6 +3,8 @@
 ![Pipe](logo.png?raw=true "Title")
 
 ### It’s possible to incapsulate whole data receiving process into one symbol?
+[Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
+[Habr.com](https://habr.com/ru/post/674010/)
 
 Declarate variable  
 ```swift
