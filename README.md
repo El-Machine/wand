@@ -85,6 +85,13 @@ URL(string: "http://example.com/image.jpg") | { (faces: [VNFaceObservation]) in
 data | .while { (bodies: [VNHumanBodyPoseObservation]) in
     bodies < 2
 }
+
+//Detect shake
+|{ (motion: UIEvent.EventSubtype) in
+    if motion == .motionShake {
+                
+    }
+}
 ```
 
 ```
