@@ -27,7 +27,7 @@ import UIKit.UIAlertController
 extension UIAlertController: Constructor {
 
     static func | (piped: Any?, type: UIAlertController.Type) -> Self {
-        let pipe = (piped as? Pipable)?.isPiped
+        let pipe = piped.isPiped
 
         let style = piped as? UIAlertController.Style ?? pipe?.get() ?? .alert
         let title = piped as? String ?? pipe?.get()

@@ -22,34 +22,35 @@
 //  2022 Alex Kozin
 //
 
-import MultipeerConnectivity.MCNearbyServiceBrowser
+import MultipeerConnectivity
 
-extension MCNearbyServiceBrowser: Constructor {
+extension MCPeerID: Constructor {
 
-    static func |(piped: Any?, type: MCNearbyServiceBrowser.Type) -> Self {
-        let pipe = (piped as? Pipable)?.pipe ?? Pipe()
-
-        let peer = piped as? MCPeerID ?? pipe.get()!
-        let service = pipe.get(or: Bundle.main.bundleIdentifier!)
-
-        let source = Self(peer: peer, serviceType: service)
-        source.delegate = pipe.put(Delegate())
-        return source
+    static func | (piped: Any?, type: MCPeerID.Type) -> Self {
+        let displayName = piped as? String
+                        ?? piped.isPiped?.get(for: "displayName")
+                        ?? UIDevice.current.name
+        return Self(displayName: displayName)
     }
 
-    class Delegate: NSObject, MCNearbyServiceBrowserDelegate, Pipable {
 
-        func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-            if let info = info {
-                isPiped?.put(info)
+}
+
+extension MCPeerID: AskingWith {
+
+    enum With: String, AskingFrom {
+
+        case found
+        case invitation
+
+        var asking: Asking.Type {
+            switch self {
+                case .found:
+                    return MCNearbyServiceBrowser.self
+                case .invitation:
+                    return MCNearbyServiceAdvertiser.self
             }
-            isPiped?.put(peerID)
         }
-
-        func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-            isPiped?.put(peerID, key: "lostPeer")
-        }
-
     }
 
 }

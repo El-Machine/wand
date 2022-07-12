@@ -19,45 +19,30 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2022 Alex Kozin
+//  2022
 //
 
+import Foundation
+import XCTest
 
-postfix func | (piped: String) -> MCPeerID {
-    MCPeerID(displayName: piped)
-}
+extension TimeInterval {
 
-
-protocol Expects: Pipable {
-
-}
-
-
-import MultipeerConnectivity
-
-extension MCPeerID: Pipable {
+    static var `default` = 4.2
 
 }
 
-//    static func ask<T>(with: Any?, in pipe: Pipe, expect: Expect<T>) {
-//        let source: MCNearbyServiceAdvertiser = pipe.get()
-//        source.startAdvertisingPeer()
-//    }
-//
-//    @discardableResult
-//    static func | (piped: MCPeerID, expects: MCPeerID) -> MCNearbyServiceBrowser {
-//        let pipe = piped.pipe
-//
-//        let peer = piped// as? MCPeerID ?? pipe.get()!
-//        let source: MCNearbyServiceBrowser = peer|
-//        produce(with: source, on: pipe, expects: MCPeerID.self)
-//
-//        return source
-//    }
-//
-//    static func ask<T>(with: MCNearbyServiceBrowser, in pipe: Pipe, expects: T) {
-//        with.startBrowsingForPeers()
-//    }
-//
-//}
+extension XCTestCase {
 
+    func expectation(function: String = #function) -> XCTestExpectation {
+        expectation(description: function)
+    }
+
+    func waitForExpectations() {
+        waitForExpectations(timeout: .default * 2)
+    }
+
+    func random(in range: ClosedRange<Int> = 1...7) -> Int {
+        .random(in: range)
+    }
+
+}
