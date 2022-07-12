@@ -39,7 +39,3 @@ extension Pipable {
     }
 
 }
-
-extension Array: Pipable where Element: Pipable {
-
-}
