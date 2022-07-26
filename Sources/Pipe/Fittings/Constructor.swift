@@ -30,13 +30,13 @@ protocol Constructor: Pipable {
 
 }
 
-postfix func |<E: Constructor>(object: Any?) -> E {
-    object | E.self
+postfix func |<T: Constructor>(object: Any?) -> T {
+    object | T.self
 }
 
 extension Pipe {
     
-    func get<E: Constructor>(for key: String? = nil) -> E {
+    func get<T: Constructor>(for key: String? = nil) -> T {
         get(for: key) ?? self|
     }
     

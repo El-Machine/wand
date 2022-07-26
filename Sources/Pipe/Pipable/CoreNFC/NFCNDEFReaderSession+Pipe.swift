@@ -26,8 +26,8 @@ import CoreNFC
 
 extension NFCNDEFReaderSession: Constructor {
 
-    static func | (something: Any?, type: NFCNDEFReaderSession.Type) -> Self {
-        let piped = something as? Pipable
+    static func | (piped: Any?, type: NFCNDEFReaderSession.Type) -> Self {
+        let piped = piped as? Pipable
 
         if let session: Self = piped?.isPiped?.get() {
             return session
@@ -40,7 +40,7 @@ extension NFCNDEFReaderSession: Constructor {
                           queue: nil,
                           invalidateAfterFirstRead: false) //while
 
-        let message = something as? String ?? "Hold to know what it is 🧙🏾‍♂️"
+        let message = piped as? String ?? "Hold to know what it is 🧙🏾‍♂️"
         source.alertMessage = message
         pipe.put(source)
 

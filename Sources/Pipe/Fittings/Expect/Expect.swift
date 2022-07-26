@@ -28,8 +28,8 @@ protocol Expecting {
 }
 
 /**
- Expect is expectation of object E in pipe
- Calls 'handler' when E will be putted to Pipe
+ Expecting instance of E.
+ Will call `handler` when E will be putted to pipe.
  - `every`  time
  - `one`    only
  - `while`  returns true

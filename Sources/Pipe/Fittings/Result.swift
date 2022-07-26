@@ -28,6 +28,7 @@ import Foundation
  - Parameters:
  - handler: Will be invoked only after error
  */
+@discardableResult
 func | (piped: Pipable, handler: @escaping (Error)->()) -> Pipe {
     let pipe = piped.pipe
     pipe.expectations["Error"] = [

@@ -24,11 +24,11 @@
 import Foundation
 
 /**
- Asking creates object of E
+ Prepares environment for requesting instance of E
  - Without anything
  - With incoming objects
  */
-protocol Asking: Pipable {
+protocol Asking {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>)
     static func key(from: Any?) -> String?
@@ -62,7 +62,7 @@ extension Array: Asking where Element: Asking {
 struct UnexpectedAsking: Asking {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        print("🔥 Unexpected behaviour on \(pipe)\n\(E.self) not produced")
+        print("🔥 \(E.self) not produced\n Unexpected behaviour on \(pipe)")
     }
 
 }
