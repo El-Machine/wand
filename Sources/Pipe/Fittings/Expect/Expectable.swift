@@ -104,25 +104,23 @@ extension Pipe {
     func add<E>(_ expectation: Expect<E>,
                 with: Any? = nil,
                 asking: Asking.Type? = nil) -> Pipe {
-
-        //Asking T from?
+        //Asking T from
         let asking: Asking.Type = asking
-                                    ?? E.self as? Asking.Type
-                                    ?? WaitAsking.self as! Asking.Type
+                                ?? E.self as? Asking.Type
+                                ?? Waiter.self
+
         //With key
-        let key = expectation.key ??
-                  asking.key(from: with as? Pipable) ??
-                  E.self|
+        let key =  expectation.key
 
-        var stored = expectations[key, default: []]
+        let stored = expectations[key]
+        let isFirst = stored == nil
 
-        let isFirst = stored.isEmpty
-        stored.append(expectation)
-        expectations[key] = stored
+        //Store expectation
+        expectations[key] = (stored ?? []) + [expectation]
 
         //Ask for the first time
         if isFirst {
-            asking.ask(with: with, in: self, expect: expectation)
+            asking.ask(with: with ?? expectation.for, in: self, expect: expectation)
         }
 
         return self

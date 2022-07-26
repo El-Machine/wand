@@ -44,62 +44,70 @@ final class Expect<E>: Expecting {
 
     typealias Handler = (E)->(Bool)
 
+    let `for`: Any?
+
+    let key: String
+
     let condition: Condition
-    let key: String?
+
     let inner: Bool
 
     let handler: Handler
     var cleaner: ( ()->() )?
 
-    internal required init(condition: Condition,
+    internal required init(for: Any? = nil,
                            key: String? = nil,
+                           condition: Condition,
                            inner: Bool = false,
                            handler: @escaping Handler) {
+
+        self.`for` = `for`
+        self.key = key ?? E.self|
+
         self.condition = condition
 
-        self.key = key
         self.inner = inner
+
         self.handler = handler
     }
 
     //Event
-    static func every(key: String? = nil,
+    static func every(_ key: String? = nil,
                       inner: Bool = false,
                       handler: ((E)->())? = nil) -> Self {
-        Self(condition: .every, key: key, inner: inner) {
+        Self(key: key, condition: .every, inner: inner) {
             handler?($0)
             return true
         }
     }
     
-    static func one(key: String? = nil,
+    static func one(_ key: String? = nil,
                      inner: Bool = false,
                      handler: ((E)->())? = nil) -> Self {
-        Self(condition: .one, key: key, inner: inner) {
+        Self(key: key, condition: .one, inner: inner) {
             handler?($0)
             return false
         }
     }
 
-    static func `while`(key: String? = nil,
+    static func `while`(_ key: String? = nil,
                         inner: Bool = false,
                         handler: @escaping (E)->(Bool) ) -> Self {
-        Self(condition: .while, key: key, inner: inner) {
+        Self(key: key, condition: .while, inner: inner) {
             return handler($0)
         }
     }
 
     //Condition
     static func all(handler: @escaping (Any)->()) -> Expect<Any> {
-        Expect<Any>(condition: .all, key: "All", inner: true) {
+        Expect<Any>(key: "All", condition: .all, inner: true) {
             handler($0)
             return false
         }
     }
 
-    static func any(key: String? = nil,
-                    handler: @escaping (Any)->()) -> Expect<Any> {
-        Expect<Any>(condition: .any, key: key, inner: true) {
+    static func any(handler: @escaping (Any)->()) -> Expect<Any> {
+        Expect<Any>(key: nil, condition: .any, inner: true) {
             handler($0)
             return false
         }
@@ -109,4 +117,36 @@ final class Expect<E>: Expecting {
         cleaner?()
     }
     
+}
+
+extension Expect where E: AskingWith {
+
+    //Init with
+    static func every(_ for: E.With,
+                      inner: Bool = false,
+                      handler: ((E)->())? = nil) -> Self {
+        Self(for: `for`, key: `for`.rawValue, condition: .every, inner: inner) {
+            handler?($0)
+            return true
+        }
+    }
+
+    static func one(_ for: E.With,
+                    inner: Bool = false,
+                    handler: ((E)->())? = nil) -> Self {
+        Self(for: `for`, key: `for`.rawValue, condition: .one, inner: inner) {
+            handler?($0)
+            return true
+        }
+    }
+
+    static func `while`(_ for: E.With,
+                        inner: Bool = false,
+                        handler: ((E)->())? = nil) -> Self {
+        Self(for: `for`, key: `for`.rawValue, condition: .while, inner: inner) {
+            handler?($0)
+            return true
+        }
+    }
+
 }

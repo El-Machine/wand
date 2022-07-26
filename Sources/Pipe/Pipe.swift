@@ -79,7 +79,7 @@ final class Pipe {
     }
 
 
-    #if TESTING
+//    #if TESTING
     
         init() {
             print("|💪🏽 #init\n\(self)")
@@ -90,7 +90,7 @@ final class Pipe {
             print("|✅ #bonsua\n\(self)\n")
         }
 
-    #endif
+//    #endif
     
 }
 
@@ -142,6 +142,15 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
                 key = type(of: object)|
             }
 
+            Pipe[object] = self
+            piped[key] = object
+        }
+    }
+
+    convenience init(_ dictionary: [String: Any]) {
+        self.init()
+
+        dictionary.forEach { (key, object) in
             Pipe[object] = self
             piped[key] = object
         }

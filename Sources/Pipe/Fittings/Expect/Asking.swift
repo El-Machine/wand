@@ -50,6 +50,28 @@ extension Asking {
 
 }
 
+
+
+protocol AskingWith: Asking {
+
+    associatedtype With: AskingFrom, RawRepresentable where With.RawValue == String
+
+}
+
+extension AskingWith  {
+
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
+        (with as! With).asking.ask(with: with, in: pipe, expect: expect)
+    }
+
+}
+
+protocol AskingFrom {
+
+    var asking: Asking.Type {get}
+
+}
+
 //Asking Aray asks Element
 extension Array: Asking where Element: Asking {
 
@@ -76,5 +98,9 @@ extension WaitAsking {
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         print("🔎 Waiting for \(E.self)")
     }
-    
+
+}
+
+struct Waiter: WaitAsking {
+
 }

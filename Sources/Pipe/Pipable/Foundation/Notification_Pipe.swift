@@ -31,34 +31,32 @@ extension NotificationCenter: Constructor {
 
 }
 
-extension Notification: Asking {
+extension Notification: AskingWith {
 
-    static func key(from: Any?) -> String? {
-        (from as? Notification.Name)?.rawValue
-    }
-    
+    typealias With = Notification.Name
+
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
         let name = with as? Notification.Name ?? pipe.get()!
-        let key = key(from: with)
 
         let center: NotificationCenter = pipe.get()
+
         let token = center.addObserver(forName: name,
                                        object: nil,
                                        queue: nil) { notification in
-            pipe.put(notification, key: key)
+            pipe.put(notification, key: name.rawValue)
         }
 
         expect.cleaner = {
             center.removeObserver(token)
         }
     }
-    
+
 }
 
-extension Notification.Name: Pipable {
+extension Notification.Name: AskingFrom {
 
-    var pipeKey: String? {
-        rawValue
+    var asking: Asking.Type {
+        Notification.self
     }
-
+    
 }
