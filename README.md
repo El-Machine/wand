@@ -3,6 +3,8 @@
 ![Pipe](logo.png?raw=true "Title")
 
 ### It’s possible to incapsulate whole data receiving process into one symbol?
+[Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
+[Habr.com](https://habr.com/ru/post/674010/)
 
 Declarate variable  
 ```swift
@@ -82,6 +84,13 @@ URL(string: "http://example.com/image.jpg") | { (faces: [VNFaceObservation]) in
 
 data | .while { (bodies: [VNHumanBodyPoseObservation]) in
     bodies < 2
+}
+
+//Detect shake
+|{ (motion: UIEvent.EventSubtype) in
+    if motion == .motionShake {
+                
+    }
 }
 ```
 
