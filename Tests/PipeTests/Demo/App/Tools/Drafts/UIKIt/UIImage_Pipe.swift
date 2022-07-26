@@ -26,6 +26,96 @@
 #if canImport(UIKit)
 import UIKit.UIImage
 
+extension Expect where E == UIImage {
+
+    static func round(_ condition: Condition = .every,
+                      to radius: CGFloat,
+                      contentMode: UIView.ContentMode = .scaleAspectFill,
+                      inner: Bool = false,
+                      handler: ((E)->())? = nil) -> Self {
+        Self(condition: condition, inner: inner) { image in
+
+            let size = image.size
+            let rounded = UIGraphicsImageRenderer(size: size).image { c in
+                let rect: CGRect = size|
+                UIBezierPath(roundedRect: rect, cornerRadius: radius).addClip()
+                image.draw(in: rect)
+            }
+
+            //Change pointer
+            handler?(rounded)
+
+            return true
+        }
+    }
+
+    static func resize(_ condition: Condition = .every,
+                       to size: CGSize,
+                       contentMode: UIView.ContentMode = .scaleAspectFill,
+                       inner: Bool = false,
+                       handler: ((E)->())? = nil) -> Self {
+        Self(condition: condition, inner: inner) { image in
+
+
+            let resized: UIImage
+
+            let resizer = { (updated: CGSize) in
+                UIGraphicsImageRenderer(size: updated).image { c in
+                    image.draw(in: updated|)
+                }
+            }
+
+            let aspectWidth = size.width / image.size.width
+            let aspectHeight = size.height / image.size.height
+
+            switch contentMode {
+                case .scaleToFill:
+                    resized = resizer(size)
+                case .scaleAspectFit:
+                    let aspectRatio = min(aspectWidth, aspectHeight)
+                    resized = resizer((width: image.size.width * aspectRatio,
+                                       height: image.size.height * aspectRatio)|)
+                case .scaleAspectFill:
+                    let aspectRatio = max(aspectWidth, aspectHeight)
+                    resized = resizer((width: image.size.width * aspectRatio,
+                                       height: image.size.height * aspectRatio)|)
+                default:
+                    fatalError()
+            }
+
+            //Change pointer
+            handler?(resized)
+
+            return true
+        }
+    }
+
+
+//    static func round(to radius: CGFloat,
+//                      inner: Bool = false) -> Self {
+//        Self(key: nil, condition: .every, inner: inner) { image in
+//
+//            let rounded = UIGraphicsImageRenderer(size: image.size).image { c in
+//                let rect: CGRect = image.size|
+//                UIBezierPath(roundedRect: rect, cornerRadius: radius).addClip()
+//                image.draw(in: rect)
+//            }
+//
+//            image.isPiped
+//
+//            return true
+//        }
+//    }
+//
+//    .rounded(let radius):
+//    return UIGraphicsImageRenderer(size: image.size).image { c in
+//        let rect: CGRect = image.size|
+//        UIBezierPath(roundedRect: rect, cornerRadius: radius).addClip()
+//        image.draw(in: rect)
+//    }
+
+}
+
 extension UIImage: Asking {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
@@ -53,7 +143,7 @@ extension UIImage: Asking {
     
 }
 
-extension UIImage {
+extension UIImage: Pipable {
     
     static func | (image: UIImage, renderingMode: RenderingMode) -> UIImage {
         image.withRenderingMode(renderingMode)
@@ -100,7 +190,7 @@ extension UIImage {
                     fatalError()
             }
         }
-        
+
         private func resize(withSize size: CGSize) -> UIImage? {
             UIGraphicsImageRenderer(size: size).image { c in
                 draw(in: size|)
