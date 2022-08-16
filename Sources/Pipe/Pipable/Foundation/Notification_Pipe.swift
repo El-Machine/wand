@@ -21,7 +21,20 @@
 //  Created by Alex Kozin
 //
 
-import Foundation
+import Foundation.NSNotification
+
+/**Pipable
+
+ infix | (name: Notification.Name, handler: (Notification)->() ) -> Pipe
+
+ #Usage
+ ```
+ UIApplication.didBecomeActiveNotification | { (n: Notification) in
+
+ }
+ ```
+
+ */
 
 extension NotificationCenter: Constructor {
 
@@ -35,15 +48,17 @@ extension Notification: AskingWith {
 
     typealias With = Notification.Name
 
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        let name = with as? Notification.Name ?? pipe.get()!
+}
 
+extension Notification.Name: AskingFrom {
+
+    func ask<E>(in pipe: Pipe, expect: Expect<E>) {
         let center: NotificationCenter = pipe.get()
 
-        let token = center.addObserver(forName: name,
+        let token = center.addObserver(forName: self,
                                        object: nil,
                                        queue: nil) { notification in
-            pipe.put(notification, key: name.rawValue)
+            pipe.put(notification, key: rawValue)
         }
 
         expect.cleaner = {
@@ -51,12 +66,6 @@ extension Notification: AskingWith {
         }
     }
 
-}
 
-extension Notification.Name: AskingFrom {
-
-    var asking: Asking.Type {
-        Notification.self
-    }
     
 }

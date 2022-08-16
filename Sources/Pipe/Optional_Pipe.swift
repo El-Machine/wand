@@ -26,7 +26,7 @@ import Foundation
 extension Optional {
 
     var pipe: Pipe {
-        isPiped ?? Pipe(self)
+        isPiped ?? Pipe(unsafelyUnwrapped)
     }
 
     var isPiped: Pipe? {

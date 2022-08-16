@@ -42,11 +42,3 @@ postfix func |(p: String) -> Data {
 func |(p: String, encoding: String.Encoding) -> Data {
     p.data(using: encoding)!
 }
-
-extension Dictionary {
-    
-    static postfix func |(p: Self) -> Data {
-        try! JSONSerialization.data(withJSONObject: p, options: [])
-    }
-    
-}

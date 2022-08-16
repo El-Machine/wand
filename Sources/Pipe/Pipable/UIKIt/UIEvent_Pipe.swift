@@ -13,7 +13,7 @@ extension UIEvent.EventSubtype: Pipable {
 }
 
 @available(iOS 13.0, *)
-prefix func | (motion: @escaping (UIEvent.EventSubtype)->Void) {
+prefix func | (motion: @escaping (UIEvent.EventSubtype)->()) {
     //Looking for the key
     if let key = UIWindow.key {
         key | motion

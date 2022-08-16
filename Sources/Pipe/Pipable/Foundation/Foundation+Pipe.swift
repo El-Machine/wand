@@ -36,11 +36,3 @@ postfix func |(p: Int) -> IndexSet {
 postfix func |<S>(p: S) -> IndexSet where S: Sequence, S.Element == Int {
     IndexSet(p)
 }
-
-postfix func |(piped: String?) -> URL? {
-    guard let piped = piped else {
-        return nil
-    }
-
-    return URL(string: piped)
-}

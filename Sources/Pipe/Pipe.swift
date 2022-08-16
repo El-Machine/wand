@@ -53,7 +53,7 @@ final class Pipe {
         var expectingSomething = false
         root: for (_, list) in expectations {
             for expectation in list {
-                if (expectation as? Expecting)?.inner == false {
+                if (expectation as? Expecting)?.isInner == false {
                     expectingSomething = true
 
                     break root
@@ -103,25 +103,32 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
     typealias Key = String
     typealias Value = Any
 
-    convenience init(arrayLiteral elements: Any...) {
-        self.init(elements)
+    convenience init(_ object: Any?) {
+        if let object = object {
+            self.init(object)
+        } else {
+            self.init()
+        }
+
     }
 
-    convenience init(dictionaryLiteral elements: (String, Any)...) {
+    convenience init(_ object: Any) {
         self.init()
 
-        elements.forEach { (key, object) in
-            Pipe[object] = self
-            piped[key] = object
+        switch object {
+            case let dictionary as [String: Any]:
+                self.init(dictionary)
+            case let array as [Any]:
+                self.init(array)
+
+            default:
+                self.init(object)
+
         }
     }
 
-    convenience init<P>(_ object: P?) {
+    convenience init<P>(_ object: P) {
         self.init()
-
-        guard let object = object else {
-            return
-        }
 
         Pipe[object] = self
         piped[P.self|] = object
@@ -151,6 +158,19 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         self.init()
 
         dictionary.forEach { (key, object) in
+            Pipe[object] = self
+            piped[key] = object
+        }
+    }
+
+    convenience init(arrayLiteral elements: Any...) {
+        self.init(elements)
+    }
+
+    convenience init(dictionaryLiteral elements: (String, Any)...) {
+        self.init()
+
+        elements.forEach { (key, object) in
             Pipe[object] = self
             piped[key] = object
         }
@@ -215,7 +235,7 @@ extension Pipe {
         //Make events happens
         var inner = true
         expectations[key] = (expectations[key] as? [Expect<E>])?.filter {
-            if inner && !$0.inner {
+            if inner && !$0.isInner {
                 inner = false
             }
 

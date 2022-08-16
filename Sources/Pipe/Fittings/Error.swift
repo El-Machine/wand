@@ -22,6 +22,7 @@
 //
 
 import Foundation
+import CloudKit
 
 /**
  Add error handler
@@ -29,7 +30,7 @@ import Foundation
  - handler: Will be invoked only after error
  */
 @discardableResult
-func | (piped: Pipable, handler: @escaping (Error)->()) -> Pipe {
+func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
     let pipe = piped.pipe
     pipe.expectations["Error"] = [
         Expect.every(handler: handler)
@@ -44,7 +45,7 @@ func | (piped: Pipable, handler: @escaping (Error)->()) -> Pipe {
  - handler: Will be invoked after success and error
  */
 @discardableResult
-func | (piped: Pipable, handler: @escaping (Error?)->()) -> Pipe {
+func | (piped: Pipable, handler: @escaping (Error?)->() ) -> Pipe {
     //TODO: Rewrite "Error" expectations
     let pipe = piped.pipe
     pipe.expectations["Result<Int, Error>"] = [
@@ -68,10 +69,16 @@ extension Result: WaitAsking {
 
 }
 
-extension Pipe {
+struct Err: Error {
 
-    enum Error: Swift.Error {
-        case vision(_ reason: String)
+    let reason: String
+
+    init(_ reason: String, function: String = #function) {
+        self.reason = function + reason
+    }
+
+    static func vision(_ reason: String) -> Error {
+        Self(reason)
     }
 
 }

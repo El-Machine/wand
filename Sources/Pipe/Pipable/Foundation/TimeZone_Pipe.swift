@@ -23,10 +23,18 @@
 
 import Foundation.NSTimeZone
 
+/** Pipable
+ TimeZone
+
+ postfix func |(piped: String) -> TimeZone?
+ postfix func |(seconds: Int) -> TimeZone?
+
+ */
+
 postfix func |(piped: String) -> TimeZone? {
     TimeZone(identifier: piped) ?? TimeZone(abbreviation: piped)
 }
 
-postfix func |(piped: Int) -> TimeZone? {
-    TimeZone(secondsFromGMT: piped)
+postfix func |(seconds: Int) -> TimeZone? {
+    TimeZone(secondsFromGMT: seconds)
 }

@@ -23,6 +23,20 @@
 
 import CoreLocation.CLLocation
 
+/**Pipable
+
+ prefix | (handler: (CLLocation)->() ) -> Pipe
+ prefix | (handler: (CLAuthorizationStatus)->() ) -> Pipe
+
+ #Usage
+ ```
+ |{ (location: CLLocation) in
+
+ }
+ ```
+
+ */
+
 extension CLLocation: Asking, Expectable {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
@@ -46,10 +60,10 @@ extension CLLocation: Asking, Expectable {
 
         //Expect specific status
         if let status = with as? CLAuthorizationStatus ?? pipe.get() {
-            status | .while(inner: true, handler: handler)
+            status | .while(handler: handler).inner()
         } else {
             //Or start expecting from specific manager
-            source | .while(inner: true, handler: handler)
+            source | .while(handler: handler).inner()
         }
 
         expect.cleaner = {

@@ -31,12 +31,6 @@ postfix func |(p: Data) -> String {
 postfix func |(p: Data) -> String? {
     String(data: p, encoding: .utf8)
 }
-postfix func |(p: Data?) -> String {
-    guard let piped = p else {
-        return ""
-    }
-    return String(data: piped, encoding: .utf8)!
-}
 
 postfix func |(p: Data?) -> String? {
     guard let piped = p else {

@@ -23,7 +23,8 @@
 
 protocol Expecting {
 
-    var inner: Bool {get}
+    var with: Any? {get}
+    var isInner: Bool {get}
 
 }
 
@@ -44,70 +45,56 @@ final class Expect<E>: Expecting {
 
     typealias Handler = (E)->(Bool)
 
-    let `for`: Any?
-
-    let key: String
-
+    let with: Any?
     let condition: Condition
-
-    let inner: Bool
 
     let handler: Handler
     var cleaner: ( ()->() )?
 
-    internal required init(for: Any? = nil,
-                           key: String? = nil,
+    private(set) var isInner = false
+    func inner() -> Expect<E> {
+        isInner = true
+        return self
+    }
+
+    internal required init(with: Any? = nil,
                            condition: Condition,
-                           inner: Bool = false,
                            handler: @escaping Handler) {
-
-        self.`for` = `for`
-        self.key = key ?? E.self|
-
+        self.with = with
         self.condition = condition
-
-        self.inner = inner
-
         self.handler = handler
     }
 
     //Event
-    static func every(_ key: String? = nil,
-                      inner: Bool = false,
-                      handler: ((E)->())? = nil) -> Self {
-        Self(key: key, condition: .every, inner: inner) {
+    static func every(handler: ((E)->() )? = nil) -> Self {
+        Self(condition: .every) {
             handler?($0)
             return true
         }
     }
     
-    static func one(_ key: String? = nil,
-                     inner: Bool = false,
-                     handler: ((E)->())? = nil) -> Self {
-        Self(key: key, condition: .one, inner: inner) {
+    static func one(handler: ((E)->() )? = nil) -> Self {
+        Self(condition: .one) {
             handler?($0)
             return false
         }
     }
 
     static func `while`(_ key: String? = nil,
-                        inner: Bool = false,
                         handler: @escaping (E)->(Bool) ) -> Self {
-        Self(key: key, condition: .while, inner: inner) {
-            return handler($0)
-        }
+        Self(condition: .while, handler: handler)
     }
 
     //Condition
-    static func all(handler: @escaping (Any)->()) -> Expect<Any> {
-        Expect<Any>(key: "All", condition: .all, inner: true) {
+    static func all(handler: @escaping (Any)->() ) -> Expect<Any> {
+        Expect<Any>(condition: .all) {
             handler($0)
             return false
         }
     }
 
-    static func any(handler: @escaping (Any)->()) -> Expect<Any> {
-        Expect<Any>(key: nil, condition: .any, inner: true) {
+    static func any(handler: @escaping (Any)->() ) -> Expect<Any> {
+        Expect<Any>(condition: .any) {
             handler($0)
             return false
         }
@@ -122,31 +109,25 @@ final class Expect<E>: Expecting {
 extension Expect where E: AskingWith {
 
     //Init with
-    static func every(_ for: E.With,
-                      inner: Bool = false,
-                      handler: ((E)->())? = nil) -> Self {
-        Self(for: `for`, key: `for`.rawValue, condition: .every, inner: inner) {
+    static func every(_ with: E.With,
+                      handler: ((E)->() )? = nil) -> Self {
+        Self(with: with, condition: .every) {
             handler?($0)
             return true
         }
     }
 
-    static func one(_ for: E.With,
-                    inner: Bool = false,
-                    handler: ((E)->())? = nil) -> Self {
-        Self(for: `for`, key: `for`.rawValue, condition: .one, inner: inner) {
+    static func one(_ with: E.With,
+                    handler: ((E)->() )? = nil) -> Self {
+        Self(with: with, condition: .one) {
             handler?($0)
-            return true
+            return false
         }
     }
 
-    static func `while`(_ for: E.With,
-                        inner: Bool = false,
-                        handler: ((E)->())? = nil) -> Self {
-        Self(for: `for`, key: `for`.rawValue, condition: .while, inner: inner) {
-            handler?($0)
-            return true
-        }
+    static func `while`(_ with: E.With,
+                        handler: @escaping (E)->(Bool)) -> Self {
+        Self(with: with, condition: .while, handler: handler)
     }
 
 }

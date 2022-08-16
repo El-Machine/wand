@@ -64,17 +64,17 @@ import Foundation
 extension DispatchQueue {
 
     enum Work {
-        case async(()->())
-        case sync(()->())
+        case async(()->() )
+        case sync(()->() )
     }
 
-    static func |(piped: DispatchQueue, work: ()->()) {
+    static func |(piped: DispatchQueue, work: ()->() ) {
         piped.sync(execute: work)
     }
 
 }
 
-func | (p: DispatchQoS.QoSClass, work: @escaping ()->()) {
+func | (p: DispatchQoS.QoSClass, work: @escaping ()->() ) {
     DispatchQueue.global(qos: p).async(execute: work)
 }
 

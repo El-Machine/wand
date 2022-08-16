@@ -33,7 +33,7 @@ func |(piped: Any?, event: Expect<NFCNDEFTag>) -> Pipe {
 }
 
 @available(iOS 13.0, *)
-func |(piped: NFCNDEFTag, handler: @escaping (NFCNDEFMessage?)->()) {
+func |(piped: NFCNDEFTag, handler: @escaping (NFCNDEFMessage?)->() ) {
     piped.readNDEF { message, _ in
         handler(message)
     }

@@ -135,16 +135,16 @@ postfix func |(p: String?) -> UIImage? {
 }
 
 //Animations
-func |(piped: TimeInterval, options: (animations: ()->Void, completion: (Bool)->Void)) {
+func |(piped: TimeInterval, options: (animations: ()->(), completion: (Bool)->())) {
     UIView.animate(withDuration: piped, animations: options.animations, completion: options.completion)
 }
 
-func |(piped: TimeInterval, animations: @escaping ()->Void) {
+func |(piped: TimeInterval, animations: @escaping ()->()) {
     UIView.animate(withDuration: piped, animations: animations)
 }
 
 func |(piped: (duration: TimeInterval, options: UIView.AnimationOptions),
-       animations: @escaping ()->Void ) {
+       animations: @escaping ()->() ) {
     UIView.animate(withDuration: piped.duration,
                    delay: 0,
                    options: piped.options,

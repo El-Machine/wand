@@ -30,7 +30,7 @@
  }
  */
 @discardableResult
-prefix func |<E> (handler: @escaping (E)->()) -> Pipe {
+prefix func |<E> (handler: @escaping (E)->() ) -> Pipe {
     |.every(handler: handler)
 }
 
@@ -50,14 +50,14 @@ prefix func |<E> (expect: Expect<E>) -> Pipe {
 }
 
 /**
- Expect E from piped object
+ Expect E from piped object`
 
  P? | { E in
 
  }
  */
 @discardableResult
-func |<E, P> (piped: P?, handler: @escaping (E)->()) -> Pipe {
+func |<E, P> (piped: P?, handler: @escaping (E)->() ) -> Pipe {
     piped | .every(handler: handler)
 }
 
@@ -107,10 +107,10 @@ extension Pipe {
         //Asking T from
         let asking: Asking.Type = asking
                                 ?? E.self as? Asking.Type
-                                ?? Waiter.self
+                                ?? UnexpectedAsking.self
 
         //With key
-        let key =  expectation.key
+        let key = asking.key(with: with, in: pipe, expect: expectation) ?? E.self|
 
         let stored = expectations[key]
         let isFirst = stored == nil
@@ -120,7 +120,7 @@ extension Pipe {
 
         //Ask for the first time
         if isFirst {
-            asking.ask(with: with ?? expectation.for, in: self, expect: expectation)
+            asking.ask(with: with, in: self, expect: expectation)
         }
 
         return self

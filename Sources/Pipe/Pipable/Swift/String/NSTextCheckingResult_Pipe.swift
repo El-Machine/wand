@@ -27,7 +27,7 @@ postfix operator |
 prefix operator |
 infix operator |
 
-prefix func |(piped: (NSTextCheckingResult)->()) {
+prefix func |(piped: (NSTextCheckingResult)->() ) {
     print(
         """
             | usage

@@ -31,9 +31,8 @@ extension Expect where E == UIImage {
     static func round(_ condition: Condition = .every,
                       to radius: CGFloat,
                       contentMode: UIView.ContentMode = .scaleAspectFill,
-                      inner: Bool = false,
-                      handler: ((E)->())? = nil) -> Self {
-        Self(condition: condition, inner: inner) { image in
+                      handler: ((E)->() )? = nil) -> Self {
+        Self(condition: condition) { image in
 
             let size = image.size
             let rounded = UIGraphicsImageRenderer(size: size).image { c in
@@ -52,9 +51,8 @@ extension Expect where E == UIImage {
     static func resize(_ condition: Condition = .every,
                        to size: CGSize,
                        contentMode: UIView.ContentMode = .scaleAspectFill,
-                       inner: Bool = false,
-                       handler: ((E)->())? = nil) -> Self {
-        Self(condition: condition, inner: inner) { image in
+                       handler: ((E)->() )? = nil) -> Self {
+        Self(condition: condition) { image in
 
 
             let resized: UIImage

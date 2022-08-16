@@ -96,7 +96,7 @@ extension AVCaptureVideoDataOutput: Expectable, Asking {
             ?? DispatchQueue(label: "Pipe_VideoDataOutput", qos: .userInteractive)
             output.setSampleBufferDelegate(delegate, queue: queue)
         } else {
-            pipe.put(Pipe.Error.vision("Could not add video data output"))
+            pipe.put(Err.vision("Could not add video data output"))
         }
         session.commitConfiguration()
         session.startRunning()

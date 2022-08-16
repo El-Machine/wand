@@ -24,108 +24,106 @@
 		612C1090286EF54900943603 /* NSTextCheckingResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C1081286EF54900943603 /* NSTextCheckingResult_Tests.swift */; };
 		612C10C3286EF70500943603 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C10C1286EF70500943603 /* any.swift */; };
 		612C10C4286EF70500943603 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C10C2286EF70500943603 /* CoreLocation_any.swift */; };
-		61768D0C287C412900DD4EE1 /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61768D0B287C412900DD4EE1 /* Pipable.swift */; };
-		61768D0D287C412900DD4EE1 /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61768D0B287C412900DD4EE1 /* Pipable.swift */; };
-		61E04EE228756C84001F83E7 /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9428756C84001F83E7 /* Constructor.swift */; };
-		61E04EE328756C84001F83E7 /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9428756C84001F83E7 /* Constructor.swift */; };
-		61E04EE428756C84001F83E7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9528756C84001F83E7 /* Result.swift */; };
-		61E04EE528756C84001F83E7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9528756C84001F83E7 /* Result.swift */; };
-		61E04EE628756C84001F83E7 /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9728756C84001F83E7 /* Expectable.swift */; };
-		61E04EE728756C84001F83E7 /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9728756C84001F83E7 /* Expectable.swift */; };
-		61E04EE828756C84001F83E7 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9828756C84001F83E7 /* Asking.swift */; };
-		61E04EE928756C84001F83E7 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9828756C84001F83E7 /* Asking.swift */; };
-		61E04EEA28756C84001F83E7 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9928756C84001F83E7 /* Expect.swift */; };
-		61E04EEB28756C84001F83E7 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9928756C84001F83E7 /* Expect.swift */; };
+		61B2317128ABA47C00F46F5E /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312B28ABA47C00F46F5E /* Constructor.swift */; };
+		61B2317228ABA47C00F46F5E /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312B28ABA47C00F46F5E /* Constructor.swift */; };
+		61B2317328ABA47C00F46F5E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312C28ABA47C00F46F5E /* Error.swift */; };
+		61B2317428ABA47C00F46F5E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312C28ABA47C00F46F5E /* Error.swift */; };
+		61B2317528ABA47C00F46F5E /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312E28ABA47C00F46F5E /* Expectable.swift */; };
+		61B2317628ABA47C00F46F5E /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312E28ABA47C00F46F5E /* Expectable.swift */; };
+		61B2317728ABA47C00F46F5E /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312F28ABA47C00F46F5E /* Asking.swift */; };
+		61B2317828ABA47C00F46F5E /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2312F28ABA47C00F46F5E /* Asking.swift */; };
+		61B2317928ABA47C00F46F5E /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313028ABA47C00F46F5E /* Expect.swift */; };
+		61B2317A28ABA47C00F46F5E /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313028ABA47C00F46F5E /* Expect.swift */; };
+		61B2317B28ABA47C00F46F5E /* CoreImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313328ABA47C00F46F5E /* CoreImage_Pipe.swift */; };
+		61B2317C28ABA47C00F46F5E /* CoreImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313328ABA47C00F46F5E /* CoreImage_Pipe.swift */; };
+		61B2317D28ABA47C00F46F5E /* CoreGraphics+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313528ABA47C00F46F5E /* CoreGraphics+Pipe.swift */; };
+		61B2317E28ABA47C00F46F5E /* CoreGraphics+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313528ABA47C00F46F5E /* CoreGraphics+Pipe.swift */; };
+		61B2317F28ABA47C00F46F5E /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313628ABA47C00F46F5E /* Pipable.swift */; };
+		61B2318028ABA47C00F46F5E /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313628ABA47C00F46F5E /* Pipable.swift */; };
+		61B2318128ABA47C00F46F5E /* CBPeripheral+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313828ABA47C00F46F5E /* CBPeripheral+Pipe.swift */; };
+		61B2318228ABA47C00F46F5E /* CBPeripheral+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313828ABA47C00F46F5E /* CBPeripheral+Pipe.swift */; };
+		61B2318328ABA47C00F46F5E /* CoreBluetooth+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313928ABA47C00F46F5E /* CoreBluetooth+Pipe.swift */; };
+		61B2318428ABA47C00F46F5E /* CoreBluetooth+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313928ABA47C00F46F5E /* CoreBluetooth+Pipe.swift */; };
+		61B2318528ABA47C00F46F5E /* CBCentralManager+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313A28ABA47C00F46F5E /* CBCentralManager+Pipe.swift */; };
+		61B2318628ABA47C00F46F5E /* CBCentralManager+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313A28ABA47C00F46F5E /* CBCentralManager+Pipe.swift */; };
+		61B2318728ABA47C00F46F5E /* UIColor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313C28ABA47C00F46F5E /* UIColor_Pipe.swift */; };
+		61B2318828ABA47C00F46F5E /* UIColor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313C28ABA47C00F46F5E /* UIColor_Pipe.swift */; };
+		61B2318928ABA47C00F46F5E /* UIEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313D28ABA47C00F46F5E /* UIEvent_Pipe.swift */; };
+		61B2318A28ABA47C00F46F5E /* UIEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313D28ABA47C00F46F5E /* UIEvent_Pipe.swift */; };
+		61B2318B28ABA47C00F46F5E /* UIKit_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313E28ABA47C00F46F5E /* UIKit_Pipe.swift */; };
+		61B2318C28ABA47C00F46F5E /* UIKit_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2313E28ABA47C00F46F5E /* UIKit_Pipe.swift */; };
+		61B2318D28ABA47C00F46F5E /* Contacts+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314028ABA47C00F46F5E /* Contacts+Pipe.swift */; };
+		61B2318E28ABA47C00F46F5E /* Contacts+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314028ABA47C00F46F5E /* Contacts+Pipe.swift */; };
+		61B2318F28ABA47C00F46F5E /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314228ABA47C00F46F5E /* Foundation+Pipe.swift */; };
+		61B2319028ABA47C00F46F5E /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314228ABA47C00F46F5E /* Foundation+Pipe.swift */; };
+		61B2319528ABA47C00F46F5E /* Notification_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314628ABA47C00F46F5E /* Notification_Pipe.swift */; };
+		61B2319628ABA47C00F46F5E /* Notification_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314628ABA47C00F46F5E /* Notification_Pipe.swift */; };
+		61B2319728ABA47C00F46F5E /* Data_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314728ABA47C00F46F5E /* Data_Pipe.swift */; };
+		61B2319828ABA47C00F46F5E /* Data_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314728ABA47C00F46F5E /* Data_Pipe.swift */; };
+		61B2319928ABA47C00F46F5E /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314828ABA47C00F46F5E /* TimeZone_Pipe.swift */; };
+		61B2319A28ABA47C00F46F5E /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314828ABA47C00F46F5E /* TimeZone_Pipe.swift */; };
+		61B2319D28ABA47C00F46F5E /* URL_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314B28ABA47C00F46F5E /* URL_Pipe.swift */; };
+		61B2319E28ABA47C00F46F5E /* URL_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314B28ABA47C00F46F5E /* URL_Pipe.swift */; };
+		61B2319F28ABA47C00F46F5E /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314C28ABA47C00F46F5E /* Date_Pipe.swift */; };
+		61B231A028ABA47C00F46F5E /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314C28ABA47C00F46F5E /* Date_Pipe.swift */; };
+		61B231A128ABA47C00F46F5E /* VNObservation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314E28ABA47C00F46F5E /* VNObservation_Pipe.swift */; };
+		61B231A228ABA47C00F46F5E /* VNObservation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314E28ABA47C00F46F5E /* VNObservation_Pipe.swift */; };
+		61B231A328ABA47C00F46F5E /* Vision_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314F28ABA47C00F46F5E /* Vision_Pipe.swift */; };
+		61B231A428ABA47C00F46F5E /* Vision_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2314F28ABA47C00F46F5E /* Vision_Pipe.swift */; };
+		61B231A528ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315028ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift */; };
+		61B231A628ABA47D00F46F5E /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315028ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift */; };
+		61B231A728ABA47D00F46F5E /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315228ABA47C00F46F5E /* AVFoundation_Pipe.swift */; };
+		61B231A828ABA47D00F46F5E /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315228ABA47C00F46F5E /* AVFoundation_Pipe.swift */; };
+		61B231A928ABA47D00F46F5E /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315328ABA47C00F46F5E /* AVCapture.swift */; };
+		61B231AA28ABA47D00F46F5E /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315328ABA47C00F46F5E /* AVCapture.swift */; };
+		61B231AB28ABA47D00F46F5E /* CoreGraphicsMath+pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315528ABA47C00F46F5E /* CoreGraphicsMath+pipe.swift */; };
+		61B231AC28ABA47D00F46F5E /* CoreGraphicsMath+pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315528ABA47C00F46F5E /* CoreGraphicsMath+pipe.swift */; };
+		61B231AD28ABA47D00F46F5E /* Math+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315628ABA47C00F46F5E /* Math+Pipe.swift */; };
+		61B231AE28ABA47D00F46F5E /* Math+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315628ABA47C00F46F5E /* Math+Pipe.swift */; };
+		61B231AF28ABA47D00F46F5E /* MapKit+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315828ABA47C00F46F5E /* MapKit+Pipe.swift */; };
+		61B231B028ABA47D00F46F5E /* MapKit+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315828ABA47C00F46F5E /* MapKit+Pipe.swift */; };
+		61B231B128ABA47D00F46F5E /* MKGeometry+Piped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315928ABA47C00F46F5E /* MKGeometry+Piped.swift */; };
+		61B231B228ABA47D00F46F5E /* MKGeometry+Piped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315928ABA47C00F46F5E /* MKGeometry+Piped.swift */; };
+		61B231B328ABA47D00F46F5E /* Comparable+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315B28ABA47C00F46F5E /* Comparable+Pipe.swift */; };
+		61B231B428ABA47D00F46F5E /* Comparable+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315B28ABA47C00F46F5E /* Comparable+Pipe.swift */; };
+		61B231B528ABA47D00F46F5E /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315D28ABA47C00F46F5E /* String_Pipe.swift */; };
+		61B231B628ABA47D00F46F5E /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315D28ABA47C00F46F5E /* String_Pipe.swift */; };
+		61B231B728ABA47D00F46F5E /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315E28ABA47C00F46F5E /* NSTextCheckingResult_Pipe.swift */; };
+		61B231B828ABA47D00F46F5E /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315E28ABA47C00F46F5E /* NSTextCheckingResult_Pipe.swift */; };
+		61B231B928ABA47D00F46F5E /* Sequence+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315F28ABA47C00F46F5E /* Sequence+Pipe.swift */; };
+		61B231BA28ABA47D00F46F5E /* Sequence+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2315F28ABA47C00F46F5E /* Sequence+Pipe.swift */; };
+		61B231BB28ABA47D00F46F5E /* Range_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316128ABA47C00F46F5E /* Range_Pipe.swift */; };
+		61B231BC28ABA47D00F46F5E /* Range_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316128ABA47C00F46F5E /* Range_Pipe.swift */; };
+		61B231BD28ABA47D00F46F5E /* Array_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316228ABA47C00F46F5E /* Array_Pipe.swift */; };
+		61B231BE28ABA47D00F46F5E /* Array_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316228ABA47C00F46F5E /* Array_Pipe.swift */; };
+		61B231BF28ABA47D00F46F5E /* CaseIterable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316428ABA47C00F46F5E /* CaseIterable_Pipe.swift */; };
+		61B231C028ABA47D00F46F5E /* CaseIterable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316428ABA47C00F46F5E /* CaseIterable_Pipe.swift */; };
+		61B231C128ABA47D00F46F5E /* CoreNFC+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316628ABA47C00F46F5E /* CoreNFC+Pipe.swift */; };
+		61B231C228ABA47D00F46F5E /* CoreNFC+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316628ABA47C00F46F5E /* CoreNFC+Pipe.swift */; };
+		61B231C328ABA47D00F46F5E /* NFCNDEFReaderSession+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316728ABA47C00F46F5E /* NFCNDEFReaderSession+Pipe.swift */; };
+		61B231C428ABA47D00F46F5E /* NFCNDEFReaderSession+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316728ABA47C00F46F5E /* NFCNDEFReaderSession+Pipe.swift */; };
+		61B231C528ABA47D00F46F5E /* NFCNDEFTag_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316828ABA47C00F46F5E /* NFCNDEFTag_Pipe.swift */; };
+		61B231C628ABA47D00F46F5E /* NFCNDEFTag_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316828ABA47C00F46F5E /* NFCNDEFTag_Pipe.swift */; };
+		61B231C728ABA47D00F46F5E /* CoreMotion+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316A28ABA47C00F46F5E /* CoreMotion+Pipe.swift */; };
+		61B231C828ABA47D00F46F5E /* CoreMotion+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316A28ABA47C00F46F5E /* CoreMotion+Pipe.swift */; };
+		61B231C928ABA47D00F46F5E /* CMPedometer+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316B28ABA47C00F46F5E /* CMPedometer+Pipe.swift */; };
+		61B231CA28ABA47D00F46F5E /* CMPedometer+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316B28ABA47C00F46F5E /* CMPedometer+Pipe.swift */; };
+		61B231CB28ABA47D00F46F5E /* CoreLocation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316D28ABA47C00F46F5E /* CoreLocation_Pipe.swift */; };
+		61B231CC28ABA47D00F46F5E /* CoreLocation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316D28ABA47C00F46F5E /* CoreLocation_Pipe.swift */; };
+		61B231CD28ABA47D00F46F5E /* CLLocationManager_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316E28ABA47C00F46F5E /* CLLocationManager_Pipe.swift */; };
+		61B231CE28ABA47D00F46F5E /* CLLocationManager_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2316E28ABA47C00F46F5E /* CLLocationManager_Pipe.swift */; };
+		61B231CF28ABA47D00F46F5E /* QuartzCore+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2317028ABA47C00F46F5E /* QuartzCore+Pipe.swift */; };
+		61B231D028ABA47D00F46F5E /* QuartzCore+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2317028ABA47C00F46F5E /* QuartzCore+Pipe.swift */; };
 		61E04EEC28756C84001F83E7 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9A28756C84001F83E7 /* Pipe.swift */; };
 		61E04EED28756C84001F83E7 /* Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9A28756C84001F83E7 /* Pipe.swift */; };
-		61E04EEE28756C84001F83E7 /* CoreImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9D28756C84001F83E7 /* CoreImage_Pipe.swift */; };
-		61E04EEF28756C84001F83E7 /* CoreImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9D28756C84001F83E7 /* CoreImage_Pipe.swift */; };
-		61E04EF028756C84001F83E7 /* CoreGraphics+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9F28756C84001F83E7 /* CoreGraphics+Pipe.swift */; };
-		61E04EF128756C84001F83E7 /* CoreGraphics+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04E9F28756C84001F83E7 /* CoreGraphics+Pipe.swift */; };
-		61E04EF428756C84001F83E7 /* CBPeripheral+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA228756C84001F83E7 /* CBPeripheral+Pipe.swift */; };
-		61E04EF528756C84001F83E7 /* CBPeripheral+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA228756C84001F83E7 /* CBPeripheral+Pipe.swift */; };
-		61E04EF628756C84001F83E7 /* CoreBluetooth+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA328756C84001F83E7 /* CoreBluetooth+Pipe.swift */; };
-		61E04EF728756C84001F83E7 /* CoreBluetooth+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA328756C84001F83E7 /* CoreBluetooth+Pipe.swift */; };
-		61E04EF828756C84001F83E7 /* CBCentralManager+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA428756C84001F83E7 /* CBCentralManager+Pipe.swift */; };
-		61E04EF928756C84001F83E7 /* CBCentralManager+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA428756C84001F83E7 /* CBCentralManager+Pipe.swift */; };
-		61E04EFA28756C84001F83E7 /* UIColor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA628756C84001F83E7 /* UIColor_Pipe.swift */; };
-		61E04EFB28756C84001F83E7 /* UIColor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA628756C84001F83E7 /* UIColor_Pipe.swift */; };
-		61E04EFC28756C84001F83E7 /* UIKit_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA728756C84001F83E7 /* UIKit_Pipe.swift */; };
-		61E04EFD28756C84001F83E7 /* UIKit_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EA728756C84001F83E7 /* UIKit_Pipe.swift */; };
 		61E04EFE28756C84001F83E7 /* UIAlertController+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAA28756C84001F83E7 /* UIAlertController+Pipe.swift */; };
 		61E04EFF28756C84001F83E7 /* UIAlertController+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAA28756C84001F83E7 /* UIAlertController+Pipe.swift */; };
 		61E04F0028756C84001F83E7 /* UIImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAB28756C84001F83E7 /* UIImage_Pipe.swift */; };
 		61E04F0128756C84001F83E7 /* UIImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAB28756C84001F83E7 /* UIImage_Pipe.swift */; };
 		61E04F0228756C84001F83E7 /* Dispatch+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAD28756C84001F83E7 /* Dispatch+Pipe.swift */; };
 		61E04F0328756C84001F83E7 /* Dispatch+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAD28756C84001F83E7 /* Dispatch+Pipe.swift */; };
-		61E04F0428756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAF28756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift */; };
-		61E04F0528756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EAF28756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift */; };
-		61E04F0628756C84001F83E7 /* MCPeerID_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB028756C84001F83E7 /* MCPeerID_Pipe.swift */; };
-		61E04F0728756C84001F83E7 /* MCPeerID_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB028756C84001F83E7 /* MCPeerID_Pipe.swift */; };
-		61E04F0828756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB128756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift */; };
-		61E04F0928756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB128756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift */; };
 		61E04F0A28756C84001F83E7 /* MCSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB228756C84001F83E7 /* MCSession_Pipe.swift */; };
 		61E04F0B28756C84001F83E7 /* MCSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB228756C84001F83E7 /* MCSession_Pipe.swift */; };
-		61E04F0C28756C84001F83E7 /* Contacts+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB428756C84001F83E7 /* Contacts+Pipe.swift */; };
-		61E04F0D28756C84001F83E7 /* Contacts+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB428756C84001F83E7 /* Contacts+Pipe.swift */; };
-		61E04F0E28756C84001F83E7 /* Notification+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB628756C84001F83E7 /* Notification+Pipe.swift */; };
-		61E04F0F28756C84001F83E7 /* Notification+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB628756C84001F83E7 /* Notification+Pipe.swift */; };
-		61E04F1028756C84001F83E7 /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB728756C84001F83E7 /* Foundation+Pipe.swift */; };
-		61E04F1128756C84001F83E7 /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB728756C84001F83E7 /* Foundation+Pipe.swift */; };
-		61E04F1228756C84001F83E7 /* Data_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB828756C84001F83E7 /* Data_Pipe.swift */; };
-		61E04F1328756C84001F83E7 /* Data_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB828756C84001F83E7 /* Data_Pipe.swift */; };
-		61E04F1428756C84001F83E7 /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB928756C84001F83E7 /* TimeZone_Pipe.swift */; };
-		61E04F1528756C84001F83E7 /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EB928756C84001F83E7 /* TimeZone_Pipe.swift */; };
-		61E04F1628756C84001F83E7 /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBA28756C84001F83E7 /* Date_Pipe.swift */; };
-		61E04F1728756C84001F83E7 /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBA28756C84001F83E7 /* Date_Pipe.swift */; };
-		61E04F1A28756C84001F83E7 /* VNObservation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBD28756C84001F83E7 /* VNObservation_Pipe.swift */; };
-		61E04F1B28756C84001F83E7 /* VNObservation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBD28756C84001F83E7 /* VNObservation_Pipe.swift */; };
-		61E04F1C28756C84001F83E7 /* Vision_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBE28756C84001F83E7 /* Vision_Pipe.swift */; };
-		61E04F1D28756C84001F83E7 /* Vision_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBE28756C84001F83E7 /* Vision_Pipe.swift */; };
-		61E04F1E28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBF28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift */; };
-		61E04F1F28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EBF28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift */; };
-		61E04F2028756C84001F83E7 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC128756C84001F83E7 /* AVFoundation_Pipe.swift */; };
-		61E04F2128756C84001F83E7 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC128756C84001F83E7 /* AVFoundation_Pipe.swift */; };
-		61E04F2228756C84001F83E7 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC228756C84001F83E7 /* AVCapture.swift */; };
-		61E04F2328756C84001F83E7 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC228756C84001F83E7 /* AVCapture.swift */; };
-		61E04F2428756C84001F83E7 /* CoreGraphicsMath+pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC428756C84001F83E7 /* CoreGraphicsMath+pipe.swift */; };
-		61E04F2528756C84001F83E7 /* CoreGraphicsMath+pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC428756C84001F83E7 /* CoreGraphicsMath+pipe.swift */; };
-		61E04F2628756C84001F83E7 /* Math+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC528756C84001F83E7 /* Math+Pipe.swift */; };
-		61E04F2728756C84001F83E7 /* Math+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC528756C84001F83E7 /* Math+Pipe.swift */; };
-		61E04F2828756C84001F83E7 /* MapKit+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC728756C84001F83E7 /* MapKit+Pipe.swift */; };
-		61E04F2928756C84001F83E7 /* MapKit+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC728756C84001F83E7 /* MapKit+Pipe.swift */; };
-		61E04F2A28756C84001F83E7 /* MKGeometry+Piped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC828756C84001F83E7 /* MKGeometry+Piped.swift */; };
-		61E04F2B28756C84001F83E7 /* MKGeometry+Piped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EC828756C84001F83E7 /* MKGeometry+Piped.swift */; };
-		61E04F2C28756C84001F83E7 /* Comparable+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECA28756C84001F83E7 /* Comparable+Pipe.swift */; };
-		61E04F2D28756C84001F83E7 /* Comparable+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECA28756C84001F83E7 /* Comparable+Pipe.swift */; };
-		61E04F2E28756C84001F83E7 /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECC28756C84001F83E7 /* String_Pipe.swift */; };
-		61E04F2F28756C84001F83E7 /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECC28756C84001F83E7 /* String_Pipe.swift */; };
-		61E04F3028756C84001F83E7 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECD28756C84001F83E7 /* NSTextCheckingResult_Pipe.swift */; };
-		61E04F3128756C84001F83E7 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECD28756C84001F83E7 /* NSTextCheckingResult_Pipe.swift */; };
-		61E04F3228756C84001F83E7 /* Sequence+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECE28756C84001F83E7 /* Sequence+Pipe.swift */; };
-		61E04F3328756C84001F83E7 /* Sequence+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ECE28756C84001F83E7 /* Sequence+Pipe.swift */; };
-		61E04F3428756C84001F83E7 /* Range_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED028756C84001F83E7 /* Range_Pipe.swift */; };
-		61E04F3528756C84001F83E7 /* Range_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED028756C84001F83E7 /* Range_Pipe.swift */; };
-		61E04F3628756C84001F83E7 /* Array_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED128756C84001F83E7 /* Array_Pipe.swift */; };
-		61E04F3728756C84001F83E7 /* Array_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED128756C84001F83E7 /* Array_Pipe.swift */; };
-		61E04F3828756C84001F83E7 /* CaseIterable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED328756C84001F83E7 /* CaseIterable_Pipe.swift */; };
-		61E04F3928756C84001F83E7 /* CaseIterable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED328756C84001F83E7 /* CaseIterable_Pipe.swift */; };
-		61E04F3A28756C84001F83E7 /* CoreNFC+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED528756C84001F83E7 /* CoreNFC+Pipe.swift */; };
-		61E04F3B28756C84001F83E7 /* CoreNFC+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED528756C84001F83E7 /* CoreNFC+Pipe.swift */; };
-		61E04F3C28756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED628756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift */; };
-		61E04F3D28756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED628756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift */; };
-		61E04F3E28756C84001F83E7 /* NFCNDEFTag+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED728756C84001F83E7 /* NFCNDEFTag+Pipe.swift */; };
-		61E04F3F28756C84001F83E7 /* NFCNDEFTag+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED728756C84001F83E7 /* NFCNDEFTag+Pipe.swift */; };
-		61E04F4028756C84001F83E7 /* CoreMotion+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED928756C84001F83E7 /* CoreMotion+Pipe.swift */; };
-		61E04F4128756C84001F83E7 /* CoreMotion+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04ED928756C84001F83E7 /* CoreMotion+Pipe.swift */; };
-		61E04F4228756C84001F83E7 /* CMPedometer+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDA28756C84001F83E7 /* CMPedometer+Pipe.swift */; };
-		61E04F4328756C84001F83E7 /* CMPedometer+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDA28756C84001F83E7 /* CMPedometer+Pipe.swift */; };
-		61E04F4428756C84001F83E7 /* CoreLocation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDC28756C84001F83E7 /* CoreLocation_Pipe.swift */; };
-		61E04F4528756C84001F83E7 /* CoreLocation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDC28756C84001F83E7 /* CoreLocation_Pipe.swift */; };
-		61E04F4628756C84001F83E7 /* CLLocationManager_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDD28756C84001F83E7 /* CLLocationManager_Pipe.swift */; };
-		61E04F4728756C84001F83E7 /* CLLocationManager_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDD28756C84001F83E7 /* CLLocationManager_Pipe.swift */; };
-		61E04F4828756C84001F83E7 /* QuartzCore+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDF28756C84001F83E7 /* QuartzCore+Pipe.swift */; };
-		61E04F4928756C84001F83E7 /* QuartzCore+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EDF28756C84001F83E7 /* QuartzCore+Pipe.swift */; };
 		61E04F4A28756C84001F83E7 /* Optional_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EE028756C84001F83E7 /* Optional_Pipe.swift */; };
 		61E04F4B28756C84001F83E7 /* Optional_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EE028756C84001F83E7 /* Optional_Pipe.swift */; };
 		61E04F4C28756C84001F83E7 /* |.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E04EE128756C84001F83E7 /* |.swift */; };
@@ -165,20 +163,55 @@
 		612C1081286EF54900943603 /* NSTextCheckingResult_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Tests.swift; sourceTree = "<group>"; };
 		612C10C1286EF70500943603 /* any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.swift; sourceTree = "<group>"; };
 		612C10C2286EF70500943603 /* CoreLocation_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation_any.swift; sourceTree = "<group>"; };
-		61768D0B287C412900DD4EE1 /* Pipable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipable.swift; sourceTree = "<group>"; };
-		61E04E9428756C84001F83E7 /* Constructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
-		61E04E9528756C84001F83E7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		61E04E9728756C84001F83E7 /* Expectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expectable.swift; sourceTree = "<group>"; };
-		61E04E9828756C84001F83E7 /* Asking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asking.swift; sourceTree = "<group>"; };
-		61E04E9928756C84001F83E7 /* Expect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
+		61B2312B28ABA47C00F46F5E /* Constructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
+		61B2312C28ABA47C00F46F5E /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		61B2312E28ABA47C00F46F5E /* Expectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expectable.swift; sourceTree = "<group>"; };
+		61B2312F28ABA47C00F46F5E /* Asking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asking.swift; sourceTree = "<group>"; };
+		61B2313028ABA47C00F46F5E /* Expect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
+		61B2313328ABA47C00F46F5E /* CoreImage_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreImage_Pipe.swift; sourceTree = "<group>"; };
+		61B2313528ABA47C00F46F5E /* CoreGraphics+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Pipe.swift"; sourceTree = "<group>"; };
+		61B2313628ABA47C00F46F5E /* Pipable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipable.swift; sourceTree = "<group>"; };
+		61B2313828ABA47C00F46F5E /* CBPeripheral+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Pipe.swift"; sourceTree = "<group>"; };
+		61B2313928ABA47C00F46F5E /* CoreBluetooth+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreBluetooth+Pipe.swift"; sourceTree = "<group>"; };
+		61B2313A28ABA47C00F46F5E /* CBCentralManager+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBCentralManager+Pipe.swift"; sourceTree = "<group>"; };
+		61B2313C28ABA47C00F46F5E /* UIColor_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_Pipe.swift; sourceTree = "<group>"; };
+		61B2313D28ABA47C00F46F5E /* UIEvent_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEvent_Pipe.swift; sourceTree = "<group>"; };
+		61B2313E28ABA47C00F46F5E /* UIKit_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKit_Pipe.swift; sourceTree = "<group>"; };
+		61B2314028ABA47C00F46F5E /* Contacts+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contacts+Pipe.swift"; sourceTree = "<group>"; };
+		61B2314228ABA47C00F46F5E /* Foundation+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Pipe.swift"; sourceTree = "<group>"; };
+		61B2314428ABA47C00F46F5E /* Codable_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable_Pipe.swift; sourceTree = "<group>"; };
+		61B2314528ABA47C00F46F5E /* PipeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipeModel.swift; sourceTree = "<group>"; };
+		61B2314628ABA47C00F46F5E /* Notification_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification_Pipe.swift; sourceTree = "<group>"; };
+		61B2314728ABA47C00F46F5E /* Data_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_Pipe.swift; sourceTree = "<group>"; };
+		61B2314828ABA47C00F46F5E /* TimeZone_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZone_Pipe.swift; sourceTree = "<group>"; };
+		61B2314A28ABA47C00F46F5E /* URLRequest_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest_Pipe.swift; sourceTree = "<group>"; };
+		61B2314B28ABA47C00F46F5E /* URL_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL_Pipe.swift; sourceTree = "<group>"; };
+		61B2314C28ABA47C00F46F5E /* Date_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
+		61B2314E28ABA47C00F46F5E /* VNObservation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNObservation_Pipe.swift; sourceTree = "<group>"; };
+		61B2314F28ABA47C00F46F5E /* Vision_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vision_Pipe.swift; sourceTree = "<group>"; };
+		61B2315028ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNImageRequestHandler_Pipe.swift; sourceTree = "<group>"; };
+		61B2315228ABA47C00F46F5E /* AVFoundation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFoundation_Pipe.swift; sourceTree = "<group>"; };
+		61B2315328ABA47C00F46F5E /* AVCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
+		61B2315528ABA47C00F46F5E /* CoreGraphicsMath+pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphicsMath+pipe.swift"; sourceTree = "<group>"; };
+		61B2315628ABA47C00F46F5E /* Math+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Math+Pipe.swift"; sourceTree = "<group>"; };
+		61B2315828ABA47C00F46F5E /* MapKit+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapKit+Pipe.swift"; sourceTree = "<group>"; };
+		61B2315928ABA47C00F46F5E /* MKGeometry+Piped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKGeometry+Piped.swift"; sourceTree = "<group>"; };
+		61B2315B28ABA47C00F46F5E /* Comparable+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Pipe.swift"; sourceTree = "<group>"; };
+		61B2315D28ABA47C00F46F5E /* String_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_Pipe.swift; sourceTree = "<group>"; };
+		61B2315E28ABA47C00F46F5E /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
+		61B2315F28ABA47C00F46F5E /* Sequence+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Pipe.swift"; sourceTree = "<group>"; };
+		61B2316128ABA47C00F46F5E /* Range_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range_Pipe.swift; sourceTree = "<group>"; };
+		61B2316228ABA47C00F46F5E /* Array_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array_Pipe.swift; sourceTree = "<group>"; };
+		61B2316428ABA47C00F46F5E /* CaseIterable_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseIterable_Pipe.swift; sourceTree = "<group>"; };
+		61B2316628ABA47C00F46F5E /* CoreNFC+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreNFC+Pipe.swift"; sourceTree = "<group>"; };
+		61B2316728ABA47C00F46F5E /* NFCNDEFReaderSession+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NFCNDEFReaderSession+Pipe.swift"; sourceTree = "<group>"; };
+		61B2316828ABA47C00F46F5E /* NFCNDEFTag_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Pipe.swift; sourceTree = "<group>"; };
+		61B2316A28ABA47C00F46F5E /* CoreMotion+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreMotion+Pipe.swift"; sourceTree = "<group>"; };
+		61B2316B28ABA47C00F46F5E /* CMPedometer+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMPedometer+Pipe.swift"; sourceTree = "<group>"; };
+		61B2316D28ABA47C00F46F5E /* CoreLocation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation_Pipe.swift; sourceTree = "<group>"; };
+		61B2316E28ABA47C00F46F5E /* CLLocationManager_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManager_Pipe.swift; sourceTree = "<group>"; };
+		61B2317028ABA47C00F46F5E /* QuartzCore+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuartzCore+Pipe.swift"; sourceTree = "<group>"; };
 		61E04E9A28756C84001F83E7 /* Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipe.swift; sourceTree = "<group>"; };
-		61E04E9D28756C84001F83E7 /* CoreImage_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreImage_Pipe.swift; sourceTree = "<group>"; };
-		61E04E9F28756C84001F83E7 /* CoreGraphics+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EA228756C84001F83E7 /* CBPeripheral+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EA328756C84001F83E7 /* CoreBluetooth+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreBluetooth+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EA428756C84001F83E7 /* CBCentralManager+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBCentralManager+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EA628756C84001F83E7 /* UIColor_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_Pipe.swift; sourceTree = "<group>"; };
-		61E04EA728756C84001F83E7 /* UIKit_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKit_Pipe.swift; sourceTree = "<group>"; };
 		61E04EAA28756C84001F83E7 /* UIAlertController+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Pipe.swift"; sourceTree = "<group>"; };
 		61E04EAB28756C84001F83E7 /* UIImage_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage_Pipe.swift; sourceTree = "<group>"; };
 		61E04EAD28756C84001F83E7 /* Dispatch+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch+Pipe.swift"; sourceTree = "<group>"; };
@@ -186,36 +219,6 @@
 		61E04EB028756C84001F83E7 /* MCPeerID_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPeerID_Pipe.swift; sourceTree = "<group>"; };
 		61E04EB128756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNearbyServiceBrowser_Pipe.swift; sourceTree = "<group>"; };
 		61E04EB228756C84001F83E7 /* MCSession_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSession_Pipe.swift; sourceTree = "<group>"; };
-		61E04EB428756C84001F83E7 /* Contacts+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contacts+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EB628756C84001F83E7 /* Notification+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EB728756C84001F83E7 /* Foundation+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EB828756C84001F83E7 /* Data_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_Pipe.swift; sourceTree = "<group>"; };
-		61E04EB928756C84001F83E7 /* TimeZone_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZone_Pipe.swift; sourceTree = "<group>"; };
-		61E04EBA28756C84001F83E7 /* Date_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
-		61E04EBD28756C84001F83E7 /* VNObservation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNObservation_Pipe.swift; sourceTree = "<group>"; };
-		61E04EBE28756C84001F83E7 /* Vision_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vision_Pipe.swift; sourceTree = "<group>"; };
-		61E04EBF28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNImageRequestHandler_Pipe.swift; sourceTree = "<group>"; };
-		61E04EC128756C84001F83E7 /* AVFoundation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFoundation_Pipe.swift; sourceTree = "<group>"; };
-		61E04EC228756C84001F83E7 /* AVCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
-		61E04EC428756C84001F83E7 /* CoreGraphicsMath+pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphicsMath+pipe.swift"; sourceTree = "<group>"; };
-		61E04EC528756C84001F83E7 /* Math+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Math+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EC728756C84001F83E7 /* MapKit+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapKit+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EC828756C84001F83E7 /* MKGeometry+Piped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKGeometry+Piped.swift"; sourceTree = "<group>"; };
-		61E04ECA28756C84001F83E7 /* Comparable+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Pipe.swift"; sourceTree = "<group>"; };
-		61E04ECC28756C84001F83E7 /* String_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_Pipe.swift; sourceTree = "<group>"; };
-		61E04ECD28756C84001F83E7 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
-		61E04ECE28756C84001F83E7 /* Sequence+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Pipe.swift"; sourceTree = "<group>"; };
-		61E04ED028756C84001F83E7 /* Range_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range_Pipe.swift; sourceTree = "<group>"; };
-		61E04ED128756C84001F83E7 /* Array_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array_Pipe.swift; sourceTree = "<group>"; };
-		61E04ED328756C84001F83E7 /* CaseIterable_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseIterable_Pipe.swift; sourceTree = "<group>"; };
-		61E04ED528756C84001F83E7 /* CoreNFC+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreNFC+Pipe.swift"; sourceTree = "<group>"; };
-		61E04ED628756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NFCNDEFReaderSession+Pipe.swift"; sourceTree = "<group>"; };
-		61E04ED728756C84001F83E7 /* NFCNDEFTag+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NFCNDEFTag+Pipe.swift"; sourceTree = "<group>"; };
-		61E04ED928756C84001F83E7 /* CoreMotion+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreMotion+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EDA28756C84001F83E7 /* CMPedometer+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMPedometer+Pipe.swift"; sourceTree = "<group>"; };
-		61E04EDC28756C84001F83E7 /* CoreLocation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation_Pipe.swift; sourceTree = "<group>"; };
-		61E04EDD28756C84001F83E7 /* CLLocationManager_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManager_Pipe.swift; sourceTree = "<group>"; };
-		61E04EDF28756C84001F83E7 /* QuartzCore+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuartzCore+Pipe.swift"; sourceTree = "<group>"; };
 		61E04EE028756C84001F83E7 /* Optional_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional_Pipe.swift; sourceTree = "<group>"; };
 		61E04EE128756C84001F83E7 /* |.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
 		61E04F4E28757309001F83E7 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
@@ -358,95 +361,247 @@
 			path = any;
 			sourceTree = "<group>";
 		};
+		61B2312A28ABA47C00F46F5E /* Fittings */ = {
+			isa = PBXGroup;
+			children = (
+				61B2312D28ABA47C00F46F5E /* Expect */,
+				61B2312B28ABA47C00F46F5E /* Constructor.swift */,
+				61B2312C28ABA47C00F46F5E /* Error.swift */,
+			);
+			path = Fittings;
+			sourceTree = "<group>";
+		};
+		61B2312D28ABA47C00F46F5E /* Expect */ = {
+			isa = PBXGroup;
+			children = (
+				61B2312E28ABA47C00F46F5E /* Expectable.swift */,
+				61B2312F28ABA47C00F46F5E /* Asking.swift */,
+				61B2313028ABA47C00F46F5E /* Expect.swift */,
+			);
+			path = Expect;
+			sourceTree = "<group>";
+		};
+		61B2313128ABA47C00F46F5E /* Pipable */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315128ABA47C00F46F5E /* AVFoundation */,
+				61B2313F28ABA47C00F46F5E /* Contacts */,
+				61B2313728ABA47C00F46F5E /* CoreBluetooth */,
+				61B2313428ABA47C00F46F5E /* CoreGraphics */,
+				61B2313228ABA47C00F46F5E /* CoreImage */,
+				61B2316C28ABA47C00F46F5E /* CoreLocation */,
+				61B2316928ABA47C00F46F5E /* CoreMotion */,
+				61B2316528ABA47C00F46F5E /* CoreNFC */,
+				61B2314128ABA47C00F46F5E /* Foundation */,
+				61B2315728ABA47C00F46F5E /* MapKit */,
+				61B2315428ABA47C00F46F5E /* Math */,
+				61B2316F28ABA47C00F46F5E /* QuartzCore */,
+				61B2315A28ABA47C00F46F5E /* Swift */,
+				61B2313B28ABA47C00F46F5E /* UIKIt */,
+				61B2314D28ABA47C00F46F5E /* Vision */,
+				61B2313628ABA47C00F46F5E /* Pipable.swift */,
+			);
+			path = Pipable;
+			sourceTree = "<group>";
+		};
+		61B2313228ABA47C00F46F5E /* CoreImage */ = {
+			isa = PBXGroup;
+			children = (
+				61B2313328ABA47C00F46F5E /* CoreImage_Pipe.swift */,
+			);
+			path = CoreImage;
+			sourceTree = "<group>";
+		};
+		61B2313428ABA47C00F46F5E /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				61B2313528ABA47C00F46F5E /* CoreGraphics+Pipe.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		61B2313728ABA47C00F46F5E /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				61B2313828ABA47C00F46F5E /* CBPeripheral+Pipe.swift */,
+				61B2313928ABA47C00F46F5E /* CoreBluetooth+Pipe.swift */,
+				61B2313A28ABA47C00F46F5E /* CBCentralManager+Pipe.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		61B2313B28ABA47C00F46F5E /* UIKIt */ = {
+			isa = PBXGroup;
+			children = (
+				61B2313C28ABA47C00F46F5E /* UIColor_Pipe.swift */,
+				61B2313D28ABA47C00F46F5E /* UIEvent_Pipe.swift */,
+				61B2313E28ABA47C00F46F5E /* UIKit_Pipe.swift */,
+			);
+			path = UIKIt;
+			sourceTree = "<group>";
+		};
+		61B2313F28ABA47C00F46F5E /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				61B2314028ABA47C00F46F5E /* Contacts+Pipe.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		61B2314128ABA47C00F46F5E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				61B2314228ABA47C00F46F5E /* Foundation+Pipe.swift */,
+				61B2314328ABA47C00F46F5E /* Codable */,
+				61B2314628ABA47C00F46F5E /* Notification_Pipe.swift */,
+				61B2314728ABA47C00F46F5E /* Data_Pipe.swift */,
+				61B2314828ABA47C00F46F5E /* TimeZone_Pipe.swift */,
+				61B2314928ABA47C00F46F5E /* URL */,
+				61B2314C28ABA47C00F46F5E /* Date_Pipe.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		61B2314328ABA47C00F46F5E /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				61B2314428ABA47C00F46F5E /* Codable_Pipe.swift */,
+				61B2314528ABA47C00F46F5E /* PipeModel.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		61B2314928ABA47C00F46F5E /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				61B2314A28ABA47C00F46F5E /* URLRequest_Pipe.swift */,
+				61B2314B28ABA47C00F46F5E /* URL_Pipe.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		61B2314D28ABA47C00F46F5E /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				61B2314E28ABA47C00F46F5E /* VNObservation_Pipe.swift */,
+				61B2314F28ABA47C00F46F5E /* Vision_Pipe.swift */,
+				61B2315028ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		61B2315128ABA47C00F46F5E /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315228ABA47C00F46F5E /* AVFoundation_Pipe.swift */,
+				61B2315328ABA47C00F46F5E /* AVCapture.swift */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		61B2315428ABA47C00F46F5E /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315528ABA47C00F46F5E /* CoreGraphicsMath+pipe.swift */,
+				61B2315628ABA47C00F46F5E /* Math+Pipe.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		61B2315728ABA47C00F46F5E /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315828ABA47C00F46F5E /* MapKit+Pipe.swift */,
+				61B2315928ABA47C00F46F5E /* MKGeometry+Piped.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		61B2315A28ABA47C00F46F5E /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315B28ABA47C00F46F5E /* Comparable+Pipe.swift */,
+				61B2315C28ABA47C00F46F5E /* String */,
+				61B2315F28ABA47C00F46F5E /* Sequence+Pipe.swift */,
+				61B2316028ABA47C00F46F5E /* Collections */,
+				61B2316328ABA47C00F46F5E /* Protocols */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		61B2315C28ABA47C00F46F5E /* String */ = {
+			isa = PBXGroup;
+			children = (
+				61B2315D28ABA47C00F46F5E /* String_Pipe.swift */,
+				61B2315E28ABA47C00F46F5E /* NSTextCheckingResult_Pipe.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		61B2316028ABA47C00F46F5E /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				61B2316128ABA47C00F46F5E /* Range_Pipe.swift */,
+				61B2316228ABA47C00F46F5E /* Array_Pipe.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		61B2316328ABA47C00F46F5E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				61B2316428ABA47C00F46F5E /* CaseIterable_Pipe.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		61B2316528ABA47C00F46F5E /* CoreNFC */ = {
+			isa = PBXGroup;
+			children = (
+				61B2316628ABA47C00F46F5E /* CoreNFC+Pipe.swift */,
+				61B2316728ABA47C00F46F5E /* NFCNDEFReaderSession+Pipe.swift */,
+				61B2316828ABA47C00F46F5E /* NFCNDEFTag_Pipe.swift */,
+			);
+			path = CoreNFC;
+			sourceTree = "<group>";
+		};
+		61B2316928ABA47C00F46F5E /* CoreMotion */ = {
+			isa = PBXGroup;
+			children = (
+				61B2316A28ABA47C00F46F5E /* CoreMotion+Pipe.swift */,
+				61B2316B28ABA47C00F46F5E /* CMPedometer+Pipe.swift */,
+			);
+			path = CoreMotion;
+			sourceTree = "<group>";
+		};
+		61B2316C28ABA47C00F46F5E /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				61B2316D28ABA47C00F46F5E /* CoreLocation_Pipe.swift */,
+				61B2316E28ABA47C00F46F5E /* CLLocationManager_Pipe.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		61B2316F28ABA47C00F46F5E /* QuartzCore */ = {
+			isa = PBXGroup;
+			children = (
+				61B2317028ABA47C00F46F5E /* QuartzCore+Pipe.swift */,
+			);
+			path = QuartzCore;
+			sourceTree = "<group>";
+		};
 		61E04E9228756C84001F83E7 /* Pipe */ = {
 			isa = PBXGroup;
 			children = (
-				61E04E9328756C84001F83E7 /* Fittings */,
-				61E04E9B28756C84001F83E7 /* Pipable */,
+				61B2312A28ABA47C00F46F5E /* Fittings */,
+				61B2313128ABA47C00F46F5E /* Pipable */,
 				61E04E9A28756C84001F83E7 /* Pipe.swift */,
 				61E04EE028756C84001F83E7 /* Optional_Pipe.swift */,
 				61E04EE128756C84001F83E7 /* |.swift */,
 			);
 			name = Pipe;
 			path = ../../../../../Sources/Pipe;
-			sourceTree = "<group>";
-		};
-		61E04E9328756C84001F83E7 /* Fittings */ = {
-			isa = PBXGroup;
-			children = (
-				61E04E9628756C84001F83E7 /* Expect */,
-				61E04E9428756C84001F83E7 /* Constructor.swift */,
-				61E04E9528756C84001F83E7 /* Result.swift */,
-			);
-			path = Fittings;
-			sourceTree = "<group>";
-		};
-		61E04E9628756C84001F83E7 /* Expect */ = {
-			isa = PBXGroup;
-			children = (
-				61E04E9728756C84001F83E7 /* Expectable.swift */,
-				61E04E9828756C84001F83E7 /* Asking.swift */,
-				61E04E9928756C84001F83E7 /* Expect.swift */,
-			);
-			path = Expect;
-			sourceTree = "<group>";
-		};
-		61E04E9B28756C84001F83E7 /* Pipable */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EC028756C84001F83E7 /* AVFoundation */,
-				61E04EB328756C84001F83E7 /* Contacts */,
-				61E04EA128756C84001F83E7 /* CoreBluetooth */,
-				61E04E9E28756C84001F83E7 /* CoreGraphics */,
-				61E04E9C28756C84001F83E7 /* CoreImage */,
-				61E04EDB28756C84001F83E7 /* CoreLocation */,
-				61E04ED828756C84001F83E7 /* CoreMotion */,
-				61E04ED428756C84001F83E7 /* CoreNFC */,
-				61E04EB528756C84001F83E7 /* Foundation */,
-				61E04EC628756C84001F83E7 /* MapKit */,
-				61E04EC328756C84001F83E7 /* Math */,
-				61E04EDE28756C84001F83E7 /* QuartzCore */,
-				61E04EC928756C84001F83E7 /* Swift */,
-				61E04EA528756C84001F83E7 /* UIKIt */,
-				61E04EBC28756C84001F83E7 /* Vision */,
-				61768D0B287C412900DD4EE1 /* Pipable.swift */,
-			);
-			path = Pipable;
-			sourceTree = "<group>";
-		};
-		61E04E9C28756C84001F83E7 /* CoreImage */ = {
-			isa = PBXGroup;
-			children = (
-				61E04E9D28756C84001F83E7 /* CoreImage_Pipe.swift */,
-			);
-			path = CoreImage;
-			sourceTree = "<group>";
-		};
-		61E04E9E28756C84001F83E7 /* CoreGraphics */ = {
-			isa = PBXGroup;
-			children = (
-				61E04E9F28756C84001F83E7 /* CoreGraphics+Pipe.swift */,
-			);
-			path = CoreGraphics;
-			sourceTree = "<group>";
-		};
-		61E04EA128756C84001F83E7 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EA228756C84001F83E7 /* CBPeripheral+Pipe.swift */,
-				61E04EA328756C84001F83E7 /* CoreBluetooth+Pipe.swift */,
-				61E04EA428756C84001F83E7 /* CBCentralManager+Pipe.swift */,
-			);
-			path = CoreBluetooth;
-			sourceTree = "<group>";
-		};
-		61E04EA528756C84001F83E7 /* UIKIt */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EA628756C84001F83E7 /* UIColor_Pipe.swift */,
-				61E04EA728756C84001F83E7 /* UIKit_Pipe.swift */,
-			);
-			path = UIKIt;
 			sourceTree = "<group>";
 		};
 		61E04EA828756C84001F83E7 /* Drafts */ = {
@@ -485,137 +640,6 @@
 				61E04EB228756C84001F83E7 /* MCSession_Pipe.swift */,
 			);
 			path = MultipeerConnectivity;
-			sourceTree = "<group>";
-		};
-		61E04EB328756C84001F83E7 /* Contacts */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EB428756C84001F83E7 /* Contacts+Pipe.swift */,
-			);
-			path = Contacts;
-			sourceTree = "<group>";
-		};
-		61E04EB528756C84001F83E7 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EB628756C84001F83E7 /* Notification+Pipe.swift */,
-				61E04EB728756C84001F83E7 /* Foundation+Pipe.swift */,
-				61E04EB828756C84001F83E7 /* Data_Pipe.swift */,
-				61E04EB928756C84001F83E7 /* TimeZone_Pipe.swift */,
-				61E04EBA28756C84001F83E7 /* Date_Pipe.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		61E04EBC28756C84001F83E7 /* Vision */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EBD28756C84001F83E7 /* VNObservation_Pipe.swift */,
-				61E04EBE28756C84001F83E7 /* Vision_Pipe.swift */,
-				61E04EBF28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift */,
-			);
-			path = Vision;
-			sourceTree = "<group>";
-		};
-		61E04EC028756C84001F83E7 /* AVFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EC128756C84001F83E7 /* AVFoundation_Pipe.swift */,
-				61E04EC228756C84001F83E7 /* AVCapture.swift */,
-			);
-			path = AVFoundation;
-			sourceTree = "<group>";
-		};
-		61E04EC328756C84001F83E7 /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EC428756C84001F83E7 /* CoreGraphicsMath+pipe.swift */,
-				61E04EC528756C84001F83E7 /* Math+Pipe.swift */,
-			);
-			path = Math;
-			sourceTree = "<group>";
-		};
-		61E04EC628756C84001F83E7 /* MapKit */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EC728756C84001F83E7 /* MapKit+Pipe.swift */,
-				61E04EC828756C84001F83E7 /* MKGeometry+Piped.swift */,
-			);
-			path = MapKit;
-			sourceTree = "<group>";
-		};
-		61E04EC928756C84001F83E7 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ECB28756C84001F83E7 /* String */,
-				61E04ECF28756C84001F83E7 /* Collections */,
-				61E04ED228756C84001F83E7 /* Protocols */,
-				61E04ECA28756C84001F83E7 /* Comparable+Pipe.swift */,
-				61E04ECE28756C84001F83E7 /* Sequence+Pipe.swift */,
-			);
-			path = Swift;
-			sourceTree = "<group>";
-		};
-		61E04ECB28756C84001F83E7 /* String */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ECC28756C84001F83E7 /* String_Pipe.swift */,
-				61E04ECD28756C84001F83E7 /* NSTextCheckingResult_Pipe.swift */,
-			);
-			path = String;
-			sourceTree = "<group>";
-		};
-		61E04ECF28756C84001F83E7 /* Collections */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ED028756C84001F83E7 /* Range_Pipe.swift */,
-				61E04ED128756C84001F83E7 /* Array_Pipe.swift */,
-			);
-			path = Collections;
-			sourceTree = "<group>";
-		};
-		61E04ED228756C84001F83E7 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ED328756C84001F83E7 /* CaseIterable_Pipe.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		61E04ED428756C84001F83E7 /* CoreNFC */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ED528756C84001F83E7 /* CoreNFC+Pipe.swift */,
-				61E04ED628756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift */,
-				61E04ED728756C84001F83E7 /* NFCNDEFTag+Pipe.swift */,
-			);
-			path = CoreNFC;
-			sourceTree = "<group>";
-		};
-		61E04ED828756C84001F83E7 /* CoreMotion */ = {
-			isa = PBXGroup;
-			children = (
-				61E04ED928756C84001F83E7 /* CoreMotion+Pipe.swift */,
-				61E04EDA28756C84001F83E7 /* CMPedometer+Pipe.swift */,
-			);
-			path = CoreMotion;
-			sourceTree = "<group>";
-		};
-		61E04EDB28756C84001F83E7 /* CoreLocation */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EDC28756C84001F83E7 /* CoreLocation_Pipe.swift */,
-				61E04EDD28756C84001F83E7 /* CLLocationManager_Pipe.swift */,
-			);
-			path = CoreLocation;
-			sourceTree = "<group>";
-		};
-		61E04EDE28756C84001F83E7 /* QuartzCore */ = {
-			isa = PBXGroup;
-			children = (
-				61E04EDF28756C84001F83E7 /* QuartzCore+Pipe.swift */,
-			);
-			path = QuartzCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -723,61 +747,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B2319528ABA47C00F46F5E /* Notification_Pipe.swift in Sources */,
+				61B231CB28ABA47D00F46F5E /* CoreLocation_Pipe.swift in Sources */,
 				61E04F0A28756C84001F83E7 /* MCSession_Pipe.swift in Sources */,
-				61E04EF828756C84001F83E7 /* CBCentralManager+Pipe.swift in Sources */,
-				61E04F4628756C84001F83E7 /* CLLocationManager_Pipe.swift in Sources */,
-				61E04F2A28756C84001F83E7 /* MKGeometry+Piped.swift in Sources */,
-				61E04F3828756C84001F83E7 /* CaseIterable_Pipe.swift in Sources */,
+				61B2317128ABA47C00F46F5E /* Constructor.swift in Sources */,
+				61B2319D28ABA47C00F46F5E /* URL_Pipe.swift in Sources */,
+				61B231CF28ABA47D00F46F5E /* QuartzCore+Pipe.swift in Sources */,
 				61E04EFE28756C84001F83E7 /* UIAlertController+Pipe.swift in Sources */,
-				61E04F1628756C84001F83E7 /* Date_Pipe.swift in Sources */,
 				6124E969286EFB2C00029A41 /* AppDelegate.swift in Sources */,
-				61E04F2628756C84001F83E7 /* Math+Pipe.swift in Sources */,
-				61E04F2E28756C84001F83E7 /* String_Pipe.swift in Sources */,
+				61B231A928ABA47D00F46F5E /* AVCapture.swift in Sources */,
+				61B2317728ABA47C00F46F5E /* Asking.swift in Sources */,
 				61E04F4A28756C84001F83E7 /* Optional_Pipe.swift in Sources */,
-				61E04F3628756C84001F83E7 /* Array_Pipe.swift in Sources */,
-				61E04F2C28756C84001F83E7 /* Comparable+Pipe.swift in Sources */,
+				61B2318D28ABA47C00F46F5E /* Contacts+Pipe.swift in Sources */,
+				61B231C328ABA47D00F46F5E /* NFCNDEFReaderSession+Pipe.swift in Sources */,
+				61B2317928ABA47C00F46F5E /* Expect.swift in Sources */,
+				61B2319928ABA47C00F46F5E /* TimeZone_Pipe.swift in Sources */,
+				61B231CD28ABA47D00F46F5E /* CLLocationManager_Pipe.swift in Sources */,
+				61B2318928ABA47C00F46F5E /* UIEvent_Pipe.swift in Sources */,
+				61B231A328ABA47C00F46F5E /* Vision_Pipe.swift in Sources */,
+				61B2318728ABA47C00F46F5E /* UIColor_Pipe.swift in Sources */,
 				612C0FC1286EE90600943603 /* ViewController.swift in Sources */,
-				61E04F1428756C84001F83E7 /* TimeZone_Pipe.swift in Sources */,
-				61E04F0C28756C84001F83E7 /* Contacts+Pipe.swift in Sources */,
-				61E04EEA28756C84001F83E7 /* Expect.swift in Sources */,
-				61E04EF428756C84001F83E7 /* CBPeripheral+Pipe.swift in Sources */,
+				61B231BD28ABA47D00F46F5E /* Array_Pipe.swift in Sources */,
+				61B231C128ABA47D00F46F5E /* CoreNFC+Pipe.swift in Sources */,
+				61B231BB28ABA47D00F46F5E /* Range_Pipe.swift in Sources */,
+				61B231BF28ABA47D00F46F5E /* CaseIterable_Pipe.swift in Sources */,
+				61B231B128ABA47D00F46F5E /* MKGeometry+Piped.swift in Sources */,
+				61B2317B28ABA47C00F46F5E /* CoreImage_Pipe.swift in Sources */,
+				61B2317F28ABA47C00F46F5E /* Pipable.swift in Sources */,
+				61B2319F28ABA47C00F46F5E /* Date_Pipe.swift in Sources */,
+				61B2317D28ABA47C00F46F5E /* CoreGraphics+Pipe.swift in Sources */,
+				61B231C528ABA47D00F46F5E /* NFCNDEFTag_Pipe.swift in Sources */,
 				61E04EEC28756C84001F83E7 /* Pipe.swift in Sources */,
-				61E04EE428756C84001F83E7 /* Result.swift in Sources */,
-				61E04F3A28756C84001F83E7 /* CoreNFC+Pipe.swift in Sources */,
+				61B2319728ABA47C00F46F5E /* Data_Pipe.swift in Sources */,
+				61B231B728ABA47D00F46F5E /* NSTextCheckingResult_Pipe.swift in Sources */,
 				61E04F4C28756C84001F83E7 /* |.swift in Sources */,
-				61E04F0828756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift in Sources */,
+				61B2318F28ABA47C00F46F5E /* Foundation+Pipe.swift in Sources */,
+				61B231B528ABA47D00F46F5E /* String_Pipe.swift in Sources */,
+				61B2318128ABA47C00F46F5E /* CBPeripheral+Pipe.swift in Sources */,
+				61B231AF28ABA47D00F46F5E /* MapKit+Pipe.swift in Sources */,
+				61B231C928ABA47D00F46F5E /* CMPedometer+Pipe.swift in Sources */,
+				61B2318328ABA47C00F46F5E /* CoreBluetooth+Pipe.swift in Sources */,
+				61B231C728ABA47D00F46F5E /* CoreMotion+Pipe.swift in Sources */,
+				61B231A528ABA47C00F46F5E /* VNImageRequestHandler_Pipe.swift in Sources */,
 				61E04F0228756C84001F83E7 /* Dispatch+Pipe.swift in Sources */,
-				61E04F2028756C84001F83E7 /* AVFoundation_Pipe.swift in Sources */,
-				61E04F1228756C84001F83E7 /* Data_Pipe.swift in Sources */,
-				61E04EE228756C84001F83E7 /* Constructor.swift in Sources */,
-				61E04F3228756C84001F83E7 /* Sequence+Pipe.swift in Sources */,
-				61E04F1C28756C84001F83E7 /* Vision_Pipe.swift in Sources */,
-				61E04EE828756C84001F83E7 /* Asking.swift in Sources */,
-				61E04F4828756C84001F83E7 /* QuartzCore+Pipe.swift in Sources */,
-				61E04F4228756C84001F83E7 /* CMPedometer+Pipe.swift in Sources */,
-				61E04F4028756C84001F83E7 /* CoreMotion+Pipe.swift in Sources */,
-				61E04F3E28756C84001F83E7 /* NFCNDEFTag+Pipe.swift in Sources */,
-				61E04F2828756C84001F83E7 /* MapKit+Pipe.swift in Sources */,
-				61E04EF028756C84001F83E7 /* CoreGraphics+Pipe.swift in Sources */,
-				61E04F1E28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift in Sources */,
-				61E04EE628756C84001F83E7 /* Expectable.swift in Sources */,
-				61E04F3428756C84001F83E7 /* Range_Pipe.swift in Sources */,
-				61E04F1A28756C84001F83E7 /* VNObservation_Pipe.swift in Sources */,
-				61E04F4428756C84001F83E7 /* CoreLocation_Pipe.swift in Sources */,
 				61E04F0028756C84001F83E7 /* UIImage_Pipe.swift in Sources */,
-				61E04EF628756C84001F83E7 /* CoreBluetooth+Pipe.swift in Sources */,
-				61E04EFA28756C84001F83E7 /* UIColor_Pipe.swift in Sources */,
-				61E04F2428756C84001F83E7 /* CoreGraphicsMath+pipe.swift in Sources */,
-				61E04EFC28756C84001F83E7 /* UIKit_Pipe.swift in Sources */,
-				61E04F0628756C84001F83E7 /* MCPeerID_Pipe.swift in Sources */,
-				61E04F2228756C84001F83E7 /* AVCapture.swift in Sources */,
-				61E04F3028756C84001F83E7 /* NSTextCheckingResult_Pipe.swift in Sources */,
-				61E04F0E28756C84001F83E7 /* Notification+Pipe.swift in Sources */,
-				61E04EEE28756C84001F83E7 /* CoreImage_Pipe.swift in Sources */,
-				61E04F1028756C84001F83E7 /* Foundation+Pipe.swift in Sources */,
-				61768D0C287C412900DD4EE1 /* Pipable.swift in Sources */,
-				61E04F3C28756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift in Sources */,
-				61E04F0428756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift in Sources */,
+				61B231AB28ABA47D00F46F5E /* CoreGraphicsMath+pipe.swift in Sources */,
+				61B231AD28ABA47D00F46F5E /* Math+Pipe.swift in Sources */,
+				61B2318B28ABA47C00F46F5E /* UIKit_Pipe.swift in Sources */,
+				61B2317328ABA47C00F46F5E /* Error.swift in Sources */,
+				61B231A128ABA47C00F46F5E /* VNObservation_Pipe.swift in Sources */,
+				61B231A728ABA47D00F46F5E /* AVFoundation_Pipe.swift in Sources */,
+				61B231B928ABA47D00F46F5E /* Sequence+Pipe.swift in Sources */,
+				61B231B328ABA47D00F46F5E /* Comparable+Pipe.swift in Sources */,
+				61B2317528ABA47C00F46F5E /* Expectable.swift in Sources */,
+				61B2318528ABA47C00F46F5E /* CBCentralManager+Pipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,71 +808,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E04F3D28756C84001F83E7 /* NFCNDEFReaderSession+Pipe.swift in Sources */,
-				61E04EF528756C84001F83E7 /* CBPeripheral+Pipe.swift in Sources */,
-				61E04F2F28756C84001F83E7 /* String_Pipe.swift in Sources */,
 				612C1083286EF54900943603 /* Expect_Any_Tests.swift in Sources */,
-				61E04F3928756C84001F83E7 /* CaseIterable_Pipe.swift in Sources */,
-				61E04EE328756C84001F83E7 /* Constructor.swift in Sources */,
+				61B231A028ABA47C00F46F5E /* Date_Pipe.swift in Sources */,
+				61B2319828ABA47C00F46F5E /* Data_Pipe.swift in Sources */,
+				61B231CE28ABA47D00F46F5E /* CLLocationManager_Pipe.swift in Sources */,
 				61E04F0128756C84001F83E7 /* UIImage_Pipe.swift in Sources */,
-				61E04F1128756C84001F83E7 /* Foundation+Pipe.swift in Sources */,
-				61E04F4128756C84001F83E7 /* CoreMotion+Pipe.swift in Sources */,
+				61B231A628ABA47D00F46F5E /* VNImageRequestHandler_Pipe.swift in Sources */,
 				612C10C3286EF70500943603 /* any.swift in Sources */,
-				61E04F4728756C84001F83E7 /* CLLocationManager_Pipe.swift in Sources */,
+				61B231B428ABA47D00F46F5E /* Comparable+Pipe.swift in Sources */,
 				612C10C4286EF70500943603 /* CoreLocation_any.swift in Sources */,
 				61E04F4D28756C84001F83E7 /* |.swift in Sources */,
-				61E04EE928756C84001F83E7 /* Asking.swift in Sources */,
-				61E04F0728756C84001F83E7 /* MCPeerID_Pipe.swift in Sources */,
-				61E04F1328756C84001F83E7 /* Data_Pipe.swift in Sources */,
-				61E04EE528756C84001F83E7 /* Result.swift in Sources */,
-				61E04EEB28756C84001F83E7 /* Expect.swift in Sources */,
-				61E04F1B28756C84001F83E7 /* VNObservation_Pipe.swift in Sources */,
+				61B231B828ABA47D00F46F5E /* NSTextCheckingResult_Pipe.swift in Sources */,
+				61B231AE28ABA47D00F46F5E /* Math+Pipe.swift in Sources */,
+				61B2319628ABA47C00F46F5E /* Notification_Pipe.swift in Sources */,
+				61B2318228ABA47C00F46F5E /* CBPeripheral+Pipe.swift in Sources */,
 				61E04F0B28756C84001F83E7 /* MCSession_Pipe.swift in Sources */,
-				61E04F0528756C84001F83E7 /* MCNearbyServiceAdvertiser_Pipe.swift in Sources */,
-				61E04F4528756C84001F83E7 /* CoreLocation_Pipe.swift in Sources */,
-				61E04F0F28756C84001F83E7 /* Notification+Pipe.swift in Sources */,
-				61E04F0D28756C84001F83E7 /* Contacts+Pipe.swift in Sources */,
-				61E04F2128756C84001F83E7 /* AVFoundation_Pipe.swift in Sources */,
-				61E04EFB28756C84001F83E7 /* UIColor_Pipe.swift in Sources */,
-				61E04EF928756C84001F83E7 /* CBCentralManager+Pipe.swift in Sources */,
-				61E04F1528756C84001F83E7 /* TimeZone_Pipe.swift in Sources */,
-				61E04F0928756C84001F83E7 /* MCNearbyServiceBrowser_Pipe.swift in Sources */,
-				61E04F1D28756C84001F83E7 /* Vision_Pipe.swift in Sources */,
-				61E04F3128756C84001F83E7 /* NSTextCheckingResult_Pipe.swift in Sources */,
-				61E04F3B28756C84001F83E7 /* CoreNFC+Pipe.swift in Sources */,
+				61B231BC28ABA47D00F46F5E /* Range_Pipe.swift in Sources */,
+				61B2319A28ABA47C00F46F5E /* TimeZone_Pipe.swift in Sources */,
+				61B231AC28ABA47D00F46F5E /* CoreGraphicsMath+pipe.swift in Sources */,
+				61B231B228ABA47D00F46F5E /* MKGeometry+Piped.swift in Sources */,
+				61B231B628ABA47D00F46F5E /* String_Pipe.swift in Sources */,
+				61B231C628ABA47D00F46F5E /* NFCNDEFTag_Pipe.swift in Sources */,
+				61B2317E28ABA47C00F46F5E /* CoreGraphics+Pipe.swift in Sources */,
+				61B2319028ABA47C00F46F5E /* Foundation+Pipe.swift in Sources */,
+				61B2318428ABA47C00F46F5E /* CoreBluetooth+Pipe.swift in Sources */,
+				61B2319E28ABA47C00F46F5E /* URL_Pipe.swift in Sources */,
+				61B231CC28ABA47D00F46F5E /* CoreLocation_Pipe.swift in Sources */,
+				61B2318A28ABA47C00F46F5E /* UIEvent_Pipe.swift in Sources */,
 				612C108B286EF54900943603 /* TestTools.swift in Sources */,
+				61B231C428ABA47D00F46F5E /* NFCNDEFReaderSession+Pipe.swift in Sources */,
+				61B2318E28ABA47C00F46F5E /* Contacts+Pipe.swift in Sources */,
 				612C1084286EF54900943603 /* Expect_T_Tests.swift in Sources */,
-				61E04F3328756C84001F83E7 /* Sequence+Pipe.swift in Sources */,
-				61768D0D287C412900DD4EE1 /* Pipable.swift in Sources */,
 				612C1087286EF54900943603 /* CoreLocation_Tests.swift in Sources */,
-				61E04F2728756C84001F83E7 /* Math+Pipe.swift in Sources */,
 				612C108D286EF54900943603 /* Contacts_Tests.swift in Sources */,
+				61B231BA28ABA47D00F46F5E /* Sequence+Pipe.swift in Sources */,
+				61B231A828ABA47D00F46F5E /* AVFoundation_Pipe.swift in Sources */,
 				61E04EFF28756C84001F83E7 /* UIAlertController+Pipe.swift in Sources */,
-				61E04F3728756C84001F83E7 /* Array_Pipe.swift in Sources */,
 				61E04F4B28756C84001F83E7 /* Optional_Pipe.swift in Sources */,
+				61B2317228ABA47C00F46F5E /* Constructor.swift in Sources */,
+				61B2317428ABA47C00F46F5E /* Error.swift in Sources */,
 				612C1089286EF54900943603 /* CoreMotion_Tests.swift in Sources */,
+				61B2318828ABA47C00F46F5E /* UIColor_Pipe.swift in Sources */,
+				61B231C828ABA47D00F46F5E /* CoreMotion+Pipe.swift in Sources */,
+				61B2317828ABA47C00F46F5E /* Asking.swift in Sources */,
+				61B231A428ABA47C00F46F5E /* Vision_Pipe.swift in Sources */,
 				612C1085286EF54900943603 /* Collections_Tests.swift in Sources */,
-				61E04F3F28756C84001F83E7 /* NFCNDEFTag+Pipe.swift in Sources */,
-				61E04EF728756C84001F83E7 /* CoreBluetooth+Pipe.swift in Sources */,
-				61E04F2B28756C84001F83E7 /* MKGeometry+Piped.swift in Sources */,
+				61B231CA28ABA47D00F46F5E /* CMPedometer+Pipe.swift in Sources */,
+				61B2318628ABA47C00F46F5E /* CBCentralManager+Pipe.swift in Sources */,
+				61B2317628ABA47C00F46F5E /* Expectable.swift in Sources */,
+				61B231C028ABA47D00F46F5E /* CaseIterable_Pipe.swift in Sources */,
+				61B231BE28ABA47D00F46F5E /* Array_Pipe.swift in Sources */,
+				61B231D028ABA47D00F46F5E /* QuartzCore+Pipe.swift in Sources */,
 				612C1086286EF54900943603 /* Math_Tests.swift in Sources */,
-				61E04F2328756C84001F83E7 /* AVCapture.swift in Sources */,
-				61E04F2D28756C84001F83E7 /* Comparable+Pipe.swift in Sources */,
-				61E04EEF28756C84001F83E7 /* CoreImage_Pipe.swift in Sources */,
+				61B231AA28ABA47D00F46F5E /* AVCapture.swift in Sources */,
+				61B231B028ABA47D00F46F5E /* MapKit+Pipe.swift in Sources */,
 				61E04F0328756C84001F83E7 /* Dispatch+Pipe.swift in Sources */,
-				61E04EFD28756C84001F83E7 /* UIKit_Pipe.swift in Sources */,
 				612C1090286EF54900943603 /* NSTextCheckingResult_Tests.swift in Sources */,
-				61E04F2528756C84001F83E7 /* CoreGraphicsMath+pipe.swift in Sources */,
+				61B2317C28ABA47C00F46F5E /* CoreImage_Pipe.swift in Sources */,
+				61B231A228ABA47C00F46F5E /* VNObservation_Pipe.swift in Sources */,
+				61B231C228ABA47D00F46F5E /* CoreNFC+Pipe.swift in Sources */,
 				61E04EED28756C84001F83E7 /* Pipe.swift in Sources */,
-				61E04F1F28756C84001F83E7 /* VNImageRequestHandler_Pipe.swift in Sources */,
-				61E04F2928756C84001F83E7 /* MapKit+Pipe.swift in Sources */,
-				61E04F4928756C84001F83E7 /* QuartzCore+Pipe.swift in Sources */,
-				61E04F1728756C84001F83E7 /* Date_Pipe.swift in Sources */,
-				61E04EF128756C84001F83E7 /* CoreGraphics+Pipe.swift in Sources */,
+				61B2317A28ABA47C00F46F5E /* Expect.swift in Sources */,
 				612C1082286EF54900943603 /* Pipe_Tests.swift in Sources */,
-				61E04EE728756C84001F83E7 /* Expectable.swift in Sources */,
-				61E04F4328756C84001F83E7 /* CMPedometer+Pipe.swift in Sources */,
-				61E04F3528756C84001F83E7 /* Range_Pipe.swift in Sources */,
+				61B2318C28ABA47C00F46F5E /* UIKit_Pipe.swift in Sources */,
+				61B2318028ABA47C00F46F5E /* Pipable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

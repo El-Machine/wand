@@ -25,13 +25,11 @@ import Foundation
 
 /**
  Prepares environment for requesting instance of E
- - Without anything
- - With incoming objects
  */
 protocol Asking {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>)
-    static func key(from: Any?) -> String?
+    static func key(with: Any?, in pipe: Pipe, expect: Expecting) -> String?
 
 }
 
@@ -42,16 +40,33 @@ extension Asking {
      Provide custom key to avoid collisions
 
      - SeeAlso:
-     [Notification.Name]()
+     [Notification_Pipe]()
      */
-    static func key(from: Any?) -> String? {
+    static func key(with: Any?, in pipe: Pipe, expect: Expecting) -> String? {
         nil
     }
 
 }
 
 
+/**
+ Asking `Array` asks `Element`
+ */
+extension Array: Asking where Element: Asking {
 
+    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
+        Element.ask(with: with, in: pipe, expect: expect)
+    }
+
+}
+
+/**
+ Asking instance of E. `with` required
+
+ - SeeAlso:
+ [Notification_Pipe]()
+
+ */
 protocol AskingWith: Asking {
 
     associatedtype With: AskingFrom, RawRepresentable where With.RawValue == String
@@ -61,26 +76,28 @@ protocol AskingWith: Asking {
 extension AskingWith  {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        (with as! With).asking.ask(with: with, in: pipe, expect: expect)
+        (with as? With ?? expect.with as? With)!.ask(in: pipe, expect: expect)
+    }
+
+    static func key(with: Any?, in pipe: Pipe, expect: Expecting) -> String? {
+        (with as? With ?? expect.with as? With)?.rawValue
     }
 
 }
 
 protocol AskingFrom {
 
-    var asking: Asking.Type {get}
+    func ask<E>(in pipe: Pipe, expect: Expect<E>)
 
 }
 
-//Asking Aray asks Element
-extension Array: Asking where Element: Asking {
+/**
+ Looks like your don't implement `Asking` on your type.
+ Also you can provide custom `Asking`.
 
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        Element.ask(with: with, in: pipe, expect: expect)
-    }
-
-}
-
+ - SeeAlso:
+ [NFCNDEFTag_Pipe]()
+ */
 struct UnexpectedAsking: Asking {
 
     static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
@@ -101,6 +118,9 @@ extension WaitAsking {
 
 }
 
+/**
+
+**/
 struct Waiter: WaitAsking {
 
 }
