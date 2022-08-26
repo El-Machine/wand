@@ -24,11 +24,11 @@
 #if canImport(UIKit)
 import UIKit.UIImage
 
-postfix func |(hex: String) -> UIColor? {
+public postfix func |(hex: String) -> UIColor? {
     hex | 1
 }
 
-func |(hex: String, alpha: CGFloat) -> UIColor? {
+public func |(hex: String, alpha: CGFloat) -> UIColor? {
     var string = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     
     if string.hasPrefix("#") {
@@ -48,11 +48,11 @@ func |(hex: String, alpha: CGFloat) -> UIColor? {
                    alpha:   alpha)
 }
 
-func |(color: UIColor, alpha: CGFloat) -> UIColor {
+public func |(color: UIColor, alpha: CGFloat) -> UIColor {
     color.withAlphaComponent(alpha)
 }
 
-postfix func |(p: UInt32) -> UIColor {
+public postfix func |(p: UInt32) -> UIColor {
     UIColor(red:  CGFloat((p & 0xFF0000) >> 16) / 255.0,
             green:  CGFloat((p & 0x00FF00) >> 8) / 255.0,
             blue:  CGFloat((p & 0x0000FF)) / 255.0,

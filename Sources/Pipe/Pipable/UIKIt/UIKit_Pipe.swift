@@ -27,14 +27,14 @@ import UIKit
 //IndexPath
 extension Array {
     
-    static postfix func |(p: Self) -> [IndexPath] {
+    static public postfix func |(p: Self) -> [IndexPath] {
         (0..<p.count)|
     }
 }
 
 extension Range where Bound == Int {
 
-    static postfix func |(p: Self) -> [IndexPath] {
+    static public postfix func |(p: Self) -> [IndexPath] {
         p.map {
             IndexPath(row: $0, section: 0)
         }
@@ -44,7 +44,7 @@ extension Range where Bound == Int {
 
 extension ClosedRange where Bound == Int {
 
-    static postfix func |(p: Self) -> [IndexPath] {
+    static public postfix func |(p: Self) -> [IndexPath] {
         p.map {
             IndexPath(row: $0, section: 0)
         }
@@ -52,26 +52,26 @@ extension ClosedRange where Bound == Int {
 
 }
 
-postfix func |(piped: (row: Int, section: Int)) -> IndexPath {
+public postfix func |(piped: (row: Int, section: Int)) -> IndexPath {
     IndexPath(row: piped.row, section: piped.section)
 }
 
 //UIEdgeInsets
-postfix func |(piped: (top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)) -> UIEdgeInsets {
+public postfix func |(piped: (top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)) -> UIEdgeInsets {
     UIEdgeInsets(top: piped.top,
                  left: piped.left,
                  bottom: piped.bottom,
                  right: piped.right)
 }
 
-postfix func |(piped: (CGFloat)) -> UIEdgeInsets {
+public postfix func |(piped: (CGFloat)) -> UIEdgeInsets {
     UIEdgeInsets(top: piped, left: piped, bottom: piped, right: piped)
 }
 
 //UIView
 extension UIView {
     
-    static postfix func |(p: UIView) -> CGSize {
+    static public postfix func |(p: UIView) -> CGSize {
         p.frame.size
     }
     
@@ -82,13 +82,13 @@ extension UIView {
     
 }
 
-postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> UIView {
+public postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> UIView {
     UIView(frame: CGRect(x: p.0, y: p.1, width: p.2, height: p.3))
 }
 
 extension CGRect {
     
-    static postfix func |(p: Self) -> UIView {
+    static public postfix func |(p: Self) -> UIView {
         UIView(frame: p)
     }
     
@@ -97,7 +97,7 @@ extension CGRect {
 //UITextRange
 extension UITextPosition: Pipable {
     
-    static postfix func |(p: UITextPosition) -> Int {
+    static public postfix func |(p: UITextPosition) -> Int {
         let field: UITextField = p.pipe.get()!
         return field.offset(from: field.beginningOfDocument, to: p)
     }
@@ -105,28 +105,28 @@ extension UITextPosition: Pipable {
 }
 
 //UIBezierPath
-postfix func |(p: CGRect) -> UIBezierPath {
+public postfix func |(p: CGRect) -> UIBezierPath {
     UIBezierPath(rect: p)
 }
 
-postfix func |(p: (rect: CGRect, radius: CGFloat)) -> UIBezierPath {
+public postfix func |(p: (rect: CGRect, radius: CGFloat)) -> UIBezierPath {
     UIBezierPath(roundedRect: p.rect, cornerRadius: p.radius)
 }
 
-postfix func |(p: (rect: CGRect, rounding: UIRectCorner, radii: CGSize)) -> UIBezierPath {
+public postfix func |(p: (rect: CGRect, rounding: UIRectCorner, radii: CGSize)) -> UIBezierPath {
     UIBezierPath(roundedRect: p.rect, byRoundingCorners: p.rounding, cornerRadii: p.radii)
 }
 
 //UIImage
-postfix func |(p: String) -> UIImage {
+public postfix func |(p: String) -> UIImage {
     UIImage(named: p)!
 }
 
-postfix func |(piped: String) -> UIImage? {
+public postfix func |(piped: String) -> UIImage? {
     UIImage(named: piped)
 }
 
-postfix func |(p: String?) -> UIImage? {
+public postfix func |(p: String?) -> UIImage? {
     guard let name = p else {
         return nil
     }
@@ -135,15 +135,15 @@ postfix func |(p: String?) -> UIImage? {
 }
 
 //Animations
-func |(piped: TimeInterval, options: (animations: ()->(), completion: (Bool)->())) {
+public func |(piped: TimeInterval, options: (animations: ()->(), completion: (Bool)->())) {
     UIView.animate(withDuration: piped, animations: options.animations, completion: options.completion)
 }
 
-func |(piped: TimeInterval, animations: @escaping ()->()) {
+public func |(piped: TimeInterval, animations: @escaping ()->()) {
     UIView.animate(withDuration: piped, animations: animations)
 }
 
-func |(piped: (duration: TimeInterval, options: UIView.AnimationOptions),
+public func |(piped: (duration: TimeInterval, options: UIView.AnimationOptions),
        animations: @escaping ()->() ) {
     UIView.animate(withDuration: piped.duration,
                    delay: 0,

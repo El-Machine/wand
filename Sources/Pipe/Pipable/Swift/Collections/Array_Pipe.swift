@@ -25,15 +25,15 @@ import Foundation
 
 extension Array {
 
-    static postfix func |(p: Self) -> Range<Int> {
+    public static postfix func |(p: Self) -> Range<Int> {
         0..<p.count
     }
 
-    static func | (piped: Self, sorted: (Element, Element) -> Bool) -> [Element] {
+    public static func | (piped: Self, sorted: (Element, Element) -> Bool) -> [Element] {
         piped.sorted(by: sorted)
     }
 
-    static func | (piped: Self, sorted: (Element, Element) -> Bool) -> Element? {
+    public static func | (piped: Self, sorted: (Element, Element) -> Bool) -> Element? {
         piped.sorted(by: sorted).first
     }
 
@@ -41,7 +41,7 @@ extension Array {
 
 extension Array where Element: BinaryInteger {
     
-    static postfix func |(p: Self) -> Data {
+    public static postfix func |(p: Self) -> Data {
         Data(p as! [UInt8])
     }
     

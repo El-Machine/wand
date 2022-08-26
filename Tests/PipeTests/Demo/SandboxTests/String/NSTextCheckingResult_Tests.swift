@@ -6,10 +6,10 @@
 //  Copyright © 2022 El Machine. All rights reserved.
 //
 
-
-import XCTest
-
 import Foundation.NSTextCheckingResult
+
+//import Pipe
+import XCTest
 
 class NSTextCheckingResultCheckingType_Tests: XCTestCase {
 

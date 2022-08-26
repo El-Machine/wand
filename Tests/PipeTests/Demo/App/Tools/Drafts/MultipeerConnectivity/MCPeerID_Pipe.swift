@@ -24,33 +24,33 @@
 
 import MultipeerConnectivity
 
-extension MCPeerID: Constructor {
-
-    static func | (piped: Any?, type: MCPeerID.Type) -> Self {
-        let displayName = piped as? String
-                        ?? piped.isPiped?.get(for: "displayName")
-                        ?? UIDevice.current.name
-        return Self(displayName: displayName)
-    }
-
-
-}
-
-extension MCPeerID: AskingWith {
-
-    enum With: String, AskingFrom {
-
-        case found
-        case invitation
-
-        var asking: Asking.Type {
-            switch self {
-                case .found:
-                    return MCNearbyServiceBrowser.self
-                case .invitation:
-                    return MCNearbyServiceAdvertiser.self
-            }
-        }
-    }
-
-}
+//extension MCPeerID: Constructor {
+//
+//    static func | (piped: Any?, type: MCPeerID.Type) -> Self {
+//        let displayName = piped as? String
+//                        ?? piped.isPiped?.get(for: "displayName")
+//                        ?? UIDevice.current.name
+//        return Self(displayName: displayName)
+//    }
+//
+//
+//}
+//
+//extension MCPeerID: AskingWith {
+//
+//    enum With: String, AskingFrom {
+//
+//        case found
+//        case invitation
+//
+//        var asking: Asking.Type {
+//            switch self {
+//                case .found:
+//                    return MCNearbyServiceBrowser.self
+//                case .invitation:
+//                    return MCNearbyServiceAdvertiser.self
+//            }
+//        }
+//    }
+//
+//}

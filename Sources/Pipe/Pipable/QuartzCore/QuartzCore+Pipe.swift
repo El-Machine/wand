@@ -24,7 +24,7 @@
 import QuartzCore
 
 //CALayer
-postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> CALayer {
+public postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> CALayer {
     let layer = CALayer()
     layer.frame = CGRect(x: p.0, y: p.1, width: p.2, height: p.3)
     return layer

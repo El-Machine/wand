@@ -5,17 +5,17 @@
 //  Created by Alex Kozin on 01.07.2022.
 //
 
-import CoreLocation
 import UIKit
-import MultipeerConnectivity
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let pipe: Pipe = ["serviceType": "example-service"]
-        var session: MCSession!
+
+
+//        let pipe: Pipe = ["serviceType": "example-service"]
+//        var session: MCSession!
 
 //        pipe | .every(.invitationFrom) { (peer: MCPeerID) in
 //
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 //
 //        }
 
-        session = pipe.get()
+//        session = pipe.get()
 
     }
 

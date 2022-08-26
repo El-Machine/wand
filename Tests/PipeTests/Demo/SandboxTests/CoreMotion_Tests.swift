@@ -24,6 +24,7 @@
 
 import CoreMotion
 
+//import Pipe
 import XCTest
 
 class CoreMotion_Tests: XCTestCase {

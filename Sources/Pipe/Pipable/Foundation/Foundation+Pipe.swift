@@ -24,15 +24,15 @@
 import Foundation
 
 //NSRange
-postfix func |(p: (loc: Int, len: Int)) -> NSRange {
+public postfix func |(p: (loc: Int, len: Int)) -> NSRange {
     NSMakeRange(p.loc, p.len)
 }
 
 //IndexSet
-postfix func |(p: Int) -> IndexSet {
+public postfix func |(p: Int) -> IndexSet {
     IndexSet(integer: p)
 }
 
-postfix func |<S>(p: S) -> IndexSet where S: Sequence, S.Element == Int {
+public postfix func |<S>(p: S) -> IndexSet where S: Sequence, S.Element == Int {
     IndexSet(p)
 }

@@ -23,11 +23,11 @@
 
 import Foundation
 
-postfix func |(p: URL) -> Data? {
+public postfix func |(p: URL) -> Data? {
     try? Data(contentsOf: p)
 }
 
-postfix func |(p: URL?) -> Data? {
+public postfix func |(p: URL?) -> Data? {
     guard let url = p else {
         return nil
     }
@@ -35,10 +35,21 @@ postfix func |(p: URL?) -> Data? {
     return url|
 }
 
-postfix func |(p: String) -> Data {
+public postfix func |(p: String) -> Data {
     p.data(using: .utf8)!
 }
 
-func |(p: String, encoding: String.Encoding) -> Data {
+public func |(p: String, encoding: String.Encoding) -> Data {
     p.data(using: encoding)!
+}
+
+extension Data: Expectable {
+
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+        if let task = piped as? URLSessionDataTask {
+            task.resume()
+        }
+    }
+
+
 }

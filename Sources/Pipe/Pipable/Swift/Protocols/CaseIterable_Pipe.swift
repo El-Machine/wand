@@ -25,7 +25,7 @@ import Swift
 
 extension CaseIterable {
 
-    static postfix func |(piped: Self.Type) -> Self {
+    static public postfix func |(piped: Self.Type) -> Self {
         allCases.randomElement()!
     }
 

@@ -10,16 +10,16 @@ import Foundation
 
 /**Pipable
 
- postfix |(data: Data) -> some PipeModel
- postfix |(raw: Dictionary) -> some PipeModel
+ postfix |(data: Data) -> some RestModel
+ postfix |(raw: Dictionary) -> some RestModel
 
- infix | (url: URL, reply: (some PipeModel)->() ) -> Pipe
+ infix | (url: URL, reply: (some RestModel)->() ) -> Pipe
 
  */
 
 extension Data {
 
-    static postfix func |<T: PipeModel>(data: Data) throws -> T {
+    static public postfix func |<T: RestModel>(data: Data) throws -> T {
         return try JSONDecoder().decode(T.self, from: data)
     }
 
@@ -27,25 +27,12 @@ extension Data {
 
 extension Dictionary {
 
-    static postfix func |(p: Self) -> Data {
+    static public postfix func |(p: Self) -> Data {
         try! JSONSerialization.data(withJSONObject: p, options: [])
     }
 
-    static postfix func |<T: PipeModel>(raw: Self) throws -> T {
+    static public postfix func |<T: RestModel>(raw: Self) throws -> T {
         try JSONDecoder().decode(T.self, from: raw|)
     }
 
-}
-
-func |<T: PipeModel> (url: URL, handler: @escaping (T)->() ) -> Pipe {
-    var pipe: Pipe!
-    pipe = url | { (data: Data) in
-        do {
-            try handler(data|)
-        } catch(let e) {
-            pipe.put(e)
-        }
-    }
-
-    return pipe
 }

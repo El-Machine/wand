@@ -40,12 +40,12 @@ postfix func |(p: Data?) -> String? {
 }
 
 //Data String.Encoding
-func |(p: Data, encoding: String.Encoding) -> String {
+public func |(p: Data, encoding: String.Encoding) -> String {
     String(data: p, encoding: encoding)!
 }
 
 
-func |(p: Data?, encoding: String.Encoding) -> String {
+public func |(p: Data?, encoding: String.Encoding) -> String {
     guard let piped = p else {
         return ""
     }
@@ -53,7 +53,7 @@ func |(p: Data?, encoding: String.Encoding) -> String {
 }
 
 
-func |(p: Data?, encoding: String.Encoding) -> String? {
+public func |(p: Data?, encoding: String.Encoding) -> String? {
     guard let piped = p else {
         return nil
     }
@@ -69,7 +69,7 @@ postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     return String(piped)
 }
 
-postfix func |<T>(p: T?) -> String {
+public postfix func |<T>(p: T?) -> String {
     guard let piped = p else {
         return ""
     }
@@ -77,23 +77,23 @@ postfix func |<T>(p: T?) -> String {
     return String(describing: piped)
 }
 
-postfix func |<T>(p: T) -> String {
+public postfix func |<T>(p: T) -> String {
     String(describing: p)
 }
 
 extension Substring {
 
-    static prefix func |(sub: Substring) -> String {
+    public static prefix func |(sub: Substring) -> String {
         String(sub)
     }
 
 }
 
-prefix func |(self: String?) -> String {
+public prefix func |(self: String?) -> String {
     self ?? ""
 }
 
-func |(p: String?, filtering: CharacterSet) -> String? {
+public func |(p: String?, filtering: CharacterSet) -> String? {
     guard let piped = p else {
         return nil
     }
@@ -101,53 +101,53 @@ func |(p: String?, filtering: CharacterSet) -> String? {
     return (piped | filtering) as String
 }
 
-func |(p: String, filtering: CharacterSet) -> String {
+public func |(p: String, filtering: CharacterSet) -> String {
     String(p.unicodeScalars.filter {
-        !filtering.contains($0)
+        filtering.contains($0)
     })
 }
 
 //Substring
-func |(p: String, range: PartialRangeThrough<String.IndexDistance>) -> String {
+public func |(p: String, range: PartialRangeThrough<String.IndexDistance>) -> String {
     String(p.suffix(range.upperBound))
 }
 
-func |(p: String, range: PartialRangeFrom<String.IndexDistance>) -> String {
+public func |(p: String, range: PartialRangeFrom<String.IndexDistance>) -> String {
     String(p.prefix(range.lowerBound))
 }
 
-func |(p: String, range: Range<String.IndexDistance>) -> String {
+public func |(p: String, range: Range<String.IndexDistance>) -> String {
     let from = p.index(p.startIndex, offsetBy: range.lowerBound)
     let to = p.index(p.startIndex, offsetBy: range.upperBound)
 
     return p | (from..<to)
 }
 
-func |(p: String, range: Range<String.Index>) -> String {
+public func |(p: String, range: Range<String.Index>) -> String {
     String(p[range])
 }
 
 //Replace
-func |(p: String, replace: (bounds: Range<String.IndexDistance>, to: String)) -> String {
+public func |(p: String, replace: (bounds: Range<String.IndexDistance>, to: String)) -> String {
     let from = p.index(p.startIndex, offsetBy: replace.bounds.lowerBound)
     let to = p.index(p.startIndex, offsetBy:  replace.bounds.upperBound)
 
     return p | (bounds: from..<to, to: replace.to)
 }
 
-func |(p: String, replace: (bounds: Range<String.Index>, to: String)) -> String {
+public func |(p: String, replace: (bounds: Range<String.Index>, to: String)) -> String {
     var piped = p
     piped.replaceSubrange(replace.0, with: replace.1)
     return piped
 }
 
-func |(p: String, replace: (ClosedRange<String.Index>, String)) -> String {
+public func |(p: String, replace: (ClosedRange<String.Index>, String)) -> String {
     var piped = p
     piped.replaceSubrange(replace.0, with: replace.1)
     return piped
 }
 
-func |(p: String, range: NSRange) -> String {
+public func |(p: String, range: NSRange) -> String {
     let from = p.index(p.startIndex, offsetBy: range.lowerBound)
     let to = p.index(p.startIndex, offsetBy: range.upperBound)
 
@@ -158,14 +158,14 @@ postfix func |(piped: NSRange) -> Range<Int> {
     Range(uncheckedBounds: (piped.lowerBound, piped.upperBound))
 }
 
-func |(p: String, range: NSRange) -> Range<String.Index> {
+public func |(p: String, range: NSRange) -> Range<String.Index> {
     let from = p.index(p.startIndex, offsetBy: range.lowerBound)
     let to = p.index(p.startIndex, offsetBy: range.upperBound)
 
     return (from..<to)
 }
 
-func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
+public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
     var string = piped
 
     let range: Range<String.Index> = string | replace.bounds
@@ -173,11 +173,11 @@ func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
     return string
 }
 
-func |(piped: String?, range: PartialRangeFrom<String.IndexDistance>?) -> (String, String)? {
+public func |(piped: String?, range: PartialRangeFrom<String.IndexDistance>?) -> (String, String)? {
     piped == nil || range == nil ? nil
     : piped! | range!
 }
 
-func |(piped: String, range: PartialRangeFrom<String.IndexDistance>) -> (String, String) {
+public func |(piped: String, range: PartialRangeFrom<String.IndexDistance>) -> (String, String) {
     (String(piped.prefix(range.lowerBound)), String(piped.suffix(piped.count - range.lowerBound)))
 }

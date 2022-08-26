@@ -23,20 +23,20 @@
 
 import AVFoundation
 
-typealias Resource = (resource: String, extension: String)
+public typealias Resource = (resource: String, extension: String)
 
-postfix func | (piped: Resource) -> AVPlayerLayer {
+public postfix func | (piped: Resource) -> AVPlayerLayer {
     AVPlayerLayer(player: piped|)
 }
 
-postfix func | (piped: AVPlayer) -> AVPlayerLayer {
+public postfix func | (piped: AVPlayer) -> AVPlayerLayer {
     AVPlayerLayer(player: piped)
 }
 
-postfix func | (piped: Resource) -> AVPlayer {
+public postfix func | (piped: Resource) -> AVPlayer {
     AVPlayer(url: piped|)
 }
 
-postfix func | (piped: Resource) -> URL {
+public postfix func | (piped: Resource) -> URL {
     Bundle.main.url(forResource: piped.resource, withExtension: piped.extension)!
 }

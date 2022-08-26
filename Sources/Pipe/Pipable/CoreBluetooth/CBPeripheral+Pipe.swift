@@ -23,10 +23,15 @@
 
 import CoreBluetooth.CBPeripheral
 
-extension CBPeripheral: Asking {
+extension CBPeripheral: Expectable {
 
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        let source = with as? CBCentralManager ?? pipe.get()
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+
+        guard pipe.start(expecting: expectation) else {
+            return
+        }
+
+        let source = piped as? CBCentralManager ?? pipe.get()
         source.retrievePeripherals(withIdentifiers: [])
         source | .while { (status: CBManagerState) -> Bool in
             guard status == .poweredOn else {
@@ -39,7 +44,7 @@ extension CBPeripheral: Asking {
             return false
         }
 
-        expect.cleaner = {
+        expectation.cleaner = {
             source.stopScan()
         }
     }

@@ -7,16 +7,16 @@
 //
 
 import CoreLocation.CLLocation
-import Pipe
 
+//import Pipe
 import XCTest
 
 class Pipe_Tests: XCTestCase {
 
-    weak var pipe: Pipe?
+    weak var pipe: Pipeline?
 
     func test_put() throws {
-        let pipe = Pipe()
+        let pipe = Pipeline()
         self.pipe = pipe
 
         let struct_ = CLLocationCoordinate2D.any
@@ -49,7 +49,7 @@ class Pipe_Tests: XCTestCase {
     }
 
     func test_putPipable() throws {
-        let pipe = Pipe()
+        let pipe = Pipeline()
         self.pipe = pipe
 
         let original = CLLocation(latitude: (-90...90)|,

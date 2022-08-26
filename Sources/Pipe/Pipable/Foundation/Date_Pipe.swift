@@ -25,11 +25,11 @@ import Foundation
 
 extension Date {
 
-    static postfix func |(piped: Date.Type) -> Int {
+    static public postfix func |(piped: Date.Type) -> Int {
         Int(Date().timeIntervalSince1970)
     }
 
-    static postfix func |(piped: Date.Type) -> TimeInterval {
+    static public postfix func |(piped: Date.Type) -> TimeInterval {
         Date().timeIntervalSince1970
     }
 
@@ -52,11 +52,11 @@ extension Date {
 }
 
 //DateComponents
-postfix func | (piped: DateComponents) -> Date? {
+public postfix func | (piped: DateComponents) -> Date? {
     Calendar.current.date(from: piped)
 }
 
-func | (date: Date?, format: String) -> String {
+public func | (date: Date?, format: String) -> String {
     if let date = date {
         return date | format
     }

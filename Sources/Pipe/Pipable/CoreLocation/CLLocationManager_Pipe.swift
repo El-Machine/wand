@@ -23,10 +23,19 @@
 
 import CoreLocation.CLLocation
 
-extension CLLocationManager: Constructor {
-    
-    static func | (piped: Any?, type: CLLocationManager.Type) -> Self {
-        let pipe = piped.pipe
+/**Pipe.Constructable
+
+ postfix |(piped: Any?) -> CLLocationManager
+
+ #Usage
+ ```
+ let pedometer: CLLocationManager = nil|
+ ```
+
+ */
+extension CLLocationManager: Constructable {
+
+    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
 
         let delegate = pipe.put(Delegate())
 
@@ -35,7 +44,7 @@ extension CLLocationManager: Constructor {
         source.desiredAccuracy = pipe.get(for: "CLLocationAccuracy") ?? kCLLocationAccuracyThreeKilometers
         source.distanceFilter = pipe.get(for: "CLLocationDistance") ?? 100
         
-        return pipe.put(source)
+        return source
     }
     
 }

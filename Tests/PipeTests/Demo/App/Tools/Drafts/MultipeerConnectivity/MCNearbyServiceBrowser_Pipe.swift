@@ -24,43 +24,43 @@
 
 import MultipeerConnectivity.MCNearbyServiceBrowser
 
-extension MCNearbyServiceBrowser: Constructor {
-
-    static func |(piped: Any?, type: MCNearbyServiceBrowser.Type) -> Self {
-        let pipe = piped.pipe
-
-        let peer = piped as? MCPeerID ?? pipe.get()
-        let service: String = pipe.get(for: "serviceType")!
-
-        let source = Self(peer: peer, serviceType: service)
-        source.delegate = pipe.put(Delegate())
-        return source
-    }
-
-}
-
-extension MCNearbyServiceBrowser: Asking {
-
-        static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-            (pipe.get() as Self).startBrowsingForPeers()
-        }
-    }
-
-extension MCNearbyServiceBrowser {
-
-    class Delegate: NSObject, MCNearbyServiceBrowserDelegate, Pipable {
-
-        func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-            if let info = info {
-                isPiped?.put(info)
-            }
-            isPiped?.put(peerID, key: MCPeerID.With.found.rawValue)
-        }
-
-        func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-            isPiped?.put(peerID, key: "lostPeer")
-        }
-
-    }
-
-}
+//extension MCNearbyServiceBrowser: Constructor {
+//
+//    static func |(piped: Any?, type: MCNearbyServiceBrowser.Type) -> Self {
+//        let pipe = piped.pipe
+//
+//        let peer = piped as? MCPeerID ?? pipe.get()
+//        let service: String = pipe.get(for: "serviceType")!
+//
+//        let source = Self(peer: peer, serviceType: service)
+//        source.delegate = pipe.put(Delegate())
+//        return source
+//    }
+//
+//}
+//
+//extension MCNearbyServiceBrowser: Asking {
+//
+//        static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
+//            (pipe.get() as Self).startBrowsingForPeers()
+//        }
+//    }
+//
+//extension MCNearbyServiceBrowser {
+//
+//    class Delegate: NSObject, MCNearbyServiceBrowserDelegate, Pipable {
+//
+//        func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+//            if let info = info {
+//                isPiped?.put(info)
+//            }
+//            isPiped?.put(peerID, key: MCPeerID.With.found.rawValue)
+//        }
+//
+//        func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+//            isPiped?.put(peerID, key: "lostPeer")
+//        }
+//
+//    }
+//
+//}

@@ -21,17 +21,17 @@
 //  Created by Alex Kozin
 //
 
-protocol Pipable {
+public protocol Pipable {
 
     var pipe: Pipe {get}
     var isPiped: Pipe? {get}
 
 }
 
-extension Pipable {
+public extension Pipable {
     
     var pipe: Pipe {
-        isPiped ?? Pipe(self)
+        isPiped ?? Pipe(object: self)
     }
     
     var isPiped: Pipe? {

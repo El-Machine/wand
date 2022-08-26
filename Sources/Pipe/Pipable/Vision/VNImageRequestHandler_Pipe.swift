@@ -26,10 +26,9 @@ import CoreImage.CIImage
 
 import Vision.VNRequest
 
-extension VNImageRequestHandler: Constructor {
+extension VNImageRequestHandler: Constructable {
 
-    static func |(piped: Any?, type: VNImageRequestHandler.Type) -> Self {
-        let pipe = piped.pipe
+    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
 
         let orientation: CGImagePropertyOrientation = pipe.get() ?? .up
         let options: [VNImageOption : Any] = pipe.get() ?? [:]

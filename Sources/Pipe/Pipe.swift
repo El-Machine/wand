@@ -21,7 +21,21 @@
 //  Created by Alex Kozin
 //
 
-final class Pipe {
+/// Pipe.Expectable
+///
+///
+/// func get<T>() -> T
+/// func get<T>(key: String) -> T
+///
+/// func put<T>(object: T) -> T
+/// func put<T>(object: T, key: String) -> T
+///
+/// func start<E: Expectable>(expecting: Expect<E>) -> isFirst
+/// func start<E: Expectable>(expecting: Expect<E>, key: String) -> isFirst
+///
+///
+///
+public final class Pipe {
 
     internal static var all = [String: Pipe]()
     internal static subscript<P>(p: P) -> Pipe? {
@@ -35,9 +49,10 @@ final class Pipe {
         }
     }
     
-    lazy var piped: [String: Any] = ["Pipe": self]
+    public private(set) lazy var piped: [String: Any] = ["Pipe": self]
+    lazy var expectations = [String: [Any]]()
 
-    func close() {
+    public func close() {
         close(last: self)
     }
 
@@ -72,6 +87,7 @@ final class Pipe {
         }
 
         piped.removeAll()
+        expectations.removeAll()
 
         Pipe.all = Pipe.all.filter {
             $1 !== self
@@ -79,7 +95,7 @@ final class Pipe {
     }
 
 
-//    #if TESTING
+    #if TESTING
     
         init() {
             print("|💪🏽 #init\n\(self)")
@@ -90,53 +106,69 @@ final class Pipe {
             print("|✅ #bonsua\n\(self)\n")
         }
 
-//    #endif
+    #endif
     
 }
 
-typealias Pipeline = Pipe
+public typealias Pipeline = Pipe
 
-extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
+//Get
+extension Pipe {
 
-    typealias ArrayLiteralElement = Any
-
-    typealias Key = String
-    typealias Value = Any
-
-    convenience init(_ object: Any?) {
-        if let object = object {
-            self.init(object)
-        } else {
-            self.init()
-        }
-
+    public func get<T>(or create: @autoclosure ()->(T)) -> T {
+        get() ?? put(create())
     }
 
-    convenience init(_ object: Any) {
-        self.init()
-
-        switch object {
-            case let dictionary as [String: Any]:
-                self.init(dictionary)
-            case let array as [Any]:
-                self.init(array)
-
-            default:
-                self.init(object)
-
-        }
+    public func get<T>(for key: String? = nil) -> T? {
+        piped[key ?? T.self|] as? T
     }
 
-    convenience init<P>(_ object: P) {
-        self.init()
+}
 
+//Put
+extension Pipe {
+
+    @discardableResult
+    public func put<T>(_ object: T, key: String? = nil) -> T {
+
+        let key = key ?? T.self|
         Pipe[object] = self
-        piped[P.self|] = object
+
+        piped.updateValue(object, forKey: key)
+
+        //Make events happens
+        var inner = true
+
+        let stored = expectations[key] as? [Expect<T>]
+        expectations[key] = stored?.filter {
+            if inner && !$0.isInner {
+                inner = false
+            }
+
+            return $0.handler(object)
+        }
+
+        //Handle not inner expectations
+        guard !inner else {
+            return object
+        }
+        if stored?.isEmpty == false {
+            (expectations[Any.self|] as? [Expect<Any>])?.forEach {
+                _ = $0.handler(object)
+            }
+        }
+
+        closeIfNeed(last: object)
+
+        return object
     }
 
-    convenience init(_ array: [Any]) {
-        self.init()
+    public static func |(pipe: Pipe, array: Array<Any>) -> Pipe {
+        pipe.store(array)
+        return pipe
+    }
 
+    public func store(_ array: Array<Any>) {
         array.forEach {
             let key: String
             let object: Any
@@ -154,20 +186,49 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
-    convenience init(_ dictionary: [String: Any]) {
+}
+
+
+//Expect
+extension Pipe {
+
+    public func start<E>(expecting expectation: Expect<E>,
+                  key: String = E.self|) -> Bool {
+
+        let stored = expectations[key]
+        let isFirst = stored == nil
+        expectations[key] = (stored ?? []) + [expectation]
+
+        return isFirst
+    }
+
+}
+
+extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
+
+    public typealias ArrayLiteralElement = Any
+
+    public typealias Key = String
+    public typealias Value = Any
+
+    convenience init<P>(object: P) {
         self.init()
 
-        dictionary.forEach { (key, object) in
-            Pipe[object] = self
-            piped[key] = object
-        }
+        Pipe[piped] = self
+        piped[P.self|] = object
     }
 
-    convenience init(arrayLiteral elements: Any...) {
-        self.init(elements)
+    public convenience init(arrayLiteral elements: Any...) {
+        self.init(array: elements)
     }
 
-    convenience init(dictionaryLiteral elements: (String, Any)...) {
+    public convenience init(array: [Any]) {
+        self.init()
+
+        store(array)
+    }
+
+    public convenience init(dictionaryLiteral elements: (String, Any)...) {
         self.init()
 
         elements.forEach { (key, object) in
@@ -176,84 +237,52 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
+    public convenience init(dictionary: [String: Any]) {
+        self.init()
+
+        dictionary.forEach { (key, object) in
+            Pipe[object] = self
+            piped[key] = object
+        }
+    }
+
+    public static func attach<T>(to object: T) -> Pipe {
+
+        if let pipable = object as? Pipable {
+            return pipable.pipe
+        }
+
+        if let piped = Pipe[self] {
+            return piped
+        }
+
+        return Pipe(object: object)
+    }
+
 }
 
 extension Pipe: Pipable {
 
-    var isPiped: Pipe? {
+    public var isPiped: Pipe? {
         self
     }
 
 }
 
-extension Pipe: Asking {
+extension Pipe: CustomStringConvertible, CustomDebugStringConvertible {
 
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
+    public var description: String {
+        "<Pipe \(Unmanaged.passUnretained(self).toOpaque()|)>"
     }
 
-}
-
-extension Pipe: CustomDebugStringConvertible {
     
-    var debugDescription: String {
+    public var debugDescription: String {
             """
-            <Pipe \(Unmanaged.passUnretained(self).toOpaque()|)> for
+            \(description)
+            expectations:
             \(expectations.keys)
             >
             """
     }
     
-}
-
-//Get
-extension Pipe {
-    
-    func get<E>(or create: @autoclosure ()->(E)) -> E {
-        get() ?? put(create())
-    }
-    
-    func get<E>(for key: String? = nil) -> E? {
-        piped[key ?? E.self|] as? E
-    }
-
-    static postfix func |<E>(pipe: Pipe) -> E? {
-        pipe.get()
-    }
-    
-}
-
-//Put
-extension Pipe {
-
-    @discardableResult
-    func put<E>(_ object: E, key: String? = nil) -> E {
-        let key = key ?? E.self|
-        Pipe[object] = self
-
-        piped.updateValue(object, forKey: key)
-
-        //Make events happens
-        var inner = true
-        expectations[key] = (expectations[key] as? [Expect<E>])?.filter {
-            if inner && !$0.isInner {
-                inner = false
-            }
-
-            return $0.handler(object)
-        }
-
-        //Handle not inner expectations
-        guard !inner else {
-            return object
-        }
-
-        (expectations[Any.self|] as? [Expect<Any>])?.forEach {
-            _ = $0.handler(object)
-        }
-
-        closeIfNeed(last: object)
-
-        return object
-    }
-
 }

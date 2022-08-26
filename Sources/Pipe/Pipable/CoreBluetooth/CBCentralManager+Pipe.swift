@@ -23,18 +23,13 @@
 
 import CoreBluetooth.CBCentralManager
 
-extension CBCentralManager: Constructor {
-    
-    static func | (piped: Any?, type: CBCentralManager.Type) -> Self {
-        let pipe = piped.pipe
+extension CBCentralManager: Constructable {
 
-        let delegate = pipe.put(Delegate())
-        let source = Self(delegate: delegate,
-                          queue: pipe.get(),
-                          options: pipe.get(for: "CBCentralManagerOptions"))
-        pipe.put(source)
+    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
 
-        return source
+        Self(delegate: pipe.put(Delegate()),
+                    queue: pipe.get(),
+                    options: pipe.get(for: "CBCentralManagerOptions"))
     }
     
     class Delegate: NSObject, CBCentralManagerDelegate, Pipable {
@@ -60,13 +55,22 @@ extension CBCentralManager: Constructor {
         }
         
         func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+
+            if let error = error {
+                isPiped?.put(error)
+                return
+            }
+
             isPiped?.put(peripheral, key: "didDisconnectPeripheral")
-            //, error: error)
         }
         
         func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+            if let error = error {
+                isPiped?.put(error)
+                return
+            }
+
             isPiped?.put(peripheral.services)
-            //, error: error)
         }
         
     }

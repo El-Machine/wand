@@ -61,9 +61,7 @@ extension Float: BoundedAny {
     }
 
     static func any(in bounds: ClosedRange<Self>) -> Self {
-        let r = Self.random(in: bounds)
-        print(r)
-        return r
+        .random(in: bounds)
     }
 
 }

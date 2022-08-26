@@ -22,6 +22,7 @@
 //  2020 El Machine
 //
 
+//import Pipe
 import XCTest
 
 class Collections_Tests: XCTestCase {

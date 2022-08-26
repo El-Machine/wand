@@ -24,7 +24,7 @@
 
 import MapKit
 
-postfix func | (piped: MKMapRect) -> MKPolygon {
+public postfix func | (piped: MKMapRect) -> MKPolygon {
     let first = piped.origin
     let size = piped.size
 

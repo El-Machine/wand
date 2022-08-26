@@ -22,6 +22,7 @@
 //  2020 El Machine
 //
 
+//import Pipe
 import XCTest
 
 import CoreLocation
@@ -50,7 +51,7 @@ class CoreLocation_Tests: XCTestCase {
             kCLLocationAccuracyThreeKilometers
         ])
 
-        let pipe: Pipe = ["CLLocationAccuracy": accuracy,
+        let pipe: Pipeline = ["CLLocationAccuracy": accuracy,
                           "CLLocationDistance": Double.any]
         let piped = pipe.piped
 
@@ -71,7 +72,7 @@ class CoreLocation_Tests: XCTestCase {
     func test_CLAuthorizationStatus() {
         let e = expectation()
 
-        |{ (location: CLAuthorizationStatus) in
+        |{ (status: CLAuthorizationStatus) in
             e.fulfill()
         }
 

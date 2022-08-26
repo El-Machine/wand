@@ -8,6 +8,8 @@
 
 import CoreLocation
 import CoreMotion
+
+//import Pipe
 import XCTest
 
 class Expect_Any_Tests: XCTestCase {
@@ -28,18 +30,18 @@ class Expect_Any_Tests: XCTestCase {
         let e = expectation(description: "event.any")
         e.expectedFulfillmentCount = 2
 
-        var pipe: Pipe!
-        pipe = CLLocation.one | CMPedometerEvent.one | .all { _ in
+        var pipe: Pipeline!
+        pipe = (CLLocation.one | CMPedometerEvent.one | .all { _ in
 
-            if let piped: CLLocation = pipe| {
+            if let piped: CLLocation = pipe.get() {
                 e.fulfill()
             }
 
-            if let piped: CMPedometerEvent = pipe| {
+            if let piped: CMPedometerEvent = pipe.get() {
                 e.fulfill()
             }
 
-        }
+        })
 
         waitForExpectations()
     }

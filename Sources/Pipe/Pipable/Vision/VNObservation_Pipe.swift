@@ -22,11 +22,61 @@
 //
 
 import CoreMedia.CMSampleBuffer
-
 import Vision.VNObservation
 
+/// Pipe.Expectable
+///
+/// prefix |<E: VNObservation> (handler: (E)->() )
+///
+/// #Usage
+/// ```
+///
+///   |{ (hands: [VNHumanHandPoseObservation]) in
+///
+///   }
+///
+///   URL(string: "http://example.com/image.jpg") | { (faces: [VNFaceObservation]) in
+///
+///   }
+///
+///   data | .while { (bodies: [VNHumanBodyPoseObservation]) in
+///     bodies < 2
+///   }
+/// ```
+///
+protocol VisionObservationExpectable: ExpectableWithout {
+
+    associatedtype Request: VNRequest
+
+}
+
+extension VisionObservationExpectable {
+
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+
+        let perform = { (handler: VNImageRequestHandler) in
+            let request = piped as? Request ?? pipe.get()
+
+            try! handler.perform([request])
+            if let results = request.results {
+                pipe.put(results as! [Self])
+            }
+        }
+
+        //There is request handler already?
+        if let handler = piped as? VNImageRequestHandler ?? pipe.get() {
+            perform(handler)
+        } else {
+            //Otherwise wait for buffer
+            pipe | { (buffer: CMSampleBuffer) in
+                perform(buffer|)
+            }
+        }
+    }
+
+}
 @available(iOS 14.0, *)
-extension VNHumanHandPoseObservation: VisionObservationAsking {
+extension VNHumanHandPoseObservation: VisionObservationExpectable {
 
     typealias Request = VNDetectHumanHandPoseRequest
 
@@ -39,55 +89,22 @@ extension VNHumanHandPoseObservation: VisionObservationAsking {
 }
 
 @available(iOS 14.0, *)
-extension VNHumanBodyPoseObservation: VisionObservationAsking {
+extension VNHumanBodyPoseObservation: VisionObservationExpectable {
 
     typealias Request = VNDetectHumanBodyPoseRequest
 
 }
 
 @available(iOS 14.0, *)
-extension VNFaceObservation: VisionObservationAsking {
+extension VNFaceObservation: VisionObservationExpectable {
 
     typealias Request = VNDetectFaceRectanglesRequest
 
 }
 
 @available(iOS 14.0, *)
-extension VNClassificationObservation: VisionObservationAsking {
+extension VNClassificationObservation: VisionObservationExpectable {
 
     typealias Request = VNClassifyImageRequest
-
-}
-
-//Asking
-protocol VisionObservationAsking: Asking {
-
-    associatedtype Request: VNRequest
-
-}
-
-extension VisionObservationAsking {
-
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-
-        let perform = { (handler: VNImageRequestHandler) in
-            let request = with as? Request ?? pipe.get()
-
-            try! handler.perform([request])
-            if let results = request.results {
-                pipe.put(results as! [Self])
-            }
-        }
-
-        //There is request handler already?
-        if let handler = with as? VNImageRequestHandler ?? pipe.get() {
-            perform(handler)
-        } else {
-            //Otherwise wait for buffer
-            pipe | { (buffer: CMSampleBuffer) in
-                perform(buffer|)
-            }
-        }
-    }
 
 }

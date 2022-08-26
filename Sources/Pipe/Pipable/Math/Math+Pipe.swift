@@ -25,7 +25,7 @@ import Foundation
 
 extension Bool {
     
-    static postfix func |<T: Numeric> (p: Self) -> T {
+    static public postfix func |<T: Numeric> (p: Self) -> T {
         p ? 1 : 0
     }
 
@@ -33,7 +33,7 @@ extension Bool {
 
 extension Double {
     
-    static postfix func |(p: Self) -> Float {
+    static public postfix func |(p: Self) -> Float {
         Float(p)
     }
     
@@ -41,20 +41,20 @@ extension Double {
 
 extension String {
     
-    static postfix func |(self: Self) -> Int? {
+    static public postfix func |(self: Self) -> Int? {
         Int(self) ?? Int(String(self.unicodeScalars.filter(CharacterSet.decimalDigits.inverted.contains)))
     }
     
-    static postfix func |(self: Self) -> Int {
+    static public postfix func |(self: Self) -> Int {
         (self|)!
     }
     
 }
     
-postfix func |<T: BinaryFloatingPoint>(p: T) -> Int {
+public postfix func |<T: BinaryFloatingPoint>(p: T) -> Int {
     Int(p)
 }
 
-postfix func |(piped: String?) -> Double? {
+public postfix func |(piped: String?) -> Double? {
     Double(piped ?? "")
 }

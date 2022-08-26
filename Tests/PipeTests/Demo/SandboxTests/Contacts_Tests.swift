@@ -24,6 +24,7 @@
 
 import Contacts
 
+//import Pipe
 import XCTest
 
 class Contacts_Tests: XCTestCase {

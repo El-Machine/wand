@@ -21,7 +21,7 @@
 //  Created by Alex Kozin
 //
 
-extension Range where Bound: FixedWidthInteger {
+public extension Range where Bound: FixedWidthInteger {
     
     static postfix func |(p: Self) -> Bound {
         .random(in: p)
@@ -29,7 +29,7 @@ extension Range where Bound: FixedWidthInteger {
     
 }
 
-extension Range where Bound: BinaryFloatingPoint,
+public extension Range where Bound: BinaryFloatingPoint,
                       Bound.RawSignificand: FixedWidthInteger {
     
     static postfix func |(p: Self) -> Bound {
@@ -38,7 +38,7 @@ extension Range where Bound: BinaryFloatingPoint,
     
 }
 
-extension ClosedRange where Bound: FixedWidthInteger {
+public extension ClosedRange where Bound: FixedWidthInteger {
     
     static postfix func |(p: Self) -> Bound {
         .random(in: p)
@@ -46,7 +46,7 @@ extension ClosedRange where Bound: FixedWidthInteger {
     
 }
 
-extension ClosedRange where Bound: BinaryFloatingPoint,
+public extension ClosedRange where Bound: BinaryFloatingPoint,
                             Bound.RawSignificand: FixedWidthInteger {
     
     static postfix func |(p: Self) -> Bound {

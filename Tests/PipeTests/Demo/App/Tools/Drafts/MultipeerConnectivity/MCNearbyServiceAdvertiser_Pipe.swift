@@ -24,44 +24,44 @@
 
 import MultipeerConnectivity
 
-extension MCNearbyServiceAdvertiser: Constructor {
-    
-    static func | (piped: Any?, type: MCNearbyServiceAdvertiser.Type) -> Self {
-        let pipe = piped.pipe
-
-        let peer = (piped as? MCPeerID) ?? pipe.get()
-        let service = (piped as? String) ?? pipe.get(for: "serviceType")!
-        let source = Self(peer: peer,
-                          discoveryInfo: pipe.get(),
-                          serviceType: service)
-        source.delegate = pipe.put(Delegate())
-
-        return source
-    }
-
-}
-
-extension MCNearbyServiceAdvertiser: Asking {
-
-    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
-        (pipe.get() as Self).startAdvertisingPeer()
-    }
-}
-
-extension MCNearbyServiceAdvertiser {
-
-    class Delegate: NSObject, MCNearbyServiceAdvertiserDelegate, Pipable {
-
-        func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-            isPiped?.put(invitationHandler)
-            isPiped?.put(context)
-            isPiped?.put(peerID, key: MCPeerID.With.invitation.rawValue)
-        }
-
-        func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-            isPiped?.put(error)
-        }
-
-    }
-
-}
+//extension MCNearbyServiceAdvertiser: Constructor {
+//    
+//    static func | (piped: Any?, type: MCNearbyServiceAdvertiser.Type) -> Self {
+//        let pipe = piped.pipe
+//
+//        let peer = (piped as? MCPeerID) ?? pipe.get()
+//        let service = (piped as? String) ?? pipe.get(for: "serviceType")!
+//        let source = Self(peer: peer,
+//                          discoveryInfo: pipe.get(),
+//                          serviceType: service)
+//        source.delegate = pipe.put(Delegate())
+//
+//        return source
+//    }
+//
+//}
+//
+//extension MCNearbyServiceAdvertiser: Asking {
+//
+//    static func ask<E>(with: Any?, in pipe: Pipe, expect: Expect<E>) {
+//        (pipe.get() as Self).startAdvertisingPeer()
+//    }
+//}
+//
+//extension MCNearbyServiceAdvertiser {
+//
+//    class Delegate: NSObject, MCNearbyServiceAdvertiserDelegate, Pipable {
+//
+//        func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+//            isPiped?.put(invitationHandler)
+//            isPiped?.put(context)
+//            isPiped?.put(peerID, key: MCPeerID.With.invitation.rawValue)
+//        }
+//
+//        func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
+//            isPiped?.put(error)
+//        }
+//
+//    }
+//
+//}

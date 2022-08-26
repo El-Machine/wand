@@ -24,14 +24,14 @@
 
 import MapKit
 
-protocol Num {
+public protocol Num {
 
     var double: Double {get}
     var int: Int {get}
 
 }
 
-extension Num where Self: BinaryFloatingPoint {
+public extension Num where Self: BinaryFloatingPoint {
 
     var double: Double {
         Double(self)
@@ -43,7 +43,7 @@ extension Num where Self: BinaryFloatingPoint {
 
 }
 
-extension Num where Self: BinaryInteger {
+public extension Num where Self: BinaryInteger {
 
     var double: Double {
         Double(self)
@@ -69,19 +69,19 @@ extension Int: Num {
 
 //extension MKMapPoint {
 
-postfix func |(piped: CLLocationCoordinate2D) -> MKMapPoint {
+public postfix func |(piped: CLLocationCoordinate2D) -> MKMapPoint {
     MKMapPoint(piped)
 }
 
-postfix func |(piped: CLLocation) -> MKMapPoint {
+public postfix func |(piped: CLLocation) -> MKMapPoint {
     MKMapPoint(piped.coordinate)
 }
 
-//postfix func |<T: BinaryFloatingPoint, U: BinaryFloatingPoint>(piped: (x: T, y: U)) -> MKMapPoint {
+//public postfix func |<T: BinaryFloatingPoint, U: BinaryFloatingPoint>(piped: (x: T, y: U)) -> MKMapPoint {
 //    MKMapPoint(x: Double(piped.x), y: Double(piped.y))
 //}
 
-postfix func |<T: Num, U: Num>(piped: (x: T, y: U)) -> MKMapPoint {
+public postfix func |<T: Num, U: Num>(piped: (x: T, y: U)) -> MKMapPoint {
     MKMapPoint(x: piped.x.double, y: piped.x.double)
 }
 
@@ -89,7 +89,7 @@ postfix func |<T: Num, U: Num>(piped: (x: T, y: U)) -> MKMapPoint {
 
 //extension MKMapSize {
 
-postfix func |(piped: Double) -> MKMapSize {
+public postfix func |(piped: Double) -> MKMapSize {
     MKMapSize(width: piped, height: piped)
 }
 
@@ -97,12 +97,12 @@ postfix func |(piped: Double) -> MKMapSize {
 
 //extension MKMapRect {
 
-func |(piped: MKMapPoint, size: MKMapSize) -> MKMapRect {
+public func |(piped: MKMapPoint, size: MKMapSize) -> MKMapRect {
     MKMapRect(origin: piped, size: size).offsetBy(dx: -size.width / 2,
                                                   dy: -size.height / 2)
 }
 
-func |(piped: MKMapPoint, side: Double) -> MKMapRect {
+public func |(piped: MKMapPoint, side: Double) -> MKMapRect {
     MKMapRect(origin: piped, size: side|).offsetBy(dx: -side / 2, dy: -side / 2)
 }
 

@@ -26,12 +26,12 @@ import Foundation
 /** Pipable
  URL
 
- postfix func |(piped: String) -> URL
- postfix func |(piped: String?) -> URL
- postfix func |(piped: String?) -> URL?
+ public postfix func |(piped: String) -> URL
+ public postfix func |(piped: String?) -> URL
+ public postfix func |(piped: String?) -> URL?
 
- postfix func |(piped: URL) -> String
- postfix func |(piped: URL?) -> String?
+ public postfix func |(piped: URL) -> String
+ public postfix func |(piped: URL?) -> String?
 
  infix | (url: URL, reply: ([String: Any])->() ) -> Pipe
  infix | (url: URL, reply: ([Any])->() ) -> Pipe
@@ -41,15 +41,15 @@ import Foundation
 
  */
 
-postfix func |(piped: String) -> URL {
+public postfix func |(piped: String) -> URL {
     URL(string: piped)!
 }
 
-postfix func |(piped: String?) -> URL {
+public postfix func |(piped: String?) -> URL {
     URL(string: piped!)!
 }
 
-postfix func |(piped: String?) -> URL? {
+public postfix func |(piped: String?) -> URL? {
     guard let piped = piped else {
         return nil
     }
@@ -57,11 +57,11 @@ postfix func |(piped: String?) -> URL? {
     return URL(string: piped)
 }
 
-postfix func |(piped: URL) -> String {
+public postfix func |(piped: URL) -> String {
     piped.absoluteString
 }
 
-postfix func |(piped: URL?) -> String? {
+public postfix func |(piped: URL?) -> String? {
     piped?.absoluteString
 }
 
@@ -84,24 +84,23 @@ extension URL: Pipable {
     static func | (url: URL, handler: @escaping (Data)->() ) -> Pipe {
         let pipe = url.pipe
 
+        let session: URLSession = pipe.get()
+        let request: URLRequest = url|
+        print(request)
+        session.dataTask(with: request) { data, response, error in
+            if let data = data {
+                pipe.put(data)
+                pipe.put(response!)
 
-//        let session: URLSession = pipe.get()
-//        let request: URLRequest = url|
-//        print(request)
-//        session.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                pipe.put(data)
-//                pipe.put(response!)
-//
-//                handler(data)
-//
-//                return
-//            }
-//
-//            if let e = error {
-//                pipe.put(e)
-//            }
-//        }.resume()
+                handler(data)
+
+                return
+            }
+
+            if let e = error {
+                pipe.put(e)
+            }
+        }.resume()
 
         return pipe
     }

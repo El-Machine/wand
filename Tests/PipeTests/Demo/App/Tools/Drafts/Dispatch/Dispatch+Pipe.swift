@@ -61,7 +61,7 @@ import Foundation
 //
 //}
 
-extension DispatchQueue {
+public extension DispatchQueue {
 
     enum Work {
         case async(()->() )
@@ -74,11 +74,11 @@ extension DispatchQueue {
 
 }
 
-func | (p: DispatchQoS.QoSClass, work: @escaping ()->() ) {
+public func | (p: DispatchQoS.QoSClass, work: @escaping ()->() ) {
     DispatchQueue.global(qos: p).async(execute: work)
 }
 
-func | (p: DispatchQoS.QoSClass, work: DispatchQueue.Work) {
+public func | (p: DispatchQoS.QoSClass, work: DispatchQueue.Work) {
     let q = DispatchQueue.global(qos: p)
     switch work {
         case .async(let work):
@@ -88,7 +88,7 @@ func | (p: DispatchQoS.QoSClass, work: DispatchQueue.Work) {
     }
 }
 
-func | (p: DispatchTime, work: @escaping () -> Void) {
+public func | (p: DispatchTime, work: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: p, execute: work)
 }
 

@@ -23,10 +23,10 @@
 
 import Foundation
 
-func |<T: Comparable>(piped: T, range: Range<T>) -> T {
+public func |<T: Comparable>(piped: T, range: Range<T>) -> T {
     min(max(range.lowerBound, piped), range.upperBound)
 }
 
-func |<T: Comparable>(piped: T, range: ClosedRange<T>) -> T {
+public func |<T: Comparable>(piped: T, range: ClosedRange<T>) -> T {
     min(max(range.lowerBound, piped), range.upperBound)
 }

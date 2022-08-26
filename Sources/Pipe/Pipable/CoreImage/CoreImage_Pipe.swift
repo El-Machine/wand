@@ -24,32 +24,32 @@
 #if canImport(UIKit)
 import UIKit.UIImage
 
-struct Barcode {
+public struct Barcode {
 
-    enum Generator: String {
+    public enum Generator: String {
         case code128 = "CICode128BarcodeGenerator"
         case pdf417 = "CIPDF417BarcodeGenerator"
         case aztec = "CIAztecCodeGenerator"
         case qr = "CIQRCodeGenerator"
     }
 
-    typealias Colors = (foreground: UIColor?, background: UIColor?)
+    public typealias Colors = (foreground: UIColor?, background: UIColor?)
 }
 
 
-func |(piped: String, type: Barcode.Generator) -> UIImage? {
+public func |(piped: String, type: Barcode.Generator) -> UIImage? {
     piped.data(using: .ascii) | type
 }
 
-func |(piped: String, to: (type: Barcode.Generator, colors: Barcode.Colors?)) -> UIImage? {
+public func |(piped: String, to: (type: Barcode.Generator, colors: Barcode.Colors?)) -> UIImage? {
     piped.data(using: .ascii) | to
 }
 
-func |(piped: Data?, type: Barcode.Generator) -> UIImage? {
+public func |(piped: Data?, type: Barcode.Generator) -> UIImage? {
     piped | (type: type, nil)
 }
 
-func |(piped: Data?,
+public func |(piped: Data?,
        to: (type: Barcode.Generator, colors: Barcode.Colors?)) -> UIImage? {
     guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else {
         return nil

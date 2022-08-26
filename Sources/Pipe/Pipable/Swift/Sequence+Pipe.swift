@@ -21,31 +21,31 @@
 //  Created by Alex Kozin
 //
 
-func |<C: Sequence, T> (p: C, handler: @escaping (C.Element) throws -> T) -> [T] {
+public func |<C: Sequence, T> (p: C, handler: @escaping (C.Element) throws -> T) -> [T] {
     try! p.map(handler)
 }
 
-func |<C: Sequence> (p: C, handler: @escaping (C.Element) throws -> Bool) -> [C.Element] {
+public func |<C: Sequence> (p: C, handler: @escaping (C.Element) throws -> Bool) -> [C.Element] {
     try! p.filter(handler)
 }
 
 //forEach
-func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Void) {
+public func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Void) {
     try? p?.forEach(handler)
 }
 
-func |<C: Sequence> (p: C?, handler: @escaping () throws -> Void) {
+public func |<C: Sequence> (p: C?, handler: @escaping () throws -> Void) {
     p?.forEach { _ in
         try? handler()
     }
 }
 
 //first
-func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Bool) -> C.Element? {
+public func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Bool) -> C.Element? {
     try? p?.first(where: handler)
 }
 
-func |<C: Sequence, T> (p: C,
+public func |<C: Sequence, T> (p: C,
                         to: (initial: T, next: (T, C.Element) throws -> T)) -> T {
     try! p.reduce(to.initial, to.next)
 }

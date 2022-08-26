@@ -23,6 +23,6 @@
 
 import CoreGraphics
 
-postfix func |(p: CGFloat) -> Float {
+public postfix func |(p: CGFloat) -> Float {
     Float(p)
 }
