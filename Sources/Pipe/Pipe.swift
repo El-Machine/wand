@@ -110,8 +110,6 @@ public final class Pipe {
     
 }
 
-public typealias Pipeline = Pipe
-
 //Get
 extension Pipe {
 

@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,30 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-prefix operator |
-postfix operator |
+#if canImport(Pipe)
+import Pipe
+#endif
 
-infix operator | : AdditionPrecedence
+import XCTest
+
+class Math_Tests: XCTestCase {
+
+    func testBoolNumeric() throws {
+        let intTrue: Double = true|
+        let intFalse: Int = false|
+
+        XCTAssertTrue(intTrue == 1)
+        XCTAssertTrue(intFalse == 0)
+    }
+
+    func testIntIndexSet() throws {
+        let int = 42
+
+        let indexSet: IndexSet = int|
+        XCTAssertTrue(indexSet.first == int)
+    }
+
+}

@@ -21,6 +21,7 @@
 //  Created by Alex Kozin
 //
 
+#if canImport(UIKit)
 import CoreServices.UTCoreTypes
 import UIKit.UIImagePickerController
 import UniformTypeIdentifiers
@@ -35,13 +36,13 @@ extension UIImagePickerController: Constructable {
         picker.allowsEditing = false
         picker.delegate = delegate
 
-        let types: [String]
+        let type: String
         if #available(iOS 14.0, *) {
-            types = pipe.get() ?? [UTType.image.identifier]
+            type = pipe.get() ?? UTType.image.identifier
         } else {
-            types = pipe.get() ?? [kUTTypeImage as String]
+            type = pipe.get() ?? "kUTTypeImage"//kUTTypeImage as String
         }
-        picker.mediaTypes = types
+        picker.mediaTypes = [type]
 
         return picker
     }
@@ -63,6 +64,4 @@ extension UIImagePickerController {
     }
     
 }
-
-
-
+#endif

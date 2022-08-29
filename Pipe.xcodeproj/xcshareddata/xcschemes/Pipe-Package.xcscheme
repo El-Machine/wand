@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1340"
+   LastUpgradeVersion = "9999"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,38 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Pipe_PipeTests"
-               BuildableName = "Pipe_PipeTests"
-               BlueprintName = "Pipe_PipeTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Pipe"
-               BuildableName = "Pipe"
+               BlueprintIdentifier = "pipe::Pipe"
+               BuildableName = "Pipe.framework"
                BlueprintName = "Pipe"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PipeTests"
-               BuildableName = "PipeTests"
-               BlueprintName = "PipeTests"
-               ReferencedContainer = "container:">
+               ReferencedContainer = "container:Pipe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -60,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PipeTests"
-               BuildableName = "PipeTests"
+               BlueprintIdentifier = "pipe::PipeTests"
+               BuildableName = "PipeTests.xctest"
                BlueprintName = "PipeTests"
-               ReferencedContainer = "container:">
+               ReferencedContainer = "container:Pipe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -92,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Pipe_PipeTests"
-            BuildableName = "Pipe_PipeTests"
-            BlueprintName = "Pipe_PipeTests"
-            ReferencedContainer = "container:">
+            BlueprintIdentifier = "pipe::Pipe"
+            BuildableName = "Pipe.framework"
+            BlueprintName = "Pipe"
+            ReferencedContainer = "container:Pipe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

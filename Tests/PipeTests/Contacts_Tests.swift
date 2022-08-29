@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,39 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-prefix operator |
-postfix operator |
+import Contacts
 
-infix operator | : AdditionPrecedence
+import Pipe
+import XCTest
+
+class Contacts_Tests: XCTestCase {
+    
+    func test_CNContact() {
+        let e = expectation()
+
+        |.one { (contact: CNContact) in
+            e.fulfill()
+        }
+
+        waitForExpectations()
+    }
+
+    func test_CNContact_Predicate() {
+        let e = expectation()
+
+        CNContact.predicateForContacts(matchingName: "John Appleseed") | Expect.every { (contact: CNContact) in
+            //Only one John Appleseed exist!
+            e.fulfill()
+        }
+
+        waitForExpectations()
+    }
+
+    func test_CNContactStore() {
+        XCTAssertNotNil(CNContactStore.self|)
+    }
+
+}

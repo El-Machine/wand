@@ -75,7 +75,8 @@ extension VisionObservationExpectable {
     }
 
 }
-@available(iOS 14.0, *)
+
+@available(iOS 14.0, macOS 11.0, *)
 extension VNHumanHandPoseObservation: VisionObservationExpectable {
 
     typealias Request = VNDetectHumanHandPoseRequest
@@ -88,7 +89,7 @@ extension VNHumanHandPoseObservation: VisionObservationExpectable {
 
 }
 
-@available(iOS 14.0, *)
+@available(iOS 14.0, macOS 11.0, *)
 extension VNHumanBodyPoseObservation: VisionObservationExpectable {
 
     typealias Request = VNDetectHumanBodyPoseRequest

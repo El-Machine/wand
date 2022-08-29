@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,44 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-prefix operator |
-postfix operator |
+import Pipe
+import XCTest
 
-infix operator | : AdditionPrecedence
+class Collections_Tests: XCTestCase {
+
+    func test_ArrayRange() throws {
+        let array = [Bool](repeating: false, count: 42)
+
+        let range: Range<Int> = array|
+        XCTAssertTrue(range.first == 0)
+        XCTAssertTrue(range.last == array.count - 1)
+    }
+
+    func test_ArrayIndexPath() throws {
+        let array = [Bool](repeating: false, count: 42)
+
+        let paths: [IndexPath] = array|
+        XCTAssertTrue(paths.first?.row == 0)
+        XCTAssertTrue(paths.last?.row == array.count - 1)
+    }
+
+    func test_RangeIndexPath() throws {
+        let range = 0..<42
+
+        let paths: [IndexPath] = range|
+        XCTAssertTrue(paths.first?.row == 0)
+        XCTAssertTrue(paths.last?.row == range.last)
+    }
+
+    func test_RangeInt() throws {
+        let range = 0..<42
+
+        let randomInt: Int = range|
+        XCTAssertTrue(randomInt >= range.first!)
+        XCTAssertTrue(randomInt <= range.last!)
+    }
+
+}

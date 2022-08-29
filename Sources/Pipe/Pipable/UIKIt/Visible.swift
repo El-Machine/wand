@@ -6,6 +6,7 @@
 //  Copyright © Tradernet All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIViewController {
@@ -73,3 +74,4 @@ extension UIApplication {
     }
 
 }
+#endif

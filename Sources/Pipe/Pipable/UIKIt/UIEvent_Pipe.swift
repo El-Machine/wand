@@ -6,6 +6,7 @@
 //  Copyright © 2022 El Machine. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 //extension UIEvent.EventSubtype: Pipable {
@@ -51,3 +52,4 @@ import UIKit
 //    }
 //
 //}
+#endif

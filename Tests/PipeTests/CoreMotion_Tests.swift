@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,43 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-prefix operator |
-postfix operator |
+import CoreMotion
 
-infix operator | : AdditionPrecedence
+import Pipe
+import XCTest
+
+class CoreMotion_Tests: XCTestCase {
+
+#if !targetEnvironment(simulator)
+
+    func test_CMPedometerEvent() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        |{ (event: CMPedometerEvent) in
+            e.fulfill()
+        }
+
+        waitForExpectations()
+    }
+
+    //Test it while walking
+//    func test_CMPedometerData() {
+//        let e = expectation()
+//
+//        |{ (location: CMPedometerData) in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
+
+#endif
+
+    func test_CMPedometer() {
+        XCTAssertNotNil(self| as CMPedometer)
+    }
+}
