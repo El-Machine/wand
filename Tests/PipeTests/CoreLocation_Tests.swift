@@ -52,7 +52,7 @@ class CoreLocation_Tests: XCTestCase {
         ])
 
         let pipe: Pipeline = ["CLLocationAccuracy": accuracy,
-                          "CLLocationDistance": Double.any]
+                              "CLLocationDistance": Double.any]
         let piped = pipe.piped
 
         pipe | { (location: CLLocation) in

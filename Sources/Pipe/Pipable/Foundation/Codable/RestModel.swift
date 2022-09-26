@@ -25,6 +25,7 @@ import Foundation
 
 public protocol RestModel: Operatable, ExpectableWithout, Codable where With == URLRequest.Method {
 
+    static var path: String? {get}
     static var headers: [String : String]? {get}
 
     static func get(on pipe: Pipe)
@@ -36,10 +37,32 @@ public protocol RestModel: Operatable, ExpectableWithout, Codable where With == 
 
 extension RestModel {
 
-    //TODO: start<P: URLSessionDataTask, E: RestModel>
+    static var path: String? {
+        nil
+    }
+
+    static var headers: [String : String]? {
+        nil
+    }
+
+    static func get(on pipe: Pipe) {
+        ShoudBeOverriden()
+    }
+
+    func post(on pipe: Pipe) {
+        ShoudBeOverriden()
+    }
+
+    func put(on pipe: Pipe) {
+        ShoudBeOverriden()
+    }
+
+    //TODO?: start<P: URLSessionDataTask, E: RestModel>
     static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 
         _ = pipe.start(expecting: expectation)
+
+        pipe.putIf(exist: expectation.with as? URLRequest.Method)
 
         if let task = piped as? URLSessionDataTask {
             start(expectating: expectation as! Expect<Self>,
@@ -49,10 +72,11 @@ extension RestModel {
             return
         }
 
+        //Add default path
+        pipe.putIf(exist: path)
+
         //Add default headers
-        if let headers = self.headers {
-            pipe.put(headers)
-        }
+        pipe.putIf(exist: headers)
 
         switch expectation.with as? With {
             case .none, .GET:
@@ -82,20 +106,25 @@ extension RestModel {
         task | { (data: Data) in
 
             do {
-                let parsed: Self = try data|
-                pipe.put(parsed)
+                if let object: Self = pipe.get() {
+                    pipe.put(object)
+                } else {
+                    let parsed: Self = try data|
+                    pipe.put(parsed)
+                }
             } catch(let e) {
                 pipe.put(e)
             }
 
+            pipe.close()
         }
 
     }
 
-    static var headers: [String : String]? {
-        nil
-    }
+}
 
+func ShoudBeOverriden(function: String = #function) -> Never {
+    fatalError("\(function) should be overriden.")
 }
 //
 //func |<E: RestModel> (url: URL, handler: @escaping (E)->() ) -> Pipe {

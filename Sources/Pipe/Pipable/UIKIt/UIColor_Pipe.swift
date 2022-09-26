@@ -52,11 +52,19 @@ public func |(color: UIColor, alpha: CGFloat) -> UIColor {
     color.withAlphaComponent(alpha)
 }
 
-public postfix func |(p: UInt32) -> UIColor {
-    UIColor(red:  CGFloat((p & 0xFF0000) >> 16) / 255.0,
-            green:  CGFloat((p & 0x00FF00) >> 8) / 255.0,
-            blue:  CGFloat((p & 0x0000FF)) / 255.0,
-            alpha: 1)
+public postfix func |(piped: (white: CGFloat, alpha:CGFloat)) -> UIColor {
+    UIColor(white: piped.white, alpha: piped.alpha)
+}
+
+public postfix func |<T: FixedWidthInteger>(color: T) -> UIColor {
+    color | 1
+}
+
+public func |<T: FixedWidthInteger>(color: T, alpha: CGFloat) -> UIColor {
+    UIColor(red:  CGFloat((color & 0xFF0000) >> 16) / 255.0,
+            green:  CGFloat((color & 0x00FF00) >> 8) / 255.0,
+            blue:  CGFloat((color & 0x0000FF)) / 255.0,
+            alpha: alpha)
 }
 
 #endif

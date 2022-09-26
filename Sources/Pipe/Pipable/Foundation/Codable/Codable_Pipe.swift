@@ -23,6 +23,14 @@ extension Data {
         return try JSONDecoder().decode(T.self, from: data)
     }
 
+    static public postfix func |(raw: Self) throws -> [String: Any]? {
+        try? JSONSerialization.jsonObject(with: raw, options: []) as? [String : Any]
+    }
+
+    static public postfix func |(raw: Self) throws -> [Any]? {
+        try? JSONSerialization.jsonObject(with: raw, options: []) as? [Any]
+    }
+
 }
 
 extension Dictionary {
@@ -33,6 +41,18 @@ extension Dictionary {
 
     static public postfix func |<T: RestModel>(raw: Self) throws -> T {
         try JSONDecoder().decode(T.self, from: raw|)
+    }
+
+}
+
+extension Array {
+
+    static public postfix func |(p: Self) -> Data {
+        try! JSONSerialization.data(withJSONObject: p, options: [])
+    }
+
+    static public postfix func |<T: RestModel>(raw: Self) throws -> [T] {
+        try JSONDecoder().decode(T.self, from: raw|) as! [T]
     }
 
 }

@@ -75,6 +75,10 @@ extension CLAuthorizationStatus: Constructable {
 
     public static func construct<P>(with piped: P, on pipe: Pipe) -> CLAuthorizationStatus {
 
+        defer {
+            pipe.closeIfNeed()
+        }
+
         if #available(iOS 14.0, macOS 11.0, *) {
             let manager = piped as? CLLocationManager ?? pipe.get()
             return manager.authorizationStatus
@@ -82,6 +86,5 @@ extension CLAuthorizationStatus: Constructable {
             return CLLocationManager.authorizationStatus()
         }
     }
-
 
 }

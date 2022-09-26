@@ -39,27 +39,6 @@ postfix func |(p: Data?) -> String? {
     return String(data: piped, encoding: .utf8)
 }
 
-//Data String.Encoding
-public func |(p: Data, encoding: String.Encoding) -> String {
-    String(data: p, encoding: encoding)!
-}
-
-
-public func |(p: Data?, encoding: String.Encoding) -> String {
-    guard let piped = p else {
-        return ""
-    }
-    return String(data: piped, encoding: encoding)!
-}
-
-
-public func |(p: Data?, encoding: String.Encoding) -> String? {
-    guard let piped = p else {
-        return nil
-    }
-    return String(data: piped, encoding: encoding)
-}
-
 //Description
 postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     guard let piped = p else {
@@ -69,16 +48,16 @@ postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     return String(piped)
 }
 
-public postfix func |<T>(p: T?) -> String {
-    guard let piped = p else {
+public postfix func |<T>(piped: T?) -> String {
+    guard let piped = piped else {
         return ""
     }
 
-    return String(describing: piped)
+    return piped|
 }
 
-public postfix func |<T>(p: T) -> String {
-    String(describing: p)
+public postfix func |<T>(piped: T) -> String {
+    String(describing: piped)
 }
 
 extension Substring {
@@ -105,34 +84,6 @@ public func |(p: String, filtering: CharacterSet) -> String {
     String(p.unicodeScalars.filter {
         filtering.contains($0)
     })
-}
-
-//Substring
-public func |(p: String, range: PartialRangeThrough<String.IndexDistance>) -> String {
-    String(p.suffix(range.upperBound))
-}
-
-public func |(p: String, range: PartialRangeFrom<String.IndexDistance>) -> String {
-    String(p.prefix(range.lowerBound))
-}
-
-public func |(p: String, range: Range<String.IndexDistance>) -> String {
-    let from = p.index(p.startIndex, offsetBy: range.lowerBound)
-    let to = p.index(p.startIndex, offsetBy: range.upperBound)
-
-    return p | (from..<to)
-}
-
-public func |(p: String, range: Range<String.Index>) -> String {
-    String(p[range])
-}
-
-//Replace
-public func |(p: String, replace: (bounds: Range<String.IndexDistance>, to: String)) -> String {
-    let from = p.index(p.startIndex, offsetBy: replace.bounds.lowerBound)
-    let to = p.index(p.startIndex, offsetBy:  replace.bounds.upperBound)
-
-    return p | (bounds: from..<to, to: replace.to)
 }
 
 public func |(p: String, replace: (bounds: Range<String.Index>, to: String)) -> String {
@@ -171,13 +122,4 @@ public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
     let range: Range<String.Index> = string | replace.bounds
     string.replaceSubrange(range, with: replace.to)
     return string
-}
-
-public func |(piped: String?, range: PartialRangeFrom<String.IndexDistance>?) -> (String, String)? {
-    piped == nil || range == nil ? nil
-    : piped! | range!
-}
-
-public func |(piped: String, range: PartialRangeFrom<String.IndexDistance>) -> (String, String) {
-    (String(piped.prefix(range.lowerBound)), String(piped.suffix(piped.count - range.lowerBound)))
 }

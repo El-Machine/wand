@@ -48,7 +48,14 @@ extension Date {
         return formatter.string(from: date)
     }
 
+}
 
+public postfix func |(piped: TimeInterval) -> Date {
+    Date(timeIntervalSince1970: piped)
+}
+
+public postfix func |(piped: Int) -> Date {
+    Date(timeIntervalSince1970: TimeInterval(piped))
 }
 
 //DateComponents

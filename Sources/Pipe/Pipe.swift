@@ -21,7 +21,7 @@
 //  Created by Alex Kozin
 //
 
-/// Pipe.Expectable
+/// Pipe
 ///
 ///
 /// func get<T>() -> T
@@ -37,17 +37,33 @@
 ///
 public final class Pipe {
 
-    internal static var all = [String: Pipe]()
-    internal static subscript<P>(p: P) -> Pipe? {
+    internal static var all = [String?: Pipe]()
+
+    internal static subscript(piped: Any) -> Pipe? {
         get {
-            all[type(of: p)|]
+            all[key(piped)]
         }
         set {
             if let pipe = newValue {
-                all.updateValue(pipe, forKey: type(of: p)|)
+                all[key(piped)] = pipe
             }
         }
     }
+
+    internal static func key(_ piped: Any) -> String? {
+        (piped as? Pipable)?.key
+    }
+
+//    internal static subscript<P: AnyObject>(piped: P) -> Pipe? {
+//        get {
+//            all[objectAddress(piped)]
+//        }
+//        set {
+//            if let pipe = newValue {
+//                all.updateValue(pipe, forKey: objectAddress(piped))
+//            }
+//        }
+//    }
     
     public private(set) lazy var piped: [String: Any] = ["Pipe": self]
     lazy var expectations = [String: [Any]]()
@@ -56,7 +72,7 @@ public final class Pipe {
         close(last: self)
     }
 
-    private func closeIfNeed(last: Any) {
+    func closeIfNeed(last: Any? = nil) {
         //TODO: CONCURENCYYYY!!!!
 
         //Try to close only if something expected before
@@ -95,7 +111,7 @@ public final class Pipe {
     }
 
 
-    #if TESTING
+//    #if TESTING
     
         init() {
             print("|💪🏽 #init\n\(self)")
@@ -106,9 +122,28 @@ public final class Pipe {
             print("|✅ #bonsua\n\(self)\n")
         }
 
-    #endif
+    private static func address<T>(_ object: T) -> String {
+
+        let address: Int
+
+        if let c = object as? AnyClass {
+            address = unsafeBitCast(c, to: Int.self)
+        } else {
+            var mutable = object
+            address = unsafeBitCast(mutable, to: Int.self)
+        }
+
+        return String(describing: address)
+    }
+
+//    private static func objectAddress<T: AnyObject>(_ object: T) -> String {
+//        String(describing: Unmanaged.passUnretained(object).toOpaque())
+//    }
+
+//    #endif
     
 }
+
 
 //Get
 extension Pipe {
@@ -161,12 +196,25 @@ extension Pipe {
         return object
     }
 
-    public static func |(pipe: Pipe, array: Array<Any>) -> Pipe {
-        pipe.store(array)
-        return pipe
+    public func putIf<T>(exist object: T?, key: String? = nil) {
+        guard let object = object else {
+            return
+        }
+
+        put(object, key: key)
     }
 
-    public func store(_ array: Array<Any>) {
+    public static func |(pipe: Pipe, array: Array<Any>) -> Pipe {
+        pipe.store(array)
+    }
+
+
+    /// Store silently
+    /// Without expectations check
+    /// - Parameter array: objects to store
+    /// - Returns: pipe
+    @discardableResult
+    public func store(_ array: Array<Any>) -> Pipe {
         array.forEach {
             let key: String
             let object: Any
@@ -182,6 +230,8 @@ extension Pipe {
             Pipe[object] = self
             piped[key] = object
         }
+
+        return self
     }
 
 }
@@ -254,12 +304,24 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
             return piped
         }
 
+        if let array = object as? [Any] {
+            return Pipe(array: array)
+        }
+
+        if let dictionary = object as? [String: Any] {
+            return Pipe(dictionary: dictionary)
+        }
+
         return Pipe(object: object)
     }
 
 }
 
 extension Pipe: Pipable {
+
+    public var pipe: Pipe {
+        self
+    }
 
     public var isPiped: Pipe? {
         self

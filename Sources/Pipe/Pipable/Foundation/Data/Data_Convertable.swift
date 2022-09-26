@@ -21,49 +21,28 @@
 //  Created by Alex Kozin
 //
 
-public protocol Pipable {
+import Foundation
 
-    var pipe: Pipe {get}
-    var isPiped: Pipe? {get}
-
-    var key: String {get}
-
+public postfix func |(p: URL) -> Data? {
+    try? Data(contentsOf: p)
 }
 
-public extension Pipable {
-    
-    var pipe: Pipe {
-        isPiped ?? Pipe(object: self)
+public postfix func |(p: URL?) -> Data? {
+    guard let url = p else {
+        return nil
     }
     
-    var isPiped: Pipe? {
-        Pipe[self]
-    }
-
+    return url|
 }
 
-public extension Pipable where Self: AnyObject {
-
-    var key: String {
-        let address = String(describing: Unmanaged.passUnretained(self).toOpaque())
-
-        print("🥳 ad \(address) for class \(self)")
-        return address
-    }
-
+public postfix func |(p: String) -> Data {
+    p.data(using: .utf8)!
 }
 
-public extension Pipable {
+public func |(p: String, encoding: String.Encoding) -> Data {
+    p.data(using: encoding)!
+}
 
-    var key: String {
-        var address: String?
-        var mutable = self
-        withUnsafePointer(to: &mutable) { pointer in
-            address = String(format: "%p", pointer)
-        }
-
-        print("🥳 ad \(address!) for \(self)")
-        return address!
-    }
-
+public postfix func |<T: Codable>(model: T) -> Data {
+    try! JSONEncoder().encode(model)
 }

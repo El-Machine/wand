@@ -43,7 +43,6 @@ extension UIAlertController: Constructable {
         controller | (action.title, .default, action.handler)
     }
     
-    
     @discardableResult
     public static func | (controller: UIAlertController,
                    action: (title: String,

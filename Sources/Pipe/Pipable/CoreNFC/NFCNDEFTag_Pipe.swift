@@ -24,34 +24,54 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
-//@discardableResult
-//@available(iOS 13.0, *)
-//func |(piped: Any?, event: Expect<NFCNDEFTag>) -> Pipe {
-//    ((piped as? Pipable)?.pipe ?? Pipe()).add(event,
-//                                              with: piped,
-//                                              asking: NFCNDEFTagAsking.self)
-//}
+@discardableResult
+public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+    |.every(handler)
+}
+
+public func |(pipe: Pipe?, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+    (pipe ?? Pipe()) as Any | .every(handler)
+}
+
+@discardableResult
+public func |<P> (piped: P, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+    piped | .every(handler)
+}
+
+@discardableResult
+public prefix func |(expectation: Expect<NFCNDEFTag>) -> Pipe {
+    Pipe() | expectation
+}
+
+@discardableResult
+public func |(pipe: Pipe?, expectation: Expect<NFCNDEFTag>) -> Pipe {
+    (pipe ?? Pipe()) as Any | expectation
+}
+
+@discardableResult
+public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
+    let pipe = Pipe.attach(to: piped)
+
+    guard pipe.start(expecting: expectation) else {
+        return pipe
+    }
+
+    let source = piped as? NFCNDEFReaderSession ?? pipe.get()
+    source.alertMessage = ""
+    source.begin()
+
+    expectation.cleaner = {
+        source.invalidate()
+    }
+
+    return pipe
+}
 
 @available(iOS 13.0, *)
 public func |(piped: NFCNDEFTag, handler: @escaping (NFCNDEFMessage?)->() ) {
     piped.readNDEF { message, _ in
         handler(message)
     }
-}
-
-struct NFCNDEFTagAsking: ExpectableWithout {
-
-    static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
-
-        let source = piped as? NFCNDEFReaderSession ?? pipe.get()
-        source.alertMessage = ""
-        source.begin()
-
-        expectation.cleaner = {
-            source.invalidate()
-        }
-    }
-
 }
 
 extension NFCNDEFMessage: Pipable {

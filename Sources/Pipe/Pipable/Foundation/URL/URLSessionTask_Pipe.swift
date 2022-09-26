@@ -34,8 +34,7 @@ extension URLSessionDataTask: Constructable {
             {
                 pipe.put(Pipe.Error.HTTP("Wrong statusCode"))
                 return
-            }
-                         
+            }           
 
             guard let mime = httpResponse.mimeType, mime == "application/json" else {
                 pipe.put(Pipe.Error.HTTP("Wrong mime"))

@@ -92,6 +92,12 @@ data | .while { (bodies: [VNHumanBodyPoseObservation]) in
                 
     }
 }
+
+//UIView.animate
+(duration: 0.42, options: .allowUserInteraction) | {
+    animationView.alpha = 0
+}
+
 ```
 
 ```

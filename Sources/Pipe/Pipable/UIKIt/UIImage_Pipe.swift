@@ -117,6 +117,11 @@ extension Expect where E == UIImage {
 extension UIImage: ExpectableWithout {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+
+        guard pipe.start(expecting: expectation) else {
+            return
+        }
+
         let picker = piped as? UIImagePickerController ?? pipe.get()
 
         let sheet: UIAlertController = UIAlertController.Style.actionSheet|
@@ -171,7 +176,7 @@ extension UIImage: Pipable {
         }
     }
     
-    func resize(withSize size: CGSize, contentMode: UIView.ContentMode = .scaleAspectFill) -> UIImage? {
+    func resize(withSize size: CGSize, contentMode: UIView.ContentMode = .scaleAspectFill) -> UIImage {
             let aspectWidth = size.width / self.size.width
             let aspectHeight = size.height / self.size.height
             
@@ -189,7 +194,7 @@ extension UIImage: Pipable {
             }
         }
 
-        private func resize(withSize size: CGSize) -> UIImage? {
+        private func resize(withSize size: CGSize) -> UIImage {
             UIGraphicsImageRenderer(size: size).image { c in
                 draw(in: size|)
             }

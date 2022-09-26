@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright © 2020-2022 Alex Kozin
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,37 +19,38 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2022 Alex Kozin
 //
 
-import Foundation
+import MultipeerConnectivity
 
-public postfix func |(p: URL) -> Data? {
-    try? Data(contentsOf: p)
-}
-
-public postfix func |(p: URL?) -> Data? {
-    guard let url = p else {
-        return nil
-    }
-    
-    return url|
-}
-
-public postfix func |(p: String) -> Data {
-    p.data(using: .utf8)!
-}
-
-public func |(p: String, encoding: String.Encoding) -> Data {
-    p.data(using: encoding)!
-}
-
-extension Data: Expectable {
-
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
-        if let task = piped as? URLSessionDataTask {
-            task.resume()
-        }
-    }
-
-
-}
+//extension MCPeerID: Constructor {
+//
+//    static func | (piped: Any?, type: MCPeerID.Type) -> Self {
+//        let displayName = piped as? String
+//                        ?? piped.isPiped?.get(for: "displayName")
+//                        ?? UIDevice.current.name
+//        return Self(displayName: displayName)
+//    }
+//
+//
+//}
+//
+//extension MCPeerID: AskingWith {
+//
+//    enum With: String, AskingFrom {
+//
+//        case found
+//        case invitation
+//
+//        var asking: Asking.Type {
+//            switch self {
+//                case .found:
+//                    return MCNearbyServiceBrowser.self
+//                case .invitation:
+//                    return MCNearbyServiceAdvertiser.self
+//            }
+//        }
+//    }
+//
+//}
