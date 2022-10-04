@@ -31,6 +31,7 @@ class CoreLocation_Tests: XCTestCase {
 
     func test_CLLocation() {
         let e = expectation()
+        e.assertForOverFulfill = false
 
         |{ (location: CLLocation) in
             e.fulfill()
@@ -41,6 +42,7 @@ class CoreLocation_Tests: XCTestCase {
 
     func test_CLLocation_options() {
         let e = expectation()
+        e.assertForOverFulfill = false
 
         let accuracy = CLLocationAccuracy.any(in: [
             kCLLocationAccuracyBestForNavigation,
@@ -71,6 +73,7 @@ class CoreLocation_Tests: XCTestCase {
 
     func test_CLAuthorizationStatus() {
         let e = expectation()
+        e.assertForOverFulfill = false
 
         |{ (status: CLAuthorizationStatus) in
             e.fulfill()

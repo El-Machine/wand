@@ -41,11 +41,15 @@ public final class Pipe {
 
     internal static subscript(piped: Any) -> Pipe? {
         get {
-            all[key(piped)]
+            if let key = key(piped) {
+                return all[key]
+            }
+
+            return nil
         }
         set {
-            if let pipe = newValue {
-                all[key(piped)] = pipe
+            if let pipe = newValue, let key = key(piped) {
+                all[key] = pipe
             }
         }
     }

@@ -39,7 +39,7 @@ extension CBPeripheral: Expectable {
             }
             
             source.scanForPeripherals(withServices: pipe.get(),
-                                      options: pipe.get(for: "CBCentralManagerScanOptions"))
+                                      options: pipe.get())
             
             return false
         }

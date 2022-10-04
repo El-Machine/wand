@@ -24,30 +24,36 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
+@available(iOS 13.0, *)
 @discardableResult
 public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
     |.every(handler)
 }
 
+@available(iOS 13.0, *)
 public func |(pipe: Pipe?, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
     (pipe ?? Pipe()) as Any | .every(handler)
 }
 
+@available(iOS 13.0, *)
 @discardableResult
 public func |<P> (piped: P, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
     piped | .every(handler)
 }
 
+@available(iOS 13.0, *)
 @discardableResult
 public prefix func |(expectation: Expect<NFCNDEFTag>) -> Pipe {
     Pipe() | expectation
 }
 
+@available(iOS 13.0, *)
 @discardableResult
 public func |(pipe: Pipe?, expectation: Expect<NFCNDEFTag>) -> Pipe {
     (pipe ?? Pipe()) as Any | expectation
 }
 
+@available(iOS 13.0, *)
 @discardableResult
 public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
     let pipe = Pipe.attach(to: piped)
@@ -67,6 +73,7 @@ public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
     return pipe
 }
 
+@available(iOS 13.0, *)
 extension NFCNDEFTag {
 
     var pipe: Pipe {
@@ -79,6 +86,8 @@ extension NFCNDEFTag {
 
 }
 
+
+@available(iOS 13.0, *)
 extension NFCNDEFMessage: ExpectableWith, Pipable {
 
     public typealias With = NFCNDEFTag

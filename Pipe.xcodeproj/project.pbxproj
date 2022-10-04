@@ -49,6 +49,10 @@
 		616B882E28C8A987002C53CF /* URLRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882728C8A987002C53CF /* URLRequest_Pipe.swift */; };
 		616B883228C8A987002C53CF /* URLSessionTask_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882828C8A987002C53CF /* URLSessionTask_Pipe.swift */; };
 		616B883628C8A987002C53CF /* URLSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882928C8A987002C53CF /* URLSession_Pipe.swift */; };
+		61A6F9E328EC06C40037CDBD /* Data_Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E228EC06A30037CDBD /* Data_Expectable.swift */; };
+		61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */; };
+		61A6F9E728EC06E20037CDBD /* String.Encoding_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */; };
+		61A6F9E828EC06E20037CDBD /* String.IndexDistance_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */; };
 		OBJ_149 /* AVCapture_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Pipe.swift */; };
 		OBJ_150 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Pipe.swift */; };
 		OBJ_151 /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
@@ -70,7 +74,6 @@
 		OBJ_167 /* NFCNDEFTag_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* NFCNDEFTag_Pipe.swift */; };
 		OBJ_168 /* Codable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Codable_Pipe.swift */; };
 		OBJ_169 /* RestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* RestModel.swift */; };
-		OBJ_170 /* Data_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Data_Pipe.swift */; };
 		OBJ_171 /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Date_Pipe.swift */; };
 		OBJ_172 /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Foundation+Pipe.swift */; };
 		OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* NSTextCheckingResult_Pipe.swift */; };
@@ -179,6 +182,10 @@
 		616B882728C8A987002C53CF /* URLRequest_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest_Pipe.swift; sourceTree = "<group>"; };
 		616B882828C8A987002C53CF /* URLSessionTask_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTask_Pipe.swift; sourceTree = "<group>"; };
 		616B882928C8A987002C53CF /* URLSession_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSession_Pipe.swift; sourceTree = "<group>"; };
+		61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Convertable.swift; sourceTree = "<group>"; };
+		61A6F9E228EC06A30037CDBD /* Data_Expectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Expectable.swift; sourceTree = "<group>"; };
+		61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Encoding_Pipe.swift; sourceTree = "<group>"; };
+		61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.IndexDistance_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_100 /* |.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* AVCapture_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_12 /* AVFoundation_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundation_Pipe.swift; sourceTree = "<group>"; };
@@ -204,7 +211,6 @@
 		OBJ_36 /* NFCNDEFTag_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_39 /* Codable_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_40 /* RestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModel.swift; sourceTree = "<group>"; };
-		OBJ_41 /* Data_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_42 /* Date_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_43 /* Foundation+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_44 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
@@ -338,6 +344,15 @@
 			path = any;
 			sourceTree = "<group>";
 		};
+		61A6F9E028EC06A30037CDBD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */,
+				61A6F9E228EC06A30037CDBD /* Data_Expectable.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* AVFoundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,11 +470,11 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_38 /* Codable */,
-				OBJ_41 /* Data_Pipe.swift */,
+				61A6F9E028EC06A30037CDBD /* Data */,
 				OBJ_42 /* Date_Pipe.swift */,
 				OBJ_43 /* Foundation+Pipe.swift */,
-				OBJ_44 /* NSTextCheckingResult_Pipe.swift */,
 				OBJ_45 /* Notification */,
+				OBJ_44 /* NSTextCheckingResult_Pipe.swift */,
 				OBJ_48 /* TimeZone_Pipe.swift */,
 				OBJ_49 /* URL */,
 			);
@@ -578,6 +593,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_73 /* String_Pipe.swift */,
+				61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */,
+				61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -873,10 +890,12 @@
 				OBJ_150 /* AVFoundation_Pipe.swift in Sources */,
 				OBJ_151 /* CNContactStore_Pipe.swift in Sources */,
 				OBJ_152 /* CNContact_Pipe.swift in Sources */,
+				61A6F9E728EC06E20037CDBD /* String.Encoding_Pipe.swift in Sources */,
 				OBJ_153 /* CBCentralManager+Pipe.swift in Sources */,
 				OBJ_154 /* CBManagerState_Pipe.swift in Sources */,
 				OBJ_155 /* CBPeripheral+Pipe.swift in Sources */,
 				OBJ_156 /* CoreGraphics_Convertable.swift in Sources */,
+				61A6F9E328EC06C40037CDBD /* Data_Expectable.swift in Sources */,
 				OBJ_157 /* CoreImage_Pipe.swift in Sources */,
 				OBJ_158 /* CLAuthorizationStatus_Pipe.swift in Sources */,
 				OBJ_159 /* CLLocationManager_Pipe.swift in Sources */,
@@ -893,11 +912,12 @@
 				OBJ_168 /* Codable_Pipe.swift in Sources */,
 				OBJ_169 /* RestModel.swift in Sources */,
 				616B882E28C8A987002C53CF /* URLRequest_Pipe.swift in Sources */,
-				OBJ_170 /* Data_Pipe.swift in Sources */,
 				OBJ_171 /* Date_Pipe.swift in Sources */,
 				OBJ_172 /* Foundation+Pipe.swift in Sources */,
 				OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */,
 				OBJ_174 /* NotificationCenter_Pipe.swift in Sources */,
+				61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */,
+				61A6F9E828EC06E20037CDBD /* String.IndexDistance_Pipe.swift in Sources */,
 				OBJ_175 /* Notification_Pipe.swift in Sources */,
 				OBJ_176 /* TimeZone_Pipe.swift in Sources */,
 				OBJ_181 /* MKGeometry+Piped.swift in Sources */,
