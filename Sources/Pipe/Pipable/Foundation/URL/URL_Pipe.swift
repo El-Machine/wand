@@ -85,7 +85,12 @@ extension URL: Pipable {
         let pipe = url.pipe
 
         let session: URLSession = pipe.get()
-        let request: URLRequest = url|
+
+        pipe.put(["Accept": "application/json",
+                  "Content-Type": "application/json"])
+
+
+        let request: URLRequest = pipe.get()
         print(request)
         session.dataTask(with: request) { data, response, error in
             if let data = data {

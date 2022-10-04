@@ -140,25 +140,25 @@ func ShoudBeOverriden(function: String = #function) -> Never {
 //    return pipe
 //}
 
-extension Expect where E: RestModel {
+extension Expect where T: RestModel {
 
-    static func get(handler: @escaping (E)->()) -> Self {
+    static func get(handler: @escaping (T)->()) -> Self {
         Expect.one(.GET, handler) as! Self
     }
 
-    static func post(handler: @escaping (E)->()) -> Self {
+    static func post(handler: @escaping (T)->()) -> Self {
         Expect.one(.POST, handler) as! Self
     }
 
-    static func head(handler: @escaping (E)->()) -> Self {
+    static func head(handler: @escaping (T)->()) -> Self {
         Expect.one(.HEAD, handler) as! Self
     }
 
-    static func put(handler: @escaping (E)->()) -> Self {
+    static func put(handler: @escaping (T)->()) -> Self {
         Expect.one(.PUT, handler) as! Self
     }
 
-    static func patch(handler: @escaping (E)->()) -> Self {
+    static func patch(handler: @escaping (T)->()) -> Self {
         Expect.one(.PATCH, handler) as! Self
     }
 

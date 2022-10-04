@@ -27,6 +27,6 @@ public protocol Operatable: ExpectableWith {
 
 }
 
-public extension Expect where E: Operatable {
+public extension Expect where T: Operatable {
 
 }

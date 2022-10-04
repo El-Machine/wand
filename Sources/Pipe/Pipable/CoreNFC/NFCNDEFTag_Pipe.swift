@@ -57,7 +57,7 @@ public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
     }
 
     let source = piped as? NFCNDEFReaderSession ?? pipe.get()
-    source.alertMessage = ""
+    source.alertMessage = piped as? String ?? pipe.get() ?? ""
     source.begin()
 
     expectation.cleaner = {
@@ -67,20 +67,87 @@ public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
     return pipe
 }
 
-@available(iOS 13.0, *)
-public func |(piped: NFCNDEFTag, handler: @escaping (NFCNDEFMessage?)->() ) {
-    piped.readNDEF { message, _ in
-        handler(message)
+extension NFCNDEFTag {
+
+    var pipe: Pipe {
+        isPiped ?? Pipe(object: self)
     }
+
+    var isPiped: Pipe? {
+        Pipe[self]
+    }
+
 }
 
-extension NFCNDEFMessage: Pipable {
+extension NFCNDEFMessage: ExpectableWith, Pipable {
+
+    public typealias With = NFCNDEFTag
+
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
+
+        guard pipe.start(expecting: expectation) else {
+            return
+        }
+
+        let tag = piped as? NFCNDEFTag ?? pipe.get()!
+
+        let session: NFCNDEFReaderSession = pipe.get()
+        session.connect(to: tag) { (error: Error?) in
+            if error != nil {
+                session.restartPolling()
+                return
+            }
+
+
+            tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
+
+                if let error {
+                    pipe.put(error)
+                    return
+                }
+
+//                if error != nil {
+//                    session.invalidate(errorMessage: "Fail to determine NDEF status.  Please try again.")
+//                    return
+//                }
+
+                tag.readNDEF { message, error in
+
+                    if let error {
+                        pipe.put(error)
+                        return
+                    }
+
+                    if let message {
+                        pipe.put(message)
+                    }
+
+                }
+
+
+            }
+        }
+
+    }
+
+}
+
+extension Result: Expectable {
+
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
+    }
+
 
 }
 
 @available(iOS 13.0, *)
-public func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> NFCNDEFMessage {
-    let pipe = message.pipe
+public func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> Pipe {
+
+    let pipe = tag.pipe
+
+//    guard pipe.start(expecting: Result<Int, Error>.one) else {
+//        return pipe
+//    }
 
     let session: NFCNDEFReaderSession = pipe.get()
     session.connect(to: tag) { (error: Error?) in
@@ -107,11 +174,7 @@ public func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> NFCNDEFMessage {
                 // When a tag is read-writable and has sufficient capacity,
                 // write an NDEF message to it.
                 tag.writeNDEF(message) { (error: Error?) in
-                    if error != nil {
-                        session.invalidate(errorMessage: "Update tag failed. Please try again.")
-                    } else {
-                        pipe.put(Result<Int, Error>.success(0))
-                    }
+                    pipe.put(error)
                 }
             } else {
                 session.invalidate(errorMessage: "Tag is not NDEF formatted.")
@@ -119,7 +182,7 @@ public func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> NFCNDEFMessage {
         }
     }
 
-    return message
+    return pipe
 }
 
 #endif

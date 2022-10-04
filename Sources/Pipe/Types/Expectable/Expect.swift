@@ -25,6 +25,8 @@ protocol Expecting {
 
     var isInner: Bool {get}
 
+    func handle(_ object: Any) -> Bool
+
 }
 
 /// Pipe.Expect
@@ -35,7 +37,7 @@ protocol Expecting {
 ///  - `one`    only
 ///  - `while`  returns true
 ///
-public final class Expect<E>: Expecting {
+public final class Expect<T>: Expecting {
     
     enum Condition {
 
@@ -44,7 +46,7 @@ public final class Expect<E>: Expecting {
 
     }
 
-    typealias Handler = (E)->(Bool)
+    typealias Handler = (T)->(Bool)
 
     let with: Any?
     let condition: Condition
@@ -53,9 +55,13 @@ public final class Expect<E>: Expecting {
     public var cleaner: ( ()->() )?
 
     private(set) var isInner = false
-    public func inner() -> Expect<E> {
+    public func inner() -> Expect<T> {
         isInner = true
         return self
+    }
+
+    func handle(_ object: Any) -> Bool {
+        handler(object as! T)
     }
 
     internal required init(with: Any? = nil,
@@ -69,21 +75,21 @@ public final class Expect<E>: Expecting {
     }
 
     //Event
-    public static func every(_ handler: ((E)->() )? = nil) -> Self {
+    public static func every(_ handler: ((T)->() )? = nil) -> Self {
         Self(condition: .every) {
             handler?($0)
             return true
         }
     }
     
-    public static func one(_ handler: ((E)->() )? = nil) -> Self {
+    public static func one(_ handler: ((T)->() )? = nil) -> Self {
         Self(condition: .one) {
             handler?($0)
             return false
         }
     }
 
-    public static func `while`(_ handler: @escaping (E)->(Bool) ) -> Self {
+    public static func `while`(_ handler: @escaping (T)->(Bool) ) -> Self {
         Self(condition: .while, handler: handler)
     }
 

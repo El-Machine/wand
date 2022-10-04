@@ -26,12 +26,12 @@
 #if canImport(UIKit)
 import UIKit.UIImage
 
-extension Expect where E == UIImage {
+extension Expect where T == UIImage {
 
     static func round(_ condition: Condition = .every,
                       to radius: CGFloat,
                       contentMode: UIView.ContentMode = .scaleAspectFill,
-                      handler: ((E)->() )? = nil) -> Self {
+                      handler: ((T)->() )? = nil) -> Self {
         Self(condition: condition) { image in
 
             let size = image.size
@@ -51,7 +51,7 @@ extension Expect where E == UIImage {
     static func resize(_ condition: Condition = .every,
                        to size: CGSize,
                        contentMode: UIView.ContentMode = .scaleAspectFill,
-                       handler: ((E)->() )? = nil) -> Self {
+                       handler: ((T)->() )? = nil) -> Self {
         Self(condition: condition) { image in
 
 
@@ -116,7 +116,7 @@ extension Expect where E == UIImage {
 
 extension UIImage: ExpectableWithout {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    public static func start<P, T>(expectating expectation: Expect<T>, with piped: P, on pipe: Pipe) {
 
         guard pipe.start(expecting: expectation) else {
             return

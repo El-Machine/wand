@@ -26,7 +26,7 @@ public protocol Pipable {
     var pipe: Pipe {get}
     var isPiped: Pipe? {get}
 
-    var key: String {get}
+    var address: String {get}
 
 }
 
@@ -44,10 +44,9 @@ public extension Pipable {
 
 public extension Pipable where Self: AnyObject {
 
-    var key: String {
-        let address = String(describing: Unmanaged.passUnretained(self).toOpaque())
-
-        print("🥳 ad \(address) for class \(self)")
+    var address: String {
+        let address = "\(Unmanaged.passUnretained(self).toOpaque())"
+//        print("🥳 ad \(address) for class \(self)")
         return address
     }
 
@@ -55,14 +54,14 @@ public extension Pipable where Self: AnyObject {
 
 public extension Pipable {
 
-    var key: String {
+    var address: String {
         var address: String?
         var mutable = self
         withUnsafePointer(to: &mutable) { pointer in
             address = String(format: "%p", pointer)
         }
 
-        print("🥳 ad \(address!) for \(self)")
+//        print("🥳 ad \(address!) for \(self)")
         return address!
     }
 

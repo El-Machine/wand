@@ -28,9 +28,9 @@ extension NFCNDEFReaderSession: Constructable {
 
     public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
 
-        let delegate = pipe.put(Delegate())
+        let delegate = pipe.put(NFCNDEFReaderSession.Delegate())
         let source = Self(delegate: delegate,
-                          queue: nil,
+                          queue: DispatchQueue.global(),
                           invalidateAfterFirstRead: false) //while
 
         let message = piped as? String ?? "Hold to know what it is 🧙🏾‍♂️"

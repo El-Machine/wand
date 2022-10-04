@@ -51,22 +51,11 @@ public final class Pipe {
     }
 
     internal static func key(_ piped: Any) -> String? {
-        (piped as? Pipable)?.key
+        (piped as? Pipable)?.address
     }
-
-//    internal static subscript<P: AnyObject>(piped: P) -> Pipe? {
-//        get {
-//            all[objectAddress(piped)]
-//        }
-//        set {
-//            if let pipe = newValue {
-//                all.updateValue(pipe, forKey: objectAddress(piped))
-//            }
-//        }
-//    }
     
     public private(set) lazy var piped: [String: Any] = ["Pipe": self]
-    lazy var expectations = [String: [Any]]()
+    lazy var expectations = [String: [Expecting]]()
 
     public func close() {
         close(last: self)
@@ -84,7 +73,7 @@ public final class Pipe {
         var expectingSomething = false
         root: for (_, list) in expectations {
             for expectation in list {
-                if (expectation as? Expecting)?.isInner == false {
+                if expectation.isInner == false {
                     expectingSomething = true
 
                     break root
@@ -93,10 +82,11 @@ public final class Pipe {
         }
 
         if !expectingSomething {
-            close(last: last)
+            close(last: last ?? self)
         }
 
     }
+
     private func close(last: Any) {
         (expectations["All"] as? [Expect<Any>])?.forEach {
             _ = $0.handler(last)
@@ -121,26 +111,6 @@ public final class Pipe {
         deinit {
             print("|✅ #bonsua\n\(self)\n")
         }
-
-    private static func address<T>(_ object: T) -> String {
-
-        let address: Int
-
-        if let c = object as? AnyClass {
-            address = unsafeBitCast(c, to: Int.self)
-        } else {
-            var mutable = object
-            address = unsafeBitCast(mutable, to: Int.self)
-        }
-
-        return String(describing: address)
-    }
-
-//    private static func objectAddress<T: AnyObject>(_ object: T) -> String {
-//        String(describing: Unmanaged.passUnretained(object).toOpaque())
-//    }
-
-//    #endif
     
 }
 
@@ -148,10 +118,18 @@ public final class Pipe {
 //Get
 extension Pipe {
 
-    public func get<T>(or create: @autoclosure ()->(T)) -> T {
-        get() ?? put(create())
+    /// Get piped T or create and put to pipe
+    /// - Parameters:
+    ///   - key: Key to store
+    ///   - create: Construction block
+    /// - Returns: Instance of T
+    public func get<T>(for key: String? = nil, or create: @autoclosure ()->(T)) -> T {
+        get(for: key) ?? put(create(), key: key)
     }
 
+    /// Get piped T for key
+    /// - Parameter key: Key to store
+    /// - Returns: Instance of T
     public func get<T>(for key: String? = nil) -> T? {
         piped[key ?? T.self|] as? T
     }
@@ -172,13 +150,13 @@ extension Pipe {
         //Make events happens
         var inner = true
 
-        let stored = expectations[key] as? [Expect<T>]
+        let stored = expectations[key]
         expectations[key] = stored?.filter {
             if inner && !$0.isInner {
                 inner = false
             }
 
-            return $0.handler(object)
+            return $0.handle(object)
         }
 
         //Handle not inner expectations
@@ -300,10 +278,6 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
             return pipable.pipe
         }
 
-        if let piped = Pipe[self] {
-            return piped
-        }
-
         if let array = object as? [Any] {
             return Pipe(array: array)
         }
@@ -332,7 +306,7 @@ extension Pipe: Pipable {
 extension Pipe: CustomStringConvertible, CustomDebugStringConvertible {
 
     public var description: String {
-        "<Pipe \(Unmanaged.passUnretained(self).toOpaque()|)>"
+        "<Pipe \(address)>"
     }
 
     

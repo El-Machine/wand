@@ -43,7 +43,7 @@ public postfix func |<T: Constructable>(pipe: Pipe?) -> T {
 /// - Returns: Self
 public postfix func |<P, T: Constructable>(settings: P) -> T {
     let pipe = Pipe.attach(to: settings)
-    return pipe.put(T.construct(with: settings, on: pipe))
+    return pipe.get(or: T.construct(with: settings, on: pipe))
 }
 
 /// Construct object from type

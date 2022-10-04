@@ -24,7 +24,7 @@
 /// Requsts self with required `With`
 public protocol ExpectableWith: Expectable {
 
-    associatedtype With: RawRepresentable
+    associatedtype With
 
 }
 
@@ -61,26 +61,26 @@ public func |<E: ExpectableWith> (piped: E.With, expectation: Expect<E>) -> Pipe
 }
 
 
-public extension Expect where E: ExpectableWith {
+public extension Expect where T: ExpectableWith {
 
-    static func every(_ with: E.With,
-                      _ handler: ((E)->() )? = nil) -> Self {
+    static func every(_ with: T.With,
+                      _ handler: ((T)->() )? = nil) -> Self {
         Self(with: with, condition: .every) {
             handler?($0)
             return true
         }
     }
 
-    static func one(_ with: E.With,
-                    _ handler: ((E)->() )? = nil) -> Self {
+    static func one(_ with: T.With,
+                    _ handler: ((T)->() )? = nil) -> Self {
         Self(with: with, condition: .one) {
             handler?($0)
             return false
         }
     }
 
-    static func `while`(_ with: E.With,
-                        _ handler: @escaping (E)->(Bool)) -> Self {
+    static func `while`(_ with: T.With,
+                        _ handler: @escaping (T)->(Bool)) -> Self {
         Self(with: with, condition: .while, handler: handler)
     }
 
