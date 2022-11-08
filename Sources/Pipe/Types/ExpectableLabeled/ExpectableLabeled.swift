@@ -23,10 +23,33 @@
 
 import Foundation
 
-public protocol Operatable: ExpectableWith {
+public protocol ExpectableLabeled: Expectable {
+
+    associatedtype Label
 
 }
 
-public extension Expect where T: Operatable {
+public extension Expect where T: ExpectableLabeled {
+
+    static func every(_ with: T.Label,
+                      _ handler: ((T)->() )? = nil) -> Self {
+        Self(with: with, condition: .every) {
+            handler?($0)
+            return true
+        }
+    }
+
+    static func one(_ with: T.Label,
+                    _ handler: ((T)->() )? = nil) -> Self {
+        Self(with: with, condition: .one) {
+            handler?($0)
+            return false
+        }
+    }
+
+    static func `while`(_ with: T.Label,
+                        _ handler: @escaping (T)->(Bool)) -> Self {
+        Self(with: with, condition: .while, handler: handler)
+    }
 
 }

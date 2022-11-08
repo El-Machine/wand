@@ -24,9 +24,17 @@
 import Foundation
 
 extension Bool {
-    
+
     static public postfix func |<T: Numeric> (p: Self) -> T {
         p ? 1 : 0
+    }
+
+}
+
+extension BinaryInteger {
+
+    static public postfix func |(piped: Self) -> Double {
+        Double(piped)
     }
 
 }
@@ -50,9 +58,13 @@ extension String {
     }
     
 }
-    
-public postfix func |<T: BinaryFloatingPoint>(p: T) -> Int {
-    Int(p)
+
+extension BinaryFloatingPoint {
+
+    public static postfix func |(p: Self) -> Int {
+        Int(p)
+    }
+
 }
 
 public postfix func |(piped: String?) -> Double? {

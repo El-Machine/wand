@@ -23,7 +23,7 @@
 
 import Foundation
 
-public protocol RestModel: Operatable, ExpectableWithout, Codable where With == URLRequest.Method {
+public protocol RestModel: ExpectableLabeled, ExpectableWithout, Codable where Label == URLRequest.Method {
 
     static var path: String? {get}
     static var headers: [String : String]? {get}
@@ -78,7 +78,7 @@ extension RestModel {
         //Add default headers
         pipe.putIf(exist: headers)
 
-        switch expectation.with as? With {
+        switch expectation.with as? Label {
             case .none, .GET:
                 get(on: pipe)
 

@@ -21,7 +21,7 @@ extension UIViewController {
     }
 
     var isRoot: Bool {
-        UIApplication.shared.windows.first?.rootViewController == self
+        UIApplication.shared.visibleWindow?.rootViewController == self
     }
     
     func presentOnVisible(animated: Bool = true, completion: (() -> Void)? = nil) {

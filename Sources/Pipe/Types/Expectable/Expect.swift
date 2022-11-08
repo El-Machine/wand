@@ -93,6 +93,17 @@ public final class Expect<T>: Expecting {
         Self(condition: .while, handler: handler)
     }
 
+    public static func `while`(_ handler: @escaping (T, Int)->(Bool) ) -> Self {
+        var i = 0
+        return Self(condition: .while) {
+            defer {
+                i += 1
+            }
+
+            return handler($0, i)
+        }
+    }
+
     deinit {
         cleaner?()
     }

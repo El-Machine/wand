@@ -244,7 +244,7 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
     convenience init<P>(object: P) {
         self.init()
 
-        Pipe[piped] = self
+        Pipe[object] = self
         piped[P.self|] = object
     }
 
