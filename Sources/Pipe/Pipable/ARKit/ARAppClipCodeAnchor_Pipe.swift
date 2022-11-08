@@ -40,7 +40,11 @@ extension Array<ARAnchor>: ExpectableLabeled {
             return
         }
 
-        _ = (piped as? ARSession) ?? pipe.get()
+        let session = (piped as? ARSession) ?? pipe.get()
+
+        expectation.cleaner = {
+            session.pause()
+        }
 
     }
 
@@ -92,6 +96,7 @@ import ARKit.ARAppClipCodeAnchor
 //}
 
 
+
 import ARKit.ARSession
 import RealityKit
 
@@ -100,7 +105,7 @@ extension ARSession: Constructable {
 
     public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
         //TODO: Create ARView if no?
-        let arView = (piped as? ARView) ?? pipe.get()!
+        let arView = (piped as? ARView) ?? pipe.get()
 
         let session: Self = arView.session as! Self
         session.delegate = pipe.put(Delegate())
