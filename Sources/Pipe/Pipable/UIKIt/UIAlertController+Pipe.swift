@@ -42,13 +42,20 @@ extension UIAlertController: Constructable {
     -> UIAlertController {
         controller | (action.title, .default, action.handler)
     }
-    
+
     @discardableResult
     public static func | (controller: UIAlertController,
-                   action: (title: String,
-                            style: UIAlertAction.Style)
+                          action: (title: String,
+                                   style: UIAlertAction.Style)
     ) -> UIAlertController {
         controller | (action.title, action.style, nil)
+    }
+
+    @discardableResult
+    public static func | (controller: UIAlertController,
+                          title: String
+    ) -> UIAlertController {
+        controller | (title, nil)
     }
     
     @discardableResult
