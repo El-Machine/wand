@@ -144,11 +144,23 @@ public func |(piped: TimeInterval, animations: @escaping ()->()) {
 }
 
 public func |(piped: (duration: TimeInterval, options: UIView.AnimationOptions),
-       animations: @escaping ()->() ) {
+              animations: @escaping ()->() ) {
     UIView.animate(withDuration: piped.duration,
                    delay: 0,
                    options: piped.options,
                    animations: animations)
+}
+
+public func |(piped: (duration: TimeInterval,
+                      options: UIView.AnimationOptions),
+                blocks: (animations: ()->(),
+                         completion: (Bool)->())
+) {
+    UIView.animate(withDuration: piped.duration,
+                   delay: 0,
+                   options: piped.options,
+                   animations: blocks.animations,
+                   completion: blocks.completion)
 }
 
 #endif
