@@ -29,3 +29,14 @@ func | (url: URL?, button: UIButton) -> Pipe {
     button.kf.setImage(with: url, for: .normal)
     return Pipe()
 }
+
+@discardableResult
+func | (path: String, imageView: UIImageView) -> Pipe {
+    URL(string: path)! | imageView
+}
+
+@discardableResult
+func | (url: URL?, imageView: UIImageView) -> Pipe {
+    imageView.kf.setImage(with: url)
+    return Pipe()
+}
