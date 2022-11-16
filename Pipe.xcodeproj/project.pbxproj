@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		61056E8A2924BFB400E2BFF0 /* ExpectableLabeled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61056E892924BFB400E2BFF0 /* ExpectableLabeled.swift */; };
 		6162625428BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
 		6162625528BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
@@ -111,9 +112,7 @@
 		OBJ_207 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* Expect.swift */; };
 		OBJ_208 /* Expect_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Expect_Any.swift */; };
 		OBJ_209 /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Expectable.swift */; };
-		OBJ_210 /* ExpectableWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* ExpectableWith.swift */; };
 		OBJ_211 /* ExpectableWithout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* ExpectableWithout.swift */; };
-		OBJ_212 /* Operatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* Operatable.swift */; };
 		OBJ_213 /* |.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* |.swift */; };
 		OBJ_220 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_254 /* Pipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Pipe.framework */; };
@@ -158,6 +157,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		61056E892924BFB400E2BFF0 /* ExpectableLabeled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectableLabeled.swift; sourceTree = "<group>"; };
 		616083F02902B29E00B864DE /* MCNearbyServiceAdvertiser_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNearbyServiceAdvertiser_Pipe.swift; sourceTree = "<group>"; };
 		616083F12902B29E00B864DE /* MCPeerID_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPeerID_Pipe.swift; sourceTree = "<group>"; };
 		616083F22902B29E00B864DE /* MCNearbyServiceBrowser_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNearbyServiceBrowser_Pipe.swift; sourceTree = "<group>"; };
@@ -256,9 +256,7 @@
 		OBJ_93 /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		OBJ_94 /* Expect_Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect_Any.swift; sourceTree = "<group>"; };
 		OBJ_95 /* Expectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expectable.swift; sourceTree = "<group>"; };
-		OBJ_96 /* ExpectableWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectableWith.swift; sourceTree = "<group>"; };
 		OBJ_97 /* ExpectableWithout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectableWithout.swift; sourceTree = "<group>"; };
-		OBJ_99 /* Operatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operatable.swift; sourceTree = "<group>"; };
 		"pipe::Pipe::Product" /* Pipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"pipe::PipeTests::Product" /* PipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = PipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -680,7 +678,6 @@
 				OBJ_88 /* Constructable */,
 				OBJ_90 /* Convertable */,
 				OBJ_92 /* Expectable */,
-				OBJ_98 /* Operatable */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -733,18 +730,10 @@
 				OBJ_93 /* Expect.swift */,
 				OBJ_94 /* Expect_Any.swift */,
 				OBJ_95 /* Expectable.swift */,
-				OBJ_96 /* ExpectableWith.swift */,
+				61056E892924BFB400E2BFF0 /* ExpectableLabeled.swift */,
 				OBJ_97 /* ExpectableWithout.swift */,
 			);
 			path = Expectable;
-			sourceTree = "<group>";
-		};
-		OBJ_98 /* Operatable */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_99 /* Operatable.swift */,
-			);
-			path = Operatable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -954,6 +943,7 @@
 				OBJ_166 /* NFCNDEFReaderSession_Pipe.swift in Sources */,
 				OBJ_167 /* NFCNDEFTag_Pipe.swift in Sources */,
 				OBJ_168 /* Codable_Pipe.swift in Sources */,
+				61056E8A2924BFB400E2BFF0 /* ExpectableLabeled.swift in Sources */,
 				OBJ_169 /* RestModel.swift in Sources */,
 				616B882E28C8A987002C53CF /* URLRequest_Pipe.swift in Sources */,
 				OBJ_171 /* Date_Pipe.swift in Sources */,
@@ -994,9 +984,7 @@
 				OBJ_207 /* Expect.swift in Sources */,
 				OBJ_208 /* Expect_Any.swift in Sources */,
 				OBJ_209 /* Expectable.swift in Sources */,
-				OBJ_210 /* ExpectableWith.swift in Sources */,
 				OBJ_211 /* ExpectableWithout.swift in Sources */,
-				OBJ_212 /* Operatable.swift in Sources */,
 				OBJ_213 /* |.swift in Sources */,
 				619ABCC029014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift in Sources */,
 			);

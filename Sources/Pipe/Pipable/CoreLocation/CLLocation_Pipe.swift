@@ -35,9 +35,7 @@ import CoreLocation.CLLocation
  ```
 
  */
-extension CLLocation: ExpectableWithout, ExpectableWith, Pipable {
-
-    public typealias With = CLAuthorizationStatus
+extension CLLocation: ExpectableWithout, Pipable {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 

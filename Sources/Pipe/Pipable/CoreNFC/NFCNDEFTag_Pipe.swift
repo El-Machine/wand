@@ -88,9 +88,7 @@ extension NFCNDEFTag {
 
 
 @available(iOS 13.0, *)
-extension NFCNDEFMessage: ExpectableWith, Pipable {
-
-    public typealias With = NFCNDEFTag
+extension NFCNDEFMessage: Expectable, Pipable {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
 

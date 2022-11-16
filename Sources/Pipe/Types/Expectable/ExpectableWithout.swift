@@ -48,18 +48,21 @@ public prefix func |<E: ExpectableWithout> (handler: @escaping (E)->() ) -> Pipe
     |.every(handler)
 }
 
-///  Expect E from nil
+
+///  Expect E with condition:
+///  - `every`
+///  - `one`
+///  - `while`
 ///
 /// - Parameters:
-///   - pipe: Pipe that provides context
-///   - handler: Block to use E
+///   - expectation: Expectation that provide requesting and receiving politics
 ///
-///   | { E in
+///   |.one { E in
 ///
 ///   }
 @discardableResult
-public func |<E: Expectable> (pipe: Pipe?, handler: @escaping (E)->() ) -> Pipe {
-    (pipe ?? Pipe()) as Any | .every(handler)
+public prefix func |<E: ExpectableWithout> (expectation: Expect<E>) -> Pipe {
+    Pipe() | expectation
 }
 
 ///  Expect E from nil

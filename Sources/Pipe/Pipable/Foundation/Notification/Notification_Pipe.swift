@@ -36,9 +36,7 @@ import Foundation.NSNotification
 
  */
 
-extension Notification: ExpectableWith {
-
-    public typealias With = Name
+extension Notification: Expectable {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 

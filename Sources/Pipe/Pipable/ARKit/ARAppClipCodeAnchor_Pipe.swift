@@ -23,8 +23,6 @@ extension Array<ARAnchor>: Expectable {
 
 extension Array<ARAnchor>: ExpectableLabeled {
 
-    public typealias With = ARView
-
     public enum Label: String {
 
         case add, update, remove
@@ -43,7 +41,7 @@ extension Array<ARAnchor>: ExpectableLabeled {
         let session = (piped as? ARSession) ?? pipe.get()
 
         expectation.cleaner = {
-            session.pause()
+            session?.pause()
         }
 
     }
@@ -173,6 +171,7 @@ extension ARSession {
 
 }
 
+@available(iOS 13.0, *)
 extension ARView: Constructable {
 
     public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
