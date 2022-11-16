@@ -21,27 +21,19 @@ extension Array<ARAnchor>: Expectable {
 
 }
 
-extension Array<ARAnchor>: ExpectableLabeled {
-
-    public enum Label: String {
-
-        case add, update, remove
-
-    }
+extension Array<ARAnchor>: ExpectableLabeled, ExpectableWithout {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 
-//        let with = piped as! With
-        let label = expectation.with as! Label
-
-        guard pipe.start(expecting: expectation, key: label.rawValue) else {
+        let key = expectation.key
+        guard pipe.start(expecting: expectation, key: key) else {
             return
         }
 
         let session = (piped as? ARSession) ?? pipe.get()
 
         expectation.cleaner = {
-            session?.pause()
+            session.pause()
         }
 
     }
@@ -51,16 +43,16 @@ extension Array<ARAnchor>: ExpectableLabeled {
 
 public extension Expect where T == Array<ARAnchor> {
 
-    static func add(handler: @escaping (T)->()) -> Self {
-        Expect.every(.add, handler) as! Self
+    static func add(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
-    static func update(handler: @escaping (T)->()) -> Self {
-        Expect.every(.update, handler) as! Self
+    static func update(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
-    static func remove(handler: @escaping (T)->()) -> Self {
-        Expect.every(.remove, handler) as! Self
+    static func remove(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
 }
@@ -129,14 +121,16 @@ extension ARSession {
                 return
             }
 
-            pipe.put(anchors, key: [ARAnchor].Label.add.rawValue)
+            let key = Expect<[ARAnchor]>.add().key
+
+            pipe.put(anchors, key: key)
 
             //Waiting for some ARAnchor
             if pipe.expectations[ARAnchor.self|] != nil {
 
                 anchors.forEach {
-                    let key = type(of: $0)| + ARAnchor.With.add|
-                    isPiped?.put($0, key: key)
+                    let typed = type(of: $0)| + key
+                    isPiped?.put($0, key: typed)
                 }
 
             }
@@ -149,7 +143,7 @@ extension ARSession {
                 return
             }
 
-            pipe.put(anchors, key: [ARAnchor].Label.update.rawValue)
+            pipe.put(anchors, key: Expect<[ARAnchor]>.update().key)
 
             //Waiting for some ARAnchor
             if pipe.expectations[ARAnchor.self|] != nil {

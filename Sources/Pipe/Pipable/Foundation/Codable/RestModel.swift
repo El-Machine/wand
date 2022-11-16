@@ -23,7 +23,7 @@
 
 import Foundation
 
-public protocol RestModel: ExpectableLabeled, ExpectableWithout, Codable where Label == URLRequest.Method {
+public protocol RestModel: ExpectableLabeled, ExpectableWithout, Codable {
 
     static var path: String? {get}
     static var headers: [String : String]? {get}
@@ -36,6 +36,8 @@ public protocol RestModel: ExpectableLabeled, ExpectableWithout, Codable where L
 }
 
 extension RestModel {
+
+    typealias Label = URLRequest.Method
 
     static var path: String? {
         nil
@@ -143,23 +145,23 @@ func ShoudBeOverriden(function: String = #function) -> Never {
 extension Expect where T: RestModel {
 
     static func get(handler: @escaping (T)->()) -> Self {
-        Expect.one(.GET, handler) as! Self
+        Expect.one(#function, handler) as! Self
     }
 
     static func post(handler: @escaping (T)->()) -> Self {
-        Expect.one(.POST, handler) as! Self
+        Expect.one(#function, handler) as! Self
     }
 
     static func head(handler: @escaping (T)->()) -> Self {
-        Expect.one(.HEAD, handler) as! Self
+        Expect.one(#function, handler) as! Self
     }
 
     static func put(handler: @escaping (T)->()) -> Self {
-        Expect.one(.PUT, handler) as! Self
+        Expect.one(#function, handler) as! Self
     }
 
     static func patch(handler: @escaping (T)->()) -> Self {
-        Expect.one(.PATCH, handler) as! Self
+        Expect.one(#function, handler) as! Self
     }
 
 }

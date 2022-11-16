@@ -9,6 +9,7 @@
 #if canImport(UIKit)
 import UIKit
 
+public
 extension UIViewController {
 
     @objc
@@ -32,6 +33,7 @@ extension UIViewController {
 
 }
 
+public
 extension UINavigationController {
 
     @objc
@@ -41,6 +43,7 @@ extension UINavigationController {
 
 }
 
+public
 extension UITabBarController {
 
     @objc
@@ -50,6 +53,7 @@ extension UITabBarController {
 
 }
 
+public
 extension UIApplication {
 
     var visibleViewController: UIViewController? {

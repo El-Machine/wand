@@ -9,7 +9,7 @@
 import ARKit
 import RealityKit
 
-//import Pipe
+import Pipe
 import SwiftUI
 
 struct ContentView: View {
@@ -18,16 +18,16 @@ struct ContentView: View {
         Text("Hello, Pipe! |").onAppear {
 
 
-//            if #available(iOS 14.3, *) {
-//
-//                let pipe = .add | { (appCode: ARAppClipCodeAnchor) in
-//                    print("")
-//                }
-//
-//                let view: ARView = pipe.get()
-//                UIApplication.shared.visibleViewController?.visible
-//
-//            }
+            if #available(iOS 14.3, *) {
+
+                let pipe = |.add { (a: [ARAnchor]) in
+                    print("")
+                }
+
+                let view: ARView = pipe.get()
+                
+
+            }
 
         }
     }

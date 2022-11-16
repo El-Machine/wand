@@ -54,6 +54,11 @@ public final class Expect<T>: Expecting {
     let handler: Handler
     public var cleaner: ( ()->() )?
 
+
+    var key: String {
+        with as! String
+    }
+
     private(set) var isInner = false
     public func inner() -> Expect<T> {
         isInner = true
