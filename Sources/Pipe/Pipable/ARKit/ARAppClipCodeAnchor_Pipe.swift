@@ -17,10 +17,12 @@ extension ARAnchor: Pipable {
 
 }
 
+@available(iOS 13.0, *)
 extension Array<ARAnchor>: Expectable {
 
 }
 
+@available(iOS 13.0, *)
 extension Array<ARAnchor>: ExpectableLabeled, ExpectableWithout {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
@@ -41,6 +43,7 @@ extension Array<ARAnchor>: ExpectableLabeled, ExpectableWithout {
 
 }
 
+@available(iOS 13.0, *)
 public extension Expect where T == Array<ARAnchor> {
 
     static func add(_ handler: ( (T)->() )? = nil) -> Self {
@@ -111,6 +114,7 @@ extension ARSession: Constructable {
 
 }
 
+@available(iOS 13.0, *)
 extension ARSession {
 
     class Delegate: NSObject, ARSessionDelegate, Pipable {

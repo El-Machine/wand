@@ -8,7 +8,7 @@
 
 import UIKit.UIGestureRecognizer
 
-extension UILongPressGestureRecognizer: ExpectableWith {
+extension UILongPressGestureRecognizer: Expectable {
     
     public typealias With = UIView
 
@@ -20,7 +20,7 @@ extension UILongPressGestureRecognizer: ExpectableWith {
 
         let recognizer: Self = pipe.get() ?? Self()
         recognizer.addTarget(delegate, action: #selector(Delegate.handleLongPress(sender:)))
-
+ 
         //        if recognizer.isPiped() {
 
         let view = piped as! UIView

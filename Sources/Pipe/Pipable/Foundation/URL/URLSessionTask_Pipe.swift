@@ -28,16 +28,21 @@ extension URLSessionDataTask: Constructable {
                 return
             }
 
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode)
-            else
-            {
-                pipe.put(Pipe.Error.HTTP("Wrong statusCode"))
+            guard let httpResponse = response as? HTTPURLResponse else {
+                pipe.put(Pipe.Error.HTTP("Not http?"))
+                return
+            }
+            
+
+            let statusCode = httpResponse.statusCode
+            if !(200...299).contains(httpResponse.statusCode)  {
+                pipe.put(Pipe.Error.HTTP("Code: \(statusCode)"))
                 return
             }           
 
-            guard let mime = httpResponse.mimeType, mime == "application/json" else {
-                pipe.put(Pipe.Error.HTTP("Wrong mime"))
+            let mime = httpResponse.mimeType
+            if mime != "application/json" {
+                pipe.put(Pipe.Error.HTTP("Mime: \(mime ?? "")"))
                 return
             }
 

@@ -52,4 +52,9 @@ public extension Expect where T: Expectable {
         Self(with: with, condition: .while, handler: handler)
     }
 
+    static func oneLabeled(label: String = #function,
+                           _ handler: ( (T)->() )? = nil) -> Self {
+        Expect.one(label, handler) as! Self
+    }
+
 }

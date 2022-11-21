@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,48 +19,55 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-import Foundation
+import Pipe
+import XCTest
 
-/** Pipable
- URL
+class URL_Data_Tests: XCTestCase {
 
- public postfix func |(piped: String) -> URL
- public postfix func |(piped: String?) -> URL
- public postfix func |(piped: String?) -> URL?
+    func test_URLString_Data() {
+        let e = expectation()
+        e.assertForOverFulfill = false
 
- public postfix func |(piped: URL) -> String
- public postfix func |(piped: URL?) -> String?
+        "https://api.github.com/gists" | { (data: Data) in
 
- infix | (url: URL, reply: ([String: Any])->() ) -> Pipe
- infix | (url: URL, reply: ([Any])->() ) -> Pipe
+            e.fulfill()
 
- infix | (url: URL, reply: (Data)->() ) -> Pipe
+        }
 
-
- */
-
-public postfix func |(piped: String) -> URL {
-    URL(string: piped)!
-}
-
-public postfix func |(piped: String?) -> URL {
-    URL(string: piped!)!
-}
-
-public postfix func |(piped: String?) -> URL? {
-    guard let piped = piped else {
-        return nil
+        waitForExpectations()
     }
 
-    return URL(string: piped)
-}
+    func test_URL_Data() {
+        let e = expectation()
+        e.assertForOverFulfill = false
 
-public postfix func |(piped: URL) -> String {
-    piped.absoluteString
-}
+        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
+        url | { (data: Data) in
 
-public postfix func |(piped: URL?) -> String? {
-    piped?.absoluteString
+            e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
+    func test_URL_Array() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
+        url | { (array: [Any]) in
+
+            e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
+
+
 }

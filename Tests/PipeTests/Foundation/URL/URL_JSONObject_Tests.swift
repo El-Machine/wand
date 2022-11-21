@@ -1,4 +1,4 @@
-//  Copyright © 2020-2022 El Machine 🤖
+//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -19,48 +19,58 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
+//  2020 El Machine
 //
 
-import Foundation
+import Pipe
+import XCTest
 
-/** Pipable
- URL
+class URL_JSONObject_Tests: XCTestCase {
 
- public postfix func |(piped: String) -> URL
- public postfix func |(piped: String?) -> URL
- public postfix func |(piped: String?) -> URL?
+    @available(iOS 16.0, *)
+    func test_URL_Array() {
+        let e = expectation()
 
- public postfix func |(piped: URL) -> String
- public postfix func |(piped: URL?) -> String?
+        let q = URLQueryItem(name: "q", value: "swift")
 
- infix | (url: URL, reply: ([String: Any])->() ) -> Pipe
- infix | (url: URL, reply: ([Any])->() ) -> Pipe
+        var url = URL(string: "https://api.github.com/repositories")!
+        url.append(queryItems: [q])
 
- infix | (url: URL, reply: (Data)->() ) -> Pipe
+        url | { (array: [Any]) in
 
+            e.fulfill()
 
- */
+        }
 
-public postfix func |(piped: String) -> URL {
-    URL(string: piped)!
-}
-
-public postfix func |(piped: String?) -> URL {
-    URL(string: piped!)!
-}
-
-public postfix func |(piped: String?) -> URL? {
-    guard let piped = piped else {
-        return nil
+        waitForExpectations()
     }
 
-    return URL(string: piped)
-}
+    func test_URL_Dictionary() {
+        let e = expectation()
 
-public postfix func |(piped: URL) -> String {
-    piped.absoluteString
-}
+        //(1...42).any
+        //Don't use random, because some repos is already 🧟‍♀️
+        let id: Int = 42
 
-public postfix func |(piped: URL?) -> String? {
-    piped?.absoluteString
+        var url = URL(string: "https://api.github.com/repositories")!
+
+        if #available(iOS 16.0, *) {
+            url.append(path: String(describing: id))
+        } else {
+            url.appendPathComponent(String(describing: id))
+        }
+
+        url | { (dictionary: [String: Any]) in
+
+            if dictionary["id"] as? Int == id {
+                e.fulfill()
+            }
+
+        }
+
+        waitForExpectations()
+    }
+
+
+
 }

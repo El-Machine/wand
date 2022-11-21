@@ -18,16 +18,16 @@ struct ContentView: View {
         Text("Hello, Pipe! |").onAppear {
 
 
-            if #available(iOS 14.3, *) {
-
-                let pipe = |.add { (a: [ARAnchor]) in
-                    print("")
-                }
-
-                let view: ARView = pipe.get()
-                
-
-            }
+//            if #available(iOS 14.3, *) {
+//
+//                let pipe = |.add { (a: [ARAnchor]) in
+//                    print("")
+//                }
+//
+//                let view: ARView = pipe.get()
+//
+//
+//            }
 
         }
     }
