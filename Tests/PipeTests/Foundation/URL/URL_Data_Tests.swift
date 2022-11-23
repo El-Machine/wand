@@ -27,7 +27,7 @@ import XCTest
 
 class URL_Data_Tests: XCTestCase {
 
-    func test_URLString_Data() {
+    func test_Path_Data() {
         let e = expectation()
         e.assertForOverFulfill = false
 
@@ -54,12 +54,54 @@ class URL_Data_Tests: XCTestCase {
         waitForExpectations()
     }
 
+    func test_Path_Array() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        let path = "https://api.github.com/repositories"
+        path | { (array: [Any]) in
+
+            e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
     func test_URL_Array() {
         let e = expectation()
         e.assertForOverFulfill = false
 
-        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
+        let url = URL(string: "https://api.github.com/repositories")
         url | { (array: [Any]) in
+
+            e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
+    func test_Path_Dictionary() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        let path = "https://dummy.restapiexample.com/api/v1/employees"
+        path | { (dictionary: [String: Any]) in
+
+            e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
+    func test_URL_Dictionary() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
+        url | { (dictionary: [String: Any]) in
 
             e.fulfill()
 

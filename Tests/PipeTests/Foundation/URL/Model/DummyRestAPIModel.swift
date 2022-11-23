@@ -7,14 +7,13 @@
 
 import Pipe
 
-protocol DummyRestAPIModel: RestModel {
-
+public protocol DummyRestAPIModel: Rest.Model {
 
 }
 
-extension DummyRestAPIModel {
+public extension DummyRestAPIModel {
 
-    static var basePath: String {
+    static var base: String {
         "https://dummy.restapiexample.com/api/v1/"
     }
 

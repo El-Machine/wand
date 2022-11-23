@@ -19,7 +19,7 @@ import Foundation
 
 extension Data {
 
-    static public postfix func |<T: RestModel>(data: Data) throws -> T {
+    static public postfix func |<T: Rest.Model>(data: Data) throws -> T {
         return try JSONDecoder().decode(T.self, from: data)
     }
 
@@ -39,7 +39,7 @@ extension Dictionary {
         try! JSONSerialization.data(withJSONObject: p, options: [])
     }
 
-    static public postfix func |<T: RestModel>(raw: Self) throws -> T {
+    static public postfix func |<T: Rest.Model>(raw: Self) throws -> T {
         try JSONDecoder().decode(T.self, from: raw|)
     }
 
@@ -51,7 +51,7 @@ extension Array {
         try! JSONSerialization.data(withJSONObject: p, options: [])
     }
 
-    static public postfix func |<T: RestModel>(raw: Self) throws -> [T] {
+    static public postfix func |<T: Rest.Model>(raw: Self) throws -> [T] {
         try JSONDecoder().decode(T.self, from: raw|) as! [T]
     }
 

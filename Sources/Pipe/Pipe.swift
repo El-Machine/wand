@@ -146,10 +146,7 @@ extension Pipe {
     @discardableResult
     public func put<T>(_ object: T, key: String? = nil) -> T {
 
-        let key = key ?? T.self|
-        Pipe[object] = self
-
-        piped.updateValue(object, forKey: key)
+        let key = store(object, key: key)
 
         //Make events happens
         var inner = true
@@ -178,18 +175,28 @@ extension Pipe {
         return object
     }
 
-    public func putIf<T>(exist object: T?, key: String? = nil) {
+    @discardableResult
+    public func putIf<T>(exist object: T?, key: String? = nil) -> T? {
         guard let object = object else {
-            return
+            return nil
         }
 
-        put(object, key: key)
+        return put(object, key: key)
+    }
+
+    @discardableResult
+    public func store<T>(_ object: T, key: String? = nil) -> String {
+
+        let result = key ?? T.self|
+        Pipe[object] = self
+        piped[result] = object
+
+        return result
     }
 
     public static func |(pipe: Pipe, array: Array<Any>) -> Pipe {
         pipe.store(array)
     }
-
 
     /// Store silently
     /// Without expectations check
@@ -197,17 +204,8 @@ extension Pipe {
     /// - Returns: pipe
     @discardableResult
     public func store(_ array: Array<Any>) -> Pipe {
-        array.forEach {
-            let key: String
-            let object: Any
-
-            if let keyValue = $0 as? (key: String, value: Any) {
-                object = keyValue.value
-                key = keyValue.key
-            } else {
-                object = $0
-                key = type(of: object)|
-            }
+        array.forEach { object in
+            let key = type(of: object)|
 
             Pipe[object] = self
             piped[key] = object

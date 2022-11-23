@@ -7,13 +7,13 @@
 
 import Pipe
 
-protocol GitHubAPIModel: RestModel {
+public protocol GitHubAPIModel: Rest.Model {
 
 }
 
-extension GitHubAPIModel {
+public extension GitHubAPIModel {
 
-    static var basePath: String {
+    static var base: String {
         "https://api.github.com/"
     }
 

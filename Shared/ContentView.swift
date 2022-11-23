@@ -15,7 +15,7 @@ import SwiftUI
 struct ContentView: View {
 
     var body: some View {
-        Text("Hello, Pipe! |").onAppear {
+        Text("Hello, Pipe |").onAppear {
 
 
 //            if #available(iOS 14.3, *) {

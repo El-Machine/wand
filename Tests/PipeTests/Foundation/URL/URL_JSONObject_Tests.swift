@@ -38,7 +38,9 @@ class URL_JSONObject_Tests: XCTestCase {
 
         url | { (array: [Any]) in
 
-            e.fulfill()
+            if !array.isEmpty {
+                e.fulfill()
+            }
 
         }
 

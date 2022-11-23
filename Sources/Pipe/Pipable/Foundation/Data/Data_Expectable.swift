@@ -33,6 +33,10 @@ extension Data: Expectable {
             return
         }
 
+        if pipe.putIf(exist: piped as? URL) == nil {
+            pipe.putIf(exist: piped as? String)
+        }
+
         let task = piped as? URLSessionDataTask ?? pipe.get()
         task.resume()
     }

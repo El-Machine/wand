@@ -7,16 +7,49 @@
 
 import Pipe
 
+import Foundation
+
 struct Employee: DummyRestAPIModel {
 
-    var id: Int?
+    let id: Int?
 
-    var age: Int?
-    var name: String?
-    var salary: Int?
+    let age: Int?
+    let name: String?
+    let salary: Int?
 
-    static var path: String? {
-        basePath + "/employees"
+    init(id: Int? = nil,
+         age: Int? = nil,
+         name: String? = nil,
+         salary: Int? = nil) {
+
+        self.id = id
+        self.age = age
+        self.name = name
+        self.salary = salary
+    }
+
+    func post<P>(with piped: P, on pipe: Pipeline) {
+
+        //dummy.restapiexample.com/api/v1/create
+
+        let path = Self.base + "create"
+        pipe.put(path)
+
+        let body: Data = self|
+        pipe.put(body)
+
+    }
+
+    func put<P>(with piped: P, on pipe: Pipeline) {
+
+        //dummy.restapiexample.com/api/v1/update/21
+
+        let path = Self.base + "update/" + id|
+        pipe.put(path)
+
+        let body: Data = self|
+        pipe.put(body)
+
     }
 
 }

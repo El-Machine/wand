@@ -18,12 +18,12 @@ extension ARAnchor: Pipable {
 }
 
 @available(iOS 13.0, *)
-extension Array<ARAnchor>: Expectable {
+extension Array: Expectable where Element == ARAnchor {
 
 }
 
 @available(iOS 13.0, *)
-extension Array<ARAnchor>: ExpectableLabeled, ExpectableWithout {
+extension Array: ExpectableLabeled, ExpectableWithout where Element == ARAnchor {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 

@@ -23,47 +23,45 @@
 
 import Foundation
 
-public protocol RestModel: ExpectableLabeled, ExpectableWithout, Codable {
+//Shortcut for Rest_Model
+public struct Rest {
 
-    static var path: String? {get}
-    static var headers: [String : String]? {get}
-
-    static func get(on pipe: Pipe)
-
-    func post(on pipe: Pipe)
-    func put(on pipe: Pipe)
+    public typealias Model = Rest_Model
 
 }
 
-public extension RestModel {
+public protocol Rest_Model: ExpectableLabeled, Codable {
 
-    static var path: String? {
-        nil
-    }
+    static var headers: [String : String]? {get}
+
+    static func get<P>(with piped: P, on pipe: Pipe)
+
+    func post<P>(with piped: P, on pipe: Pipe)
+    func put<P>(with piped: P, on pipe: Pipe)
+
+}
+
+public extension Rest_Model {
 
     static var headers: [String : String]? {
         nil
     }
 
-    static func get(on pipe: Pipe) {
-        let task: URLSessionDataTask = pipe.get()
-        task | self.every
+    static func get<P>(with piped: P, on pipe: Pipe) {
     }
 
-    func post(on pipe: Pipe) {
-        ShoudBeOverriden()
+    func post<P>(with piped: P, on pipe: Pipe) {
+        pipe.put(URLRequest.Method.POST)
     }
 
-    func put(on pipe: Pipe) {
-        ShoudBeOverriden()
+    func put<P>(with piped: P, on pipe: Pipe) {
+        pipe.put(URLRequest.Method.PUT)
     }
 
     //TODO?: start<P: URLSessionDataTask, E: RestModel>
     static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
 
         _ = pipe.start(expecting: expectation)
-
-        pipe.putIf(exist: expectation.with as? URLRequest.Method)
 
         if let task = piped as? URLSessionDataTask {
             start(expectating: expectation as! Expect<Self>,
@@ -73,25 +71,33 @@ public extension RestModel {
             return
         }
 
-        //Add default path
-        pipe.putIf(exist: path)
+        //1) Look for URL
+        if pipe.putIf(exist: piped as? URL) == nil {
+
+            //2) Look for path
+            pipe.putIf(exist: piped as? String)
+
+        }
 
         //Add default headers
+        // - implemented in self?
         pipe.putIf(exist: headers)
 
         switch expectation.with as? String {
             case .none, Expect<Self>.get().key:
-                get(on: pipe)
+                get(with: piped, on: pipe)
 
             case Expect<Self>.post().key:
 
-                pipe.put(URLRequest.Method.POST)
-                (piped as! Self).post(on: pipe)
+                pipe.store(piped)
+                pipe.store(URLRequest.Method.POST)
+                (piped as! Self).post(with: piped, on: pipe)
 
             case Expect<Self>.put().key:
 
-                pipe.put(URLRequest.Method.PUT)
-                (piped as! Self).put(on: pipe)
+                pipe.store(piped)
+                pipe.store(URLRequest.Method.PUT)
+                (piped as! Self).put(with: piped, on: pipe)
 
                 //            case .HEAD:
                 //                <#code#>
@@ -105,13 +111,15 @@ public extension RestModel {
                 break
         }
 
+        let task: URLSessionDataTask = pipe.get()
+        task | self.one
     }
 
     static func start(expectating expectation: Expect<Self>,
                       task: URLSessionDataTask,
                       on pipe: Pipe) {
 
-        task | { (data: Data) in
+        task | .one { (data: Data) in
 
             do {
                 if let object: Self = pipe.get() {
@@ -135,7 +143,7 @@ func ShoudBeOverriden(function: String = #function) -> Never {
     fatalError("\(function) should be overriden.")
 }
 
-extension Expect where T: RestModel {
+public extension Expect where T: Rest_Model {
 
     static func get(_ handler: ( (T)->() )? = nil) -> Self {
         .oneLabeled(handler)
@@ -161,22 +169,4 @@ extension Expect where T: RestModel {
 //        Expect.one(label, handler) as! Self
 //    }
 
-}
-
-@discardableResult
-public func |<E: RestModel, P> (piped: P, handler: @escaping ([E])->() ) -> Pipe {
-    piped | .one(handler)
-}
-
-@discardableResult
-public func |<E: RestModel> (pipe: Pipe?, handler: @escaping ([E])->() ) -> Pipe {
-    (pipe ?? Pipe()) as Any | .one(handler)
-}
-
-@discardableResult
-public func |<E: RestModel, P> (piped: P, expectation: Expect<[E]>) -> Pipe {
-    let pipe = Pipe.attach(to: piped)
-    E.start(expectating: expectation, with: piped, on: pipe)
-
-    return pipe
 }

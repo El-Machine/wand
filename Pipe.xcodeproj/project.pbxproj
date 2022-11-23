@@ -29,7 +29,7 @@
 		613DAC20292B5D6900442CB4 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1F292B5D6900442CB4 /* JsonObject.swift */; };
 		613DAC22292B62AA00442CB4 /* URL_JSONObject_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */; };
 		613DAC24292B655700442CB4 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC23292B655700442CB4 /* Range_any.swift */; };
-		613DAC2B292B6ACF00442CB4 /* Codable_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* Codable_Tests.swift */; };
+		613DAC2B292B6ACF00442CB4 /* Codable_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */; };
 		613DAC30292B8C8800442CB4 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC29292B6A3B00442CB4 /* Repo.swift */; };
 		613DAC32292B8F7000442CB4 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC27292B697800442CB4 /* Employee.swift */; };
 		613DAC34292B8FA100442CB4 /* DummyRestAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC33292B8FA100442CB4 /* DummyRestAPIModel.swift */; };
@@ -61,7 +61,7 @@
 		616B882E28C8A987002C53CF /* URLRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882728C8A987002C53CF /* URLRequest_Pipe.swift */; };
 		616B883228C8A987002C53CF /* URLSessionTask_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882828C8A987002C53CF /* URLSessionTask_Pipe.swift */; };
 		616B883628C8A987002C53CF /* URLSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882928C8A987002C53CF /* URLSession_Pipe.swift */; };
-		619ABCC029014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */; };
+		61982F08292E0809003B97FD /* Codable_POST_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61982F07292E0809003B97FD /* Codable_POST_Tests.swift */; };
 		619ABCC22901519E00D5DB96 /* ARSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */; };
 		61A6F9E328EC06C40037CDBD /* Data_Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E228EC06A30037CDBD /* Data_Expectable.swift */; };
 		61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */; };
@@ -87,7 +87,7 @@
 		OBJ_166 /* NFCNDEFReaderSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* NFCNDEFReaderSession_Pipe.swift */; };
 		OBJ_167 /* NFCNDEFTag_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* NFCNDEFTag_Pipe.swift */; };
 		OBJ_168 /* Codable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Codable_Pipe.swift */; };
-		OBJ_169 /* RestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* RestModel.swift */; };
+		OBJ_169 /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Rest.swift */; };
 		OBJ_171 /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Date_Pipe.swift */; };
 		OBJ_172 /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Foundation+Pipe.swift */; };
 		OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* NSTextCheckingResult_Pipe.swift */; };
@@ -170,7 +170,7 @@
 		613DAC1F292B5D6900442CB4 /* JsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObject.swift; sourceTree = "<group>"; };
 		613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_JSONObject_Tests.swift; sourceTree = "<group>"; };
 		613DAC23292B655700442CB4 /* Range_any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range_any.swift; sourceTree = "<group>"; };
-		613DAC25292B694C00442CB4 /* Codable_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Tests.swift; sourceTree = "<group>"; };
+		613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_GET_Tests.swift; sourceTree = "<group>"; };
 		613DAC27292B697800442CB4 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		613DAC29292B6A3B00442CB4 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		613DAC33292B8FA100442CB4 /* DummyRestAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRestAPIModel.swift; sourceTree = "<group>"; };
@@ -206,6 +206,7 @@
 		616B882728C8A987002C53CF /* URLRequest_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest_Pipe.swift; sourceTree = "<group>"; };
 		616B882828C8A987002C53CF /* URLSessionTask_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTask_Pipe.swift; sourceTree = "<group>"; };
 		616B882928C8A987002C53CF /* URLSession_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSession_Pipe.swift; sourceTree = "<group>"; };
+		61982F07292E0809003B97FD /* Codable_POST_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_POST_Tests.swift; sourceTree = "<group>"; };
 		619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAppClipCodeAnchor_Pipe.swift; sourceTree = "<group>"; };
 		619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSession_Pipe.swift; sourceTree = "<group>"; };
 		61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Convertable.swift; sourceTree = "<group>"; };
@@ -236,7 +237,7 @@
 		OBJ_35 /* NFCNDEFReaderSession_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFReaderSession_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_36 /* NFCNDEFTag_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_39 /* Codable_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_40 /* RestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestModel.swift; sourceTree = "<group>"; };
+		OBJ_40 /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
 		OBJ_42 /* Date_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_43 /* Foundation+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_44 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
@@ -319,7 +320,8 @@
 				613DAC31292B8F6900442CB4 /* Model */,
 				613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */,
 				613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */,
-				613DAC25292B694C00442CB4 /* Codable_Tests.swift */,
+				613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */,
+				61982F07292E0809003B97FD /* Codable_POST_Tests.swift */,
 			);
 			path = URL;
 			sourceTree = "<group>";
@@ -572,7 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_39 /* Codable_Pipe.swift */,
-				OBJ_40 /* RestModel.swift */,
+				OBJ_40 /* Rest.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -994,7 +996,7 @@
 				OBJ_167 /* NFCNDEFTag_Pipe.swift in Sources */,
 				OBJ_168 /* Codable_Pipe.swift in Sources */,
 				61056E8A2924BFB400E2BFF0 /* ExpectableLabeled.swift in Sources */,
-				OBJ_169 /* RestModel.swift in Sources */,
+				OBJ_169 /* Rest.swift in Sources */,
 				616B882E28C8A987002C53CF /* URLRequest_Pipe.swift in Sources */,
 				613DAC20292B5D6900442CB4 /* JsonObject.swift in Sources */,
 				61056E8C2924C8B800E2BFF0 /* Expectable.swift in Sources */,
@@ -1038,7 +1040,6 @@
 				OBJ_207 /* Expect.swift in Sources */,
 				OBJ_211 /* ExpectableWithout.swift in Sources */,
 				OBJ_213 /* |.swift in Sources */,
-				619ABCC029014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,7 +1058,8 @@
 				6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */,
 				613DAC34292B8FA100442CB4 /* DummyRestAPIModel.swift in Sources */,
 				6162628528BC957500D63EA5 /* MultipeerConnectivity_Tests.swift in Sources */,
-				613DAC2B292B6ACF00442CB4 /* Codable_Tests.swift in Sources */,
+				61982F08292E0809003B97FD /* Codable_POST_Tests.swift in Sources */,
+				613DAC2B292B6ACF00442CB4 /* Codable_GET_Tests.swift in Sources */,
 				613DAC30292B8C8800442CB4 /* Repo.swift in Sources */,
 				6162628328BC957500D63EA5 /* Expect_Tests.swift in Sources */,
 				6162628128BC957500D63EA5 /* CoreMotion_Tests.swift in Sources */,
