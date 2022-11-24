@@ -7,7 +7,7 @@
 
 import Pipe
 
-public protocol GitHubAPIModel: Rest.Model {
+public protocol GitHubAPIModel: RestModel {
 
 }
 

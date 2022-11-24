@@ -26,36 +26,36 @@ class Codable_GET_Tests: XCTestCase {
         waitForExpectations()
     }
 
-    @available(iOS 16.0, *)
-    func test_argument_Codable_Array() {
-        let e = expectation()
-
-        let query = "ios"
-        query | { (result: [Repo]) in
-
-            if !result.isEmpty {
-                e.fulfill()
-            }
-
-        }
-
-        waitForExpectations()
-    }
-
-    @available(iOS 16.0, *)
-    func test_any_Codable_Array() {
-        let e = expectation()
-
-        |{ (result: [Repo]) in
-
-            if !result.isEmpty {
-                e.fulfill()
-            }
-
-        }
-
-        waitForExpectations()
-    }
+//    @available(iOS 16.0, *)
+//    func test_argument_Codable_Array() {
+//        let e = expectation()
+//
+//        let query = "ios"
+//        query | { (result: [Repo]) in
+//
+//            if !result.isEmpty {
+//                e.fulfill()
+//            }
+//
+//        }
+//
+//        waitForExpectations()
+//    }
+//
+//    @available(iOS 16.0, *)
+//    func test_any_Codable_Array() {
+//        let e = expectation()
+//
+//        |{ (result: [Repo]) in
+//
+//            if !result.isEmpty {
+//                e.fulfill()
+//            }
+//
+//        }
+//
+//        waitForExpectations()
+//    }
 
     @available(iOS 16.0, *)
     func test_Path_Codable() {
@@ -75,19 +75,19 @@ class Codable_GET_Tests: XCTestCase {
         waitForExpectations()
     }
 
-    @available(iOS 16.0, *)
-    func test_Path_Codable_Array() {
-        let e = expectation()
-
-        let path = "https://api.github.com/repositories?q=ios"
-        path | { (array: [Repo]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
+//    @available(iOS 16.0, *)
+//    func test_Path_Codable_Array() {
+//        let e = expectation()
+//
+//        let path = "https://api.github.com/repositories?q=ios"
+//        path | { (array: [Repo]) in
+//
+//            e.fulfill()
+//
+//        }
+//
+//        waitForExpectations()
+//    }
 
     @available(iOS 16.0, *)
     func test_URL_Codable() {
@@ -108,20 +108,20 @@ class Codable_GET_Tests: XCTestCase {
         waitForExpectations()
     }
 
-    @available(iOS 16.0, *)
-    func test_URL_Codable_Array() {
-        let e = expectation()
-
-        let path = "https://api.github.com/repositories?q=ios"
-        let url = URL(string: path)
-        url | { (array: [Repo]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
+//    @available(iOS 16.0, *)
+//    func test_URL_Codable_Array() {
+//        let e = expectation()
+//
+//        let path = "https://api.github.com/repositories?q=ios"
+//        let url = URL(string: path)
+//        url | { (array: [Repo]) in
+//
+//            e.fulfill()
+//
+//        }
+//
+//        waitForExpectations()
+//    }
 
 
 }

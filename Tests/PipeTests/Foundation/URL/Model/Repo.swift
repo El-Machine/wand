@@ -30,36 +30,36 @@ struct Repo: GitHubAPIModel {
 
 }
 
-extension [Repo]: GitHubAPIModel,
-
-                  Rest.Model,
-                  Expectable,
-                  ExpectableLabeled,
-                  ExpectableWithout {
-
-    public static func get<P>(with piped: P, on pipe: Pipe) {
-
-        switch piped {
-
-                //api.github.com/repositories?q=ios
-            case let query as String:
-
-                let path = base + "repositories?q=" + query
-                pipe.put(path)
-
-                break
-
-                //api.github.com/repositories
-            default:
-
-                let path = base + "repositories"
-                pipe.put(path)
-
-                break
-
-        }
-
-    }
-
-}
+//extension [Repo]: GitHubAPIModel,
+//
+//                  Rest.Model,
+//                  Expectable,
+//                  ExpectableLabeled,
+//                  ExpectableWithout {
+//
+//    public static func get<P>(with piped: P, on pipe: Pipe) {
+//
+//        switch piped {
+//
+//                //api.github.com/repositories?q=ios
+//            case let query as String:
+//
+//                let path = base + "repositories?q=" + query
+//                pipe.put(path)
+//
+//                break
+//
+//                //api.github.com/repositories
+//            default:
+//
+//                let path = base + "repositories"
+//                pipe.put(path)
+//
+//                break
+//
+//        }
+//
+//    }
+//
+//}
 

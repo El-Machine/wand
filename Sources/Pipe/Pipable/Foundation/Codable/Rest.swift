@@ -23,14 +23,7 @@
 
 import Foundation
 
-//Shortcut for Rest_Model
-public struct Rest {
-
-    public typealias Model = Rest_Model
-
-}
-
-public protocol Rest_Model: ExpectableLabeled, Codable {
+public protocol RestModel: ExpectableLabeled, Codable {
 
     static var headers: [String : String]? {get}
 
@@ -41,7 +34,7 @@ public protocol Rest_Model: ExpectableLabeled, Codable {
 
 }
 
-public extension Rest_Model {
+public extension RestModel {
 
     static var headers: [String : String]? {
         nil
@@ -143,7 +136,7 @@ func ShoudBeOverriden(function: String = #function) -> Never {
     fatalError("\(function) should be overriden.")
 }
 
-public extension Expect where T: Rest_Model {
+public extension Expect where T: RestModel {
 
     static func get(_ handler: ( (T)->() )? = nil) -> Self {
         .oneLabeled(handler)

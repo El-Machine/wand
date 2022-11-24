@@ -7,7 +7,7 @@
 
 import Pipe
 
-public protocol DummyRestAPIModel: Rest.Model {
+public protocol DummyRestAPIModel: RestModel {
 
 }
 
