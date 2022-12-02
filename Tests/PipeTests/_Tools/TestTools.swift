@@ -38,11 +38,7 @@ extension XCTestCase {
     }
 
     func waitForExpectations() {
-        waitForExpectations(timeout: .default * 2)
-    }
-
-    func random(in range: ClosedRange<Int> = 1...7) -> Int {
-        .random(in: range)
+        waitForExpectations(timeout: .default)
     }
 
 }

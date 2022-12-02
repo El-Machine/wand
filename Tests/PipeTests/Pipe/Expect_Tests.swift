@@ -16,7 +16,7 @@ class Expect_T_Tests: XCTestCase {
 
     func test_Every() throws {
         //Insert 'count' times
-        let count = random()
+        let count: Int = .any(in: 0...42)
 
         let e = expectation()
         e.expectedFulfillmentCount = count

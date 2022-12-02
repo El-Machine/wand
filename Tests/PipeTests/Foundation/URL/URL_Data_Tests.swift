@@ -1,4 +1,4 @@
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright (c) 2020-2023 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,11 +29,12 @@ class URL_Data_Tests: XCTestCase {
 
     func test_Path_Data() {
         let e = expectation()
-        e.assertForOverFulfill = false
 
         "https://api.github.com/gists" | { (data: Data) in
 
-            e.fulfill()
+            if !data.isEmpty {
+                e.fulfill()
+            }
 
         }
 
@@ -42,74 +43,17 @@ class URL_Data_Tests: XCTestCase {
 
     func test_URL_Data() {
         let e = expectation()
-        e.assertForOverFulfill = false
 
-        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
         url | { (data: Data) in
 
-            e.fulfill()
+            if !data.isEmpty {
+                e.fulfill()
+            }
 
         }
 
         waitForExpectations()
     }
-
-    func test_Path_Array() {
-        let e = expectation()
-        e.assertForOverFulfill = false
-
-        let path = "https://api.github.com/repositories"
-        path | { (array: [Any]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
-
-    func test_URL_Array() {
-        let e = expectation()
-        e.assertForOverFulfill = false
-
-        let url = URL(string: "https://api.github.com/repositories")
-        url | { (array: [Any]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
-
-    func test_Path_Dictionary() {
-        let e = expectation()
-        e.assertForOverFulfill = false
-
-        let path = "https://dummy.restapiexample.com/api/v1/employees"
-        path | { (dictionary: [String: Any]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
-
-    func test_URL_Dictionary() {
-        let e = expectation()
-        e.assertForOverFulfill = false
-
-        let url = URL(string: "https://dummy.restapiexample.com/api/v1/employees")
-        url | { (dictionary: [String: Any]) in
-
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
-    }
-
-
 
 }

@@ -34,7 +34,11 @@ extension JSONObject {
             return
         }
 
-        piped | { (data: Data) in
+        let headers = ["Accept": "application/json",
+                       "Content-Type": "application/json"]
+        pipe.store(headers)
+
+        pipe | .one { (data: Data) in
             do {
                 let parsed = try JSONSerialization.jsonObject(with: data)
                 pipe.put(parsed as! Self)

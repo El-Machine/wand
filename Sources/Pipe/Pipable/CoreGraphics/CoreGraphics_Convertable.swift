@@ -28,6 +28,10 @@ public postfix func |(p: (x: CGFloat, y: CGFloat)) -> CGPoint {
     CGPoint(x: p.0, y: p.1)
 }
 
+public postfix func |(piped: Int) -> CGPoint {
+    CGPoint(x: piped, y: piped)
+}
+
 //CGRect
 public postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> CGRect {
     CGRect(x: p.0, y: p.1, width: p.2, height: p.3)

@@ -9,12 +9,10 @@
 #if canImport(UIKit)
 import UIKit
 
-public
-extension UIViewController {
+public extension UIViewController {
 
-    @objc
-    var visible: UIViewController {
-        presentedViewController ?? self
+    @objc fileprivate var visible: UIViewController {
+        presentedViewController?.visible ?? self
     }
 
     var container: UIViewController? {
@@ -23,6 +21,10 @@ extension UIViewController {
 
     var isRoot: Bool {
         UIApplication.shared.visibleWindow?.rootViewController == self
+    }
+
+    var isVisible: Bool {
+        UIApplication.shared.visibleViewController == self
     }
     
     func presentOnVisible(animated: Bool = true, completion: (() -> Void)? = nil) {
@@ -33,8 +35,7 @@ extension UIViewController {
 
 }
 
-public
-extension UINavigationController {
+public extension UINavigationController {
 
     @objc
     override var visible: UIViewController {
@@ -43,8 +44,7 @@ extension UINavigationController {
 
 }
 
-public
-extension UITabBarController {
+public extension UITabBarController {
 
     @objc
     override var visible: UIViewController {
@@ -53,8 +53,7 @@ extension UITabBarController {
 
 }
 
-public
-extension UIApplication {
+public extension UIApplication {
 
     var visibleViewController: UIViewController? {
         visibleWindow?.rootViewController?.visible

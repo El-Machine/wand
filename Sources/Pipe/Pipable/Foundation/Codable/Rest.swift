@@ -108,6 +108,12 @@ public extension RestModel {
         task | self.one
     }
 
+    static func requestData(from pipe: Pipe) {
+
+        let task: URLSessionDataTask = pipe.get()
+        task | self.one
+    }
+
     static func start(expectating expectation: Expect<Self>,
                       task: URLSessionDataTask,
                       on pipe: Pipe) {

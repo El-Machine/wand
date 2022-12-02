@@ -24,9 +24,13 @@
 #if canImport(UIKit)
 import UIKit.UIImage
 
-public postfix func |(hex: String) -> UIColor? {
-    hex | 1
+public postfix func |(name: String) -> UIColor {
+    UIColor(named: name)!
 }
+
+//public postfix func |(hex: String) -> UIColor? {
+//    hex | 1
+//}
 
 public func |(hex: String, alpha: CGFloat) -> UIColor? {
     var string = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

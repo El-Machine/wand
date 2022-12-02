@@ -1,4 +1,4 @@
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright (c) 2020-2023 El Machine (http://el-machine.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,21 @@ import XCTest
 
 class URL_JSONObject_Tests: XCTestCase {
 
+    func test_Path_Array() {
+        let e = expectation()
+
+        let path = "https://api.github.com/repositories"
+        path | { (array: [Any]) in
+
+            if !array.isEmpty {
+                e.fulfill()
+            }
+
+        }
+
+        waitForExpectations()
+    }
+
     @available(iOS 16.0, *)
     func test_URL_Array() {
         let e = expectation()
@@ -47,20 +62,28 @@ class URL_JSONObject_Tests: XCTestCase {
         waitForExpectations()
     }
 
+    func test_Path_Dictionary() {
+        let e = expectation()
+
+        let id = (1...100).any
+        let path = "https://jsonplaceholder.typicode.com/posts/\(id)"
+
+        path | { (dictionary: [String: Any]) in
+
+            if dictionary["id"] as? Int == id {
+                e.fulfill()
+            }
+
+        }
+
+        waitForExpectations()
+    }
+
     func test_URL_Dictionary() {
         let e = expectation()
 
-        //(1...42).any
-        //Don't use random, because some repos is already 🧟‍♀️
-        let id: Int = 42
-
-        var url = URL(string: "https://api.github.com/repositories")!
-
-        if #available(iOS 16.0, *) {
-            url.append(path: String(describing: id))
-        } else {
-            url.appendPathComponent(String(describing: id))
-        }
+        let id = (1...500).any
+        let url = URL(string: "https://jsonplaceholder.typicode.com/comments/\(id)")!
 
         url | { (dictionary: [String: Any]) in
 
@@ -72,7 +95,5 @@ class URL_JSONObject_Tests: XCTestCase {
 
         waitForExpectations()
     }
-
-
 
 }

@@ -8,4 +8,4 @@
 import Pipe
 
 //Avoid using `Pipe` with objc NSPipe
-typealias Pipeline = Pipe
+public typealias Pipeline = Pipe
