@@ -28,11 +28,12 @@
 		612ADAC3292F863A00E2AC9C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC1292F863A00E2AC9C /* Post.swift */; };
 		612ADAC4292F863A00E2AC9C /* JSONplaceholderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */; };
 		61386BD02939FAFD009B893F /* Pipeline_Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627728BC957500D63EA5 /* Pipeline_Alias.swift */; };
+		61386BD4293A05E6009B893F /* Codable_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */; };
+		61386BD6293A0769009B893F /* Rest_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61386BD5293A0769009B893F /* Rest_Model.swift */; };
 		613DAC1D292B573700442CB4 /* URL_Data_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */; };
 		613DAC20292B5D6900442CB4 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1F292B5D6900442CB4 /* JsonObject.swift */; };
 		613DAC22292B62AA00442CB4 /* URL_JSONObject_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */; };
 		613DAC24292B655700442CB4 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC23292B655700442CB4 /* Range_any.swift */; };
-		613DAC2B292B6ACF00442CB4 /* Codable_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */; };
 		613DAC30292B8C8800442CB4 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC29292B6A3B00442CB4 /* Repo.swift */; };
 		613DAC36292B915400442CB4 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC35292B915400442CB4 /* GitHubAPI.swift */; };
 		6162625428BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
@@ -168,6 +169,9 @@
 		61056E892924BFB400E2BFF0 /* ExpectableLabeled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectableLabeled.swift; sourceTree = "<group>"; };
 		612ADAC1292F863A00E2AC9C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONplaceholderAPI.swift; sourceTree = "<group>"; };
+		61386BD2293A0362009B893F /* Codable_Array_GET_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Array_GET_Tests.swift; sourceTree = "<group>"; };
+		61386BD5293A0769009B893F /* Rest_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest_Model.swift; sourceTree = "<group>"; };
+		61386BD7293A07BF009B893F /* Rest_Model_Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest_Model_Array.swift; sourceTree = "<group>"; };
 		613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_Data_Tests.swift; sourceTree = "<group>"; };
 		613DAC1F292B5D6900442CB4 /* JsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObject.swift; sourceTree = "<group>"; };
 		613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_JSONObject_Tests.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 				613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */,
 				613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */,
 				613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */,
+				61386BD2293A0362009B893F /* Codable_Array_GET_Tests.swift */,
 				61982F07292E0809003B97FD /* Codable_POST_Tests.swift */,
 			);
 			path = URL;
@@ -595,6 +600,8 @@
 			children = (
 				OBJ_39 /* Codable_Pipe.swift */,
 				OBJ_40 /* Rest.swift */,
+				61386BD5293A0769009B893F /* Rest_Model.swift */,
+				61386BD7293A07BF009B893F /* Rest_Model_Array.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -1051,6 +1058,7 @@
 				OBJ_199 /* UIKit_Pipe.swift in Sources */,
 				OBJ_200 /* Visible.swift in Sources */,
 				OBJ_201 /* VNImageRequestHandler_Pipe.swift in Sources */,
+				61386BD6293A0769009B893F /* Rest_Model.swift in Sources */,
 				OBJ_202 /* VNObservation_Pipe.swift in Sources */,
 				OBJ_203 /* VNRequest_Pipe.swift in Sources */,
 				OBJ_204 /* Pipe.swift in Sources */,
@@ -1078,7 +1086,6 @@
 				6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */,
 				6162628528BC957500D63EA5 /* MultipeerConnectivity_Tests.swift in Sources */,
 				61982F08292E0809003B97FD /* Codable_POST_Tests.swift in Sources */,
-				613DAC2B292B6ACF00442CB4 /* Codable_GET_Tests.swift in Sources */,
 				613DAC30292B8C8800442CB4 /* Repo.swift in Sources */,
 				61386BD02939FAFD009B893F /* Pipeline_Alias.swift in Sources */,
 				6162628328BC957500D63EA5 /* Expect_Tests.swift in Sources */,
@@ -1093,6 +1100,7 @@
 				6162628028BC957500D63EA5 /* NSTextCheckingResult_Tests.swift in Sources */,
 				6162628A28BC957500D63EA5 /* TestTools.swift in Sources */,
 				6162627F28BC957500D63EA5 /* Collections_Tests.swift in Sources */,
+				61386BD4293A05E6009B893F /* Codable_GET_Tests.swift in Sources */,
 				6162628828BC957500D63EA5 /* any.swift in Sources */,
 				613DAC1D292B573700442CB4 /* URL_Data_Tests.swift in Sources */,
 				6162628628BC957500D63EA5 /* CoreLocation_Tests.swift in Sources */,

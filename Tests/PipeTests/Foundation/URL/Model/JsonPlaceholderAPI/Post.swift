@@ -36,7 +36,7 @@ public extension JSONplaceholderAPI {
 
 public extension JSONplaceholderAPI.Post {
 
-    static func get<P>(with piped: P, on pipe: Pipeline) {
+    static func get<P, E>(_ expectation: Expect<E>, with piped: P, on pipe: Pipeline) {
 
         //https://jsonplaceholder.typicode.com/posts/42
         if let id = piped as? Int {

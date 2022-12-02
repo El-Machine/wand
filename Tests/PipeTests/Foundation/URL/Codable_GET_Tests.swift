@@ -15,7 +15,8 @@ class Codable_GET_Tests: XCTestCase {
         let e = expectation()
 
         let id = 52
-        id | { (repo: Repo) in
+
+        id | { (repo: GitHubAPI.Repo) in
 
             if repo.id == id {
                 e.fulfill()
@@ -25,46 +26,15 @@ class Codable_GET_Tests: XCTestCase {
 
         waitForExpectations()
     }
-
-//    @available(iOS 16.0, *)
-//    func test_argument_Codable_Array() {
-//        let e = expectation()
-//
-//        let query = "ios"
-//        query | { (result: [Repo]) in
-//
-//            if !result.isEmpty {
-//                e.fulfill()
-//            }
-//
-//        }
-//
-//        waitForExpectations()
-//    }
-//
-//    @available(iOS 16.0, *)
-//    func test_any_Codable_Array() {
-//        let e = expectation()
-//
-//        |{ (result: [Repo]) in
-//
-//            if !result.isEmpty {
-//                e.fulfill()
-//            }
-//
-//        }
-//
-//        waitForExpectations()
-//    }
 
     @available(iOS 16.0, *)
     func test_Path_Codable() {
         let e = expectation()
 
         let id = 42
-
         let path = "https://api.github.com/repositories/\(id)"
-        path | { (repo: Repo) in
+
+        path | { (repo: GitHubAPI.Repo) in
 
             if repo.id == id {
                 e.fulfill()
@@ -74,32 +44,18 @@ class Codable_GET_Tests: XCTestCase {
 
         waitForExpectations()
     }
-
-//    @available(iOS 16.0, *)
-//    func test_Path_Codable_Array() {
-//        let e = expectation()
-//
-//        let path = "https://api.github.com/repositories?q=ios"
-//        path | { (array: [Repo]) in
-//
-//            e.fulfill()
-//
-//        }
-//
-//        waitForExpectations()
-//    }
 
     @available(iOS 16.0, *)
     func test_URL_Codable() {
         let e = expectation()
 
-        let id = 43
-
-        let path = "https://api.github.com/repositories/\(id)"
+        let id = (1...100).any
+        let path = "https://jsonplaceholder.typicode.com/posts/\(id)"
         let url = URL(string: path)
-        url | { (repo: Repo) in
 
-            if repo.id == id {
+        url | { (post: JSONplaceholderAPI.Post) in
+
+            if post.id == id {
                 e.fulfill()
             }
 
@@ -107,21 +63,5 @@ class Codable_GET_Tests: XCTestCase {
 
         waitForExpectations()
     }
-
-//    @available(iOS 16.0, *)
-//    func test_URL_Codable_Array() {
-//        let e = expectation()
-//
-//        let path = "https://api.github.com/repositories?q=ios"
-//        let url = URL(string: path)
-//        url | { (array: [Repo]) in
-//
-//            e.fulfill()
-//
-//        }
-//
-//        waitForExpectations()
-//    }
-
 
 }

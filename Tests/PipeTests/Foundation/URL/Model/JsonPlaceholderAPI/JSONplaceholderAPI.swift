@@ -13,7 +13,7 @@ public struct JSONplaceholderAPI {
     
 }
 
-public protocol JSONplaceholderAPI_Model: RestModel {
+public protocol JSONplaceholderAPI_Model: Rest.Model {
 
 }
 
@@ -26,15 +26,6 @@ public extension JSONplaceholderAPI_Model {
     static var headers: [String : String]? {
         ["Accept": "application/json",
          "Content-Type": "application/json"]
-    }
-
-    static func get<P>(with piped: P, on pipe: Pipe) {
-    }
-
-    func post<P>(with piped: P, on pipe: Pipe) {
-    }
-
-    func put<P>(with piped: P, on pipe: Pipe) {
     }
 
 }

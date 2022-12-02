@@ -7,22 +7,38 @@
 
 import Pipe
 
-struct Repo: GitHubAPIModel {
+public extension GitHubAPI {
 
-    let id: Int
+    struct Repo {
 
-    let name: String?
-    let description: String?
+        let id: Int
 
-    let watchers: Int?
+        let name: String?
+        let description: String?
 
-    static func get<P>(with piped: P, on pipe: Pipe) {
+        let watchers: Int?
 
-        //api.github.com/repositories/42
-        if let id = piped as? Int {
+    }
 
-            let path = base + "repositories/" + id|
+}
+
+extension GitHubAPI.Repo: GitHubAPI.Model {
+
+    public static func get<P, E>(_ expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+
+        if expectation is Expect<[Self]> {
+
+            let path = base + "repositories"
             pipe.put(path)
+
+        } else {
+
+            if let id = piped as? Int {
+
+                let path = base + "repositories/" + id|
+                pipe.put(path)
+
+            }
 
         }
 

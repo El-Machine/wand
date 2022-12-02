@@ -7,11 +7,17 @@
 
 import Pipe
 
-public protocol GitHubAPIModel: RestModel {
+public struct GitHubAPI {
+
+    public typealias Model = GitHubAPI_Model
 
 }
 
-public extension GitHubAPIModel {
+public protocol GitHubAPI_Model: Rest.Model {
+
+}
+
+public extension GitHubAPI_Model {
 
     static var base: String {
         "https://api.github.com/"
