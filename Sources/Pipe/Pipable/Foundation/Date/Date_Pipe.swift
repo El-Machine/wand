@@ -33,21 +33,6 @@ extension Date {
         Date().timeIntervalSince1970
     }
 
-    static func | (date: Date, format: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-
-        return formatter.string(from: date)
-    }
-
-    static func | (date: Date, style: (time: DateFormatter.Style, date: DateFormatter.Style)) -> String {
-        let formatter = DateFormatter()
-        formatter.timeStyle = style.time
-        formatter.dateStyle = style.date
-
-        return formatter.string(from: date)
-    }
-
 }
 
 public postfix func |(piped: TimeInterval) -> Date {
@@ -61,12 +46,4 @@ public postfix func |(piped: Int) -> Date {
 //DateComponents
 public postfix func | (piped: DateComponents) -> Date? {
     Calendar.current.date(from: piped)
-}
-
-public func | (date: Date?, format: String) -> String {
-    if let date = date {
-        return date | format
-    }
-
-    return ""
 }

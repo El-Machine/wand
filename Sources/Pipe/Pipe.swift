@@ -148,11 +148,14 @@ extension Pipe {
 
         let key = store(object, key: key)
 
+        //Find expectations for object
+        guard let expects = expectations[key] else {
+            return object
+        }
+
         //Make events happens
         var inner = true
-
-        let stored = expectations[key]
-        expectations[key] = stored?.filter {
+        expectations[key] = expects.filter {
             if inner && !$0.isInner {
                 inner = false
             }
@@ -164,7 +167,9 @@ extension Pipe {
         guard !inner else {
             return object
         }
-        if stored?.isEmpty == false {
+
+        //Handle Any expectations
+        if expects.isEmpty == false {
             (expectations[Any.self|] as? [Expect<Any>])?.forEach {
                 _ = $0.handler(object)
             }

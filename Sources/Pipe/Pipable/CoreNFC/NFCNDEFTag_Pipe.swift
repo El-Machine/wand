@@ -121,7 +121,16 @@ extension NFCNDEFMessage: Expectable, Pipable {
                 tag.readNDEF { message, error in
 
                     if let error {
-                        pipe.put(error)
+                        
+                        if let error = error as? NFCReaderError,
+                           error.code == NFCReaderError.ndefReaderSessionErrorZeroLengthMessage {
+
+                            //Put nil message
+                            pipe.put(message)
+                        } else {
+                            pipe.put(error)
+                        }
+
                         return
                     }
 

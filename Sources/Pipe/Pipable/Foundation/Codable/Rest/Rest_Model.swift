@@ -108,7 +108,10 @@ public extension Rest_Model {
         }
 
         let task: URLSessionDataTask = pipe.get()
-        task | expectation
+
+        start(expectating: expectation as! Expect<Self>,
+              task: task,
+              on: pipe)
     }
 
     static func requestData(from pipe: Pipe) {
