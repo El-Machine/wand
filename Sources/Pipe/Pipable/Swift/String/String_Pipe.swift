@@ -127,3 +127,7 @@ public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
 public func |(piped: String?, char: Unicode.Scalar) -> Array<String>? {
     piped?.components(separatedBy: [char])
 }
+
+//public func |(format: String, arguments: CVarArg...) -> String {
+//
+//}

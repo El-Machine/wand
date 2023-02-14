@@ -34,25 +34,28 @@ public struct Barcode {
     }
 
     public typealias Colors = (foreground: UIColor?, background: UIColor?)
-}
 
+}
 
 public func |(piped: String?, type: Barcode.Generator) -> UIImage? {
     piped?.data(using: .ascii) | type
 }
 
-public func |(piped: String?, to: (type: Barcode.Generator, colors: Barcode.Colors?)) -> UIImage? {
+public func |(piped: String?, to: (type: Barcode.Generator,
+                                   size: CGSize?,
+                                   colors: Barcode.Colors?)) -> UIImage? {
     piped?.data(using: .ascii) | to
 }
 
 public func |(piped: Data?, type: Barcode.Generator) -> UIImage? {
-    piped | (type: type, nil)
+    piped | (type: type, nil, nil)
 }
 
 public func |(piped: Data?, to: (type: Barcode.Generator,
+                                 size: CGSize?,
                                  colors: Barcode.Colors?)) -> UIImage? {
 
-    guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else {
+    guard let filter = CIFilter(name: to.type.rawValue) else {
         return nil
     }
     filter.setValue(piped, forKey: "inputMessage")
@@ -66,6 +69,17 @@ public func |(piped: Data?, to: (type: Barcode.Generator,
             "inputColor0": CIColor(color: colors.foreground ?? .black),
             "inputColor1": CIColor(color: colors.background ?? .white)
         ])
+    }
+
+
+    if let size = to.size {
+
+        let imageSize = ciImage.extent.size
+
+        let transform = CGAffineTransform(scaleX: size.width / imageSize.width,
+                                          y: size.height / imageSize.height)
+        ciImage = ciImage.transformed(by: transform)
+
     }
 
     return UIImage(ciImage: ciImage)

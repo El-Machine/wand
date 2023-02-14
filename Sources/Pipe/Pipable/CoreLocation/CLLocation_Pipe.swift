@@ -37,7 +37,9 @@ import CoreLocation.CLLocation
  */
 extension CLLocation: ExpectableWithout, Pipable {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    public static func start<P, E>(expectating expectation: Expect<E>,
+                                   with piped: P,
+                                   on pipe: Pipe) {
 
         guard pipe.start(expecting: expectation) else {
             return

@@ -41,7 +41,7 @@ public postfix func |(piped: NFCNDEFMessage?) -> URL? {
 
 @available(iOS 13.0, *)
 public postfix func |(piped: NFCNDEFMessage) -> URL? {
-    piped.records.first!.wellKnownTypeURIPayload()
+    piped.records.first?.wellKnownTypeURIPayload()
 }
 
 #endif

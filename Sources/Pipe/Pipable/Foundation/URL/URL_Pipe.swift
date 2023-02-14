@@ -41,12 +41,14 @@ import Foundation
 
  */
 
+
+
 public postfix func |(piped: String) -> URL {
-    URL(string: piped)!
+    (piped|)!
 }
 
 public postfix func |(piped: String?) -> URL {
-    URL(string: piped!)!
+    (piped!)|
 }
 
 public postfix func |(piped: String?) -> URL? {
@@ -54,7 +56,11 @@ public postfix func |(piped: String?) -> URL? {
         return nil
     }
 
-    return URL(string: piped)
+    return piped|
+}
+
+public postfix func |(piped: String) -> URL? {
+    URL(string: piped)
 }
 
 public postfix func |(piped: URL) -> String {
