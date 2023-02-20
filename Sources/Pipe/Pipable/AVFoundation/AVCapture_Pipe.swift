@@ -65,20 +65,20 @@ extension AVCaptureSession: Constructable {
 
 extension AVCaptureVideoDataOutput: ExpectableWithout {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
+    public static func expect<E>(_ expectation: Expect<E>, from pipe: Pipe) {
 
-        guard pipe.start(expecting: expectation) else {
+        guard pipe.expect(expectation) else {
             return
         }
 
-        let session = piped as? AVCaptureSession ?? pipe.get()
+        let session: AVCaptureSession = pipe.get()
         session.beginConfiguration()
 
-        let preset = piped as? AVCaptureSession.Preset ?? pipe.get() ?? .high
+        let preset: AVCaptureSession.Preset = pipe.get() ?? .high
         session.sessionPreset = preset
 
         if session.inputs.isEmpty {
-            let deviceInput = piped as? AVCaptureDeviceInput ?? pipe.get()
+            let deviceInput: AVCaptureDeviceInput = pipe.get()
             session.addInput(deviceInput)
         }
 
@@ -94,7 +94,7 @@ extension AVCaptureVideoDataOutput: ExpectableWithout {
             output.videoSettings = settings
 
             let delegate = pipe.put(Delegate())
-            let queue = piped as? DispatchQueue ?? pipe.get()
+            let queue: DispatchQueue = pipe.get()
             ?? DispatchQueue(label: "Pipe_VideoDataOutput", qos: .userInteractive)
             output.setSampleBufferDelegate(delegate, queue: queue)
         } else {

@@ -45,9 +45,7 @@ public extension Pipable {
 public extension Pipable where Self: AnyObject {
 
     var address: String {
-        let address = "\(Unmanaged.passUnretained(self).toOpaque())"
-//        print("🥳 ad \(address) for class \(self)")
-        return address
+        "\(Unmanaged.passUnretained(self).toOpaque())"
     }
 
 }
@@ -61,8 +59,45 @@ public extension Pipable {
             address = String(format: "%p", pointer)
         }
 
-//        print("🥳 ad \(address!) for \(self)")
         return address!
     }
 
 }
+
+//extension Optional {
+//
+//    var address: String? {
+//
+//        switch self {
+//            case .none:
+//                return nil
+//
+//            case .some(let some):
+//                var address: String?
+//                var mutable = some
+//                withUnsafePointer(to: &mutable) { pointer in
+//                    address = String(format: "%p", pointer)
+//                }
+//
+//                return address
+//        }
+//
+//    }
+//
+//}
+//
+//extension Optional where Wrapped: AnyObject {
+//
+//    var address: String? {
+//
+//        switch self {
+//            case .none:
+//                return nil
+//
+//            case .some(let object):
+//                return "\(Unmanaged.passUnretained(object).toOpaque())"
+//        }
+//
+//    }
+//
+//}

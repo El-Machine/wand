@@ -21,42 +21,33 @@
 //  Created by Alex Kozin
 //
 
-import CoreMotion.CMPedometer
+public protocol Asking {
 
-/**
+    static func ask<T: Asking>(_ ask: Ask<T>, from pipe: Pipe)
 
- #Usage
- ```
- |{ (data: CMPedometerData) in
+}
 
- }
- ```
- 
- */
-extension CMPedometerData: AskingWithout, Pipable {
+///   scope | { T in
+///
+///   }
+@discardableResult
+public func |<S, T: Asking> (scope: S, handler: @escaping (T)->() ) -> Pipe {
+    scope | Ask.every(handler: handler)
+}
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        guard pipe.ask(for: ask) else {
-            return
-        }
+///  Ask for:
+///  - `every`
+///  - `one`
+///  - `while`
+///
+///   scope | .one { T in
+///
+///   }
+@discardableResult
+public func |<S, T: Asking> (scope: S, ask: Ask<T>) -> Pipe {
+    let pipe = Pipe.attach(to: scope)
+    T.ask(ask, from: pipe)
 
-        let source: CMPedometer = pipe.get()
-        let date: Date          = pipe.get() ?? Date()
-
-        source.startUpdates(from: date) { (data, error) in
-            if let error = error {
-                pipe.put(error)
-                return
-            }
-
-            pipe.put(data!)
-        }
-
-        ask.cleaner = {
-            source.stopUpdates()
-        }
-
-    }
-
+    return pipe
 }

@@ -35,7 +35,7 @@ import Foundation.NSNotification
  */
 extension NotificationCenter: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
         Self.default as! Self
     }
 

@@ -16,7 +16,7 @@ class Expect_T_Tests: XCTestCase {
 
     func test_Every() throws {
         //Insert 'count' times
-        let count: Int = .any(in: 0...42)
+        let count: Int = .any(in: 1...42)
 
         let e = expectation()
         e.expectedFulfillmentCount = count
@@ -108,12 +108,13 @@ fileprivate struct Vector: Equatable, Any_ {
     }
 }
 
-extension Vector: ExpectableWithout {
+extension Vector: AskingWithout {
 
-    static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipeline) {
-        if pipe.start(expecting: expectation) {
+    static func ask<T>(_ ask: Ask<T>, from pipe:Pipeline) {
+
+        if pipe.ask(for: ask) {
             //Strong reference to pipe
-            expectation.cleaner = {
+            ask.cleaner = {
                 print(pipe.description)
             }
         }

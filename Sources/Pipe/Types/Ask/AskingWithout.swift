@@ -23,62 +23,53 @@
 
 import Foundation
 
-/// Pipe.ExpectableWithout
-/// Requsts self from Nothing
-///
-/// #Usage
-/// ```
-///
-/// ```
-public protocol ExpectableWithout: Expectable {
+public protocol AskingWithout: Asking {
 
 }
 
-///  Start expecting instance of E
-///  Every from Noting
-///
-/// - Parameters:
-///   - handler: Block that use E
-///
-///   |{ E in
+///   |{ T in
 ///
 ///   }
 @discardableResult
-public prefix func |<E: ExpectableWithout> (handler: @escaping (E)->() ) -> Pipe {
-    |.every(handler)
+public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Pipe {
+    nil | Ask.every(handler: handler)
 }
 
-
-///  Expect E with condition:
+///  Ask for:
 ///  - `every`
 ///  - `one`
 ///  - `while`
 ///
-/// - Parameters:
-///   - expectation: Expectation that provide requesting and receiving politics
-///
-///   |.one { E in
+///   |.one { T in
 ///
 ///   }
 @discardableResult
-public prefix func |<E: ExpectableWithout> (expectation: Expect<E>) -> Pipe {
-    Pipe() | expectation
+public prefix func |<T: Asking> (ask: Ask<T>) -> Pipe {
+    nil | ask
 }
 
-///  Expect E from nil
-///  With condition:
-///  - `every`  piped object
-///  - `one`    only
-///  - `while`  returns true
+///  Ask for:
+///  - `every`
+///  - `one`
+///  - `while`
 ///
-/// - Parameters:
-///   - pipe: Pipe that provides context
-///   - expectation: Expectation that provide requesting and receiving politics
-///
-///   |.one { E in
+///   |.one { T in
 ///
 ///   }
 @discardableResult
-public func |<E: Expectable> (pipe: Pipe?, expectation: Expect<E>) -> Pipe {
-    (pipe ?? Pipe()) as Any | expectation
+public func |<T: Asking> (pipe: Pipe?, ask: Ask<T>) -> Pipe {
+    pipe ?? Pipe() | ask
+}
+
+///  Chain
+///
+///  T.one | E.one
+///
+@discardableResult
+public func |<T: AskingWithout, E: AskingWithout>(piped: Ask<T>, to: Ask<E>) -> Pipe {
+    let pipe = Pipe()
+    T.ask(piped, from: pipe)
+    E.ask(to, from: pipe)
+
+    return pipe
 }

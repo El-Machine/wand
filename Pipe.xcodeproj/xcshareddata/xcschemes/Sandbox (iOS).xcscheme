@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
-               BuildableName = "Sandbox.app"
+               BuildableName = "PipeSandbox.app"
                BlueprintName = "Sandbox (iOS)"
                ReferencedContainer = "container:Pipe.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
-            BuildableName = "Sandbox.app"
+            BuildableName = "PipeSandbox.app"
             BlueprintName = "Sandbox (iOS)"
             ReferencedContainer = "container:Pipe.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
-            BuildableName = "Sandbox.app"
+            BuildableName = "PipeSandbox.app"
             BlueprintName = "Sandbox (iOS)"
             ReferencedContainer = "container:Pipe.xcodeproj">
          </BuildableReference>

@@ -21,36 +21,68 @@
 //  Created by Alex Kozin
 //
 
-/// Add handler for some event in pipe
-public extension Expect {
+public class AskFor {
 
-    static func all(_ handler: @escaping (Any)->() ) -> Expect<Any> {
-        Expect<Any>(with: "All", condition: .all, isInner: true) {
-            handler($0)
-            return false
-        }
+    public enum Condition {
+
+        case every, one, `while`,
+             all, any
+
     }
 
-    static func any(_ handler: @escaping (Any)->() ) -> Expect<Any> {
-        Expect<Any>( with: "Any", condition: .any, isInner: true) {
-            handler($0)
-            return false
-        }
+    var isInner: Bool = false
+
+    init() {
     }
 
 }
 
-///  Add expectation for some event in Pipe
-///
-/// - Parameters:
-///   - pipe: Pipe that provides context
-///   - expectation: Event with `Any` handler
-///
-///   CLLocation.one | CMPedometerEvent.one | .all { last in
-///
-///   }
-@discardableResult
-public func | (pipe: Pipe, expectation: Expect<Any>) -> Pipe {
-    _ = pipe.start(expecting: expectation, key: expectation.with as! String)
-    return pipe
+public class Ask<T>: AskFor {
+
+    let condition: Condition
+    var handler: (T)->(Bool)
+
+    public var cleaner: ( ()->() )?
+
+    //Inner is not asked by user
+    public func inner() -> Self {
+        isInner = true
+        return self
+    }
+
+    internal required init(_ condition: Condition,
+                           handler: @escaping (T) -> Bool) {
+
+        self.condition = condition
+        self.handler = handler
+
+        super.init()
+    }
+
+    public
+    static func every(_ type: T.Type? = nil, handler: ( (T)->() )? = nil ) -> Self {
+        Self(.every) {
+            handler?($0)
+
+            //Retry?
+            return true
+        }
+    }
+
+    public
+    static func one(handler: ( (T)->() )? = nil ) -> Self {
+        Self(.one) {
+            handler?($0)
+
+            //Retry?
+            return false
+        }
+    }
+
+    public
+    static func `while`(handler: @escaping (T)->(Bool) ) -> Self {
+        //Decide to retry in handler
+        Self(.while, handler: handler)
+    }
+
 }

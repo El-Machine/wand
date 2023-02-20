@@ -24,7 +24,6 @@
 protocol Expecting {
 
     var isInner: Bool {get}
-
     func handle(_ object: Any) -> Bool
 
 }
@@ -38,15 +37,15 @@ protocol Expecting {
 ///  - `while`  returns true
 ///
 public final class Expect<T>: Expecting {
-    
-    enum Condition {
+
+    public typealias Handler = (T)->(Bool)
+
+    public enum Condition {
 
         case every, one, `while`,
              all, any
 
     }
-
-    typealias Handler = (T)->(Bool)
 
     let with: Any?
     let condition: Condition
@@ -69,10 +68,11 @@ public final class Expect<T>: Expecting {
         handler(object as! T)
     }
 
-    internal required init(with: Any? = nil,
-                           condition: Condition,
-                           isInner: Bool = false,
-                           handler: @escaping Handler) {
+    public required init(with: Any? = nil,
+                  condition: Condition,
+                  isInner: Bool = false,
+                  handler: @escaping Handler) {
+        
         self.with = with
         self.condition = condition
         self.isInner = isInner
@@ -98,6 +98,7 @@ public final class Expect<T>: Expecting {
         Self(condition: .while, handler: handler)
     }
 
+    //While counting
     public static func `while`(_ handler: @escaping (T, Int)->(Bool) ) -> Self {
         var i = 0
         return Self(condition: .while) {

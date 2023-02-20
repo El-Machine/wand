@@ -56,6 +56,6 @@ class CoreMotion_Tests: XCTestCase {
 #endif
 
     func test_CMPedometer() {
-        XCTAssertNotNil(self| as CMPedometer)
+        XCTAssertNotNil(nil| as CMPedometer)
     }
 }

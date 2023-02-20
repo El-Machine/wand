@@ -31,7 +31,8 @@
 /// ```
 public protocol Expectable {
 
-    static func start<P, E: Expectable>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe)
+    //E === Self
+    static func expect<E: Expectable>(_ expectation: Expect<E>, from pipe: Pipe)
 
 }
 
@@ -45,22 +46,8 @@ public protocol Expectable {
 ///
 ///   }
 @discardableResult
-public func |<E: Expectable, P> (piped: P, handler: @escaping (E)->() ) -> Pipe {
-    piped | .every(handler)
-}
-
-///  Expect E from nil
-///
-/// - Parameters:
-///   - pipe: Pipe that provides context
-///   - handler: Block to use E
-///
-///   | { E in
-///
-///   }
-@discardableResult
-public func |<E: Expectable> (pipe: Pipe?, handler: @escaping (E)->() ) -> Pipe {
-    (pipe ?? Pipe()) as Any | .every(handler)
+public func |<S, E: Expectable> (scope: S, handler: @escaping (E)->() ) -> Pipe {
+    scope | Expect.every(handler)
 }
 
 ///  Expect E from piped object
@@ -77,9 +64,9 @@ public func |<E: Expectable> (pipe: Pipe?, handler: @escaping (E)->() ) -> Pipe 
 ///
 ///   }
 @discardableResult
-public func |<E: Expectable, P> (piped: P, expectation: Expect<E>) -> Pipe {
-    let pipe = Pipe.attach(to: piped)
-    E.start(expectating: expectation, with: piped, on: pipe)
+public func |<S, E: Expectable> (scope: S, expectation: Expect<E>) -> Pipe {
+    let pipe = Pipe.attach(to: scope)
+    E.expect(expectation, from: pipe)
 
     return pipe
 }
@@ -90,14 +77,14 @@ public func |<E: Expectable, P> (piped: P, expectation: Expect<E>) -> Pipe {
 ///
 ///  CLLocation.one | CMPedometerEvent.one
 ///
-@discardableResult
-public func |<P: Expectable, E: Expectable> (piped: Expect<P>, to: Expect<E>) -> Pipe {
-    let pipe = Pipe()
-    P.start(expectating: piped, with: pipe, on: pipe)
-    E.start(expectating: to, with: piped, on: pipe)
-
-    return pipe
-}
+//@discardableResult
+//public func |<P: Expectable, E: Expectable> (piped: Expect<P>, to: Expect<E>) -> Pipe {
+//    let pipe = Pipe()
+//    P.start(expectating: piped, with: pipe, on: pipe)
+//    E.start(expectating: to, with: piped, on: pipe)
+//
+//    return pipe
+//}
 
 ///  Expect from Self
 ///

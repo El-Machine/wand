@@ -32,11 +32,7 @@ import CloudKit
 @discardableResult
 public func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
     let pipe = piped.pipe
-    _ = pipe.start(expecting: Expect.every(handler))
-
-//    pipe.expectations["Error"] = [
-//        Expect.every(handler)
-//    ]
+    _ = pipe.ask(for: .every(Error.self, handler: handler).inner())
 
     return pipe
 }
@@ -46,35 +42,19 @@ public func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
  - Parameters:
  - handler: Will be invoked after success and error
  */
-@discardableResult
-public func | (piped: Pipable, handler: @escaping (Error?)->() ) -> Pipe {
-    //TODO: Rewrite "Error" expectations
-    let pipe = piped.pipe
-
-    _ = pipe.start(expecting: Expect.every(handler))
-
-    //    pipe.expectations["Error"] = [
-    //        Expect.every(handler)
-    //    ]
-
-    return pipe
-
-//    pipe.expectations["Result<Int, Error>"] = [
-//        Expect.every { (result: Result<Int,Error>) in
-//            switch result {
-//                case .success(_):
-//                    handler(nil)
-//                case .failure(let failure):
-//                    handler(failure)
-//            }
-//        }
-//    ]
-//    pipe.expectations["Error"] = [
-//        Expect.every(handler)
-//    ]
+//@discardableResult
+//public func | (piped: Pipable, handler: @escaping (Error?)->() ) -> Pipe {
+//    //TODO: Rewrite "Error" expectations
+//    let pipe = piped.pipe
+//
+//    _ = pipe.expect(.every(handler).inner())
+//
+//    //    pipe.expectations["Error"] = [
+//    //        Expect.every(handler)
+//    //    ]
 //
 //    return pipe
-}
+//}
 
 extension Pipe {
 

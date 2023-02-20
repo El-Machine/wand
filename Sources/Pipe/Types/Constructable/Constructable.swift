@@ -27,7 +27,7 @@ import Foundation
 /// Use options to customize.
 public protocol Constructable: Pipable {
 
-    static func construct<P>(with piped: P, on pipe: Pipe) -> Self
+    static func construct(in pipe: Pipe) -> Self
 
 }
 
@@ -35,7 +35,11 @@ public protocol Constructable: Pipable {
 /// - Parameter pipe: Optional pipe for constructing
 /// - Returns: Self
 public postfix func |<T: Constructable>(pipe: Pipe?) -> T {
-    (pipe ?? Pipe())|
+    if let pipe {
+        return pipe.get() ?? T.construct(in: pipe)
+    }
+
+    return T.construct(in: Pipe())
 }
 
 /// Construct object with settings
@@ -43,15 +47,7 @@ public postfix func |<T: Constructable>(pipe: Pipe?) -> T {
 /// - Returns: Self
 public postfix func |<P, T: Constructable>(settings: P) -> T {
     let pipe = Pipe.attach(to: settings)
-    return pipe.get(or: T.construct(with: settings, on: pipe))
-}
-
-/// Construct object from type
-/// - Parameter options: Customization settings
-/// - Returns: Self
-public postfix func |<T: Constructable>(type: T.Type) -> T {
-    let pipe = Pipe()
-    return pipe.put(T.construct(with: pipe, on: pipe))
+    return pipe.get() ?? T.construct(in: pipe)
 }
 
 public extension Pipe {
@@ -60,7 +56,8 @@ public extension Pipe {
     /// - Parameter key: Stroring key
     /// - Returns: T
     func get<T: Constructable>(for key: String? = nil) -> T {
-        get(for: key) ?? self|
+        let get: T? = get(for: key)
+        return get ?? self|
     }
     
 }

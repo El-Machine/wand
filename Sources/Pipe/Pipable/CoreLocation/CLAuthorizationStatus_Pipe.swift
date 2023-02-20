@@ -23,10 +23,7 @@
 
 import CoreLocation.CLLocation
 
-/**Pipe.Expectable
-
- prefix | (handler: (CLAuthorizationStatus)->() )
- infix | (request: CLAuthorizationStatus,  handler: (CLAuthorizationStatus)->() )
+/**
 
  #Usage
  ```
@@ -41,17 +38,20 @@ import CoreLocation.CLLocation
  ```
 
  */
-extension CLAuthorizationStatus: ExpectableWithout {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+extension CLAuthorizationStatus: AskingWithout, Pipable {
 
-        guard pipe.start(expecting: expectation) else {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+
+        let asking: CLAuthorizationStatus? = pipe.extract()
+
+        guard pipe.ask(for: ask) else {
             return
         }
 
-        let source = piped as? CLLocationManager ?? pipe.get()
+        let source: CLLocationManager = pipe.get()
 
-        switch piped as? CLAuthorizationStatus {
+        switch asking {
 
         #if !APPCLIP
             case .authorizedAlways:
@@ -69,20 +69,20 @@ extension CLAuthorizationStatus: ExpectableWithout {
 
 }
 
-extension CLAuthorizationStatus: Constructable {
-
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> CLAuthorizationStatus {
-
-        defer {
-            pipe.closeIfNeed()
-        }
-
-        if #available(iOS 14.0, macOS 11.0, *) {
-            let manager = piped as? CLLocationManager ?? pipe.get()
-            return manager.authorizationStatus
-        } else {
-            return CLLocationManager.authorizationStatus()
-        }
-    }
-
-}
+//extension CLAuthorizationStatus {
+//
+//    public static func construct<P>(with piped: P, on pipe: Pipe) -> CLAuthorizationStatus {
+//
+//        defer {
+//            pipe.closeIfNeed()
+//        }
+//
+//        if #available(iOS 14.0, macOS 11.0, *) {
+//            let manager = piped as? CLLocationManager ?? pipe.get()
+//            return manager.authorizationStatus
+//        } else {
+//            return CLLocationManager.authorizationStatus()
+//        }
+//    }
+//
+//}

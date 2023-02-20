@@ -21,17 +21,36 @@
 //  Created by Alex Kozin
 //
 
-import Foundation
+/// Add handler for some event in pipe
+public extension Expect {
 
-public protocol ExpectableLabeled: Expectable {    
+    static func all(_ handler: @escaping (Any)->() ) -> Expect<Any> {
+        Expect<Any>(with: "All", condition: .all, isInner: true) {
+            handler($0)
+            return false
+        }
+    }
+
+    static func any(_ handler: @escaping (Any)->() ) -> Expect<Any> {
+        Expect<Any>( with: "Any", condition: .any, isInner: true) {
+            handler($0)
+            return false
+        }
+    }
 
 }
 
-public extension Expect where T: ExpectableLabeled {
-
-    static func oneLabeled(label: String = #function,
-                           _ handler: ( (T)->() )? = nil) -> Self {
-        Expect.one(label, handler) as! Self
-    }
-
+///  Add expectation for some event in Pipe
+///
+/// - Parameters:
+///   - pipe: Pipe that provides context
+///   - expectation: Event with `Any` handler
+///
+///   CLLocation.one | CMPedometerEvent.one | .all { last in
+///
+///   }
+@discardableResult
+public func | (pipe: Pipe, expectation: Expect<Any>) -> Pipe {
+    _ = pipe.expect(expectation, key: expectation.with as! String)
+    return pipe
 }

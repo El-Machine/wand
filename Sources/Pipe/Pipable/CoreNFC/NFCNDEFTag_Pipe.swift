@@ -24,50 +24,42 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
-@available(iOS 13.0, *)
+//AskingWithout
 @discardableResult
 public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
-    |.every(handler)
+    nil | Ask.every(handler: handler)
 }
 
-@available(iOS 13.0, *)
-public func |(pipe: Pipe?, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
-    (pipe ?? Pipe()) as Any | .every(handler)
-}
-
-@available(iOS 13.0, *)
 @discardableResult
-public func |<P> (piped: P, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
-    piped | .every(handler)
+public prefix func | (ask: Ask<NFCNDEFTag>) -> Pipe {
+    nil | ask
 }
 
-@available(iOS 13.0, *)
 @discardableResult
-public prefix func |(expectation: Expect<NFCNDEFTag>) -> Pipe {
-    Pipe() | expectation
+public func | (pipe: Pipe?, ask: Ask<NFCNDEFTag>) -> Pipe {
+    pipe ?? Pipe() | ask
 }
 
-@available(iOS 13.0, *)
+//Asking
 @discardableResult
-public func |(pipe: Pipe?, expectation: Expect<NFCNDEFTag>) -> Pipe {
-    (pipe ?? Pipe()) as Any | expectation
+public func |<S> (scope: S, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+    scope | Ask.every(handler: handler)
 }
 
-@available(iOS 13.0, *)
 @discardableResult
-public func |<P> (piped: P, expectation: Expect<NFCNDEFTag>) -> Pipe {
-    let pipe = Pipe.attach(to: piped)
+public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
+    let pipe = Pipe.attach(to: scope)
 
-    guard pipe.start(expecting: expectation) else {
+    guard pipe.ask(for: ask) else {
         return pipe
     }
 
-    let source = piped as? NFCNDEFReaderSession ?? pipe.get()
-    source.alertMessage = piped as? String ?? pipe.get() ?? ""
-    source.begin()
+    let session: NFCNDEFReaderSession = pipe.get()
+    session.alertMessage = pipe.get() ?? ""
+    session.begin()
 
-    expectation.cleaner = {
-        source.invalidate()
+    pipe.addCleaner {
+        session.invalidate()
     }
 
     return pipe
@@ -86,119 +78,72 @@ extension NFCNDEFTag {
 
 }
 
+extension Ask where T == NFCNDEFTag {
 
-@available(iOS 13.0, *)
-extension NFCNDEFMessage: Expectable, Pipable {
+    @available(iOS 13.0, *)
+    public func write (_ message: inout NFCNDEFMessage?, done: @escaping (NFCNDEFTag)->() ) -> Self {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
+        let oldHandler = self.handler
 
-        guard pipe.start(expecting: expectation) else {
-            return
-        }
+        self.handler = { [message] tag in
 
-        let tag = piped as? NFCNDEFTag ?? pipe.get()!
+            let pipe = tag.pipe
 
-        let session: NFCNDEFReaderSession = pipe.get()
-        session.connect(to: tag) { (error: Error?) in
-            if error != nil {
-                session.restartPolling()
-                return
-            }
+            let session: NFCNDEFReaderSession = pipe.get()
 
+            session.connect(to: tag) { (error: Error?) in
 
-            tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
-
-                if let error {
-                    pipe.put(error)
+                guard pipe.putIf(exist: error) == nil else {
                     return
                 }
 
-//                if error != nil {
-//                    session.invalidate(errorMessage: "Fail to determine NDEF status.  Please try again.")
-//                    return
-//                }
+                tag | .one { (status: NFCNDEFStatus) in
 
-                tag.readNDEF { message, error in
+                    switch status {
 
-                    if let error {
-                        
-                        if let error = error as? NFCReaderError,
-                           error.code == NFCReaderError.ndefReaderSessionErrorZeroLengthMessage {
+                        case .readWrite:
 
-                            //Put nil message
-                            pipe.put(message)
-                        } else {
-                            pipe.put(error)
-                        }
+                            let message = message!
 
-                        return
+                            let capacity: Int = pipe.get()!
+                            if message.length > capacity {
+
+                                pipe.put(NFCReaderError("Tag capacity is too small. Minimum size requirement is \(message.length) bytes."))
+
+                                return
+                            }
+
+                            tag.writeNDEF(message) { (error: Error?) in
+
+                                guard pipe.putIf(exist: error) == nil else {
+                                    return
+                                }
+
+                                done(tag)
+
+                            }
+
+                        case .readOnly:
+                            pipe.put(NFCReaderError("Tag is not writable"))
+
+                        case .notSupported:
+                            pipe.put(NFCReaderError("Tag is not NDEF formatted"))
+
+                        @unknown default:
+                            fatalError()
+
                     }
 
-                    if let message {
-                        pipe.put(message)
-                    }
-
                 }
-
-
-            }
-        }
-
-    }
-
-}
-
-extension Result: Expectable {
-
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
-    }
-
-
-}
-
-@available(iOS 13.0, *)
-public func | (tag: NFCNDEFTag, message: NFCNDEFMessage) -> Pipe {
-
-    let pipe = tag.pipe
-
-//    guard pipe.start(expecting: Result<Int, Error>.one) else {
-//        return pipe
-//    }
-
-    let session: NFCNDEFReaderSession = pipe.get()
-    session.connect(to: tag) { (error: Error?) in
-        if error != nil {
-            session.restartPolling()
-            return
-        }
-
-        // You then query the NDEF status of tag.
-        tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
-            if error != nil {
-                session.invalidate(errorMessage: "Fail to determine NDEF status.  Please try again.")
-                return
             }
 
-            if status == .readOnly {
-                session.invalidate(errorMessage: "Tag is not writable.")
-            } else if status == .readWrite {
-                if message.length > capacity {
-                    session.invalidate(errorMessage: "Tag capacity is too small.  Minimum size requirement is \(message.length) bytes.")
-                    return
-                }
-
-                // When a tag is read-writable and has sufficient capacity,
-                // write an NDEF message to it.
-                tag.writeNDEF(message) { (error: Error?) in
-                    pipe.put(error)
-                }
-            } else {
-                session.invalidate(errorMessage: "Tag is not NDEF formatted.")
-            }
+            //Call previous handler
+            return oldHandler(tag)
         }
+
+        return self
     }
 
-    return pipe
 }
 
 #endif

@@ -23,9 +23,7 @@
 
 import CoreMotion.CMPedometer
 
-/**Pipe.Constructable
-
- postfix |(piped: Any?) -> CMPedometer
+/**
 
  #Usage
  ```
@@ -35,7 +33,7 @@ import CoreMotion.CMPedometer
  */
 extension CMPedometer: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
         Self()
     }
      

@@ -35,24 +35,23 @@ import CoreLocation.CLLocation
  ```
 
  */
-extension CLLocation: ExpectableWithout, Pipable {
+extension CLLocation: AskingWithout, Pipable {
 
-    public static func start<P, E>(expectating expectation: Expect<E>,
-                                   with piped: P,
-                                   on pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        guard pipe.start(expecting: expectation) else {
+        guard pipe.ask(for: ask) else {
             return
         }
 
-        let source = piped as? CLLocationManager ?? pipe.get()
+        let source: CLLocationManager = pipe.get()
 
-        let handler = { (status: CLAuthorizationStatus) -> Bool in
+        pipe | .while { (status: CLAuthorizationStatus) -> Bool in
+
             guard status != .notDetermined else {
                 return true
             }
 
-            switch (expectation.condition) {
+            switch (ask.condition) {
                 case .one:
                     source.requestLocation()
 
@@ -61,17 +60,9 @@ extension CLLocation: ExpectableWithout, Pipable {
             }
 
             return false
-        }
+        }.inner()
 
-        //Expect specific status
-        if let status = piped as? CLAuthorizationStatus ?? pipe.get() {
-            status | .while(handler).inner()
-        } else {
-            //Or start expecting from specific manager
-            source | .while(handler).inner()
-        }
-
-        expectation.cleaner = {
+        ask.cleaner = {
             source.stopUpdatingLocation()
         }
 
