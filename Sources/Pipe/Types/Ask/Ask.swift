@@ -21,42 +21,42 @@
 //  Created by Alex Kozin
 //
 
-public class AskFor {
+protocol AskFor {
 
-    public enum Condition {
-
-        case every, one, `while`,
-             all, any
-
-    }
-
-    var isInner: Bool = false
-
-    init() {
-    }
+    var isInner: Bool {get}
 
 }
 
 public class Ask<T>: AskFor {
 
+    public
+    enum Condition {
+
+        case every, one, `while`
+
+    }
+
     let condition: Condition
+
     var handler: (T)->(Bool)
 
-    public var cleaner: ( ()->() )?
+    public
+    var cleaner: ( ()->() )?
 
     //Inner is not asked by user
-    public func inner() -> Self {
+    public private(set)
+    var isInner: Bool = false
+
+    public
+    func inner() -> Self {
         isInner = true
         return self
     }
 
-    internal required init(_ condition: Condition,
-                           handler: @escaping (T) -> Bool) {
-
+    internal required
+    init(_ condition: Condition, handler: @escaping (T) -> Bool) {
         self.condition = condition
         self.handler = handler
-
-        super.init()
     }
 
     public
@@ -70,7 +70,7 @@ public class Ask<T>: AskFor {
     }
 
     public
-    static func one(handler: ( (T)->() )? = nil ) -> Self {
+    static func one(_ type: T.Type? = nil, handler: ( (T)->() )? = nil ) -> Self {
         Self(.one) {
             handler?($0)
 
@@ -80,7 +80,7 @@ public class Ask<T>: AskFor {
     }
 
     public
-    static func `while`(handler: @escaping (T)->(Bool) ) -> Self {
+    static func `while`(_ type: T.Type? = nil, handler: @escaping (T)->(Bool) ) -> Self {
         //Decide to retry in handler
         Self(.while, handler: handler)
     }

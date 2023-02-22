@@ -21,55 +21,8 @@
 //  Created by Alex Kozin
 //
 
-import Foundation
+import CoreGraphics
 
-public protocol AskingWithout: Asking {
-
-}
-
-///   |{ T in
-///
-///   }
-@discardableResult
-public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Pipe {
-    nil | Ask.every(handler: handler)
-}
-
-///  Ask for:
-///  - `every`
-///  - `one`
-///  - `while`
-///
-///   |.one { T in
-///
-///   }
-@discardableResult
-public prefix func |<T: Asking> (ask: Ask<T>) -> Pipe {
-    nil | ask
-}
-
-///  Ask for:
-///  - `every`
-///  - `one`
-///  - `while`
-///
-///   |.one { T in
-///
-///   }
-@discardableResult
-public func |<T: Asking> (pipe: Pipe?, ask: Ask<T>) -> Pipe {
-    (pipe ?? Pipe()) as Any | ask
-}
-
-///  Chain
-///
-///  T.one | E.one
-///
-@discardableResult
-public func |<T: AskingWithout, E: AskingWithout>(piped: Ask<T>, to: Ask<E>) -> Pipe {
-    let pipe = Pipe()
-    T.ask(piped, from: pipe)
-    E.ask(to, from: pipe)
-
-    return pipe
+func + (left: CGSize, right: CGSize) -> CGSize {
+    ((left.width + right.width), (left.height + right.height))|
 }

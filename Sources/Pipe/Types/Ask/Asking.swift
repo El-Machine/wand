@@ -45,6 +45,7 @@ public func |<S, T: Asking> (scope: S, handler: @escaping (T)->() ) -> Pipe {
 ///
 ///   }
 @discardableResult
+@inline(__always)
 public func |<S, T: Asking> (scope: S, ask: Ask<T>) -> Pipe {
     let pipe = Pipe.attach(to: scope)
     T.ask(ask, from: pipe)

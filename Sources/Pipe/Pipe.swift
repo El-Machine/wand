@@ -38,24 +38,53 @@ import Foundation
 ///
 public final class Pipe {
 
-    internal static var all = [String?: Pipe]()
+    internal static var all = [Int: Pipe]()
 
     internal static subscript(piped: Any) -> Pipe? {
         get {
+
+
+            print("#get Pipe for \(piped)")
+
             if let key = key(piped) {
-                return all[key]
+
+//                let key = key(piped)
+                let pipe = all[key]
+
+
+
+                print("#get Pipe for \(String(format: "%p", key)) \n r: \(String(describing: pipe))")
+
+                return pipe
             }
 
             return nil
         }
         set {
+
+            print("##set Pipe for \(piped), p: \(newValue)")
+
             if let pipe = newValue, let key = key(piped) {
+                print("##set Pipe for \(String(format: "%p", key))")
                 all[key] = pipe
             }
         }
     }
 
-    internal static func key(_ piped: Any) -> String? {
+    static func setPipe(_ pipe: Pipe, to address: Int) {
+        all[address] = pipe
+    }
+
+//
+//    static func setPipe(_ pipe: Pipe, adress: Int) {
+//        all[adress] = pipe
+//    }
+//
+//    static func getPipe(adress: Int) -> Pipe? {
+//        all[adress]
+//    }
+
+    internal static func key(_ piped: Any) -> Int? {
         (piped as? Pipable)?.address
     }
 
@@ -81,6 +110,32 @@ public final class Pipe {
         }
     
 }
+
+
+//internal static subscript<T>(piped: T) -> Pipe? {
+//    get {
+//        return all[address(for: piped)]
+//    }
+//    set {
+//        if let pipe = newValue {
+//            all[address(for: piped)] = pipe
+//        }
+//    }
+//}
+//
+//static func address<T: AnyObject>(for model: T) -> String {
+//    "\(Unmanaged.passUnretained(model).toOpaque())"
+//}
+//
+//static func address<T>(for model: T) -> String {
+//    var address: String?
+//    var mutable = model
+//    withUnsafePointer(to: &mutable) { pointer in
+//        address = String(format: "%p", pointer)
+//    }
+//
+//    return address!
+//}
 
 //Get
 extension Pipe {
@@ -108,7 +163,7 @@ extension Pipe {
         print("#put \(object)")
 
         //Find expectations for object
-        guard let expectations = asking[key] else {
+        guard let expectations = asking[key] as? [Ask<T>] else {
             return object
         }
 
@@ -119,7 +174,7 @@ extension Pipe {
                 onlyInner = false
             }
 
-            return ($0 as! Ask<T>).handler(object)
+            return $0.handler(object)
         }
 
         //Handle not inner expectations
@@ -137,10 +192,6 @@ extension Pipe {
         closeIfDone(last: object)
 
         return object
-    }
-
-    func notify() {
-
     }
 
     @discardableResult
@@ -197,12 +248,14 @@ extension Pipe {
             queue.async {
 
                 //Should remove?
+                //Optimize
                 if ask.handler(object) == false {
                     self.asking[key] = (self.asking[key] as? [Ask<T>])?.filter {
                         $0 !== ask
                     }
                 }
 
+                //Optimize
                 self.closeIfDone(last: object)
 
             }
@@ -309,10 +362,16 @@ extension Pipe {
             $0()
         }
 
+        cleaners.removeAll()
+
         //Release Pipe
         Pipe.all = Pipe.all.filter {
-            $1 !== self
+            let store = $0.value !== self
+
+            return store
         }
+
+        print("")
     }
 
 }
@@ -398,7 +457,7 @@ extension Pipe: Pipable {
 extension Pipe: CustomStringConvertible, CustomDebugStringConvertible {
 
     public var description: String {
-        "<Pipe \(address)>"
+        "<Pipe \(String(format: "%p", address))>"
     }
 
     

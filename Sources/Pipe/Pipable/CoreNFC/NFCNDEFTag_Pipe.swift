@@ -37,7 +37,7 @@ public prefix func | (ask: Ask<NFCNDEFTag>) -> Pipe {
 
 @discardableResult
 public func | (pipe: Pipe?, ask: Ask<NFCNDEFTag>) -> Pipe {
-    pipe ?? Pipe() | ask
+    (pipe ?? Pipe()) as Any | ask
 }
 
 //Asking
@@ -69,11 +69,15 @@ public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
 extension NFCNDEFTag {
 
     var pipe: Pipe {
-        isPiped ?? Pipe(object: self)
+        isPiped ?? fatalError() as! Pipe// Pipe(object: self)
     }
 
     var isPiped: Pipe? {
-        Pipe[self]
+
+        let address = MemoryAddress.address(of: self)
+        print("💪🏽 \(address)")
+
+        return Pipe.all[address]
     }
 
 }
@@ -81,11 +85,11 @@ extension NFCNDEFTag {
 extension Ask where T == NFCNDEFTag {
 
     @available(iOS 13.0, *)
-    public func write (_ message: inout NFCNDEFMessage?, done: @escaping (NFCNDEFTag)->() ) -> Self {
+    public func write (_ message: NFCNDEFMessage, done: @escaping (NFCNDEFTag)->() ) -> Self {
 
         let oldHandler = self.handler
 
-        self.handler = { [message] tag in
+        self.handler = { tag in
 
             let pipe = tag.pipe
 
@@ -97,13 +101,13 @@ extension Ask where T == NFCNDEFTag {
                     return
                 }
 
-                tag | .one { (status: NFCNDEFStatus) in
+                pipe | .one { (status: NFCNDEFStatus) in
 
                     switch status {
 
                         case .readWrite:
 
-                            let message = message!
+                            let message = message
 
                             let capacity: Int = pipe.get()!
                             if message.length > capacity {

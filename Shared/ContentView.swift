@@ -5,9 +5,7 @@
 //  Created by Alex Kozin on 29.08.2022.
 //
 
-
-import ARKit
-import RealityKit
+import CoreMotion
 
 import Pipe
 import SwiftUI
@@ -18,18 +16,13 @@ struct ContentView: View {
         Text("Hello, Pipe |").onAppear {
 
 
-//            if #available(iOS 14.3, *) {
-//
-//                let pipe = |.add { (a: [ARAnchor]) in
-//                    print("")
-//                }
-//
-//                let view: ARView = pipe.get()
-//
-//
-//            }
+            |{ (data: CMPedometerData) in
+
+            }
+
 
         }
+
     }
 
     func codes() {

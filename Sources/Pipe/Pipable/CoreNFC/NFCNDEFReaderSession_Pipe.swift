@@ -63,12 +63,22 @@ extension NFCNDEFReaderSession {
         func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
 
             if let first = tags.first {
-                isPiped?.put(first)
+
+                if let pipe = isPiped {
+
+
+
+                    let address = MemoryAddress.address(of: first)
+                    print("💪🏽 set \(address)")
+                    Pipe.all[address] = pipe
+
+                    pipe.put(first)
+                }
             }
 
-            if tags.count > 1 {
-                isPiped?.put(tags)
-            }
+//            if tags.count > 1 {
+//                isPiped?.put(tags)
+//            }
         }
 
     }
