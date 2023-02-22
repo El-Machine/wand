@@ -44,23 +44,22 @@ public class Ask<T>: AskFor {
     var cleaner: ( ()->() )?
 
     //Inner is not asked by user
-    public private(set)
-    var isInner: Bool = false
-
-    public
-    func inner() -> Self {
-        isInner = true
-        return self
-    }
+    let isInner: Bool
 
     internal required
-    init(_ condition: Condition, handler: @escaping (T) -> Bool) {
+    init(_ condition: Condition,
+         inner: Bool = false,
+         handler: @escaping (T) -> Bool) {
+
         self.condition = condition
+        self.isInner = inner
         self.handler = handler
     }
 
     public
-    static func every(_ type: T.Type? = nil, handler: ( (T)->() )? = nil ) -> Self {
+    static func every(_ type: T.Type? = nil,
+                      inner: Bool = false,
+                      handler: ( (T)->() )? = nil ) -> Self {
         Self(.every) {
             handler?($0)
 
@@ -70,7 +69,9 @@ public class Ask<T>: AskFor {
     }
 
     public
-    static func one(_ type: T.Type? = nil, handler: ( (T)->() )? = nil ) -> Self {
+    static func one(_ type: T.Type? = nil,
+                    inner: Bool = false,
+                    handler: ( (T)->() )? = nil ) -> Self {
         Self(.one) {
             handler?($0)
 
@@ -80,9 +81,11 @@ public class Ask<T>: AskFor {
     }
 
     public
-    static func `while`(_ type: T.Type? = nil, handler: @escaping (T)->(Bool) ) -> Self {
+    static func `while`(_ type: T.Type? = nil,
+                        inner: Bool = false,
+                        handler: @escaping (T)->(Bool) ) -> Self {
         //Decide to retry in handler
-        Self(.while, handler: handler)
+        Self(.while, inner: inner, handler: handler)
     }
 
 }

@@ -25,23 +25,47 @@
 import CoreNFC
 
 @available(iOS 13.0, *)
-public postfix func |(piped: URL) -> NFCNDEFMessage {
-    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped)!])
-}
+extension NFCNDEFStatus: AskingWithout, Pipable {
 
-@available(iOS 13.0, *)
-public postfix func |(piped: URL?) -> NFCNDEFMessage {
-    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped!)!])
-}
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-@available(iOS 13.0, *)
-public postfix func |(piped: NFCNDEFMessage?) -> URL? {
-    piped?.records.first?.wellKnownTypeURIPayload()
-}
+        guard pipe.ask(for: ask) else {
+            return
+        }
 
-@available(iOS 13.0, *)
-public postfix func |(piped: NFCNDEFMessage) -> URL? {
-    piped.records.first?.wellKnownTypeURIPayload()
+        let session: NFCNDEFReaderSession = pipe.get()
+
+        pipe | .every(inner: true) { (tag: NFCNDEFTag) in
+
+            session.connect(to: tag) { (error: Error?) in
+
+                guard pipe.putIf(exist: error) == nil else {
+                    session.restartPolling()
+                    return
+                }
+
+                tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
+
+                    guard pipe.putIf(exist: error) == nil else {
+                        return
+                    }
+
+                    pipe.put(capacity)
+                    pipe.put(status)
+                }
+
+            }
+
+        }
+
+        pipe.addCleaner {
+            session.invalidate()
+        }
+
+    }
+
 }
 
 #endif
+
+

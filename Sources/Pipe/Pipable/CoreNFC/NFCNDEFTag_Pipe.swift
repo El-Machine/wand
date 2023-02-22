@@ -69,15 +69,11 @@ public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
 extension NFCNDEFTag {
 
     var pipe: Pipe {
-        isPiped ?? fatalError() as! Pipe// Pipe(object: self)
+        isPiped ?? Pipe(object: self)
     }
 
     var isPiped: Pipe? {
-
-        let address = MemoryAddress.address(of: self)
-        print("💪🏽 \(address)")
-
-        return Pipe.all[address]
+        Pipe[self]
     }
 
 }
@@ -94,14 +90,14 @@ extension Ask where T == NFCNDEFTag {
             let pipe = tag.pipe
 
             let session: NFCNDEFReaderSession = pipe.get()
-
+            
             session.connect(to: tag) { (error: Error?) in
 
                 guard pipe.putIf(exist: error) == nil else {
                     return
                 }
 
-                pipe | .one { (status: NFCNDEFStatus) in
+                pipe | .one(inner: true) { (status: NFCNDEFStatus) in
 
                     switch status {
 
@@ -112,7 +108,8 @@ extension Ask where T == NFCNDEFTag {
                             let capacity: Int = pipe.get()!
                             if message.length > capacity {
 
-                                pipe.put(NFCReaderError("Tag capacity is too small. Minimum size requirement is \(message.length) bytes."))
+                                let e = Pipe.Error.nfc("Tag capacity is too small. Minimum size requirement is \(message.length) bytes.")
+                                pipe.put(e)
 
                                 return
                             }
@@ -128,10 +125,12 @@ extension Ask where T == NFCNDEFTag {
                             }
 
                         case .readOnly:
-                            pipe.put(NFCReaderError("Tag is not writable"))
+                            let e = Pipe.Error.nfc("Tag is not writable")
+                            pipe.put(e)
 
                         case .notSupported:
-                            pipe.put(NFCReaderError("Tag is not NDEF formatted"))
+                            let e = Pipe.Error.nfc("Tag is not NDEF")
+                            pipe.put(e)
 
                         @unknown default:
                             fatalError()
@@ -139,6 +138,54 @@ extension Ask where T == NFCNDEFTag {
                     }
 
                 }
+            }
+
+            //Call previous handler
+            return oldHandler(tag)
+        }
+
+        return self
+    }
+
+    @available(iOS 13.0, *)
+    public func lock (done: @escaping (NFCNDEFTag)->() ) -> Self {
+
+        let oldHandler = self.handler
+
+        self.handler = { tag in
+
+            let pipe = tag.pipe
+
+            let session: NFCNDEFReaderSession = pipe.get()
+
+            session.connect(to: tag) { (error: Error?) in
+
+                guard pipe.putIf(exist: error) == nil else {
+                    return
+                }
+
+                tag.writeLock { error in
+
+
+                    if let error = error as? NFCReaderError {
+
+                        switch error.code {
+                            case .ndefReaderSessionErrorTagUpdateFailure:
+
+                                let e = Pipe.Error.nfc("Already locked tag 🦾\n")
+                                pipe.put(e)
+
+                            default:
+                                pipe.put(error as Error)
+                        }
+
+
+                        return
+                    }
+
+                    done(tag)
+                }
+
             }
 
             //Call previous handler

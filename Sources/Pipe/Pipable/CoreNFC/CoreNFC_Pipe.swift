@@ -21,57 +21,36 @@
 //  Created by Alex Kozin
 //
 
-import Foundation
-import CloudKit
+#if canImport(CoreNFC)
+import CoreNFC
 
-/**
- Add error handler
- - Parameters:
- - handler: Will be invoked only after error
- */
-@discardableResult
-public func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
-    let pipe = piped.pipe
-    _ = pipe.ask(for: .every(Error.self, inner: true, handler: handler))
-
-    return pipe
+@available(iOS 13.0, *)
+public postfix func |(piped: URL) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped)!])
 }
 
-/**
- Add success and error handler
- - Parameters:
- - handler: Will be invoked after success and error
- */
-//@discardableResult
-//public func | (piped: Pipable, handler: @escaping (Error?)->() ) -> Pipe {
-//    //TODO: Rewrite "Error" expectations
-//    let pipe = piped.pipe
-//
-//    _ = pipe.expect(.every(handler).inner())
-//
-//    //    pipe.expectations["Error"] = [
-//    //        Expect.every(handler)
-//    //    ]
-//
-//    return pipe
-//}
+@available(iOS 13.0, *)
+public postfix func |(piped: URL?) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped!)!])
+}
 
-extension Pipe {
+@available(iOS 13.0, *)
+public postfix func |(piped: NFCNDEFMessage?) -> URL? {
+    piped?.records.first?.wellKnownTypeURIPayload()
+}
 
-    struct Error: Swift.Error {
+@available(iOS 13.0, *)
+public postfix func |(piped: NFCNDEFMessage) -> URL? {
+    piped.records.first?.wellKnownTypeURIPayload()
+}
 
-        let code: Int
-        let reason: String
+extension Pipe.Error {
 
-        init(code: Int = .zero, reason: String, function: String = #function) {
-            self.code = code
-            self.reason = function + reason
-        }
-
-        static func vision(_ reason: String) -> Error {
-            Self(reason: reason)
-        }
-
+    static func nfc(_ reason: String) -> Error {
+        NFCReaderError.init(.readerErrorInvalidParameter,
+                            userInfo: [NSLocalizedDescriptionKey: reason])
     }
 
 }
+
+#endif

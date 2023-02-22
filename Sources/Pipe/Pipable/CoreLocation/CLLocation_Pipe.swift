@@ -45,7 +45,7 @@ extension CLLocation: AskingWithout, Pipable {
 
         let source: CLLocationManager = pipe.get()
 
-        pipe | .while { (status: CLAuthorizationStatus) -> Bool in
+        pipe | .while(inner: true) { (status: CLAuthorizationStatus) -> Bool in
 
             guard status != .notDetermined else {
                 return true
@@ -60,7 +60,7 @@ extension CLLocation: AskingWithout, Pipable {
             }
 
             return false
-        }.inner()
+        }
 
         ask.cleaner = {
             source.stopUpdatingLocation()

@@ -40,52 +40,25 @@ public final class Pipe {
 
     internal static var all = [Int: Pipe]()
 
-    internal static subscript(piped: Any) -> Pipe? {
+    internal static subscript<T>(piped: T) -> Pipe? {
         get {
 
-
-            print("#get Pipe for \(piped)")
-
-            if let key = key(piped) {
-
-//                let key = key(piped)
-                let pipe = all[key]
-
-
-
-                print("#get Pipe for \(String(format: "%p", key)) \n r: \(String(describing: pipe))")
-
-                return pipe
+            if T.self is AnyClass {
+                let key = unsafeBitCast(piped, to: Int.self)
+                return all[key]
             }
 
             return nil
+
         }
         set {
 
-            print("##set Pipe for \(piped), p: \(newValue)")
-
-            if let pipe = newValue, let key = key(piped) {
-                print("##set Pipe for \(String(format: "%p", key))")
+            if let pipe = newValue, T.self is AnyClass {
+                let key = unsafeBitCast(piped, to: Int.self)
                 all[key] = pipe
             }
+
         }
-    }
-
-    static func setPipe(_ pipe: Pipe, to address: Int) {
-        all[address] = pipe
-    }
-
-//
-//    static func setPipe(_ pipe: Pipe, adress: Int) {
-//        all[adress] = pipe
-//    }
-//
-//    static func getPipe(adress: Int) -> Pipe? {
-//        all[adress]
-//    }
-
-    internal static func key(_ piped: Any) -> Int? {
-        (piped as? Pipable)?.address
     }
 
     //Objects that inside pipe
