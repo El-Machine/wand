@@ -10,17 +10,17 @@ import Foundation.NSURLSession
 extension Pipe.Error {
 
     static func HTTP(_ reason: String) -> Error {
-        Self(reason)
+        Self(reason: reason)
     }
 
 }
 
 extension URLSessionDataTask: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
 
-        let session = piped as? URLSession ?? pipe.get()
-        let request = piped as? URLRequest ?? pipe.get()
+        let session: URLSession = pipe.get()
+        let request: URLRequest = pipe.get()
 
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {

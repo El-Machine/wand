@@ -16,9 +16,9 @@ struct ContentView: View {
         Text("Hello, Pipe |").onAppear {
 
 
-            |{ (data: CMPedometerData) in
-
-            }
+//            |{ (data: CMPedometerData) in
+//
+//            }
 
 
         }

@@ -43,13 +43,12 @@ extension CLAuthorizationStatus: AskingWithout, Pipable {
 
     public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        let asking: CLAuthorizationStatus? = pipe.extract()
-
         guard pipe.ask(for: ask) else {
             return
         }
 
-        let source: CLLocationManager = pipe.get()
+        let source: CLLocationManager       = pipe.get()
+        let asking: CLAuthorizationStatus?  = pipe.get()
 
         switch asking {
 

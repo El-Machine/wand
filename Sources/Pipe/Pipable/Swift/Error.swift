@@ -32,7 +32,7 @@ import CloudKit
 @discardableResult
 public func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
     let pipe = piped.pipe
-    _ = pipe.ask(for: .every(Error.self, inner: true, handler: handler))
+    _ = pipe.ask(for: .every(Error.self, handler: handler).inner())
 
     return pipe
 }

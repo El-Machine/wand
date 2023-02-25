@@ -37,16 +37,14 @@ extension CLLocationManager: Constructable {
 
     public static func construct(in pipe: Pipe) -> Self {
 
-        let delegate = pipe.put(Delegate())
-
         let source = Self()
-
-        source.delegate = delegate
-        source.desiredAccuracy = pipe.get(for: "CLLocationAccuracy") ??                                                 kCLLocationAccuracyThreeKilometers
+        source.desiredAccuracy = pipe.get(for: "CLLocationAccuracy") ??                                                     kCLLocationAccuracyThreeKilometers
 
         source.distanceFilter = pipe.get(for: "CLLocationDistance") ?? 100
-        
-        return source
+
+        source.delegate = pipe.put(Delegate())
+
+        return pipe.put(source)
     }
     
 }

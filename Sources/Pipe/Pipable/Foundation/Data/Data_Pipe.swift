@@ -23,12 +23,17 @@
 
 import Foundation
 
-public struct Rest {
+extension Data: Asking {
 
-    public typealias Model = Rest_Model
+    public
+    static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
+
+        guard pipe.ask(for: ask) else {
+            return
+        }
+
+        let task: URLSessionDataTask = pipe.get()
+        task.resume()
+    }
 
 }
-
-//func ShoudBeOverriden(function: String = #function) -> Never {
-//    fatalError("\(function) should be overriden.")
-//}

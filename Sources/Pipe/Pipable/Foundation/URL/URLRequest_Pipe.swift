@@ -8,39 +8,17 @@
 
 import Foundation
 
-public extension URLRequest {
-
-    enum Method: String {
-        case GET
-        case POST
-        case HEAD
-        case PUT
-        case PATCH
-        case DELETE
-
-        var timeout: TimeInterval {
-            switch self {
-                case .POST, .PUT, .PATCH:
-                    return 30
-                default:
-                    return 15
-            }
-        }
-    }
-
-}
-
 extension URLRequest: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> URLRequest {
+    public static func construct(in pipe: Pipe) -> URLRequest {
 
-        let url = piped as? URL ?? pipe.get() ?? {
-            let path = piped as? String ?? pipe.get()!
+        let url: URL = pipe.get() ?? {
+            let path: String = pipe.get()!
             return path|
         }()
 
-        let method = piped as? Method ?? pipe.get() ?? .GET
-        let timeout = piped as? TimeInterval ?? pipe.get() ?? method.timeout
+        let method: Rest.Method     = pipe.get() ?? .GET
+        let timeout: TimeInterval   = pipe.get() ?? method.timeout
 
         var request = URLRequest(url: url, timeoutInterval: timeout)
         request.allHTTPHeaderFields = pipe.get()

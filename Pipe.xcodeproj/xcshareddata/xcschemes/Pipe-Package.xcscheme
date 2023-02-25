@@ -51,7 +51,7 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <LocationScenarioReference
-         identifier = "Moscow, Russia"
+         identifier = "Mumbai, India"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>

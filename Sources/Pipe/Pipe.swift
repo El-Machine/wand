@@ -63,7 +63,7 @@ public final class Pipe {
 
     //Objects that inside pipe
     public private(set)
-    lazy var scope: [String: Any] = ["Pipe": self]
+    lazy var scope: [String: Any] = [:]
 
     //Expectaions for objects that not yet in scope
     lazy var asking = [String: [AskFor]]()
@@ -118,11 +118,6 @@ extension Pipe {
         scope[key ?? T.self|] as? T
     }
 
-    /// Get piped T for key
-    public func extract<T>(for key: String? = nil) -> T? {
-        scope.removeValue(forKey: key ?? T.self|) as? T
-    }
-
 }
 
 //Put
@@ -133,7 +128,7 @@ extension Pipe {
 
         let key = store(object, key: key)
 
-        print("#put \(object)")
+//        print("#put \(object)")
 
         //Find expectations for object
         guard let expectations = asking[key] as? [Ask<T>] else {
@@ -206,14 +201,18 @@ extension Pipe {
 extension Pipe {
 
     public func ask<T>(for ask: Ask<T>,
-                  key: String = T.self|) -> Bool {
+                       key: String = T.self|,
+                       checkScope: Bool = false) -> Bool {
 
         let stored = asking[key]
         let isFirst = stored == nil
         asking[key] = (stored ?? []) + [ask]
 
+
+        ask.onAttach?(self)
+
         //Call handler if object exist
-        if let object: T = get() {
+        if checkScope, let object: T = get() {
 
             let thread = Thread.current
             let queue = thread.isMainThread ? .main : thread.qualityOfService|
@@ -392,7 +391,7 @@ extension Pipe: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
-    public static func attach<S>(to scope: S?) -> Pipe {
+    public static func attach<S>(to scope: S? = nil) -> Pipe {
 
         guard let scope else {
             return Pipe()

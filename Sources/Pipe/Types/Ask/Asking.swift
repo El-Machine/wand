@@ -31,7 +31,7 @@ public protocol Asking {
 ///
 ///   }
 @discardableResult
-public func |<S, T: Asking> (scope: S, handler: @escaping (T)->() ) -> Pipe {
+public func |<S, T: Asking> (scope: S?, handler: @escaping (T)->() ) -> Pipe {
     scope | Ask.every(handler: handler)
 }
 
@@ -45,8 +45,7 @@ public func |<S, T: Asking> (scope: S, handler: @escaping (T)->() ) -> Pipe {
 ///
 ///   }
 @discardableResult
-@inline(__always)
-public func |<S, T: Asking> (scope: S, ask: Ask<T>) -> Pipe {
+public func |<S, T: Asking> (scope: S?, ask: Ask<T>) -> Pipe {
     let pipe = Pipe.attach(to: scope)
     T.ask(ask, from: pipe)
 

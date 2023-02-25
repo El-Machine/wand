@@ -31,9 +31,12 @@ public protocol Constructable: Pipable {
 
 }
 
-/// Construct default object
-/// - Parameter pipe: Optional pipe for constructing
-/// - Returns: Self
+/// Construct on type
+public postfix func |<T: Constructable>(type: T.Type) -> T {
+    T.construct(in: Pipe())
+}
+
+/// Construct
 public postfix func |<T: Constructable>(pipe: Pipe?) -> T {
     if let pipe {
         return pipe.get() ?? T.construct(in: pipe)
@@ -42,9 +45,7 @@ public postfix func |<T: Constructable>(pipe: Pipe?) -> T {
     return T.construct(in: Pipe())
 }
 
-/// Construct object with settings
-/// - Parameter options: Customization settings
-/// - Returns: Self
+/// Construct with settings
 public postfix func |<P, T: Constructable>(settings: P) -> T {
     let pipe = Pipe.attach(to: settings)
     return pipe.get() ?? T.construct(in: pipe)

@@ -8,29 +8,33 @@
 import Foundation
 
 
-extension [Any]: JSONObject {
+extension Array: Asking where Element == Any {
 
 }
 
-extension [String: Any]: JSONObject {
+extension Array: JSONObject where Element == Any {
 
 }
 
-public protocol JSONObject {
+extension Dictionary: Asking where Key == String, Value == Any {
 
-    static func start<P, E>(expectating expectation: Expect<E>,
-                                               with piped: P,
-                                               on pipe: Pipe)
+}
+
+extension Dictionary: JSONObject where Key == String, Value == Any {
+
+}
+
+
+public protocol JSONObject: Asking {
+
 
 }
 
 extension JSONObject {
 
-    public static func start<P, E>(expectating expectation: Expect<E>,
-                                               with piped: P,
-                                               on pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
 
-        guard pipe.start(expecting: expectation) else {
+        guard pipe.ask(for: ask) else {
             return
         }
 
@@ -50,66 +54,3 @@ extension JSONObject {
     }
 
 }
-
-@discardableResult
-public func |<E: JSONObject, P> (piped: P, handler: @escaping (E)->() ) -> Pipe {
-    piped | .one(handler)
-}
-
-@discardableResult
-public func |<E: JSONObject> (pipe: Pipe?, handler: @escaping (E)->() ) -> Pipe {
-    (pipe ?? Pipe()) as Any | .one(handler)
-}
-
-@discardableResult
-public func |<E: JSONObject, P> (piped: P, expectation: Expect<E>) -> Pipe {
-    let pipe = Pipe.attach(to: piped)
-    E.start(expectating: expectation, with: piped, on: pipe)
-
-    return pipe
-}
-
-//    static func |<T: JSONObject> (url: URL, handler: @escaping (T)->() ) -> Pipe {
-//        var pipe: Pipe!
-//        pipe = url | { (data: Data) in
-//            do {
-//                let parsed = try JSONSerialization.jsonObject(with: data)
-//                handler(parsed as! T)
-//            } catch(let e) {
-//                pipe.put(e)
-//            }
-//        }
-//
-//        return pipe
-//    }
-//
-//    static func | (url: URL, handler: @escaping (Data)->() ) -> Pipe {
-//        let pipe = url.pipe
-//
-//        let session: URLSession = pipe.get()
-//
-//        pipe.put(["Accept": "application/json",
-//                  "Content-Type": "application/json"])
-//
-//
-//        let request: URLRequest = pipe.get()
-//        print(request)
-//        session.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                pipe.put(data)
-//                pipe.put(response!)
-//
-//                handler(data)
-//
-//                return
-//            }
-//
-//            if let e = error {
-//                pipe.put(e)
-//            }
-//        }.resume()
-//
-//        return pipe
-//    }
-
-

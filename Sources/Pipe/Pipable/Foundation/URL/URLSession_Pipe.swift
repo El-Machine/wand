@@ -9,11 +9,11 @@ import Foundation.NSURLSession
 
 extension URLSession: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-        if let config = piped as? URLSessionConfiguration ?? pipe.get() {
+    public static func construct(in pipe: Pipe) -> Self {
+        if let config: URLSessionConfiguration = pipe.get() {
             return Self(configuration: config)
         } else {
-            return URLSession.shared as! Self
+            return Self.shared as! Self
         }
     }
 

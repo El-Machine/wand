@@ -23,22 +23,30 @@
 
 import Foundation
 
-extension Data: Expectable {
+public struct Rest {
 
-    public static func start<P, E>(expectating expectation: Expect<E>,
-                                   with piped: P,
-                                   on pipe: Pipe) {
+    public typealias Model = Rest_Model
 
-        guard pipe.start(expecting: expectation) else {
-            return
+    enum Method: String {
+        case GET
+        case POST
+        case HEAD
+        case PUT
+        case PATCH
+        case DELETE
+
+        var timeout: TimeInterval {
+            switch self {
+                case .POST, .PUT, .PATCH:
+                    return 30
+                default:
+                    return 15
+            }
         }
-
-        if pipe.putIf(exist: piped as? URL) == nil {
-            pipe.putIf(exist: piped as? String)
-        }
-
-        let task = piped as? URLSessionDataTask ?? pipe.get()
-        task.resume()
     }
 
 }
+
+//func ShoudBeOverriden(function: String = #function) -> Never {
+//    fatalError("\(function) should be overriden.")
+//}

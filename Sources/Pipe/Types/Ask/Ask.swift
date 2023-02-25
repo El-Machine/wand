@@ -27,7 +27,8 @@ protocol AskFor {
 
 }
 
-public class Ask<T>: AskFor {
+public
+class Ask<T>: AskFor {
 
     public
     enum Condition {
@@ -38,27 +39,35 @@ public class Ask<T>: AskFor {
 
     let condition: Condition
 
+    public
+    var onAttach: ( (Pipe)->() )?
+
+    public
     var handler: (T)->(Bool)
 
     public
     var cleaner: ( ()->() )?
 
     //Inner is not asked by user
-    let isInner: Bool
+    public private(set)
+    var isInner: Bool = false
+
+    public
+    func inner() -> Self {
+        isInner = true
+        return self
+    }
 
     internal required
     init(_ condition: Condition,
-         inner: Bool = false,
          handler: @escaping (T) -> Bool) {
 
         self.condition = condition
-        self.isInner = inner
         self.handler = handler
     }
 
     public
     static func every(_ type: T.Type? = nil,
-                      inner: Bool = false,
                       handler: ( (T)->() )? = nil ) -> Self {
         Self(.every) {
             handler?($0)
@@ -70,7 +79,6 @@ public class Ask<T>: AskFor {
 
     public
     static func one(_ type: T.Type? = nil,
-                    inner: Bool = false,
                     handler: ( (T)->() )? = nil ) -> Self {
         Self(.one) {
             handler?($0)
@@ -82,10 +90,9 @@ public class Ask<T>: AskFor {
 
     public
     static func `while`(_ type: T.Type? = nil,
-                        inner: Bool = false,
                         handler: @escaping (T)->(Bool) ) -> Self {
         //Decide to retry in handler
-        Self(.while, inner: inner, handler: handler)
+        Self(.while, handler: handler)
     }
 
 }
