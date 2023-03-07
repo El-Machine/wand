@@ -26,10 +26,10 @@ import UIKit.UIAlertController
 
 extension UIAlertController: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
 
-        let style = piped as? UIAlertController.Style ?? pipe.get() ?? .alert
-        let title = piped as? String ?? pipe.get()
+        let style: UIAlertController.Style  = pipe.get() ?? .alert
+        let title: String                   = pipe.get()!
 
         return Self(title: title,
                     message: pipe.get(for: "UIAlertControllerMessage"),

@@ -19,7 +19,8 @@ import Foundation
 
 extension Data {
 
-    static public postfix func |<T: Rest.Model>(data: Data) throws -> T {
+    public
+    static postfix func |<T: Decodable>(data: Data) throws -> T {
         return try JSONDecoder().decode(T.self, from: data)
     }
 
@@ -55,4 +56,10 @@ extension Array {
         try JSONDecoder().decode(T.self, from: raw|) as! [T]
     }
 
+}
+
+public
+postfix func |<T: Decodable> (resource: Pipe.Resource) throws -> T {
+    let data: Data = try Data(contentsOf: resource|)
+    return try data|
 }

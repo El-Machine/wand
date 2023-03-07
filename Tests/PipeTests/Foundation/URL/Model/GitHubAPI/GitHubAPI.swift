@@ -19,7 +19,7 @@ public protocol GitHubAPI_Model: Rest.Model {
 
 public extension GitHubAPI_Model {
 
-    static var base: String {
+    static var base: String? {
         "https://api.github.com/"
     }
 

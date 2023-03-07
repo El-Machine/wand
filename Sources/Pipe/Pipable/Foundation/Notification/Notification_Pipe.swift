@@ -36,14 +36,15 @@ import Foundation.NSNotification
 
  */
 
-extension Notification: Expectable {
+extension Notification: Asking {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    public
+    static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
 
-        let name = piped as? Name ?? expectation.with as? Name ?? pipe.get()!
+        let name: Notification.Name = pipe.get()!
         let key = name.rawValue
 
-        guard pipe.start(expecting: expectation, key: key) else {
+        guard pipe.ask(for: ask, key: key) else {
             return
         }
 
@@ -55,7 +56,7 @@ extension Notification: Expectable {
             pipe.put(notification, key: key)
         }
 
-        expectation.cleaner = {
+        ask.cleaner = {
             center.removeObserver(token)
         }
 

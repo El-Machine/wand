@@ -43,6 +43,12 @@ class Ask<T>: AskFor {
     var onAttach: ( (Pipe)->() )?
 
     public
+    func `in`(_ handler: @escaping (Pipe)->() ) -> Self {
+        onAttach = handler
+        return self
+    }
+
+    public
     var handler: (T)->(Bool)
 
     public

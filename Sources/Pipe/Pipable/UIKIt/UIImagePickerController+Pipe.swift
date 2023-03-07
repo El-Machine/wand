@@ -28,7 +28,7 @@ import UniformTypeIdentifiers
 
 extension UIImagePickerController: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
 
         let delegate = pipe.put(Delegate())
         
@@ -44,7 +44,7 @@ extension UIImagePickerController: Constructable {
         }
         picker.mediaTypes = [type]
 
-        return picker
+        return pipe.put(picker)
     }
     
 }

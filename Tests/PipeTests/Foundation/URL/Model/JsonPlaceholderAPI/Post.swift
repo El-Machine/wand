@@ -11,7 +11,7 @@ import Pipe
 
 public extension JSONplaceholderAPI {
 
-    struct Post: Codable, JSONplaceholderAPI.Model {
+    struct Post: Codable {
 
         let id: Int?
 
@@ -28,6 +28,14 @@ public extension JSONplaceholderAPI {
             self.userId = userId
             self.title = title
             self.body = body
+        }
+
+    }
+
+    extension Post: JSONplaceholderAPI.Model {
+
+        public static var path: String {
+            "posts"
         }
 
     }

@@ -8,22 +8,20 @@
 
 import UIKit.UIGestureRecognizer
 
-extension UILongPressGestureRecognizer: Expectable {
+extension UILongPressGestureRecognizer: Asking {
     
-    public typealias With = UIView
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
-
-        _ = pipe.start(expecting: expectation)
+        _ = pipe.ask(for: ask)
 
         let delegate = pipe.get(or: Delegate())
 
         let recognizer: Self = pipe.get() ?? Self()
-        recognizer.addTarget(delegate, action: #selector(Delegate.handleLongPress(sender:)))
- 
-        //        if recognizer.isPiped() {
+        recognizer.addTarget(delegate,
+                             action: #selector(Delegate.handleLongPress(sender:)))
 
-        let view = piped as! UIView
+
+        let view: UIView = pipe.get()!
         view.addGestureRecognizer(recognizer)
 
     }

@@ -50,6 +50,8 @@
 		6195668B29A34AA600167A08 /* CoreLocation_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CoreLocation_Convertable.swift */; };
 		619566B329A397EE00167A08 /* Pipeline_Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619566B229A397ED00167A08 /* Pipeline_Alias.swift */; };
 		61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */; };
+		61BD12C129B6105000702724 /* Foundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD12C029B6105000702724 /* Foundation_Pipe.swift */; };
+		61BD12C329B6106900702724 /* Bundle_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD12C229B6106900702724 /* Bundle_Pipe.swift */; };
 		61C70629299CC056007E24A8 /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* String_Pipe.swift */; };
 		61DC807D29541F0200B57A0C /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC807B29541F0200B57A0C /* Date_Pipe.swift */; };
 		61EBF94629AA0F9900033920 /* URL_Data_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */; };
@@ -70,7 +72,6 @@
 		OBJ_162 /* CMPedometerData_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CMPedometerData_Pipe.swift */; };
 		OBJ_163 /* CMPedometerEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* CMPedometerEvent_Pipe.swift */; };
 		OBJ_164 /* CMPedometer_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CMPedometer_Pipe.swift */; };
-		OBJ_172 /* Foundation+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Foundation+Pipe.swift */; };
 		OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* NSTextCheckingResult_Pipe.swift */; };
 		OBJ_174 /* NotificationCenter_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* NotificationCenter_Pipe.swift */; };
 		OBJ_176 /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* TimeZone_Pipe.swift */; };
@@ -187,6 +188,8 @@
 		61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Convertable.swift; sourceTree = "<group>"; };
 		61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Encoding_Pipe.swift; sourceTree = "<group>"; };
 		61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.IndexDistance_Pipe.swift; sourceTree = "<group>"; };
+		61BD12C029B6105000702724 /* Foundation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation_Pipe.swift; sourceTree = "<group>"; };
+		61BD12C229B6106900702724 /* Bundle_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle_Pipe.swift; sourceTree = "<group>"; };
 		61DC807B29541F0200B57A0C /* Date_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
 		61DC807C29541F0200B57A0C /* DateFormatter_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_Pipe.swift; sourceTree = "<group>"; };
 		61DC808029541F1000B57A0C /* Rest_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest_Model.swift; sourceTree = "<group>"; };
@@ -218,7 +221,6 @@
 		OBJ_35 /* NFCNDEFReaderSession_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFReaderSession_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_36 /* NFCNDEFTag_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_39 /* Codable_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_43 /* Foundation+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_44 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_46 /* NotificationCenter_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_47 /* Notification_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification_Pipe.swift; sourceTree = "<group>"; };
@@ -570,15 +572,16 @@
 		OBJ_37 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_43 /* Foundation+Pipe.swift */,
-				OBJ_44 /* NSTextCheckingResult_Pipe.swift */,
-				OBJ_48 /* TimeZone_Pipe.swift */,
 				OBJ_38 /* Codable */,
 				61A6F9E028EC06A30037CDBD /* Data */,
 				61DC807A29541F0200B57A0C /* Date */,
 				OBJ_45 /* Notification */,
 				61DC807F29541F1000B57A0C /* Rest */,
 				OBJ_49 /* URL */,
+				61BD12C229B6106900702724 /* Bundle_Pipe.swift */,
+				61BD12C029B6105000702724 /* Foundation_Pipe.swift */,
+				OBJ_44 /* NSTextCheckingResult_Pipe.swift */,
+				OBJ_48 /* TimeZone_Pipe.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				61BD12C129B6105000702724 /* Foundation_Pipe.swift in Sources */,
 				61C70629299CC056007E24A8 /* String_Pipe.swift in Sources */,
 				61EBF94829AA0FD200033920 /* Data_Pipe.swift in Sources */,
 				6195667129A3496200167A08 /* Ask.swift in Sources */,
@@ -991,7 +995,6 @@
 				OBJ_163 /* CMPedometerEvent_Pipe.swift in Sources */,
 				61EBF95129AA176900033920 /* JsonObject.swift in Sources */,
 				OBJ_164 /* CMPedometer_Pipe.swift in Sources */,
-				OBJ_172 /* Foundation+Pipe.swift in Sources */,
 				6195667029A3496200167A08 /* Asking.swift in Sources */,
 				OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */,
 				OBJ_174 /* NotificationCenter_Pipe.swift in Sources */,
@@ -1004,6 +1007,7 @@
 				6195668929A34AA600167A08 /* CLAuthorizationStatus_Pipe.swift in Sources */,
 				OBJ_184 /* Math+Pipe.swift in Sources */,
 				6195668829A34AA600167A08 /* CLLocation_Pipe.swift in Sources */,
+				61BD12C329B6106900702724 /* Bundle_Pipe.swift in Sources */,
 				OBJ_185 /* Pipable.swift in Sources */,
 				OBJ_186 /* QuartzCore+Pipe.swift in Sources */,
 				OBJ_187 /* Array_Pipe.swift in Sources */,

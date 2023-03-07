@@ -31,7 +31,7 @@ class URL_JSONObject_Tests: XCTestCase {
         let e = expectation()
 
         let path = "https://api.github.com/repositories"
-        path | { (array: [Any]) in
+        path | .one { (array: [Any]) in
 
             if !array.isEmpty {
                 e.fulfill()
@@ -51,7 +51,7 @@ class URL_JSONObject_Tests: XCTestCase {
         var url = URL(string: "https://api.github.com/repositories")!
         url.append(queryItems: [q])
 
-        url | { (array: [Any]) in
+        url | .one { (array: [Any]) in
 
             if !array.isEmpty {
                 e.fulfill()
@@ -68,7 +68,7 @@ class URL_JSONObject_Tests: XCTestCase {
         let id = (1...100).any
         let path = "https://jsonplaceholder.typicode.com/posts/\(id)"
 
-        path | { (dictionary: [String: Any]) in
+        path | .one { (dictionary: [String: Any]) in
 
             if dictionary["id"] as? Int == id {
                 e.fulfill()
@@ -85,7 +85,7 @@ class URL_JSONObject_Tests: XCTestCase {
         let id = (1...500).any
         let url = URL(string: "https://jsonplaceholder.typicode.com/comments/\(id)")!
 
-        url | { (dictionary: [String: Any]) in
+        url | .one { (dictionary: [String: Any]) in
 
             if dictionary["id"] as? Int == id {
                 e.fulfill()

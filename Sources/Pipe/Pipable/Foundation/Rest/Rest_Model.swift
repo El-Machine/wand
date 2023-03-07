@@ -47,11 +47,11 @@ public extension Rest_Model {
     }
 
     func post<P>(with piped: P, on pipe: Pipe) {
-        pipe.put(URLRequest.Method.POST)
+        pipe.put(Rest.Method.POST)
     }
 
     func put<P>(with piped: P, on pipe: Pipe) {
-        pipe.put(URLRequest.Method.PUT)
+        pipe.put(Rest.Method.PUT)
     }
 
     //TODO?: start<P: URLSessionDataTask, E: RestModel>

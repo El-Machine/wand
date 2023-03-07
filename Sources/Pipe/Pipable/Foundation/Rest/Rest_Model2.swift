@@ -23,7 +23,7 @@
 
 import Foundation
 
-public protocol Rest_Model: AskingWithout, Codable {
+public protocol Rest_Model: Asking, Codable {
 
 
     static var base: String? {get}

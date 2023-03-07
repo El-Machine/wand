@@ -68,41 +68,21 @@ public postfix func |(piped: (CGFloat)) -> UIEdgeInsets {
     UIEdgeInsets(top: piped, left: piped, bottom: piped, right: piped)
 }
 
-//UIView
-extension UIView {
-    
-    static public postfix func |(p: UIView) -> CGSize {
-        p.frame.size
-    }
-    
-    static func | (view: UIView, contentMode: ContentMode) -> Self {
-        view.contentMode = contentMode
-        return view as! Self
-    }
-    
-}
-
 public postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> UIView {
     UIView(frame: CGRect(x: p.0, y: p.1, width: p.2, height: p.3))
 }
 
-extension CGRect {
-    
-    static public postfix func |(p: Self) -> UIView {
-        UIView(frame: p)
-    }
-    
-}
-
 //UITextRange
-extension UITextPosition: Pipable {
-    
-    static public postfix func |(p: UITextPosition) -> Int {
-        let field: UITextField = p.pipe.get()!
-        return field.offset(from: field.beginningOfDocument, to: p)
-    }
-    
-}
+
+//extension UITextPosition: Pipable {
+//
+//}
+//
+//public
+//postfix func |(p: UITextPosition) -> Int {
+//        let field: UITextField = p.pipe.get()!
+//        return field.offset(from: field.beginningOfDocument, to: p)
+//}
 
 //UIBezierPath
 public postfix func |(p: CGRect) -> UIBezierPath {
@@ -132,35 +112,6 @@ public postfix func |(p: String?) -> UIImage? {
     }
     
     return UIImage(named: name)
-}
-
-//Animations
-public func |(piped: TimeInterval, options: (animations: ()->(), completion: (Bool)->())) {
-    UIView.animate(withDuration: piped, animations: options.animations, completion: options.completion)
-}
-
-public func |(piped: TimeInterval, animations: @escaping ()->()) {
-    UIView.animate(withDuration: piped, animations: animations)
-}
-
-public func |(piped: (duration: TimeInterval, options: UIView.AnimationOptions),
-              animations: @escaping ()->() ) {
-    UIView.animate(withDuration: piped.duration,
-                   delay: 0,
-                   options: piped.options,
-                   animations: animations)
-}
-
-public func |(piped: (duration: TimeInterval,
-                      options: UIView.AnimationOptions),
-                blocks: (animations: ()->(),
-                         completion: (Bool)->())
-) {
-    UIView.animate(withDuration: piped.duration,
-                   delay: 0,
-                   options: piped.options,
-                   animations: blocks.animations,
-                   completion: blocks.completion)
 }
 
 #endif

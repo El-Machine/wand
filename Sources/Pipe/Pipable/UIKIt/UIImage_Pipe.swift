@@ -114,15 +114,15 @@ extension Expect where T == UIImage {
 
 }
 
-extension UIImage: ExpectableWithout {
+extension UIImage: AskingWithout {
 
-    public static func start<P, T>(expectating expectation: Expect<T>, with piped: P, on pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        guard pipe.start(expecting: expectation) else {
+        guard pipe.ask(for: ask) else {
             return
         }
 
-        let picker = piped as? UIImagePickerController ?? pipe.get()
+        let picker: UIImagePickerController = pipe.get()
 
         let sheet: UIAlertController = UIAlertController.Style.actionSheet|
 

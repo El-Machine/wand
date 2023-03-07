@@ -23,9 +23,7 @@
 
 import AVFoundation
 
-public typealias Resource = (resource: String, extension: String)
-
-public postfix func | (piped: Resource) -> AVPlayerLayer {
+public postfix func | (piped: Pipe.Resource) -> AVPlayerLayer {
     AVPlayerLayer(player: piped|)
 }
 
@@ -33,10 +31,6 @@ public postfix func | (piped: AVPlayer) -> AVPlayerLayer {
     AVPlayerLayer(player: piped)
 }
 
-public postfix func | (piped: Resource) -> AVPlayer {
+public postfix func | (piped: Pipe.Resource) -> AVPlayer {
     AVPlayer(url: piped|)
-}
-
-public postfix func | (piped: Resource) -> URL {
-    Bundle.main.url(forResource: piped.resource, withExtension: piped.extension)!
 }

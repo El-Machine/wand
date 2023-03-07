@@ -124,8 +124,14 @@ public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
     return string
 }
 
-public func |(piped: String?, char: Unicode.Scalar) -> Array<String>? {
-    piped?.components(separatedBy: [char])
+//Components
+public
+func |(piped: String?, separator: any StringProtocol) -> [String]? {
+    piped?.components(separatedBy: separator)
+}
+
+func |(piped: String, separator: any StringProtocol) -> [String] {
+    piped.components(separatedBy: separator)
 }
 
 //public func |(format: String, arguments: CVarArg...) -> String {

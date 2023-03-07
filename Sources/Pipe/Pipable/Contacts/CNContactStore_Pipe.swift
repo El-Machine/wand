@@ -25,8 +25,9 @@ import Contacts.CNContactStore
 
 extension CNContactStore: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-        Self()
+    public
+    static func construct(in pipe: Pipe) -> Self {
+        pipe.put(Self())
     }
 
 }

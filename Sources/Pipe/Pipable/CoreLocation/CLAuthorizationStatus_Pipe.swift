@@ -68,13 +68,17 @@ extension CLAuthorizationStatus: AskingWithout, Pipable {
 
 }
 
-//extension CLAuthorizationStatus {
-//
-//    public static func construct<P>(with piped: P, on pipe: Pipe) -> CLAuthorizationStatus {
-//
-//        defer {
-//            pipe.closeIfNeed()
-//        }
+
+
+protocol Current {
+
+}
+
+
+extension CLAuthorizationStatus: Current {
+
+
+//    static func current() -> Self {
 //
 //        if #available(iOS 14.0, macOS 11.0, *) {
 //            let manager = piped as? CLLocationManager ?? pipe.get()
@@ -83,5 +87,34 @@ extension CLAuthorizationStatus: AskingWithout, Pipable {
 //            return CLLocationManager.authorizationStatus()
 //        }
 //    }
+
+//    static func current<T: CLLocationManager>(with: T) -> Self {
 //
-//}
+//        if #available(iOS 14.0, macOS 11.0, *) {
+//            let manager = piped as? CLLocationManager ?? pipe.get()
+//            return manager.authorizationStatus
+//        } else {
+//            return CLLocationManager.authorizationStatus()
+//        }
+//    }
+
+}
+
+//
+//
+
+public
+postfix func | (manager: CLLocationManager? = nil) -> CLAuthorizationStatus {
+
+    if #available(iOS 14.0, macOS 11.0, *) {
+        let manager = manager ?? Pipe().get()
+        return manager.authorizationStatus
+    } else {
+        return CLLocationManager.authorizationStatus()
+    }
+
+}
+public
+postfix func | (type: CLAuthorizationStatus.Type) -> CLAuthorizationStatus {
+    nil|
+}

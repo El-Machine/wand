@@ -23,9 +23,6 @@
 
 import Contacts.CNContact
 
-/// Pipe.Expectable
-///
-/// prefix | (handler: (CNContact)->() )
 ///
 /// #Usage
 /// ```
@@ -40,15 +37,15 @@ import Contacts.CNContact
 ///
 /// ```
 ///
-extension CNContact: ExpectableWithout {
+extension CNContact: Asking {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) where E : Expectable {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
 
-        guard pipe.start(expecting: expectation) else {
+        guard pipe.ask(for: ask) else {
             return
         }
 
-        let source = piped as? CNContactStore ?? pipe.get()
+        let source: CNContactStore  = pipe.get()
         let keys: [CNKeyDescriptor] = pipe.get() ?? []
 
         source.requestAccess(for: .contacts) { granted, error in
@@ -57,7 +54,7 @@ extension CNContact: ExpectableWithout {
             }
             
             let request = CNContactFetchRequest(keysToFetch: keys)
-            request.predicate = piped as? NSPredicate ?? pipe.get()
+            request.predicate = pipe.get()
             do {
                 try source.enumerateContacts(with: request) { contact, stop in
                     pipe.put(contact)

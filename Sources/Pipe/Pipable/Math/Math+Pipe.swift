@@ -37,6 +37,10 @@ extension BinaryInteger {
         Double(piped)
     }
 
+    static public postfix func |(piped: Self) -> CGFloat {
+        CGFloat(piped)
+    }
+
 }
 
 extension Double {

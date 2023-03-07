@@ -9,7 +9,7 @@ import Pipe
 
 public extension GitHubAPI {
 
-    struct Repo {
+    struct Repo: Codable {
 
         let id: Int
 
@@ -24,24 +24,72 @@ public extension GitHubAPI {
 
 extension GitHubAPI.Repo: GitHubAPI.Model {
 
-    public static func get<P, E>(_ expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    public static var path: String {
+        "repositories"
+    }
 
-        if expectation is Expect<[Self]> {
+}
 
-            let path = base + "repositories"
-            pipe.put(path)
+public
+extension Ask where T == GitHubAPI.Repo {
 
-        } else {
+    static func get(handler: @escaping (GitHubAPI.Repo)->() ) -> Self {
 
-            if let id = piped as? Int {
+        let ask = one(handler: handler)
+        ask.onAttach = { pipe in
 
-                let path = base + "repositories/" + id|
-                pipe.put(path)
+            let id: Int = pipe.get()!
+            let path = (T.base ?? "") + "\(T.path)/\(id)"
 
-            }
+            pipe.store(path)
 
         }
 
+        return ask
+    }
+
+}
+
+
+
+//public
+//extension Array: Asking where Element == GitHubAPI.Repo {
+//
+//    static func get(handler: @escaping (T)->() ) -> Self {
+//
+//        let ask = Self.one(handler: handler)
+//        ask.onAttach = { pipe in
+//
+//            let id: Int = pipe.get()!
+//            let path = (T.base ?? "") + "\(T.path)/\(id)"
+//
+//            pipe.store(path)
+//
+//        }
+//
+//        return ask
+//    }
+//
+//}
+
+
+
+public
+extension Ask where T == [GitHubAPI.Repo] {
+
+    static func get(handler: @escaping (T)->() ) -> Self {
+
+        let ask = Self.one(handler: handler)
+        ask.onAttach = { pipe in
+
+//            let id: Int = pipe.get()!
+//            let path = (T.base ?? "") + "\(T.path)/\(id)"
+//
+//            pipe.store(path)
+
+        }
+
+        return ask
     }
 
 }

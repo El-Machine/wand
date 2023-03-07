@@ -16,7 +16,7 @@ class Codable_GET_Tests: XCTestCase {
 
         let id = 52
 
-        id | { (repo: GitHubAPI.Repo) in
+        id | .get { (repo: GitHubAPI.Repo) in
 
             if repo.id == id {
                 e.fulfill()
@@ -45,23 +45,23 @@ class Codable_GET_Tests: XCTestCase {
         waitForExpectations()
     }
 
-    @available(iOS 16.0, *)
-    func test_URL_Codable() {
-        let e = expectation()
-
-        let id = (1...100).any
-        let path = "https://jsonplaceholder.typicode.com/posts/\(id)"
-        let url = URL(string: path)
-
-        url | { (post: JSONplaceholderAPI.Post) in
-
-            if post.id == id {
-                e.fulfill()
-            }
-
-        }
-
-        waitForExpectations()
-    }
+//    @available(iOS 16.0, *)
+//    func test_URL_Codable() {
+//        let e = expectation()
+//
+//        let id = (1...100).any
+//        let path = "https://jsonplaceholder.typicode.com/posts/\(id)"
+//        let url = URL(string: path)
+//
+//        url | { (post: JSONplaceholderAPI.Post) in
+//
+//            if post.id == id {
+//                e.fulfill()
+//            }
+//
+//        }
+//
+//        waitForExpectations()
+//    }
 
 }

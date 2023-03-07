@@ -23,26 +23,9 @@
 
 import Foundation
 
-public extension DateFormatter {
 
-    struct Types {
-
-        public typealias Full = (dateStyle: DateFormatter.Style,
-                          timeStyle: DateFormatter.Style)
-
-        public typealias Short = (date: DateFormatter.Style,
-                           time: DateFormatter.Style)
-
-    }
-
-}
-
-//Style
-public func | (date: Date?, style: DateFormatter.Types.Short) -> String? {
-    date | (dateStyle: style.date, timeStyle: style.time)
-}
-
-public func | (date: Date?, style: DateFormatter.Types.Full) -> String? {
+public func | (date: Date?, style: (date: DateFormatter.Style,
+                                    time: DateFormatter.Style)) -> String? {
 
     guard let date else {
         return nil
@@ -69,15 +52,17 @@ extension DateFormatter: Constructable {
 
         let formatter = Self()
 
-        if let style = (piped as? (DateFormatter.Style, DateFormatter.Style)) ?? pipe.get()
-        {
+        //TODO: both if is required?
+        if let style: (date: DateFormatter.Style,
+                       time: DateFormatter.Style) = pipe.get() {
+
             formatter.dateStyle = style.0
             formatter.timeStyle = style.1
 
             return formatter
         }
 
-        if let format = piped as? String ?? pipe.get() {
+        if let format: String = pipe.get() {
             formatter.dateFormat = format
 
             return formatter
@@ -90,19 +75,26 @@ extension DateFormatter: Constructable {
 }
 
 //Shortcuts
-public postfix func | (piped: DateFormatter.Types.Full) -> DateFormatter {
-    .construct(with: piped, on: Pipe())
+public postfix func | (style: (date: DateFormatter.Style,
+                               time: DateFormatter.Style)) -> DateFormatter {
+
+    let formatter = DateFormatter()
+    formatter.dateStyle = style.0
+    formatter.timeStyle = style.1
+
+    return formatter
 }
 
-public postfix func | (piped: DateFormatter.Types.Short) -> DateFormatter {
-    .construct(with: piped, on: Pipe())
-}
+public postfix func | (format: String) -> DateFormatter {
 
-public postfix func | (piped: String) -> DateFormatter {
-    .construct(with: piped, on: Pipe())
+    let formatter = DateFormatter()
+    formatter.dateFormat = format
+
+    return formatter
 }
 
 public func | (formatter: DateFormatter, date: Date?) -> String? {
+
     guard let date else {
         return nil
     }

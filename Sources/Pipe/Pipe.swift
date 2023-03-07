@@ -113,6 +113,19 @@ public final class Pipe {
 //Get
 extension Pipe {
 
+    /// Get piped T or create and put to pipe
+    /// - Parameters:
+    ///   - key: Key to store
+    ///   - create: Construction block
+    /// - Returns: Instance of T
+    public func get<T>(for key: String? = nil, or create: @autoclosure ()->(T)) -> T {
+        get(for: key) ?? {
+            let model = create()
+            store(model, key: key)
+            return model
+        }()
+    }
+
     /// Get piped T for key
     public func get<T>(for key: String? = nil) -> T? {
         scope[key ?? T.self|] as? T
