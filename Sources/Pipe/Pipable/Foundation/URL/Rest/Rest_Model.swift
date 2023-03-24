@@ -22,8 +22,10 @@
 //
 
 import Foundation
+import UIKit
 
-public protocol Rest_Model: Asking, Codable {
+public
+protocol Rest_Model: Asking, Pipable, Codable {
 
 
     static var base: String? {get}
@@ -36,43 +38,43 @@ public protocol Rest_Model: Asking, Codable {
 public
 extension Ask where T: Rest.Model {
 
-    static func get(handler: @escaping (T)->() ) -> Self {
-        let ask = Self.one(handler: handler)
-        ask.onAttach = { pipe in
-
-            let path = T.base ?? "" + T.path
-            pipe.store(path)
-
-        }
-
-        return ask
+    class GET: Ask {
     }
 
-    static func post(handler: @escaping (T)->() ) -> Self {
-        let ask = Self.one(handler: handler)
-        ask.onAttach = { pipe in
-
-            let path = T.base ?? "" + T.path
-            pipe.store(path)
-
-            pipe.store(Rest.Method.POST)
-
-        }
-
-        return ask
+    class POST: Ask {
     }
 
-    static func put(handler: @escaping (T)->() ) -> Self {
-        .one(handler: handler)
+    class PUT: Ask {
     }
 
-//    func post<P>(with piped: P, on pipe: Pipe) {
-//        pipe.put(URLRequest.Method.POST)
-//    }
-//
-//    func put<P>(with piped: P, on pipe: Pipe) {
-//        pipe.put(URLRequest.Method.PUT)
-//    }
+    class DELETE: Ask {
+    }
+
+    static func get(handler: @escaping (T)->() ) -> GET {
+        GET.one(handler: handler)
+    }
+
+    static func post(handler: @escaping (T)->() ) -> POST {
+        POST.one(handler: handler)
+    }
+
+    static func put(handler: @escaping (T)->() ) -> PUT {
+        PUT.one(handler: handler)
+    }
+
+    static func delete(handler: @escaping (T)->() ) -> DELETE {
+        DELETE.one(handler: handler)
+    }
+
+    static func every(_ type: T.Type? = nil,
+                      handler: ( (T)->() )? = nil ) -> Self {
+       fatalError()
+    }
+
+    static func `while`(_ type: T.Type? = nil,
+                        handler: @escaping (T)->(Bool) ) -> Self {
+        fatalError()
+    }
 
 }
 
@@ -88,24 +90,34 @@ extension Rest_Model {
     }
     
     static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
-        
+
         guard pipe.ask(for: ask) else {
             return
         }
         
         pipe | .one { (data: Data) in
-            
+
             do {
-                if let object: Self = pipe.get() {
+
+
+                if
+                    let method: Rest.Method = pipe.get(),
+                    method != .GET,
+                    let object: Self = pipe.get()
+                {
                     pipe.put(object)
                 } else {
-                    let parsed: Self = try data|
-                    pipe.put(parsed)
+
+                    let D = T.self as! Decodable.Type
+                    
+                    let parsed = try JSONDecoder().decode(D.self, from: data)
+
+                    pipe.put(parsed as! T)
                 }
             } catch(let e) {
                 pipe.put(e)
             }
-            
+
             pipe.close()
         }
         

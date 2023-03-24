@@ -23,6 +23,18 @@
 
 import Foundation
 
+/**
+
+ #Usage
+ ```
+ pipe | .one { (data: Data) in
+
+ }
+
+ ```
+
+ */
+
 extension Data: Asking {
 
     public

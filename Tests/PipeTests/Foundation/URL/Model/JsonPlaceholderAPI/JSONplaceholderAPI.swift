@@ -19,8 +19,8 @@ public protocol JSONplaceholderAPI_Model: Rest.Model {
 
 public extension JSONplaceholderAPI_Model {
 
-    static var base: String {
-        "https://jsonplaceholder.typicode.com"
+    static var base: String? {
+        "https://jsonplaceholder.typicode.com/"
     }
 
     static var headers: [String : String]? {

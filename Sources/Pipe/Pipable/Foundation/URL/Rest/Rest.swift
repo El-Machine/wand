@@ -23,10 +23,13 @@
 
 import Foundation
 
-public struct Rest {
+public
+struct Rest {
 
-    public typealias Model = Rest_Model
+    public
+    typealias Model = Rest_Model
 
+    public
     enum Method: String {
         case GET
         case POST
@@ -46,7 +49,3 @@ public struct Rest {
     }
 
 }
-
-//func ShoudBeOverriden(function: String = #function) -> Never {
-//    fatalError("\(function) should be overriden.")
-//}

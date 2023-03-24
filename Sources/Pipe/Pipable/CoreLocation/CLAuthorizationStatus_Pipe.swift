@@ -38,7 +38,6 @@ import CoreLocation.CLLocation
  ```
 
  */
-
 extension CLAuthorizationStatus: AskingWithout, Pipable {
 
     public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {

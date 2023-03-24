@@ -23,23 +23,14 @@
 
 import Foundation
 
-//Data
-postfix func |(p: Data) -> String {
-    String(data: p, encoding: .utf8)!
-}
-
-postfix func |(p: Data) -> String? {
-    String(data: p, encoding: .utf8)
-}
-
-postfix func |(p: Data?) -> String? {
-    guard let piped = p else {
-        return nil
-    }
-    return String(data: piped, encoding: .utf8)
-}
-
 //Description
+public
+postfix func |(piped: Any) -> String {
+    String(describing: piped)
+}
+
+
+public
 postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     guard let piped = p else {
         return ""
@@ -48,16 +39,31 @@ postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     return String(piped)
 }
 
-public postfix func |<T>(piped: T?) -> String {
-    guard let piped = piped else {
-        return ""
-    }
-
-    return piped|
+//Data
+public
+postfix func |(data: Data) -> String {
+    String(data: data, encoding: .utf8)!
 }
 
-public postfix func |<T>(piped: T) -> String {
-    String(describing: piped)
+public
+postfix func |(data: Data) -> String? {
+    String(data: data, encoding: .utf8)
+}
+
+public
+postfix func |(data: Data?) -> String {
+    guard let data else {
+        fatalError()
+    }
+    return String(data: data, encoding: .utf8)!
+}
+
+public
+postfix func |(data: Data?) -> String? {
+    guard let data else {
+        return nil
+    }
+    return String(data: data, encoding: .utf8)
 }
 
 extension Substring {

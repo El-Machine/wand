@@ -21,7 +21,7 @@ extension Data {
 
     public
     static postfix func |<T: Decodable>(data: Data) throws -> T {
-        return try JSONDecoder().decode(T.self, from: data)
+        try JSONDecoder().decode(T.self, from: data)
     }
 
     static public postfix func |(raw: Self) throws -> [String: Any]? {

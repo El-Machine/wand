@@ -23,32 +23,15 @@
 
 import Foundation
 
-//let url: URL = string|
-public postfix func |(piped: String) -> URL {
-    (piped|)!
-}
+extension Array: Rest.Model where Element: Rest.Model {
 
-public postfix func |(piped: String?) -> URL {
-    (piped!)|
-}
-
-public postfix func |(piped: String?) -> URL? {
-    guard let piped = piped else {
-        return nil
+    public static var base: String? {
+        Element.base
     }
 
-    return piped|
-}
+    public static var path: String {
+        Element.path
+    }
 
-public postfix func |(piped: String) -> URL? {
-    URL(string: piped)
-}
 
-//let string: String = url|
-public postfix func |(piped: URL) -> String {
-    piped.absoluteString
-}
-
-public postfix func |(piped: URL?) -> String? {
-    piped?.absoluteString
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -21,8 +21,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		61024FD429CDB9AA00AFB3F3 /* Post+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61024FD329CDB9AA00AFB3F3 /* Post+API.swift */; };
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
+		6113481129C99D4A007D819D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC1292F863A00E2AC9C /* Post.swift */; };
+		612C68D629CDBC9C00E79D58 /* Rest_Model_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC808229541F1000B57A0C /* Rest_Model_Array.swift */; };
 		613DAC24292B655700442CB4 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC23292B655700442CB4 /* Range_any.swift */; };
+		61523E7329CDBEC6001832BF /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61523E7229CDBEC5001832BF /* String_any.swift */; };
+		61528C0529CDB7E800696D4C /* Repo+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61528C0429CDB7E800696D4C /* Repo+API.swift */; };
 		6162625428BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
 		6162625528BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
@@ -36,6 +41,7 @@
 		6162628828BC957500D63EA5 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627928BC957500D63EA5 /* any.swift */; };
 		6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627A28BC957500D63EA5 /* CoreLocation_any.swift */; };
 		6162628A28BC957500D63EA5 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627B28BC957500D63EA5 /* TestTools.swift */; };
+		6165343229CB296500541CBA /* REST_Array_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61386BD2293A0362009B893F /* REST_Array_GET_Tests.swift */; };
 		616B882A28C8A987002C53CF /* URL_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882628C8A987002C53CF /* URL_Pipe.swift */; };
 		6195667029A3496200167A08 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666D29A3496200167A08 /* Asking.swift */; };
 		6195667129A3496200167A08 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666E29A3496200167A08 /* Ask.swift */; };
@@ -60,10 +66,10 @@
 		61EBF94A29AA0FF500033920 /* URLRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882728C8A987002C53CF /* URLRequest_Pipe.swift */; };
 		61EBF94B29AA0FF500033920 /* URLSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882928C8A987002C53CF /* URLSession_Pipe.swift */; };
 		61EBF94C29AA102700033920 /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC808129541F1000B57A0C /* Rest.swift */; };
-		61EBF94F29AA103900033920 /* Rest_Model2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EBF94E29AA103900033920 /* Rest_Model2.swift */; };
+		61EBF94F29AA103900033920 /* Rest_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EBF94E29AA103900033920 /* Rest_Model.swift */; };
 		61EBF95029AA173600033920 /* URL_JSONObject_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */; };
 		61EBF95129AA176900033920 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1F292B5D6900442CB4 /* JsonObject.swift */; };
-		61EBF95229AA195D00033920 /* Codable_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */; };
+		61EBF95229AA195D00033920 /* REST_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* REST_Tests.swift */; };
 		61EBF95329AA196A00033920 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC35292B915400442CB4 /* GitHubAPI.swift */; };
 		61EBF95429AA19A400033920 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC29292B6A3B00442CB4 /* Repo.swift */; };
 		61EBF95729AA1AD300033920 /* JSONplaceholderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */; };
@@ -137,17 +143,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		61024FD329CDB9AA00AFB3F3 /* Post+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+API.swift"; sourceTree = "<group>"; };
 		612ADAC1292F863A00E2AC9C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONplaceholderAPI.swift; sourceTree = "<group>"; };
-		61386BD2293A0362009B893F /* Codable_Array_GET_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_Array_GET_Tests.swift; sourceTree = "<group>"; };
+		61386BD2293A0362009B893F /* REST_Array_GET_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST_Array_GET_Tests.swift; sourceTree = "<group>"; };
 		613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_Data_Tests.swift; sourceTree = "<group>"; };
 		613DAC1F292B5D6900442CB4 /* JsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonObject.swift; sourceTree = "<group>"; };
 		613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_JSONObject_Tests.swift; sourceTree = "<group>"; };
 		613DAC23292B655700442CB4 /* Range_any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range_any.swift; sourceTree = "<group>"; };
-		613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_GET_Tests.swift; sourceTree = "<group>"; };
+		613DAC25292B694C00442CB4 /* REST_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST_Tests.swift; sourceTree = "<group>"; };
 		613DAC27292B697800442CB4 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		613DAC29292B6A3B00442CB4 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		613DAC35292B915400442CB4 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		61523E7229CDBEC5001832BF /* String_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_any.swift; sourceTree = "<group>"; };
+		61528C0429CDB7E800696D4C /* Repo+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repo+API.swift"; sourceTree = "<group>"; };
 		616083F02902B29E00B864DE /* MCNearbyServiceAdvertiser_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNearbyServiceAdvertiser_Pipe.swift; sourceTree = "<group>"; };
 		616083F12902B29E00B864DE /* MCPeerID_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCPeerID_Pipe.swift; sourceTree = "<group>"; };
 		616083F22902B29E00B864DE /* MCNearbyServiceBrowser_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCNearbyServiceBrowser_Pipe.swift; sourceTree = "<group>"; };
@@ -182,7 +191,6 @@
 		6195666E29A3496200167A08 /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		6195666F29A3496200167A08 /* AskingWithout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskingWithout.swift; sourceTree = "<group>"; };
 		619566B229A397ED00167A08 /* Pipeline_Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipeline_Alias.swift; sourceTree = "<group>"; };
-		61982F07292E0809003B97FD /* Codable_POST_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable_POST_Tests.swift; sourceTree = "<group>"; };
 		619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAppClipCodeAnchor_Pipe.swift; sourceTree = "<group>"; };
 		619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSession_Pipe.swift; sourceTree = "<group>"; };
 		61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Convertable.swift; sourceTree = "<group>"; };
@@ -192,11 +200,10 @@
 		61BD12C229B6106900702724 /* Bundle_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle_Pipe.swift; sourceTree = "<group>"; };
 		61DC807B29541F0200B57A0C /* Date_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
 		61DC807C29541F0200B57A0C /* DateFormatter_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_Pipe.swift; sourceTree = "<group>"; };
-		61DC808029541F1000B57A0C /* Rest_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest_Model.swift; sourceTree = "<group>"; };
 		61DC808129541F1000B57A0C /* Rest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
 		61DC808229541F1000B57A0C /* Rest_Model_Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest_Model_Array.swift; sourceTree = "<group>"; };
 		61EBF94729AA0FD200033920 /* Data_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_Pipe.swift; sourceTree = "<group>"; };
-		61EBF94E29AA103900033920 /* Rest_Model2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest_Model2.swift; sourceTree = "<group>"; };
+		61EBF94E29AA103900033920 /* Rest_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rest_Model.swift; sourceTree = "<group>"; };
 		OBJ_100 /* |.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* AVCapture_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_12 /* AVFoundation_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundation_Pipe.swift; sourceTree = "<group>"; };
@@ -295,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				612ADAC1292F863A00E2AC9C /* Post.swift */,
+				61024FD329CDB9AA00AFB3F3 /* Post+API.swift */,
 				612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */,
 			);
 			path = JsonPlaceholderAPI;
@@ -304,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				613DAC29292B6A3B00442CB4 /* Repo.swift */,
+				61528C0429CDB7E800696D4C /* Repo+API.swift */,
 				613DAC35292B915400442CB4 /* GitHubAPI.swift */,
 			);
 			path = GitHubAPI;
@@ -315,19 +324,10 @@
 				613DAC31292B8F6900442CB4 /* Model */,
 				613DAC1C292B56FF00442CB4 /* URL_Data_Tests.swift */,
 				613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */,
-				613DAC25292B694C00442CB4 /* Codable_GET_Tests.swift */,
-				61386BD2293A0362009B893F /* Codable_Array_GET_Tests.swift */,
-				61982F07292E0809003B97FD /* Codable_POST_Tests.swift */,
+				613DAC25292B694C00442CB4 /* REST_Tests.swift */,
+				61386BD2293A0362009B893F /* REST_Array_GET_Tests.swift */,
 			);
 			path = URL;
-			sourceTree = "<group>";
-		};
-		613DAC1E292B5D4B00442CB4 /* JsonObject */ = {
-			isa = PBXGroup;
-			children = (
-				613DAC1F292B5D6900442CB4 /* JsonObject.swift */,
-			);
-			path = JsonObject;
 			sourceTree = "<group>";
 		};
 		613DAC31292B8F6900442CB4 /* Model */ = {
@@ -413,6 +413,7 @@
 				6162627928BC957500D63EA5 /* any.swift */,
 				6162627A28BC957500D63EA5 /* CoreLocation_any.swift */,
 				613DAC23292B655700442CB4 /* Range_any.swift */,
+				61523E7229CDBEC5001832BF /* String_any.swift */,
 			);
 			path = any;
 			sourceTree = "<group>";
@@ -429,9 +430,7 @@
 		61A6F9E028EC06A30037CDBD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				613DAC1E292B5D4B00442CB4 /* JsonObject */,
 				61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */,
-				61EBF94729AA0FD200033920 /* Data_Pipe.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -448,8 +447,7 @@
 		61DC807F29541F1000B57A0C /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				61DC808029541F1000B57A0C /* Rest_Model.swift */,
-				61EBF94E29AA103900033920 /* Rest_Model2.swift */,
+				61EBF94E29AA103900033920 /* Rest_Model.swift */,
 				61DC808129541F1000B57A0C /* Rest.swift */,
 				61DC808229541F1000B57A0C /* Rest_Model_Array.swift */,
 			);
@@ -572,11 +570,9 @@
 		OBJ_37 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_38 /* Codable */,
 				61A6F9E028EC06A30037CDBD /* Data */,
 				61DC807A29541F0200B57A0C /* Date */,
 				OBJ_45 /* Notification */,
-				61DC807F29541F1000B57A0C /* Rest */,
 				OBJ_49 /* URL */,
 				61BD12C229B6106900702724 /* Bundle_Pipe.swift */,
 				61BD12C029B6105000702724 /* Foundation_Pipe.swift */,
@@ -584,14 +580,6 @@
 				OBJ_48 /* TimeZone_Pipe.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		OBJ_38 /* Codable */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_39 /* Codable_Pipe.swift */,
-			);
-			path = Codable;
 			sourceTree = "<group>";
 		};
 		OBJ_45 /* Notification */ = {
@@ -606,6 +594,10 @@
 		OBJ_49 /* URL */ = {
 			isa = PBXGroup;
 			children = (
+				61DC807F29541F1000B57A0C /* Rest */,
+				OBJ_39 /* Codable_Pipe.swift */,
+				61EBF94729AA0FD200033920 /* Data_Pipe.swift */,
+				613DAC1F292B5D6900442CB4 /* JsonObject.swift */,
 				616B882628C8A987002C53CF /* URL_Pipe.swift */,
 				616B882728C8A987002C53CF /* URLRequest_Pipe.swift */,
 				616B882928C8A987002C53CF /* URLSession_Pipe.swift */,
@@ -846,6 +838,7 @@
 			buildPhases = (
 				OBJ_148 /* Sources */,
 				OBJ_214 /* Frameworks */,
+				61024FD229CDB94E00AFB3F3 /* Bump */,
 			);
 			buildRules = (
 			);
@@ -961,6 +954,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		61024FD229CDB94E00AFB3F3 /* Bump */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Bump;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if [ \"${CONFIGURATION}\" == \"Debug\" ]; then \n#   nohup xcrun agvtool next-version -all\n#fi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6162624828BC8E2B00D63EA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -997,6 +1013,7 @@
 				OBJ_164 /* CMPedometer_Pipe.swift in Sources */,
 				6195667029A3496200167A08 /* Asking.swift in Sources */,
 				OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */,
+				612C68D629CDBC9C00E79D58 /* Rest_Model_Array.swift in Sources */,
 				OBJ_174 /* NotificationCenter_Pipe.swift in Sources */,
 				61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */,
 				OBJ_176 /* TimeZone_Pipe.swift in Sources */,
@@ -1018,7 +1035,7 @@
 				616B882A28C8A987002C53CF /* URL_Pipe.swift in Sources */,
 				OBJ_191 /* CaseIterable_Pipe.swift in Sources */,
 				OBJ_192 /* Sequence+Pipe.swift in Sources */,
-				61EBF94F29AA103900033920 /* Rest_Model2.swift in Sources */,
+				61EBF94F29AA103900033920 /* Rest_Model.swift in Sources */,
 				613DAC24292B655700442CB4 /* Range_any.swift in Sources */,
 				61DC807D29541F0200B57A0C /* Date_Pipe.swift in Sources */,
 				6195667429A3498900167A08 /* String.Encoding_Pipe.swift in Sources */,
@@ -1054,14 +1071,19 @@
 				61EBF95429AA19A400033920 /* Repo.swift in Sources */,
 				6195668629A34A6500167A08 /* CoreMotion_Tests.swift in Sources */,
 				6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */,
-				61EBF95229AA195D00033920 /* Codable_GET_Tests.swift in Sources */,
+				61EBF95229AA195D00033920 /* REST_Tests.swift in Sources */,
+				61024FD429CDB9AA00AFB3F3 /* Post+API.swift in Sources */,
+				6165343229CB296500541CBA /* REST_Array_GET_Tests.swift in Sources */,
+				61528C0529CDB7E800696D4C /* Repo+API.swift in Sources */,
 				61EBF95329AA196A00033920 /* GitHubAPI.swift in Sources */,
+				6113481129C99D4A007D819D /* Post.swift in Sources */,
 				61EBF95029AA173600033920 /* URL_JSONObject_Tests.swift in Sources */,
 				61EBF94629AA0F9900033920 /* URL_Data_Tests.swift in Sources */,
 				6195668729A34A9E00167A08 /* CoreLocation_Tests.swift in Sources */,
 				6162628328BC957500D63EA5 /* Expect_Tests.swift in Sources */,
 				6162628A28BC957500D63EA5 /* TestTools.swift in Sources */,
 				61EBF95729AA1AD300033920 /* JSONplaceholderAPI.swift in Sources */,
+				61523E7329CDBEC6001832BF /* String_any.swift in Sources */,
 				6162628828BC957500D63EA5 /* any.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1121,7 +1143,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1153,7 +1175,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1202,7 +1227,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1229,7 +1254,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1284,7 +1312,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1306,7 +1334,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1362,7 +1393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1379,7 +1410,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1396,7 +1430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1408,7 +1442,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pipe.xcodeproj/Pipe_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1429,7 +1466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1441,7 +1478,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pipe.xcodeproj/Pipe_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1499,7 +1539,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1510,7 +1550,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pipe.xcodeproj/PipeTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1535,7 +1579,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 61;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1546,7 +1590,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Pipe.xcodeproj/PipeTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1666,7 +1714,8 @@
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
