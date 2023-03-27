@@ -42,9 +42,29 @@ class Contacts_Tests: XCTestCase {
     func test_CNContact_Predicate() {
         let e = expectation()
 
-        CNContact.predicateForContacts(matchingName: "John Appleseed") | Expect.every { (contact: CNContact) in
+        CNContact.predicateForContacts(matchingName: "John Appleseed") | Ask.every { (contact: CNContact) in
+
             //Only one John Appleseed exist!
             e.fulfill()
+
+        }
+
+        waitForExpectations()
+    }
+
+    func test_CNContact_Predicate_Keys() {
+        let e = expectation()
+
+
+        let predicate = CNContact.predicateForContacts(matchingName: "John Appleseed")
+        let keys: [CNKeyDescriptor] = [CNContactFamilyNameKey as NSString]
+
+         [predicate, keys] | Ask.every { (contact: CNContact) in
+
+            //Only one John Appleseed exist!
+            if contact.familyName == "Appleseed" {
+                e.fulfill()
+            }
         }
 
         waitForExpectations()

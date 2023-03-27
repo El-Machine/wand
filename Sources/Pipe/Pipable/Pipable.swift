@@ -64,9 +64,10 @@ public extension Pipable {
 
 }
 
-extension Array: Pipable {
-
-}
+//NO FUCKING WAY, it breaks Pipe.attach(to: array)
+//extension Array: Pipable {
+//
+//}
 
 
 //struct MemoryAddress<T> {

@@ -131,6 +131,17 @@ extension Pipe {
         scope[key ?? T.self|] as? T
     }
 
+    /// Exist in
+    public
+    func exist<T>(type: T) -> Bool {
+        scope[T.self|] != nil
+    }
+
+    public
+    func exist(_ key: String) -> Bool {
+        scope[key] != nil
+    }
+
 }
 
 //Put

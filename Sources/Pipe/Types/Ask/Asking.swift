@@ -23,6 +23,7 @@
 
 public protocol Asking {
 
+    //TODO: static func |<S> (scope: S?, ask: Ask<Self>) -> Pipe
     static func ask<T: Asking>(_ ask: Ask<T>, from pipe: Pipe)
 
 }

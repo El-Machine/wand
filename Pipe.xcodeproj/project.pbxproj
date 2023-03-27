@@ -25,6 +25,11 @@
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
 		6113481129C99D4A007D819D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC1292F863A00E2AC9C /* Post.swift */; };
 		612C68D629CDBC9C00E79D58 /* Rest_Model_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC808229541F1000B57A0C /* Rest_Model_Array.swift */; };
+		612FA21029D17A5400344403 /* URL_JSONObject_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */; };
+		612FA21129D17AC400344403 /* Contacts_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626828BC957500D63EA5 /* Contacts_Tests.swift */; };
+		612FA21229D17AD800344403 /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
+		612FA21329D17ADB00344403 /* CNContact_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Pipe.swift */; };
+		612FA21429D17ED100344403 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626928BC957500D63EA5 /* Math_Tests.swift */; };
 		613DAC24292B655700442CB4 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC23292B655700442CB4 /* Range_any.swift */; };
 		61523E7329CDBEC6001832BF /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61523E7229CDBEC5001832BF /* String_any.swift */; };
 		61528C0529CDB7E800696D4C /* Repo+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61528C0429CDB7E800696D4C /* Repo+API.swift */; };
@@ -67,7 +72,6 @@
 		61EBF94B29AA0FF500033920 /* URLSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B882928C8A987002C53CF /* URLSession_Pipe.swift */; };
 		61EBF94C29AA102700033920 /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC808129541F1000B57A0C /* Rest.swift */; };
 		61EBF94F29AA103900033920 /* Rest_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EBF94E29AA103900033920 /* Rest_Model.swift */; };
-		61EBF95029AA173600033920 /* URL_JSONObject_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC21292B62AA00442CB4 /* URL_JSONObject_Tests.swift */; };
 		61EBF95129AA176900033920 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC1F292B5D6900442CB4 /* JsonObject.swift */; };
 		61EBF95229AA195D00033920 /* REST_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC25292B694C00442CB4 /* REST_Tests.swift */; };
 		61EBF95329AA196A00033920 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC35292B915400442CB4 /* GitHubAPI.swift */; };
@@ -1033,6 +1037,8 @@
 				OBJ_189 /* Comparable+Pipe.swift in Sources */,
 				6195668B29A34AA600167A08 /* CoreLocation_Convertable.swift in Sources */,
 				616B882A28C8A987002C53CF /* URL_Pipe.swift in Sources */,
+				612FA21329D17ADB00344403 /* CNContact_Pipe.swift in Sources */,
+				612FA21229D17AD800344403 /* CNContactStore_Pipe.swift in Sources */,
 				OBJ_191 /* CaseIterable_Pipe.swift in Sources */,
 				OBJ_192 /* Sequence+Pipe.swift in Sources */,
 				61EBF94F29AA103900033920 /* Rest_Model.swift in Sources */,
@@ -1073,13 +1079,15 @@
 				6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */,
 				61EBF95229AA195D00033920 /* REST_Tests.swift in Sources */,
 				61024FD429CDB9AA00AFB3F3 /* Post+API.swift in Sources */,
+				612FA21029D17A5400344403 /* URL_JSONObject_Tests.swift in Sources */,
 				6165343229CB296500541CBA /* REST_Array_GET_Tests.swift in Sources */,
 				61528C0529CDB7E800696D4C /* Repo+API.swift in Sources */,
 				61EBF95329AA196A00033920 /* GitHubAPI.swift in Sources */,
+				612FA21429D17ED100344403 /* Math_Tests.swift in Sources */,
 				6113481129C99D4A007D819D /* Post.swift in Sources */,
-				61EBF95029AA173600033920 /* URL_JSONObject_Tests.swift in Sources */,
 				61EBF94629AA0F9900033920 /* URL_Data_Tests.swift in Sources */,
 				6195668729A34A9E00167A08 /* CoreLocation_Tests.swift in Sources */,
+				612FA21129D17AC400344403 /* Contacts_Tests.swift in Sources */,
 				6162628328BC957500D63EA5 /* Expect_Tests.swift in Sources */,
 				6162628A28BC957500D63EA5 /* TestTools.swift in Sources */,
 				61EBF95729AA1AD300033920 /* JSONplaceholderAPI.swift in Sources */,

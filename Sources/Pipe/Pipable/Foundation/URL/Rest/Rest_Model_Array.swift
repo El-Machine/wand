@@ -33,5 +33,4 @@ extension Array: Rest.Model where Element: Rest.Model {
         Element.path
     }
 
-
 }

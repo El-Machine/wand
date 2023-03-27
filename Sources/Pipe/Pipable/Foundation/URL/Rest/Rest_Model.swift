@@ -25,7 +25,7 @@ import Foundation
 import UIKit
 
 public
-protocol Rest_Model: Asking, Pipable, Codable {
+protocol Rest_Model: Asking, Codable {
 
 
     static var base: String? {get}
@@ -36,7 +36,7 @@ protocol Rest_Model: Asking, Pipable, Codable {
 }
 
 public
-extension Ask where T: Rest.Model {
+extension Ask {
 
     class GET: Ask {
     }
@@ -50,8 +50,13 @@ extension Ask where T: Rest.Model {
     class DELETE: Ask {
     }
 
+}
+
+public
+extension Ask where T: Rest.Model {
+
     static func get(handler: @escaping (T)->() ) -> GET {
-        GET.one(handler: handler)
+        .one(handler: handler)
     }
 
     static func post(handler: @escaping (T)->() ) -> POST {
@@ -66,14 +71,13 @@ extension Ask where T: Rest.Model {
         DELETE.one(handler: handler)
     }
 
-    static func every(_ type: T.Type? = nil,
-                      handler: ( (T)->() )? = nil ) -> Self {
-       fatalError()
-    }
+}
 
-    static func `while`(_ type: T.Type? = nil,
-                        handler: @escaping (T)->(Bool) ) -> Self {
-        fatalError()
+public
+extension Ask where T == Array<Any> {
+
+    static func get(handler: @escaping (T)->() ) -> GET {
+        .one(handler: handler)
     }
 
 }
@@ -94,11 +98,17 @@ extension Rest_Model {
         guard pipe.ask(for: ask) else {
             return
         }
+
+        if
+            let headers,
+            !pipe.exist(type: [String : String].self)
+        {
+            pipe.store(headers)
+        }
         
         pipe | .one { (data: Data) in
 
             do {
-
 
                 if
                     let method: Rest.Method = pipe.get(),

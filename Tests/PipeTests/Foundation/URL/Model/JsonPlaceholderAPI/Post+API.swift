@@ -9,7 +9,7 @@ import Foundation
 
 import Pipe
 
-extension JSONplaceholderAPI.Post: JSONplaceholderAPI.Model {
+extension JSONplaceholderAPI.Post: JSONplaceholderAPI.Model, Pipable {
 
     public static var path: String {
         base! + "posts"
