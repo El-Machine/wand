@@ -35,7 +35,7 @@ extension NFCNDEFMessage: AskingWithout, Pipable {
 
         let session: NFCNDEFReaderSession = pipe.get()
 
-        pipe | .every(inner: true) { (tag: NFCNDEFTag) in
+        pipe | .every { (tag: NFCNDEFTag) in
 
             session.connect(to: tag) { (error: Error?) in
 
@@ -44,7 +44,7 @@ extension NFCNDEFMessage: AskingWithout, Pipable {
                     return
                 }
 
-                pipe | .one(inner: true) { (status: NFCNDEFStatus) in
+                pipe | .one { (status: NFCNDEFStatus) in
 
                     guard pipe.putIf(exist: error) == nil else {
                         return
@@ -62,11 +62,11 @@ extension NFCNDEFMessage: AskingWithout, Pipable {
 
                     }
 
-                }
+                }.inner()
 
             }
 
-        }
+        }.inner()
 
         pipe.addCleaner {
             session.invalidate()

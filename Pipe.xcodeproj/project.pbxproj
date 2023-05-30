@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		610017E829E02BFF004CEBB0 /* ARAppClipCodeAnchor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */; };
+		610017EA29E02F72004CEBB0 /* ARView_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610017E929E02F72004CEBB0 /* ARView_Pipe.swift */; };
 		61024FD429CDB9AA00AFB3F3 /* Post+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61024FD329CDB9AA00AFB3F3 /* Post+API.swift */; };
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
 		6113481129C99D4A007D819D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612ADAC1292F863A00E2AC9C /* Post.swift */; };
@@ -30,6 +32,7 @@
 		612FA21229D17AD800344403 /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
 		612FA21329D17ADB00344403 /* CNContact_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Pipe.swift */; };
 		612FA21429D17ED100344403 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626928BC957500D63EA5 /* Math_Tests.swift */; };
+		612FA21529D17FC900344403 /* ARSession_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */; };
 		613DAC24292B655700442CB4 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DAC23292B655700442CB4 /* Range_any.swift */; };
 		61523E7329CDBEC6001832BF /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61523E7229CDBEC5001832BF /* String_any.swift */; };
 		61528C0529CDB7E800696D4C /* Repo+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61528C0429CDB7E800696D4C /* Repo+API.swift */; };
@@ -95,7 +98,6 @@
 		OBJ_188 /* Range_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* Range_Pipe.swift */; };
 		OBJ_189 /* Comparable+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* Comparable+Pipe.swift */; };
 		OBJ_191 /* CaseIterable_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* CaseIterable_Pipe.swift */; };
-		OBJ_192 /* Sequence+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Sequence+Pipe.swift */; };
 		OBJ_195 /* UIColor_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* UIColor_Pipe.swift */; };
 		OBJ_196 /* UIEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* UIEvent_Pipe.swift */; };
 		OBJ_199 /* UIKit_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* UIKit_Pipe.swift */; };
@@ -147,6 +149,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		610017E929E02F72004CEBB0 /* ARView_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView_Pipe.swift; sourceTree = "<group>"; };
 		61024FD329CDB9AA00AFB3F3 /* Post+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+API.swift"; sourceTree = "<group>"; };
 		612ADAC1292F863A00E2AC9C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		612ADAC2292F863A00E2AC9C /* JSONplaceholderAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONplaceholderAPI.swift; sourceTree = "<group>"; };
@@ -248,7 +251,6 @@
 		OBJ_67 /* Comparable+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_68 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		OBJ_70 /* CaseIterable_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_71 /* Sequence+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_73 /* String_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_75 /* UIAlertController+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_76 /* UIColor_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Pipe.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */,
+				610017E929E02F72004CEBB0 /* ARView_Pipe.swift */,
 				619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */,
 			);
 			path = ARKit;
@@ -659,7 +662,6 @@
 				OBJ_72 /* String */,
 				OBJ_67 /* Comparable+Pipe.swift */,
 				OBJ_68 /* Error.swift */,
-				OBJ_71 /* Sequence+Pipe.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -1009,6 +1011,7 @@
 				61EBF94829AA0FD200033920 /* Data_Pipe.swift in Sources */,
 				6195667129A3496200167A08 /* Ask.swift in Sources */,
 				61EBF94C29AA102700033920 /* Rest.swift in Sources */,
+				610017E829E02BFF004CEBB0 /* ARAppClipCodeAnchor_Pipe.swift in Sources */,
 				OBJ_156 /* CoreGraphics_Convertable.swift in Sources */,
 				OBJ_162 /* CMPedometerData_Pipe.swift in Sources */,
 				6195667329A3498900167A08 /* String.IndexDistance_Pipe.swift in Sources */,
@@ -1038,9 +1041,9 @@
 				6195668B29A34AA600167A08 /* CoreLocation_Convertable.swift in Sources */,
 				616B882A28C8A987002C53CF /* URL_Pipe.swift in Sources */,
 				612FA21329D17ADB00344403 /* CNContact_Pipe.swift in Sources */,
+				610017EA29E02F72004CEBB0 /* ARView_Pipe.swift in Sources */,
 				612FA21229D17AD800344403 /* CNContactStore_Pipe.swift in Sources */,
 				OBJ_191 /* CaseIterable_Pipe.swift in Sources */,
-				OBJ_192 /* Sequence+Pipe.swift in Sources */,
 				61EBF94F29AA103900033920 /* Rest_Model.swift in Sources */,
 				613DAC24292B655700442CB4 /* Range_any.swift in Sources */,
 				61DC807D29541F0200B57A0C /* Date_Pipe.swift in Sources */,
@@ -1055,6 +1058,7 @@
 				61056E8B2924C72100E2BFF0 /* Error.swift in Sources */,
 				OBJ_205 /* Constructable.swift in Sources */,
 				619566B329A397EE00167A08 /* Pipeline_Alias.swift in Sources */,
+				612FA21529D17FC900344403 /* ARSession_Pipe.swift in Sources */,
 				OBJ_206 /* Convertable.swift in Sources */,
 				61EBF94A29AA0FF500033920 /* URLRequest_Pipe.swift in Sources */,
 				6195668A29A34AA600167A08 /* CLLocationManager_Pipe.swift in Sources */,

@@ -18,7 +18,7 @@ extension GitHubAPI.Repo: GitHubAPI.Model {
 //https://api.github.com/repositories/42
 @discardableResult
 func |(id: Int,
-       get: Ask<GitHubAPI.Repo>.GET) -> Pipe {
+       get: Ask<GitHubAPI.Repo>.Get) -> Pipe {
 
     let pipe = Pipe()
 
@@ -31,7 +31,7 @@ func |(id: Int,
 
 //https://api.github.com/repositories
 @discardableResult
-prefix func |(get: Ask<[GitHubAPI.Repo]>.GET) -> Pipe {
+prefix func |(get: Ask<[GitHubAPI.Repo]>.Get) -> Pipe {
 
     let pipe = Pipe()
 
@@ -46,7 +46,7 @@ prefix func |(get: Ask<[GitHubAPI.Repo]>.GET) -> Pipe {
 //https://api.github.com/repositories?q=ios
 @discardableResult
 func |(query: String,
-       get: Ask<[GitHubAPI.Repo]>.GET) -> Pipe {
+       get: Ask<[GitHubAPI.Repo]>.Get) -> Pipe {
 
     let pipe = Pipe()
 

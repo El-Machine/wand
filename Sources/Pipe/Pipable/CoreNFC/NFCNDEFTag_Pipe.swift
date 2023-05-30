@@ -50,7 +50,7 @@ public func |<S> (scope: S, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
 public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
     let pipe = Pipe.attach(to: scope)
 
-    guard pipe.ask(for: ask) else {
+    guard pipe.ask(for: ask, checkScope: true) else {
         return pipe
     }
 
@@ -97,7 +97,7 @@ extension Ask where T == NFCNDEFTag {
                     return
                 }
 
-                pipe | .one(inner: true) { (status: NFCNDEFStatus) in
+                pipe | .one { (status: NFCNDEFStatus) in
 
                     switch status {
 
@@ -137,7 +137,8 @@ extension Ask where T == NFCNDEFTag {
 
                     }
 
-                }
+                }.inner()
+                
             }
 
             //Call previous handler
@@ -165,7 +166,6 @@ extension Ask where T == NFCNDEFTag {
                 }
 
                 tag.writeLock { error in
-
 
                     if let error = error as? NFCReaderError {
 

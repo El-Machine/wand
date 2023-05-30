@@ -21,7 +21,7 @@ extension JSONplaceholderAPI.Post: JSONplaceholderAPI.Model, Pipable {
 //https://jsonplaceholder.typicode.com/posts/1
 @discardableResult
 func |(id: Int,
-       get: Ask<JSONplaceholderAPI.Post>.GET) -> Pipeline {
+       get: Ask<JSONplaceholderAPI.Post>.Get) -> Pipeline {
 
     let pipe = Pipeline()
 
@@ -36,7 +36,7 @@ func |(id: Int,
 //GET
 //https://jsonplaceholder.typicode.com/posts
 @discardableResult
-prefix func |(get: Ask<[JSONplaceholderAPI.Post]>.GET) -> Pipeline {
+prefix func |(get: Ask<[JSONplaceholderAPI.Post]>.Get) -> Pipeline {
 
     let pipe = Pipeline()
 
@@ -52,7 +52,7 @@ prefix func |(get: Ask<[JSONplaceholderAPI.Post]>.GET) -> Pipeline {
 //https://jsonplaceholder.typicode.com/posts
 @discardableResult
 func | (postItem: JSONplaceholderAPI.Post,
-        post: Ask<JSONplaceholderAPI.Post>.POST) -> Pipeline {
+        post: Ask<JSONplaceholderAPI.Post>.Post) -> Pipeline {
 
     let pipe = postItem.pipe
 
@@ -71,7 +71,7 @@ func | (postItem: JSONplaceholderAPI.Post,
 //https://jsonplaceholder.typicode.com/posts/42
 @discardableResult
 func | (postItem: JSONplaceholderAPI.Post,
-        put: Ask<JSONplaceholderAPI.Post>.PUT) -> Pipeline {
+        put: Ask<JSONplaceholderAPI.Post>.Put) -> Pipeline {
 
     let pipe = postItem.pipe
 
@@ -97,7 +97,7 @@ func | (postItem: JSONplaceholderAPI.Post,
 //https://jsonplaceholder.typicode.com/posts/42
 @discardableResult
 func | (postItem: JSONplaceholderAPI.Post,
-        delete: Ask<JSONplaceholderAPI.Post>.DELETE) -> Pipeline {
+        delete: Ask<JSONplaceholderAPI.Post>.Delete) -> Pipeline {
 
     let pipe = postItem.pipe
 

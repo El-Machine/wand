@@ -38,16 +38,16 @@ protocol Rest_Model: Asking, Codable {
 public
 extension Ask {
 
-    class GET: Ask {
+    class Get: Ask {
     }
 
-    class POST: Ask {
+    class Post: Ask {
     }
 
-    class PUT: Ask {
+    class Put: Ask {
     }
 
-    class DELETE: Ask {
+    class Delete: Ask {
     }
 
 }
@@ -55,20 +55,20 @@ extension Ask {
 public
 extension Ask where T: Rest.Model {
 
-    static func get(handler: @escaping (T)->() ) -> GET {
+    static func get(handler: @escaping (T)->() ) -> Get {
         .one(handler: handler)
     }
 
-    static func post(handler: @escaping (T)->() ) -> POST {
-        POST.one(handler: handler)
+    static func post(handler: @escaping (T)->() ) -> Post {
+        Post.one(handler: handler)
     }
 
-    static func put(handler: @escaping (T)->() ) -> PUT {
-        PUT.one(handler: handler)
+    static func put(handler: @escaping (T)->() ) -> Put {
+        Put.one(handler: handler)
     }
 
-    static func delete(handler: @escaping (T)->() ) -> DELETE {
-        DELETE.one(handler: handler)
+    static func delete(handler: @escaping (T)->() ) -> Delete {
+        Delete.one(handler: handler)
     }
 
 }
@@ -76,7 +76,7 @@ extension Ask where T: Rest.Model {
 public
 extension Ask where T == Array<Any> {
 
-    static func get(handler: @escaping (T)->() ) -> GET {
+    static func get(handler: @escaping (T)->() ) -> Get {
         .one(handler: handler)
     }
 

@@ -29,13 +29,13 @@ extension NFCNDEFStatus: AskingWithout, Pipable {
 
     public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        guard pipe.ask(for: ask) else {
+        guard pipe.ask(for: ask, checkScope: true) else {
             return
         }
 
         let session: NFCNDEFReaderSession = pipe.get()
 
-        pipe | .every(inner: true) { (tag: NFCNDEFTag) in
+        pipe | .every { (tag: NFCNDEFTag) in
 
             session.connect(to: tag) { (error: Error?) in
 
@@ -56,7 +56,7 @@ extension NFCNDEFStatus: AskingWithout, Pipable {
 
             }
 
-        }
+        }.inner()
 
         pipe.addCleaner {
             session.invalidate()

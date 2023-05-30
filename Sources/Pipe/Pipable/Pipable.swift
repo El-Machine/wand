@@ -70,46 +70,46 @@ public extension Pipable {
 //}
 
 
-//struct MemoryAddress<T> {
+struct MemoryAddress<T> {
+
+//    let intValue: Int
 //
-////    let intValue: Int
-////
-////    var description: String {
-////        let length = 2 + 2 * MemoryLayout<UnsafeRawPointer>.size
-////        return String(format: "%0\(length)p", intValue)
-////    }
-////
-////    // for structures
-////    init(of structPointer: UnsafePointer<T>) {
-////        intValue = Int(bitPattern: structPointer)
-////    }
-//
-//    static func address(of model: T) -> Int {
-//        var address: Int!
-//        var mutable = model
-//        withUnsafePointer(to: &mutable) { pointer in
-//            address = Int(bitPattern: pointer)
-//        }
-//
-//        return address
-//    }
-//}
-//
-//extension MemoryAddress where T: AnyObject {
-//
-////    // for classes
-////    init(of classInstance: T) {
-////        intValue = unsafeBitCast(classInstance, to: Int.self)
-////        // or      Int(bitPattern: Unmanaged<T>.passUnretained(classInstance).toOpaque())
-////    }
-//
-//
-//    static func address(of model: T) -> Int {
-//        unsafeBitCast(model, to: Int.self)
+//    var description: String {
+//        let length = 2 + 2 * MemoryLayout<UnsafeRawPointer>.size
+//        return String(format: "%0\(length)p", intValue)
 //    }
 //
-//
-//}
+//    // for structures
+//    init(of structPointer: UnsafePointer<T>) {
+//        intValue = Int(bitPattern: structPointer)
+//    }
+
+    static func address(of model: T) -> Int {
+        var address: Int!
+        var mutable = model
+        withUnsafePointer(to: &mutable) { pointer in
+            address = Int(bitPattern: pointer)
+        }
+
+        return address
+    }
+}
+
+extension MemoryAddress where T: AnyObject {
+
+//    // for classes
+//    init(of classInstance: T) {
+//        intValue = unsafeBitCast(classInstance, to: Int.self)
+//        // or      Int(bitPattern: Unmanaged<T>.passUnretained(classInstance).toOpaque())
+//    }
+
+
+    static func address(of model: T) -> Int {
+        unsafeBitCast(model, to: Int.self)
+    }
+
+
+}
 
 //extension Optional {
 //

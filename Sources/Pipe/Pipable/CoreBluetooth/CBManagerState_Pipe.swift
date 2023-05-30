@@ -23,7 +23,7 @@
 
 import CoreBluetooth.CBManager
 
-extension CBManagerState: Expectable {
+extension CBManagerState: Asking {
 
     public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
         //Just construct Manager

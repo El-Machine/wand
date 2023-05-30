@@ -39,7 +39,7 @@ extension NFCNDEFReaderSession: Constructable {
 
         pipe.put(source)
 
-        return source
+        return pipe.put(source)
     }
 
 }
@@ -63,7 +63,8 @@ extension NFCNDEFReaderSession {
         func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
 
             if let first = tags.first {
-
+//                isPiped?.put(first)
+                
                 if let pipe = isPiped {
 
 

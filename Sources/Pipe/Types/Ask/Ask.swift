@@ -39,14 +39,7 @@ class Ask<T>: AskFor {
 
     let condition: Condition
 
-    public
-    var onAttach: ( (Pipe)->() )?
-
-    public
-    func `in`(_ handler: @escaping (Pipe)->() ) -> Self {
-        onAttach = handler
-        return self
-    }
+    var key: String?
 
     public
     var handler: (T)->(Bool)
@@ -66,16 +59,19 @@ class Ask<T>: AskFor {
 
     internal required
     init(_ condition: Condition,
+         key: String? = nil,
          handler: @escaping (T) -> Bool) {
 
         self.condition = condition
+        self.key = key
         self.handler = handler
     }
 
     public
     static func every(_ type: T.Type? = nil,
+                      key: String? = nil,
                       handler: ( (T)->() )? = nil ) -> Self {
-        Self(.every) {
+        Self(.every, key: key) {
             handler?($0)
 
             //Retry?
@@ -99,6 +95,23 @@ class Ask<T>: AskFor {
                         handler: @escaping (T)->(Bool) ) -> Self {
         //Decide to retry in handler
         Self(.while, handler: handler)
+    }
+
+}
+
+extension Ask {
+
+    //While counting
+    public
+    static func `while`(_ handler: @escaping (T, Int)->(Bool) ) -> Self {
+        var i = 0
+        return Self(.while) {
+            defer {
+                i += 1
+            }
+
+            return handler($0, i)
+        }
     }
 
 }

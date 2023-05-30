@@ -26,43 +26,78 @@ import CoreImage.CIImage
 
 import Vision.VNRequest
 
-extension VNImageRequestHandler: Constructable {
-
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-
-        let orientation: CGImagePropertyOrientation = pipe.get() ?? .up
-        let options: [VNImageOption : Any] = pipe.get() ?? [:]
-
-        let request: Self
-        switch piped {
-            case let buffer as CMSampleBuffer:
-                if #available(iOS 14.0, macOS 11.0, *) {
-                    request = Self(cmSampleBuffer: buffer, orientation: orientation, options: options)
-                } else {
-                    fatalError()
-                }
-
-            case let image as CGImage:
-                request = Self(cgImage: image, orientation: orientation, options: options)
-            case let image as CIImage:
-                request = Self(ciImage: image, orientation: orientation, options: options)
-
-            case let data as Data:
-                request = Self(data: data, orientation: orientation, options: options)
-
-            case let url as URL:
-                request = Self(url: url, orientation: orientation, options: options)
-
-            default:
-                fatalError("""
-                                🔥 It's yet not possible to construct
-                                \(self)
-                                from
-                                \(String(describing: piped))
-                           """)
-        }
-
-        return request
-    }
-
-}
+//Don't waste your time
+//extension VNImageRequestHandler: Constructable {
+//
+//    public static func construct(in pipe: Pipe) -> Self {
+//
+//        let orientation: CGImagePropertyOrientation = pipe.get() ?? .up
+//        let options: [VNImageOption : Any] = pipe.get() ?? [:]
+//
+//        let request: Self
+//        if let buffer: CMSampleBuffer = pipe.get() {
+//            if #available(iOS 14.0, macOS 11.0, *) {
+//                request = Self(cmSampleBuffer: buffer,
+//                               orientation: orientation,
+//                               options: options)
+//            } else {
+//                fatalError()
+//            }
+//
+//            return pipe.put(request)
+//        }
+//
+//        if let pixelBuffer: CVPixelBuffer = pipe.get() {
+//            if #available(iOS 14.0, macOS 11.0, *) {
+//                request = Self(cvPixelBuffer: pixelBuffer,
+//                               orientation: orientation,
+//                               options: options)
+//            } else {
+//                fatalError()
+//            }
+//
+//            return pipe.put(request)
+//        }
+//
+//        if let image: CGImage = pipe.get() {
+//            request = Self(cgImage: image,
+//                           orientation: orientation,
+//                           options: options)
+//
+//            return pipe.put(request)
+//        }
+//
+//
+//        if let image: CIImage = pipe.get() {
+//            request = Self(ciImage: image,
+//                           orientation: orientation,
+//                           options: options)
+//
+//            return pipe.put(request)
+//        }
+//
+//
+//        if let data: Data = pipe.get() {
+//            request = Self(data: data,
+//                           orientation: orientation,
+//                           options: options)
+//
+//            return pipe.put(request)
+//        }
+//
+//        if let url: URL = pipe.get() {
+//            request = Self(url: url,
+//                           orientation: orientation,
+//                           options: options)
+//
+//            return pipe.put(request)
+//        }
+//
+//
+//        fatalError( """
+//                    🔥 It's yet not possible to construct
+//                    \(self)
+//                    """)
+//    }
+//
+//}

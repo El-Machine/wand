@@ -44,41 +44,68 @@ import Vision.VNObservation
 ///   }
 /// ```
 ///
-protocol VisionObservationExpectable: ExpectableWithout {
+public
+protocol VisionObservationExpectable: Asking {
 
     associatedtype Request: VNRequest
 
 }
 
+public
 extension VisionObservationExpectable {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    static func ask<T: Asking>(_ ask: Ask<T>, from pipe: Pipe) {
+
+        guard pipe.ask(for: ask) else {
+            return
+        }
 
         let perform = { (handler: VNImageRequestHandler) in
-            let request = piped as? Request ?? pipe.get()
+            let request: Request = pipe.get()
 
             try! handler.perform([request])
-            if let results = request.results {
+            if let results = request.results, !results.isEmpty {
                 pipe.put(results as! [Self])
+            } else {
+                pipe.close()
             }
         }
 
         //There is request handler already?
-        if let handler = piped as? VNImageRequestHandler ?? pipe.get() {
+        if let handler: VNImageRequestHandler = pipe.get() {
             perform(handler)
         } else {
             //Otherwise wait for buffer
             pipe | { (buffer: CMSampleBuffer) in
-                perform(buffer|)
+
+                let request = VNImageRequestHandler(cmSampleBuffer: buffer)
+                perform(request)
             }
         }
     }
 
 }
 
+@available(iOS 14.0, *)
+extension VNFaceObservation: VisionObservationExpectable {
+
+    public
+    typealias Request = VNDetectFaceRectanglesRequest
+
+}
+
+@available(iOS 14.0, *)
+extension VNBarcodeObservation: VisionObservationExpectable {
+
+    public
+    typealias Request = VNDetectBarcodesRequest
+
+}
+
 @available(iOS 14.0, macOS 11.0, *)
 extension VNHumanHandPoseObservation: VisionObservationExpectable {
 
+    public
     typealias Request = VNDetectHumanHandPoseRequest
 
     static func | (piped: VNHumanHandPoseObservation,
@@ -92,20 +119,15 @@ extension VNHumanHandPoseObservation: VisionObservationExpectable {
 @available(iOS 14.0, macOS 11.0, *)
 extension VNHumanBodyPoseObservation: VisionObservationExpectable {
 
+    public
     typealias Request = VNDetectHumanBodyPoseRequest
-
-}
-
-@available(iOS 14.0, *)
-extension VNFaceObservation: VisionObservationExpectable {
-
-    typealias Request = VNDetectFaceRectanglesRequest
 
 }
 
 @available(iOS 14.0, *)
 extension VNClassificationObservation: VisionObservationExpectable {
 
+    public
     typealias Request = VNClassifyImageRequest
 
 }

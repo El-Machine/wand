@@ -44,7 +44,9 @@ extension Notification: Asking {
         let name: Notification.Name = pipe.get()!
         let key = name.rawValue
 
-        guard pipe.ask(for: ask, key: key) else {
+        ask.key = key
+
+        guard pipe.ask(for: ask) else {
             return
         }
 

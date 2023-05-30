@@ -74,7 +74,7 @@ public final class Pipe {
 //    #if TESTING
     
         init() {
-            print("|💪🏽 #init\n\(self)")
+            print("|💪🏽 #init\n\(self) ask \(asking)")
         }
 
 
@@ -83,7 +83,7 @@ public final class Pipe {
         }
     
 }
-
+ 
 
 //internal static subscript<T>(piped: T) -> Pipe? {
 //    get {
@@ -225,15 +225,14 @@ extension Pipe {
 extension Pipe {
 
     public func ask<T>(for ask: Ask<T>,
-                       key: String = T.self|,
                        checkScope: Bool = false) -> Bool {
+
+        let key = ask.key ?? T.self|
 
         let stored = asking[key]
         let isFirst = stored == nil
         asking[key] = (stored ?? []) + [ask]
 
-
-        ask.onAttach?(self)
 
         //Call handler if object exist
         if checkScope, let object: T = get() {

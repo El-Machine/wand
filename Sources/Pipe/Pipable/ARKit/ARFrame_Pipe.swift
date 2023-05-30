@@ -21,31 +21,23 @@
 //  Created by Alex Kozin
 //
 
-public func |<C: Sequence, T> (p: C, handler: @escaping (C.Element) throws -> T) -> [T] {
-    try! p.map(handler)
-}
+import ARKit
 
-public func |<C: Sequence> (p: C, handler: @escaping (C.Element) throws -> Bool) -> [C.Element] {
-    try! p.filter(handler)
-}
+extension ARFrame: Asking {
 
-//forEach
-public func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Void) {
-    try? p?.forEach(handler)
-}
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-public func |<C: Sequence> (p: C?, handler: @escaping () throws -> Void) {
-    p?.forEach { _ in
-        try? handler()
+        guard pipe.ask(for: ask, checkScope: true) else {
+            return
+        }
+
+        let session: ARSession = pipe.get()
+
+        ask.cleaner = {
+            session.pause()
+        }
+
     }
-}
 
-//first
-public func |<C: Sequence> (p: C?, handler: @escaping (C.Element) throws -> Bool) -> C.Element? {
-    try? p?.first(where: handler)
-}
 
-public func |<C: Sequence, T> (p: C,
-                        to: (initial: T, next: (T, C.Element) throws -> T)) -> T {
-    try! p.reduce(to.initial, to.next)
 }

@@ -23,38 +23,38 @@ func | (path: String?, button: UIButton) -> Pipe {
     return path | button
 }
 
-@discardableResult
-func | (path: String, button: UIButton) -> Pipe {
-    URL(string: path)! | button
-}
-
-@discardableResult
-func | (url: URL?, button: UIButton) -> Pipe {
-    button.kf.setImage(with: url, for: .normal)
-    return Pipe()
-}
-
+//@discardableResult
+//func | (path: String, button: UIButton) -> Pipe {
+//    URL(string: path)! | button
+//}
+//
+//@discardableResult
+//func | (url: URL?, button: UIButton) -> Pipe {
+//    button.kf.setImage(with: url, for: .normal)
+//    return Pipe()
+//}
+//
 //UIImageView
-@discardableResult
-func | (path: String?, imageView: UIImageView) -> Pipe {
-    guard
-        let path,
-        !path.isEmpty
-    else {
-        imageView.image = nil
-        return Pipe()
-    }
+//@discardableResult
+//func | (path: String?, imageView: UIImageView) -> Pipe {
+//    guard
+//        let path,
+//        !path.isEmpty
+//    else {
+//        imageView.image = nil
+//        return Pipe()
+//    }
+//
+//    return path | imageView
+//}
+//
+//@discardableResult
+//func | (path: String, imageView: UIImageView) -> Pipe {
+//    URL(string: path)! | imageView
+//}
 
-    return path | imageView
-}
-
-@discardableResult
-func | (path: String, imageView: UIImageView) -> Pipe {
-    URL(string: path)! | imageView
-}
-
-@discardableResult
-func | (url: URL?, imageView: UIImageView) -> Pipe {
-    imageView.kf.setImage(with: url)
-    return Pipe()
-}
+//@discardableResult
+//func | (url: URL?, imageView: UIImageView) -> Pipe {
+//    imageView.kf.setImage(with: url)
+//    return Pipe()
+//}

@@ -25,11 +25,10 @@ import CoreBluetooth.CBCentralManager
 
 extension CBCentralManager: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-
-        Self(delegate: pipe.put(Delegate()),
+    public static func construct(in pipe: Pipe) -> Self {
+        pipe.put(Self(delegate: pipe.put(Delegate()),
                     queue: pipe.get(),
-                    options: pipe.get(for: "CBCentralManagerOptions"))
+                    options: pipe.get(for: "CBCentralManagerOptions")))
     }
     
     class Delegate: NSObject, CBCentralManagerDelegate, Pipable {

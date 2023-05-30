@@ -25,49 +25,48 @@ import AVFoundation
 
 extension AVCaptureDevice: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
 
-        let deviceType = piped as? AVCaptureDevice.DeviceType
-                                    ?? pipe.get()
-                                    ?? .builtInWideAngleCamera
+        let deviceType: AVCaptureDevice.DeviceType = pipe.get()
+                                                    ?? .builtInWideAngleCamera
 
-        let mediaType = piped as? AVMediaType
-                                ?? pipe.get()
-                                ?? .video
+        let mediaType: AVMediaType = pipe.get()
+                                    ?? .video
 
-        let position = piped as? AVCaptureDevice.Position
-                                ?? pipe.get()
-                                ?? .front
+        let position: AVCaptureDevice.Position = pipe.get()
+                                                ?? .front
 
-        return Self.default(deviceType,
-                        for: mediaType,
-                        position: position) as! Self
+        let device = Self.default(deviceType,
+                                  for: mediaType,
+                                  position: position) as! Self
+
+        return pipe.put(device)
     }
 
 }
 
 extension AVCaptureDeviceInput: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-        let device = piped as? AVCaptureDevice ?? pipe.get()
-        return try! Self(device: device)
+    public static func construct(in pipe: Pipe) -> Self {
+        let device: AVCaptureDevice = pipe.get()
+        return pipe.put(try! Self(device: device))
     }
 
 }
 
 extension AVCaptureSession: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
-        Self()
+    public static func construct(in pipe: Pipe) -> Self {
+        pipe.put(Self())
     }
 
 }
 
-extension AVCaptureVideoDataOutput: ExpectableWithout {
+extension AVCaptureVideoDataOutput: Asking {
 
-    public static func expect<E>(_ expectation: Expect<E>, from pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
 
-        guard pipe.expect(expectation) else {
+        guard pipe.ask(for: ask) else {
             return
         }
 
@@ -95,7 +94,9 @@ extension AVCaptureVideoDataOutput: ExpectableWithout {
 
             let delegate = pipe.put(Delegate())
             let queue: DispatchQueue = pipe.get()
-            ?? DispatchQueue(label: "Pipe_VideoDataOutput", qos: .userInteractive)
+                                    ?? DispatchQueue(label: "Pipe_VideoDataOutput",
+                                                     qos: .userInteractive)
+
             output.setSampleBufferDelegate(delegate, queue: queue)
         } else {
             pipe.put(Pipe.Error.vision("Could not add video data output"))
@@ -104,7 +105,7 @@ extension AVCaptureVideoDataOutput: ExpectableWithout {
         session.startRunning()
 
         pipe.put(output)
-        expectation.cleaner = {
+        ask.cleaner = {
             session.stopRunning()
         }
     }
@@ -126,10 +127,12 @@ extension AVCaptureVideoDataOutput {
 
 extension AVCaptureVideoPreviewLayer: Constructable {
 
-    public static func construct<P>(with piped: P, on pipe: Pipe) -> Self {
+    public static func construct(in pipe: Pipe) -> Self {
         let layer = Self()
-        layer.videoGravity = piped as? AVLayerVideoGravity ?? pipe.get() ?? .resizeAspectFill
-        layer.session = piped as? AVCaptureSession ?? pipe.get()
+        layer.videoGravity =    pipe.get() ?? .resizeAspectFill
+
+        layer.session =         pipe.get()
+
         return pipe.put(layer)
     }
 
@@ -138,11 +141,12 @@ extension AVCaptureVideoPreviewLayer: Constructable {
 //CoreMedia_Pipe
 import CoreMedia.CMSampleBuffer
 
-extension CMSampleBuffer: Expectable {
+extension CMSampleBuffer: Asking {
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+
         //AVCaptureVideoDataOutput will produce CMSampleBuffer
-        pipe | AVCaptureVideoDataOutput.every
+        pipe | Ask<AVCaptureVideoDataOutput>.every()
     }
 
 }

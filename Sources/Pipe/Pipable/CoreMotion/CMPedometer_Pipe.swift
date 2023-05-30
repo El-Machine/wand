@@ -34,7 +34,7 @@ import CoreMotion.CMPedometer
 extension CMPedometer: Constructable {
 
     public static func construct(in pipe: Pipe) -> Self {
-        Self()
+        pipe.put(Self())
     }
      
 }
