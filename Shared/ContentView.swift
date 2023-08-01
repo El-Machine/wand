@@ -5,10 +5,11 @@
 //  Created by Alex Kozin on 29.08.2022.
 //
 
-import CoreMotion
+import CoreBluetooth
+import CoreLocation
 
-import Pipe
 import SwiftUI
+import Pipe
 
 struct ContentView: View {
 
@@ -16,9 +17,22 @@ struct ContentView: View {
         Text("Hello, Pipe |").onAppear {
 
 
-//            |{ (data: CMPedometerData) in
-//
-//            }
+
+//            |
+//                .retrieve { (peripherals: [CBPeripheral]) in
+//                    print()
+//                }
+
+            let uids: [CBUUID] = [.flipperZerof6,
+                                  .flipperZeroWhite,
+                                  .flipperZeroBlack]
+
+            let pipe = Pipeline()
+            pipe.store(uids)
+
+            pipe | { (peripheral: CBPeripheral) in
+                print(peripheral.name)
+            }
 
 
         }

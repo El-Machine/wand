@@ -23,11 +23,54 @@
 
 import CoreBluetooth.CBManager
 
-extension CBManagerState: Asking {
+/// Ask for object
+///
+/// |{ (state: CBManagerState) in
+///
+/// }
+@discardableResult
+prefix func |(handler: @escaping (CBManagerState)->()) -> Pipe {
+    Pipe() | Ask.every(handler: handler)
+}
 
-    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
-        //Just construct Manager
-        _ = (piped as? CBCentralManager) ?? pipe.get()
+/// Ask for object
+/// `every`, `one` or `while`
+///
+/// |.every { (state: CBManagerState) in
+///
+/// }
+@discardableResult
+prefix func |(ask: Ask<CBManagerState>) -> Pipe {
+    Pipe() | ask
+}
+
+/// Ask for object from `context`
+///
+/// context | { (state: CBManagerState) in
+///
+/// }
+@discardableResult
+func |<T> (context: T, handler: @escaping (CBManagerState)->()) -> Pipe {
+    context | Ask.every(handler: handler)
+}
+
+/// Ask for object from `context`
+/// `every`, `one` or `while`
+///
+/// context | .every { (state: CBManagerState) in
+///
+/// }
+@discardableResult
+func |<T> (context: T, ask: Ask<CBManagerState>) -> Pipe {
+
+    let pipe = Pipe.attach(to: context)
+
+    guard pipe.ask(for: ask) else {
+        return pipe
     }
+
+    //Just construct Manager
+    let _: CBCentralManager = pipe.get()
+    return pipe
     
 }

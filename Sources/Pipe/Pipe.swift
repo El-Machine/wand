@@ -208,7 +208,7 @@ extension Pipe {
     /// Store silently
     /// Without expectations check
     @discardableResult
-    public func store(_ array: Array<Any>) -> Pipe {
+    public func store(array: Array<Any>) -> Pipe {
         array.forEach { object in
             let key = type(of: object)|
 
