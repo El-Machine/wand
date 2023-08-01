@@ -11,7 +11,7 @@ import RealityKit
 extension ARView: Constructable {
 
     public static func construct(in pipe: Pipe) -> Self {
-        pipe.put(Self())
+        Self()
     }
 
 }

@@ -5,21 +5,36 @@
 //  Created by Alex Kozin on 20.10.2022.
 //
 
-import ARKit.ARAnchor
+import ARKit
+
+extension ARAnchor: Pipable {
+
+    public enum With: String {
+
+        case add, update, remove
+
+    }
+
+}
 
 @available(iOS 13.0, *)
-extension ARAnchor: Asking {
+extension Array: Asking where Element == ARAnchor {
 
-    public
-    static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+}
 
-        guard pipe.ask(for: ask) else {
+@available(iOS 13.0, *)
+extension Array: As, ExpectableWithout where Element == ARAnchor {
+
+    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+
+        let key = expectation.key
+        guard pipe.start(expecting: expectation, key: key) else {
             return
         }
 
-        let session: ARSession = pipe.get()
+        let session = (piped as? ARSession) ?? pipe.get()
 
-        ask.cleaner = {
+        expectation.cleaner = {
             session.pause()
         }
 
@@ -28,48 +43,48 @@ extension ARAnchor: Asking {
 
 }
 
-public
-extension Ask {
-
-    class Add: Ask {
-    }
-
-    class Update: Ask {
-    }
-
-    class Remove: Ask {
-    }
-
-}
-
 @available(iOS 13.0, *)
-public extension Ask where T == Array<ARAnchor> {
+public extension Expect where T == Array<ARAnchor> {
 
-    static func add(_ handler: ( (T)->() )? = nil) -> Add {
-        .every(key: #function, handler: handler)
+    static func add(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
-    static func update(_ handler: ( (T)->() )? = nil) -> Update {
-        .every(key: #function, handler: handler)
+    static func didUpdate(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
-    static func remove(_ handler: ( (T)->() )? = nil) -> Remove {
-        .every(key: #function, handler: handler)
+    static func remove(_ handler: ( (T)->() )? = nil) -> Self {
+        Expect.every(#function, handler) as! Self
     }
 
 }
 
 import ARKit.ARAppClipCodeAnchor
 
-@available(iOS 14.3, *)
-@discardableResult
-public
-prefix func | (ask: Ask<[ARAppClipCodeAnchor]>) -> Pipe {
+//@available(iOS 14.3, *)
+//extension ARAppClipCodeAnchor: Operatable, ExpectableWithout {
+//
+//    public typealias With = Array<ARAnchor>.With
+//
+//    public static func start<P, E>(expectating expectation: Expect<E>, with piped: P, on pipe: Pipe) {
+//
+//        let with = expectation.with as! With
+//        let key = E.self| + with.rawValue
+//
+//        guard pipe.start(expecting: expectation, key: key) else {
+//            return
+//        }
+//
+//        //Add flag: Waiting for some ARAnchor
+//        let anchorKey = ARAnchor.self|
+//        if pipe.expectations[anchorKey] == nil {
+//            pipe.expectations[anchorKey] = []
+//        }
+//
+//        with | [ARAnchor].every
+//    }
+//
+//
+//}
 
-    let configuration = ARWorldTrackingConfiguration()
-    configuration.automaticImageScaleEstimationEnabled = true
-    configuration.appClipCodeTrackingEnabled = true
-
-    //Ask for [ARAnchor] with AR config
-    return (configuration as ARConfiguration) | ask
-}
