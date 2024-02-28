@@ -53,7 +53,7 @@ extension Ask {
 }
 
 public
-extension Ask where T: Rest.Model {
+extension Ask {
 
     static func get(handler: @escaping (T)->() ) -> Get {
         .one(handler: handler)

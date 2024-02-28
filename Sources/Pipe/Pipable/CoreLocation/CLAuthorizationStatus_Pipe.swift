@@ -51,10 +51,10 @@ extension CLAuthorizationStatus: AskingWithout, Pipable {
 
         switch asking {
 
-        #if !APPCLIP
-            case .authorizedAlways:
-                source.requestAlwaysAuthorization()
-        #endif
+//        #if !APPCLIP
+//            case .authorizedAlways:
+//                source.requestAlwaysAuthorization()
+//        #endif
 
             case .none, .authorizedWhenInUse:
                 source.requestWhenInUseAuthorization()

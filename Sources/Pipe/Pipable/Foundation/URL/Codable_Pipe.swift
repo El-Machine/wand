@@ -40,10 +40,14 @@ extension Dictionary {
         try! JSONSerialization.data(withJSONObject: p, options: [])
     }
 
-    static public postfix func |<T: Rest.Model>(raw: Self) throws -> T {
-        try JSONDecoder().decode(T.self, from: raw|)
-    }
+}
 
+//public postfix func |<T: Rest.Model>(raw: [String: Any]?) throws -> T {
+//    try (raw!)|
+//}
+
+public postfix func |<T: Rest.Model>(raw: [String: Any]) throws -> T {
+    try JSONDecoder().decode(T.self, from: raw|)
 }
 
 extension Array {
@@ -53,13 +57,24 @@ extension Array {
     }
 
     static public postfix func |<T: Rest.Model>(raw: Self) throws -> [T] {
-        try JSONDecoder().decode(T.self, from: raw|) as! [T]
+        try JSONDecoder().decode([T].self, from: raw|)
     }
 
 }
 
 public
+postfix func |(resource: Pipe.Resource) throws -> Data {
+    try Data(contentsOf: resource|)
+}
+
+public
 postfix func |<T: Decodable> (resource: Pipe.Resource) throws -> T {
+    let data: Data = try Data(contentsOf: resource|)
+    return try data|
+}
+
+public
+postfix func |(resource: Pipe.Resource) throws -> [String: Any]? {
     let data: Data = try Data(contentsOf: resource|)
     return try data|
 }
