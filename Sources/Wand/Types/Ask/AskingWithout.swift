@@ -1,6 +1,4 @@
-// swift-tools-version:5.3
-//
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +19,57 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2020 El Machine
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "Wand",
-    defaultLocalization: "ru",
-    platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
-    ],
-    products: [
-        .library(
-            name: "Wand",
-            targets: ["Wand"]),
-    ],
-    targets: [
-        .target(
-            name: "Wand"),
-        .testTarget(
-            name: "WandTests",
-            dependencies: ["Wand"]),
-    ]
-)
+public protocol AskingWithout: Asking {
+
+}
+
+///   |{ T in
+///
+///   }
+@discardableResult
+public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
+    nil | Ask.every(handler: handler)
+}
+
+///  Ask for:
+///  - `every`
+///  - `one`
+///  - `while`
+///
+///   |.one { T in
+///
+///   }
+@discardableResult
+public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
+    nil | ask
+}
+
+///  Ask for:
+///  - `every`
+///  - `one`
+///  - `while`
+///
+///   |.one { T in
+///
+///   }
+@discardableResult
+public func |<T: Asking> (pipe: Wand?, ask: Ask<T>) -> Wand {
+    (pipe ?? Pipe()) as Any | ask
+}
+
+///  Chain
+///
+///  T.one | E.one
+///
+@discardableResult
+public func |<T: AskingWithout, E: AskingWithout>(wanded: Ask<T>, to: Ask<E>) -> Wand {
+    let wand = Wand()
+    T.ask(wanded, from: wand)
+    E.ask(to, from: wand)
+
+    return wand
+}

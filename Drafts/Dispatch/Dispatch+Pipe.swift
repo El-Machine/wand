@@ -92,3 +92,30 @@ public func | (p: DispatchTime, work: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: p, execute: work)
 }
 
+public postfix func | (quality: QualityOfService) -> DispatchQueue {
+    DispatchQueue.global(qos: quality|)
+}
+
+public postfix func | (piped: QualityOfService) -> DispatchQoS.QoSClass {
+
+    switch piped {
+        case .userInteractive:
+            return .userInteractive
+
+        case .userInitiated:
+            return .userInitiated
+
+        case .utility:
+            return .utility
+
+        case .background:
+            return .background
+
+        case .default:
+            return .default
+
+        @unknown default:
+            fatalError()
+    }
+
+}

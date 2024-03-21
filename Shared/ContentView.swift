@@ -9,12 +9,12 @@ import CoreBluetooth
 import CoreLocation
 
 import SwiftUI
-import Pipe
+import Wand
 
 struct ContentView: View {
 
     var body: some View {
-        Text("Hello, Pipe |").onAppear {
+        Text("Hello, Wand |").onAppear {
 
 
 
@@ -23,16 +23,16 @@ struct ContentView: View {
 //                    print()
 //                }
 
-            let uids: [CBUUID] = [.flipperZerof6,
-                                  .flipperZeroWhite,
-                                  .flipperZeroBlack]
-
-            let pipe = Pipeline()
-            pipe.store(uids)
-
-            pipe | { (peripheral: CBPeripheral) in
-                print(peripheral.name)
-            }
+//            let uids: [CBUUID] = [.flipperZerof6,
+//                                  .flipperZeroWhite,
+//                                  .flipperZeroBlack]
+//
+//            let pipe = Wand()
+//            pipe.store(uids)
+//
+//            pipe | { (peripheral: CBPeripheral) in
+//                print(peripheral.name)
+//            }
 
 
         }

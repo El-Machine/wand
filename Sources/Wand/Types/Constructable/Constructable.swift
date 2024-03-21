@@ -1,6 +1,4 @@
-// swift-tools-version:5.3
-//
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +19,52 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2020 El Machine
 //
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "Wand",
-    defaultLocalization: "ru",
-    platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
-    ],
-    products: [
-        .library(
-            name: "Wand",
-            targets: ["Wand"]),
-    ],
-    targets: [
-        .target(
-            name: "Wand"),
-        .testTarget(
-            name: "WandTests",
-            dependencies: ["Wand"]),
-    ]
-)
+/// Create object with default settings
+/// Use options to customize.
+public 
+protocol Constructable {
+
+    static func construct(from wand: Wand) -> Self
+
+}
+
+/// Construct on type
+public 
+postfix func |<T: Constructable>(type: T.Type) -> T {
+    T.construct(from: Wand())
+}
+
+/// Construct
+public 
+postfix func |<T: Constructable>(wand: Wand?) -> T {
+    if let wand {
+        return wand.get() ?? T.construct(from: wand)
+    }
+
+    return T.construct(from: Wand())
+}
+
+/// Construct with settings
+public 
+postfix func |<P, T: Constructable>(settings: P) -> T {
+    let wand = Wand.attach(to: settings)
+
+    let object: T? = wand.get()
+    return object ?? T.construct(from: wand)
+}
+
+public extension Pipe {
+
+    /// Create Constructable if need
+    /// - Parameter key: Stroring key
+    /// - Returns: T
+    func get <T: Constructable> (for key: String? = nil) -> T {
+        let object: T? = get(for: key)
+        return object ?? self|
+    }
+    
+}

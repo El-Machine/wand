@@ -1,6 +1,4 @@
-// swift-tools-version:5.3
-//
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +19,24 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2020 El Machine
 //
 
-import PackageDescription
+import Foundation.NSNotification
 
-let package = Package(
-    name: "Wand",
-    defaultLocalization: "ru",
-    platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
-    ],
-    products: [
-        .library(
-            name: "Wand",
-            targets: ["Wand"]),
-    ],
-    targets: [
-        .target(
-            name: "Wand"),
-        .testTarget(
-            name: "WandTests",
-            dependencies: ["Wand"]),
-    ]
-)
+/**Pipe.Constructable
+
+ postfix |(piped: Any?) -> CMPedometer
+
+ #Usage
+ ```
+ let pedometer: CMPedometer = nil|
+ ```
+
+ */
+extension NotificationCenter: Constructable {
+
+    public static func construct(from wand: Wand) -> Self {
+        Self.default as! Self
+    }
+
+}

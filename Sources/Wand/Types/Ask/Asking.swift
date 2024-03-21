@@ -1,6 +1,4 @@
-// swift-tools-version:5.3
-//
-//  Copyright (c) 2020-2021 El Machine (http://el-machine.com/)
+//  Copyright © 2020-2022 El Machine 🤖
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +19,36 @@
 //  THE SOFTWARE.
 //
 //  Created by Alex Kozin
-//  2020 El Machine
 //
 
-import PackageDescription
+public protocol Asking {
 
-let package = Package(
-    name: "Wand",
-    defaultLocalization: "ru",
-    platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
-    ],
-    products: [
-        .library(
-            name: "Wand",
-            targets: ["Wand"]),
-    ],
-    targets: [
-        .target(
-            name: "Wand"),
-        .testTarget(
-            name: "WandTests",
-            dependencies: ["Wand"]),
-    ]
-)
+    //TODO: static func |<C> (context: C?, ask: Ask<Self>) -> Pipe
+    static func ask<T: Asking>(_ ask: Ask<T>, from pipe: Wand)
+
+}
+
+///   context | { T in
+///
+///   }
+@discardableResult
+public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
+    context | Ask.every(handler: handler)
+}
+
+
+///  Ask for:
+///  - `every`
+///  - `one`
+///  - `while`
+///
+///   context | .one { T in
+///
+///   }
+@discardableResult
+public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
+    let pipe = Wand.attach(to: context)
+    T.ask(ask, from: pipe)
+
+    return pipe
+}
