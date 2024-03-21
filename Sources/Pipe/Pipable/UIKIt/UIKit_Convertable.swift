@@ -99,9 +99,10 @@ public postfix func |(p: (rect: CGRect, rounding: UIRectCorner, radii: CGSize)) 
 
 //UIImage
 public postfix func |(p: String) -> UIImage {
-    UIImage(named: p)!
+    (p|)!
 }
 
+@inline(__always)
 public postfix func |(piped: String) -> UIImage? {
     UIImage(named: piped)
 }
@@ -111,7 +112,7 @@ public postfix func |(p: String?) -> UIImage? {
         return nil
     }
     
-    return UIImage(named: name)
+    return name|
 }
 
 #endif

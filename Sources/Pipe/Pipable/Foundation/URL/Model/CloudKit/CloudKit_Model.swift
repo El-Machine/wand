@@ -31,52 +31,45 @@ struct CloudKit {
 }
 
 public
-protocol CloudKit_Model: Pipable, CKCodable {
+protocol CloudKit_Model: Model, Pipable {
 
     static var type: String {get}
-    
-    var identifier: String {get}
-    var id: Int {get}
 
+    var id: String? {get set}
+
+    var record: CKRecord? {get set}
+
+    init(_ record: CKRecord)
+    init(_ recordID: CKRecord.ID?)
+
+    func updatedRecord() -> CKRecord
 }
 
 public
 extension CloudKit_Model {
-    
+
     static var type: String {
         Self.self|
     }
-    
-    var identifier: String {
-        id|
-    }
-    
+
 }
 
 
 //GET
 @discardableResult
-func | <T: CloudKit.Model> (id: Int,
-                            get: Ask<T>.Get) -> Pipe {
+func | <S, T: CloudKit.Model> (scope: S,
+                               get: Ask<T>.Get) -> Pipe {
 
-    var pipe: Pipe!
-    pipe = id | .get { (record: CKRecord) in
-     
-        CKRecordDecoder().decode(T.self,
-                                 from: record,
-                                 referenceDatabase: pipe.get()) { (decoded, error) in
-            if let decoded {
-                pipe.put(decoded)
-            } else {
-                pipe.put(error!)
-            }
-            
-        }
-        
-        
-    }
+    let pipe = Pipe.attach(to: scope)
     guard pipe.ask(for: get) else {
         return pipe
+    }
+
+    pipe | .get { (record: CKRecord) in
+
+        let model = T(record)
+        pipe.put(model)
+
     }
     
     return pipe
@@ -85,7 +78,7 @@ func | <T: CloudKit.Model> (id: Int,
 //POST
 //https://jsonplaceholder.typicode.com/posts
 @discardableResult
-func | <T: CloudKit.Model> (postItem: CloudKit.Model,
+func | <T: CloudKit.Model> (postItem: T,
                             post: Ask<T>.Post) -> Pipe {
 
     let pipe = postItem.pipe
@@ -93,7 +86,7 @@ func | <T: CloudKit.Model> (postItem: CloudKit.Model,
         return pipe
     }
     
-    pipe.put(try! CKRecordEncoder().encode(postItem))
+    pipe.store([postItem.updatedRecord()])
 
     let o: CKModifyRecordsOperation = pipe.get()
     o.modifyRecordsResultBlock = { result in
@@ -105,7 +98,7 @@ func | <T: CloudKit.Model> (postItem: CloudKit.Model,
             
             case .failure(let e):
                 pipe.put(e)
-            
+     
         }
         
     }

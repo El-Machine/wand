@@ -25,8 +25,7 @@ import Foundation
 import UIKit
 
 public
-protocol Rest_Model: Asking, Codable {
-
+protocol Rest_Model: Model, Asking, Codable {
 
     static var base: String? {get}
     static var path: String {get}

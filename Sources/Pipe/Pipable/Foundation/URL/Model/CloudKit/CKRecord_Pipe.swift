@@ -45,9 +45,13 @@ extension CKRecord: Asking {
         }
 
         let o: CKFetchRecordsOperation = pipe.get()
-        
+
         let database: CKDatabase = pipe.get()
         database.add(o)
     }
+
+}
+
+extension [CKRecord]: Asking {
 
 }

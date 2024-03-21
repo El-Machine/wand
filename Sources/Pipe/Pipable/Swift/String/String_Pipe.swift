@@ -29,7 +29,6 @@ postfix func |(piped: Any) -> String {
     String(describing: piped)
 }
 
-
 public
 postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     guard let piped = p else {

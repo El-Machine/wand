@@ -224,6 +224,7 @@ extension Pipe {
 //Ask
 extension Pipe {
 
+    //Store expectation
     public func ask<T>(for ask: Ask<T>,
                        checkScope: Bool = false) -> Bool {
 

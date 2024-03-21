@@ -12,13 +12,13 @@ extension CKModifyRecordsOperation: Constructable {
 
     public static func construct(in pipe: Pipe) -> Self {
         
-        let config = CKOperation.Configuration()
-        config.isLongLived = true
-        config.qualityOfService = .default
-        
-        let operation = CKModifyRecordsOperation(recordsToSave: pipe.get())
-        operation.configuration = config
-        
+
+        let records: [CKRecord] = pipe.get()!
+
+        let operation = CKModifyRecordsOperation(recordsToSave: records)
+
+        operation.configuration = pipe.get()
+
         return operation as! Self   
     }
 

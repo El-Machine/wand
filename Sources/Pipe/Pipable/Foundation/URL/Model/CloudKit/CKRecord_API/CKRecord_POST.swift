@@ -7,27 +7,8 @@
 
 import CloudKit
 
-//GET
-//https://jsonplaceholder.typicode.com/posts/1
-@discardableResult
-func |(id: Int,
-       get: Ask<CKRecord>.Get) -> Pipe {
-
-    let pipe = Pipe(object: id)
-    guard pipe.ask(for: get) else {
-        return pipe
-    }
-    
-    let o: CKFetchRecordsOperation = pipe.get()
-    
-    let database: CKDatabase = pipe.get()
-    database.add(o)
-    
-    return pipe
-}
-
 //POST
-//https://jsonplaceholder.typicode.com/posts
+//Post item
 @discardableResult
 func | (postItem: CloudKit.Model,
         post: Ask<CKRecord>.Post) -> Pipe {
@@ -37,7 +18,7 @@ func | (postItem: CloudKit.Model,
         return pipe
     }
     
-    pipe.put(try! CKRecordEncoder().encode(postItem) as [CKRecord]?)
+    pipe.store([postItem.updatedRecord()])
 
     let o: CKModifyRecordsOperation = pipe.get()
     o.modifyRecordsResultBlock = { result in

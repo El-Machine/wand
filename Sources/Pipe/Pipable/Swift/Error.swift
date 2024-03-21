@@ -27,12 +27,17 @@ import CloudKit
 /**
  Add error handler
  - Parameters:
- - handler: Will be invoked only after error
+ - handler: Will be invoked after every error
  */
 @discardableResult
 public func | (piped: Pipable, handler: @escaping (Error)->() ) -> Pipe {
+    piped | .every(handler: handler)
+}
+
+@discardableResult
+public func | (piped: Pipable, ask: Ask<Error>) -> Pipe {
     let pipe = piped.pipe
-    _ = pipe.ask(for: .every(Error.self, handler: handler).inner())
+    _ = pipe.ask(for: ask.inner())
 
     return pipe
 }

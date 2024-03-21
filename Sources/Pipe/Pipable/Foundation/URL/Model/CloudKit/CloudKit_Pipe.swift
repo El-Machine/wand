@@ -37,3 +37,31 @@ extension CKRecord.ID: Constructable {
     }
 
 }
+
+extension CKOperation.Configuration: Constructable {
+
+    public static func construct(in pipe: Pipe) -> Self {
+
+        let config = Self()
+        config.isLongLived = true
+        config.qualityOfService = .default
+
+        return config
+    }
+
+}
+
+extension CKQuery: Constructable {
+
+    public static func construct(in pipe: Pipe) -> Self {
+
+        let q = CKQuery(
+            recordType: pipe.get()!,
+            predicate: pipe.get()!
+        )
+
+        q.sortDescriptors = pipe.get()
+        return q as! Self
+    }
+
+}

@@ -46,7 +46,7 @@ extension Dictionary {
 //    try (raw!)|
 //}
 
-public postfix func |<T: Rest.Model>(raw: [String: Any]) throws -> T {
+public postfix func |<T: Model>(raw: [String: Any]) throws -> T {
     try JSONDecoder().decode(T.self, from: raw|)
 }
 
@@ -56,7 +56,7 @@ extension Array {
         try! JSONSerialization.data(withJSONObject: p, options: [])
     }
 
-    static public postfix func |<T: Rest.Model>(raw: Self) throws -> [T] {
+    static public postfix func |<T: Model>(raw: Self) throws -> [T] {
         try JSONDecoder().decode([T].self, from: raw|)
     }
 

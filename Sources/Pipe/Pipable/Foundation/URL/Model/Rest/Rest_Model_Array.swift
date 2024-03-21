@@ -23,6 +23,10 @@
 
 import Foundation
 
+extension Array: Model where Element: Model {
+
+}
+
 extension Array: Rest.Model where Element: Rest.Model {
 
     public static var base: String? {

@@ -47,3 +47,19 @@ public postfix func |(piped: Int) -> Date {
 public postfix func | (piped: DateComponents) -> Date? {
     Calendar.current.date(from: piped)
 }
+
+public postfix func |(date: Date) -> String? {
+
+    let formatted: String?
+
+    if Calendar.current.isDateInToday(date) {
+        formatted = date | "HH:mm"
+    } else {
+        formatted = date | "dd.MM HH:mm"
+    }
+
+
+    return formatted
+}
+
+
