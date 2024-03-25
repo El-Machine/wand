@@ -27,36 +27,37 @@ import CoreMotion.CMPedometer
 
  #Usage
  ```
- |{ (data: CMPedometerEvent) in
+     |{ (data: CMPedometerEvent) in
 
- }
+     }
  ```
 
  */
 #if !os(macOS)
 
-extension CMPedometerEvent: AskingWithout, Pipable {
+extension CMPedometerEvent: AskingWithout {
+    
+    public
+    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
-
-        guard pipe.ask(for: ask) else {
+        guard wand.ask(for: ask) else {
             return
         }
 
-        let source: CMPedometer = pipe.get()
+        let source: CMPedometer = wand.obtain()
         
         source.startEventUpdates { (update, error) in
             if let error = error {
-                pipe.put(error)
+                wand.add(error)
                 return
             }
 
-            pipe.put(update!)
+            wand.add(update!)
         }
 
-        ask.cleaner = {
-            source.stopEventUpdates()
-        }
+//        ask.cleaner = {
+//            source.stopEventUpdates()
+//        }
         
     }
 

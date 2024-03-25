@@ -23,44 +23,42 @@
 
 import Foundation.NSNotification
 
-/**Pipable
-
- infix | (name: Notification.Name, handler: (Notification)->() ) -> Pipe
+/**
 
  #Usage
  ```
- UIApplication.didBecomeActiveNotification | { (n: Notification) in
+     UIApplication.didBecomeActiveNotification | { (n: Notification) in
 
- }
+     }
  ```
 
  */
 
 extension Notification: Asking {
-
+    
     public
-    static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
+    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-        let name: Notification.Name = pipe.get()!
+        let name: Notification.Name = wand.get()!
         let key = name.rawValue
 
         ask.key = key
 
-        guard pipe.ask(for: ask) else {
+        guard wand.ask(for: ask) else {
             return
         }
 
-        let center: NotificationCenter = pipe.get()
+        let center: NotificationCenter = wand.obtain()
 
         let token = center.addObserver(forName: name,
                                        object: nil,
                                        queue: nil) { notification in
-            pipe.put(notification, key: key)
+            wand.add(notification, for: key)
         }
 
-        ask.cleaner = {
-            center.removeObserver(token)
-        }
+//        ask.cleaner = {
+//            center.removeObserver(token)
+//        }
 
     }
 

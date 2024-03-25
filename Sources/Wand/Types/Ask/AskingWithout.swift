@@ -57,8 +57,8 @@ public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
 ///
 ///   }
 @discardableResult
-public func |<T: Asking> (pipe: Wand?, ask: Ask<T>) -> Wand {
-    (pipe ?? Pipe()) as Any | ask
+public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
+    wand ?? Wand() | ask
 }
 
 ///  Chain
@@ -68,8 +68,8 @@ public func |<T: Asking> (pipe: Wand?, ask: Ask<T>) -> Wand {
 @discardableResult
 public func |<T: AskingWithout, E: AskingWithout>(wanded: Ask<T>, to: Ask<E>) -> Wand {
     let wand = Wand()
-    T.ask(wanded, from: wand)
-    E.ask(to, from: wand)
+    T.ask(wanded, by: wand)
+    E.ask(to, by: wand)
 
     return wand
 }

@@ -7,21 +7,13 @@
 
 import CoreLocation.CLLocation
 
-/**Pipe.Convertable
-
- public postfix func |(coordinate: CLLocationCoordinate2D)
- public postfix func |(degrees: (CLLocationDegrees, CLLocationDegrees))
- public postfix func |(location: CLLocation) -> CLLocationCoordinate2D
-
- func | (to: CLLocationCoordinate2D?, from: CLLocationCoordinate2D?) -> CLLocationDistance?
- func | (to: CLLocationCoordinate2D, from: CLLocationCoordinate2D) -> CLLocationDistance
- func | (to: CLLocation, from: CLLocation) -> CLLocationDistance
+/**
 
  #Usage
  ```
-let location: CLLocation = coordinate|
- ```
+ let location: CLLocation = coordinate|
 
+ ```
  */
 
 //CLLocation

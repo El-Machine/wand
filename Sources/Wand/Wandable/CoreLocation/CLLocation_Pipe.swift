@@ -23,83 +23,50 @@
 
 import CoreLocation.CLLocation
 
+/**
 
-prefix func |(handler: @escaping (CLLocation)->()) -> Pipe {
-    Pipe() | .one(handler: handler)
-}
+ #Usage
+ ```
+     |{ (location: CLLocation) in
+
+     }
+
+     CLAuthorizationStatus.authorizedAlways | { (location: CLLocation) in
+
+     }
+
+ ```
+ */
 
 
-prefix func |(ask: Ask<CLLocation>) -> Pipe {
-    Pipe() | ask
-}
+extension CLLocation: AskingWithout {
 
-@discardableResult
-func |<T> (scope: T, ask: Ask<CLLocation>) -> Pipe {
+    public 
+    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-    let pipe = Pipe.attach(to: scope)
-
-    guard pipe.ask(for: ask) else {
-        return pipe
-    }
-
-    let source: CLLocationManager = pipe.get()
-
-    pipe | .while { (status: CLAuthorizationStatus) -> Bool in
-
-        guard status != .notDetermined else {
-            return true
+        guard wand.ask(for: ask) else {
+            return
         }
 
-        switch (ask.condition) {
-            case .one:
-                source.requestLocation()
+        let source: CLLocationManager = wand.obtain()
 
-            default:
-                source.startUpdatingLocation()
-        }
+        wand | .while { (status: CLAuthorizationStatus) -> Bool in
 
-        return false
-    }.inner()
+            guard status != .notDetermined else {
+                return true
+            }
 
-    ask.cleaner = {
-        source.stopUpdatingLocation()
+            switch ask {
+                case is Ask<T>.One:
+                    source.requestLocation()
+
+                default:
+                    source.startUpdatingLocation()
+            }
+
+            return false
+        }.inner()
+
     }
 
-    return pipe
 }
-
-
-//extension CLLocation: AskingWithout, Pipable {
-//
-//    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
-//
-//        guard pipe.ask(for: ask) else {
-//            return
-//        }
-//
-//        let source: CLLocationManager = pipe.get()
-//
-//        pipe | .while { (status: CLAuthorizationStatus) -> Bool in
-//
-//            guard status != .notDetermined else {
-//                return true
-//            }
-//
-//            switch (ask.condition) {
-//                case .one:
-//                    source.requestLocation()
-//
-//                default:
-//                    source.startUpdatingLocation()
-//            }
-//
-//            return false
-//        }.inner()
-//
-//        ask.cleaner = {
-//            source.stopUpdatingLocation()
-//        }
-//
-//    }
-//
-//}

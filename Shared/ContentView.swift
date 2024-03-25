@@ -14,7 +14,16 @@ import Wand
 struct ContentView: View {
 
     var body: some View {
+
         Text("Hello, Wand |").onAppear {
+
+            |.one { (l: CLLocation) in
+
+                print(l)
+            } | { (e: Error) in
+                print(e)
+
+            }
 
 
 

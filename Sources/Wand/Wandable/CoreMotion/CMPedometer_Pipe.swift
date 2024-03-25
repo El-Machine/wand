@@ -27,14 +27,15 @@ import CoreMotion.CMPedometer
 
  #Usage
  ```
- let pedometer: CMPedometer = nil|
+    let pedometer: CMPedometer = nil|
+
  ```
  
  */
-extension CMPedometer: Constructable {
+extension CMPedometer: Obtain {
 
-    public static func construct(in pipe: Pipe) -> Self {
-        pipe.put(Self())
+    public static func obtain(by wand: Wand?) -> Self {
+        Self()
     }
      
 }

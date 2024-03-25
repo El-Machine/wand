@@ -60,7 +60,7 @@ class Wand {
     private(set)
     var asking = [String: [AskFor]]()
 
-    #if TESTING
+//    #if TESTING
     
         init() {
             print("|💪🏽 #init\n\(self) ask \(asking)")
@@ -71,7 +71,7 @@ class Wand {
             print("|✅ #bonsua\n\(self)\n")
         }
 
-    #endif
+//    #endif
 
 }
  
@@ -337,13 +337,11 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
     public convenience init(array: [Any]) {
         self.init()
 
-        save(array)
+        save(sequence: array)
     }
 
     public convenience init(dictionaryLiteral elements: (String, Any)...) {
         self.init()
-
-        save(sequence: elements)
 
         elements.forEach { (key, object) in
             Wand[object] = self
@@ -360,25 +358,25 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
-    public static func attach<S>(to scope: S?) -> Wand {
+    public static func attach<S>(to context: S? = nil) -> Wand {
 
-        guard let scope else {
+        guard let context else {
             return Wand()
         }
 
-        if let wanded = scope as? Wanded {
+        if let wanded = context as? Wanded {
             return wanded.wand
         }
 
-        if let array = scope as? [Any] {
+        if let array = context as? [Any] {
             return Wand(array: array)
         }
 
-        if let dictionary = scope as? [String: Any] {
+        if let dictionary = context as? [String: Any] {
             return Wand(dictionary: dictionary)
         }
 
-        return Wand(for: scope)
+        return Wand(for: context)
     }
 
 }
@@ -398,8 +396,7 @@ extension Wand: Wanded {
 extension Wand: CustomStringConvertible, CustomDebugStringConvertible {
 
     public var description: String {
-        self|
-//        "| Wand \(String(format: "%p", address))"
+        "| Wand \(String(format: "%p", address))"
     }
 
     

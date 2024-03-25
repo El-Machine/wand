@@ -37,28 +37,28 @@ public struct Barcode {
 
 }
 
-public func |(piped: String?, type: Barcode.Generator) -> UIImage? {
-    piped?.data(using: .ascii) | type
+public func |(string: String?, type: Barcode.Generator) -> UIImage? {
+    string?.data(using: .ascii) | type
 }
 
-public func |(piped: String?, to: (type: Barcode.Generator,
+public func |(string: String?, to: (type: Barcode.Generator,
                                    size: CGSize?,
                                    colors: Barcode.Colors?)) -> UIImage? {
-    piped?.data(using: .ascii) | to
+    string?.data(using: .ascii) | to
 }
 
-public func |(piped: Data?, type: Barcode.Generator) -> UIImage? {
-    piped | (type: type, nil, nil)
+public func |(data: Data?, type: Barcode.Generator) -> UIImage? {
+    data | (type: type, nil, nil)
 }
 
-public func |(piped: Data?, to: (type: Barcode.Generator,
+public func |(data: Data?, to: (type: Barcode.Generator,
                                  size: CGSize?,
                                  colors: Barcode.Colors?)) -> UIImage? {
 
     guard let filter = CIFilter(name: to.type.rawValue) else {
         return nil
     }
-    filter.setValue(piped, forKey: "inputMessage")
+    filter.setValue(data, forKey: "inputMessage")
 
     guard var ciImage = filter.outputImage else {
         return nil

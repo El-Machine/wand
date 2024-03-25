@@ -49,7 +49,7 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "NO">
       <LocationScenarioReference
          identifier = "Mumbai, India"
          referenceType = "1">

@@ -23,52 +23,60 @@
 
 import CoreLocation.CLLocation
 
-/**Pipe.Constructable
-
- postfix |(piped: Any?) -> CLLocationManager
+/**
 
  #Usage
  ```
- let pedometer: CLLocationManager = nil|
+ let manager: CLLocationManager = nil|
+
  ```
-
  */
-extension CLLocationManager: Constructable {
+extension CLLocationManager: Obtain {
 
-    public static func construct(in pipe: Pipe) -> Self {
+    public static func obtain(by wand: Wand?) -> Self {
 
         let source = Self()
-        source.desiredAccuracy = pipe.get(for: "CLLocationAccuracy") ??                                                     kCLLocationAccuracyThreeKilometers
+        source.desiredAccuracy = wand?.get(for: "CLLocationAccuracy") ??                                                     kCLLocationAccuracyThreeKilometers
 
-        source.distanceFilter = pipe.get(for: "CLLocationDistance") ?? 100
+        source.distanceFilter = wand?.get(for: "CLLocationDistance") ?? 100
 
-        source.delegate = pipe.put(Delegate())
+        let wand = wand ?? Wand()
+        source.delegate = wand.add(Delegate())
 
-        return pipe.put(source)
+        return source
     }
     
 }
 
 extension CLLocationManager {
     
-    class Delegate: NSObject, CLLocationManagerDelegate, Pipable {
-        
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    class Delegate: NSObject, CLLocationManagerDelegate, Wanded {
+
+        func locationManager(_ manager: CLLocationManager, 
+                             didUpdateLocations locations: [CLLocation]) {
+
             if let last = locations.last {
-                isPiped?.put(last)
+                isWanded?.add(last)
             }
 
             if locations.count > 1 {
-                isPiped?.put(locations)
+                isWanded?.add(locations)
             }
+
         }
 
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            isPiped?.put(error)
+        func locationManager(_ manager: CLLocationManager, 
+                             didFailWithError error: Error) {
+
+            isWanded?.add(error)
+
         }
 
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            isPiped?.put(status)
+        func locationManager(_ manager: CLLocationManager, 
+                             didChangeAuthorization status: CLAuthorizationStatus) {
+
+            isWanded?.add(status)
+
         }
         
     }

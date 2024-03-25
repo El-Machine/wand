@@ -23,47 +23,53 @@
 
 import Contacts.CNContact
 
-///
-/// #Usage
-/// ```
-///
-///   |{ (contact: CNContact) in
-///
-///   }
-///
-///   CNContact.predicateForContacts(matchingName: "John Appleseed") | .every { (contact: CNContact) in
-///
-///   }
-///
-/// ```
-///
+/**
+
+ #Usage
+ ```
+ |{ (contact: CNContact) in
+
+ }
+
+ CNContact.predicateForContacts(matchingName: "John Appleseed")
+ | .every { (contact: CNContact) in
+
+ }
+
+ ```
+ */
 extension CNContact: Asking {
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) {
+    public static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-        guard pipe.ask(for: ask) else {
+        guard wand.ask(for: ask) else {
             return
         }
 
-        let source: CNContactStore  = pipe.get()
-        let keys: [CNKeyDescriptor] = pipe.get() ?? []
+        let source: CNContactStore  = wand.obtain()
+        let keys: [CNKeyDescriptor] = wand.get() ?? []
 
         source.requestAccess(for: .contacts) { granted, error in
             guard granted else {
                 return
             }
-            
-            let request = CNContactFetchRequest(keysToFetch: keys)
-            request.predicate = pipe.get()
-            do {
-                try source.enumerateContacts(with: request) { contact, stop in
-                    pipe.put(contact)
+
+            DispatchQueue.global().async {
+
+                let request = CNContactFetchRequest(keysToFetch: keys)
+                request.predicate = wand.get()
+                do {
+                    try source.enumerateContacts(with: request) { contact, stop in
+                        wand.add(contact)
+                    }
+                } catch {
+                    print(error)
                 }
-            } catch {
-                print(error)
+
             }
+
         }
 
     }
-    
+
 }

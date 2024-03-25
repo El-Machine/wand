@@ -27,34 +27,33 @@ import CoreLocation.CLLocation
 
  #Usage
  ```
- |{ (permissions: CLAuthorizationStatus) in
+     |{ (permissions: CLAuthorizationStatus) in
 
- }
+     }
 
- CLAuthorizationStatus.authorizedAlways | { (permissions: CLAuthorizationStatus) in
+     CLAuthorizationStatus.authorizedAlways | { (permissions: CLAuthorizationStatus) in
 
- }
+     }
 
  ```
-
  */
-extension CLAuthorizationStatus: AskingWithout, Pipable {
+extension CLAuthorizationStatus: AskingWithout {
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+    public static func ask<T>(_ ask: Ask<T>, by wand: Wand)  {
 
-        guard pipe.ask(for: ask) else {
+        guard wand.ask(for: ask) else {
             return
         }
 
-        let source: CLLocationManager       = pipe.get()
-        let asking: CLAuthorizationStatus?  = pipe.get()
+        let source: CLLocationManager       = wand.obtain()
+        let asking: CLAuthorizationStatus?  = wand.get()
 
         switch asking {
 
-//        #if !APPCLIP
-//            case .authorizedAlways:
-//                source.requestAlwaysAuthorization()
-//        #endif
+        #if !APPCLIP
+            case .authorizedAlways:
+                source.requestAlwaysAuthorization()
+        #endif
 
             case .none, .authorizedWhenInUse:
                 source.requestWhenInUseAuthorization()
@@ -106,8 +105,7 @@ public
 postfix func | (manager: CLLocationManager? = nil) -> CLAuthorizationStatus {
 
     if #available(iOS 14.0, macOS 11.0, *) {
-        let manager = manager ?? Pipe().get()
-        return manager.authorizationStatus
+        return manager|.authorizationStatus
     } else {
         return CLLocationManager.authorizationStatus()
     }

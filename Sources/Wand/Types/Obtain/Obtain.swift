@@ -37,14 +37,20 @@ postfix func |<T: Obtain>(type: T.Type) -> T {
 
 public 
 postfix func |<T: Obtain>(wand: Wand?) -> T {
-    wand?.get() ?? T.obtain(by: wand)
+    wand?.get() ?? {
+
+        let object = T.obtain(by: wand)
+        return wand?.add(object) ?? object
+
+
+    }()
 }
 
 public
 extension Wand {
 
     func obtain <T: Obtain> (for key: String? = nil) -> T {
-        get(for: key) ?? self|
+        get(for: key, or: T.obtain(by: self))
     }
     
 }
@@ -52,4 +58,11 @@ extension Wand {
 public
 postfix func |<C, T: Obtain>(context: C) -> T {
     Wand.attach(to: context).obtain()
+}
+
+
+//Obtain unwrap
+public
+postfix func |<T: Obtain> (object: T?) -> T {
+    object ?? T.self|
 }

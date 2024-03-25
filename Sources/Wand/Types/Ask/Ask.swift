@@ -32,120 +32,88 @@ public
 class Ask<T>: AskFor {
 
     var key: String?
+    let handler: (T)->(Bool)
 
     //Inner is not asked by user
-    public private(set)
-    var isInner: Bool = false
+    public 
+    var isInner: Bool {
+        false
+    }
 
-    func inner() -> Self {
-        isInner = true
-        return self
+    func inner() -> Inner {
+        Inner(key: key, handler: handler)
+    }
+
+    required
+    init(key: String? = nil,
+         handler: @escaping (T) -> (Bool)) {
+
+        self.key = key
+        self.handler = handler
     }
 
     func handle(_ object: T) -> Bool {
-        fatalError()
-    }
-
-    public
-    class Every: Ask {
-
-        let handler: ( (T)->() )?
-
-        required 
-        init(key: String? = nil,
-             handler: ( (T)->() )? = nil) {
-
-            self.handler = handler
-            super.init()
-            self.key = key
-
-        }
-
-        override func handle(_ object: T) -> Bool {
-            handler?(object)
-            return true
-        }
-
-    }
-
-    public
-    class One: Ask {
-
-        let handler: ( (T)->() )?
-
-        required
-        init(key: String? = nil,
-             handler: ( (T)->() )? = nil) {
-
-            self.handler = handler
-            super.init()
-            self.key = key
-
-        }
-
-        override func handle(_ object: T) -> Bool {
-            handler?(object)
-            return true
-        }
-
-    }
-
-    public
-    class While: Ask {
-
-        let handler: (T)->(Bool)
-
-        required
-        init(key: String? = nil,
-             handler: @escaping (T) -> (Bool)) {
-
-            self.handler = handler
-            super.init()
-            self.key = key
-
-        }
-
-        override func handle(_ object: T) -> Bool {
-            handler(object)
-        }
-
+        handler(object)
     }
 
 }
 
+public
 extension Ask {
 
-    public
+    class Every: Ask {
+    }
+
+    class One: Ask {
+    }
+
+    class Inner: Ask {
+
+        public 
+        override var isInner: Bool {
+            true
+        }
+    }
+
+}
+
+public
+extension Ask {
+
     static func every(_ type: T.Type? = nil,
                       key: String? = nil,
                       handler: ( (T)->() )? = nil ) -> Ask.Every {
-        .Every(key: key, handler: handler)
+        .Every(key: key) {
+            handler?($0)
+            return true
+        }
     }
 
-    public
     static func one(_ type: T.Type? = nil,
                     key: String? = nil,
                     handler: ( (T)->() )? = nil ) -> Ask.One {
-        .One(key: key, handler: handler)
+        .One(key: key) {
+            handler?($0)
+            return false
+        }
     }
 
-    public
     static func `while`(key: String? = nil,
-                        handler: @escaping (T)->(Bool) ) -> Ask.While {
-        .While(key: key, handler: handler)
+                        handler: @escaping (T)->(Bool) ) -> Ask {
+        Ask(key: key, handler: handler)
     }
 
 }
 
 //Sugar
+public
 extension Ask {
 
     //While counting
-    public
     static func `while`(key: String? = nil,
-                        handler: @escaping (T, Int)->(Bool) ) -> Ask.While {
+                        handler: @escaping (T, Int)->(Bool) ) -> Ask {
         var i = 0
-        return .While(key: key) {
+        return Ask(key: key) {
             defer {
                 i += 1
             }

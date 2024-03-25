@@ -21,10 +21,10 @@
 //  Created by Alex Kozin
 //
 
-public protocol Asking {
+public protocol Asking: Wanded {
 
-    //TODO: static func |<C> (context: C?, ask: Ask<Self>) -> Pipe
-    static func ask<T: Asking>(_ ask: Ask<T>, from pipe: Wand)
+    //TODO: static func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand
+    static func ask<T>(_ ask: Ask<T>, by wand: Wand)
 
 }
 
@@ -47,8 +47,15 @@ public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
 ///   }
 @discardableResult
 public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
-    let pipe = Wand.attach(to: context)
-    T.ask(ask, from: pipe)
+    let wand = Wand.attach(to: context)
+    T.ask(ask, by: wand)
 
-    return pipe
+    return wand
+}
+
+@discardableResult
+public func |<T: Asking> (wand: Wand, ask: Ask<T>) -> Wand {
+
+    T.ask(ask, by: wand)
+    return wand
 }

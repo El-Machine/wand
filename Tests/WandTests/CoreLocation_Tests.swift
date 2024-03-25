@@ -33,7 +33,7 @@ class CoreLocation_Tests: XCTestCase {
         let e = expectation()
         e.assertForOverFulfill = false
 
-        |{ (location: CLLocation) in
+        |.one { (location: CLLocation) in
             e.fulfill()
         }
 
@@ -54,16 +54,16 @@ class CoreLocation_Tests: XCTestCase {
         ])
         let distance = ((100...420)| as Int)| as Double
 
-        let pipe: Pipeline = ["CLLocationAccuracy": accuracy,
+        let pipe: Wand = ["CLLocationAccuracy": accuracy,
                               "CLLocationDistance": distance]
-        let piped = pipe.scope
+        let piped = pipe.context
 
-        pipe | { (location: CLLocation) in
+        pipe | .one { (location: CLLocation) in
             e.fulfill()
         }
 
 
-        let manager: CLLocationManager = pipe.get()
+        let manager: CLLocationManager = pipe.obtain()
         XCTAssertEqual(manager.desiredAccuracy,
                        piped["CLLocationAccuracy"] as! CLLocationAccuracy)
         XCTAssertEqual(manager.distanceFilter,
@@ -76,7 +76,7 @@ class CoreLocation_Tests: XCTestCase {
         let e = expectation()
         e.assertForOverFulfill = false
 
-        |{ (status: CLAuthorizationStatus) in
+        |.one { (status: CLAuthorizationStatus) in
             e.fulfill()
         }
 

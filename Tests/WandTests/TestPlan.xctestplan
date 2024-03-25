@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "B4508A69-AE5D-4D6C-8AB7-A27789A6E873",
+      "id" : "D88E04D5-664A-4424-9DF9-D06EACB44998",
       "name" : "Configuration 1",
       "options" : {
 
@@ -14,9 +14,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:Sandbox.xcodeproj",
-        "identifier" : "612C1066286EF4AE00943603",
-        "name" : "SandboxTests"
+        "containerPath" : "container:Wand.xcodeproj",
+        "identifier" : "pipe::PipeTests",
+        "name" : "WandTests"
       }
     }
   ],

@@ -30,15 +30,13 @@ import CloudKit
  - handler: Will be invoked after every error
  */
 @discardableResult
-public func | (wanded: Wanded, handler: @escaping (Error)->() ) -> Wand {
-    wanded | .every(handler: handler)
+public func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
+    wand | .every(handler: handler)
 }
 
 @discardableResult
-public func | (wanded: Wanded, ask: Ask<Error>) -> Wand {
-    let wand = wanded.wand
+public func | (wand: Wand, ask: Ask<Error>) -> Wand {
     _ = wand.ask(for: ask.inner())
-
     return wand
 }
 
@@ -61,7 +59,7 @@ public func | (wanded: Wanded, ask: Ask<Error>) -> Wand {
 //    return pipe
 //}
 
-extension Pipe {
+extension Wand {
 
     struct Error: Swift.Error {
 

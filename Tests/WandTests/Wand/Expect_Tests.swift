@@ -21,10 +21,10 @@ class Expect_T_Tests: XCTestCase {
         let e = expectation()
         e.expectedFulfillmentCount = count
 
-        var last: Vector!
+        var last: Vector?
 
         //Wait for 'count' Vectors
-        weak var pipe: Pipeline!
+        weak var pipe: Wand!
         pipe = |.every { (vector: Vector) in
             //Is equal?
             if vector == last {
@@ -37,7 +37,7 @@ class Expect_T_Tests: XCTestCase {
             let vector = Vector.any
             last = vector
 
-            pipe.put(vector)
+            pipe.add(vector)
         }
 
         waitForExpectations(timeout: .default)
@@ -51,12 +51,12 @@ class Expect_T_Tests: XCTestCase {
 
         let vector = Vector.any
 
-        weak var pipe: Pipeline!
+        weak var pipe: Wand!
         pipe = |.one { (vector: Vector) in
             e.fulfill()
         }
 
-        pipe.put(vector)
+        pipe.add(vector)
 
         waitForExpectations()
         XCTAssertNil(pipe)
@@ -66,13 +66,13 @@ class Expect_T_Tests: XCTestCase {
 
         func put() {
             DispatchQueue.main.async {
-                pipe.put(Vector.any)
+                pipe.add(Vector.any)
             }
         }
 
         let e = expectation()
 
-        weak var pipe: Pipeline!
+        weak var pipe: Wand!
         pipe = |.while { (vector: Vector) in
 
             if vector.id == 2 {
@@ -110,13 +110,13 @@ fileprivate struct Vector: Equatable, Any_ {
 
 extension Vector: AskingWithout {
 
-    static func ask<T>(_ ask: Ask<T>, from pipe:Pipeline) {
+    static func ask<T>(_ ask: Ask<T>, by wand:Wand) {
 
-        if pipe.ask(for: ask) {
+        if wand.ask(for: ask) {
             //Strong reference to pipe
-            ask.cleaner = {
-                print(pipe.description)
-            }
+//            ask.cleaner = {
+//                print(wand.description)
+//            }
         }
 
     }

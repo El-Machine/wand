@@ -23,16 +23,6 @@
 
 import Foundation.NSNotification
 
-/**Pipe.Constructable
-
- postfix |(piped: Any?) -> CMPedometer
-
- #Usage
- ```
- let pedometer: CMPedometer = nil|
- ```
-
- */
 extension NotificationCenter: Obtain {
 
     public

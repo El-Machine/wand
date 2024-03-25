@@ -22,56 +22,40 @@
 //  2020 El Machine
 //
 
-import Contacts
+import CoreMotion
 
 import Wand
 import XCTest
 
-class Contacts_Tests: XCTestCase {
-    
-    func test_CNContact() {
-        let e = expectation()
+class CoreMotion_Tests: XCTestCase {
 
-        |.one { (contact: CNContact) in
+#if !targetEnvironment(simulator)
+
+    func test_CMPedometerEvent() {
+        let e = expectation()
+        e.assertForOverFulfill = false
+
+        |.one { (event: CMPedometerEvent) in
             e.fulfill()
         }
 
         waitForExpectations()
     }
 
-    func test_CNContact_Predicate() {
-        let e = expectation()
+    //Test it while walking
+//    func test_CMPedometerData() {
+//        let e = expectation()
+//
+//        |{ (location: CMPedometerData) in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
 
-        CNContact.predicateForContacts(matchingName: "John Appleseed") | Ask.every { (contact: CNContact) in
+#endif
 
-            //Only one John Appleseed exist!
-            e.fulfill()
-
-        }
-
-        waitForExpectations()
+    func test_CMPedometer() {
+        XCTAssertNotNil(CMPedometer.self|)
     }
-
-    func test_CNContact_Predicate_Keys() {
-        let e = expectation()
-
-
-        let predicate = CNContact.predicateForContacts(matchingName: "John Appleseed")
-        let keys: [CNKeyDescriptor] = [CNContactFamilyNameKey as NSString]
-
-         [predicate, keys] | Ask.every { (contact: CNContact) in
-
-            //Only one John Appleseed exist!
-            if contact.familyName == "Appleseed" {
-                e.fulfill()
-            }
-        }
-
-        waitForExpectations()
-    }
-
-    func test_CNContactStore() {
-        XCTAssertNotNil(CNContactStore.self|)
-    }
-
 }

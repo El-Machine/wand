@@ -35,45 +35,50 @@ extension Wanded {
     var wand:       Wand    {
         isWanded ?? Wand(for: self)
     }
+
     var isWanded:   Wand?   {
         Wand[self]
     }
 
 }
 
-extension Optional {
+extension Optional: Wanded {
 
+    public
     var pipe: Wand {
         isPiped ?? Wand.attach(to: self)
     }
 
+    public
     var isPiped: Wand? {
         Wand[self]
     }
 
 }
 
-//public extension Pipable where Self: AnyObject {
-//
-//    var address: Int {
-//        Int(bitPattern: Unmanaged.passUnretained(self).toOpaque())
-//    }
-//
-//}
-//
-//public extension Pipable {
-//
-//    var address: Int {
-//        var address: Int!
-//        var mutable = self
-//        withUnsafePointer(to: &mutable) { pointer in
-//            address = Int(bitPattern: pointer)
-//        }
-//
-//        return address!
-//    }
-//
-//}
+public 
+extension Wanded where Self: AnyObject {
+
+    var address: Int {
+        Int(bitPattern: Unmanaged.passUnretained(self).toOpaque())
+    }
+
+}
+
+public 
+extension Wanded {
+
+    var address: Int {
+        var address: Int!
+        var mutable = self
+        withUnsafePointer(to: &mutable) { pointer in
+            address = Int(bitPattern: pointer)
+        }
+
+        return address!
+    }
+
+}
 
 //NO FUCKING WAY, it breaks Pipe.attach(to: array)
 //extension Array: Pipable {

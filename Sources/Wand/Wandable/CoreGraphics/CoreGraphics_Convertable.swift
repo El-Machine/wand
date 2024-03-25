@@ -28,8 +28,8 @@ public postfix func |(p: (x: CGFloat, y: CGFloat)) -> CGPoint {
     CGPoint(x: p.0, y: p.1)
 }
 
-public postfix func |(piped: Int) -> CGPoint {
-    CGPoint(x: piped, y: piped)
+public postfix func |(value: Int) -> CGPoint {
+    CGPoint(x: value, y: value)
 }
 
 //CGRect

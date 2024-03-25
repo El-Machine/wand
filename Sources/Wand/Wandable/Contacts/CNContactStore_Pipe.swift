@@ -23,11 +23,19 @@
 
 import Contacts.CNContactStore
 
-extension CNContactStore: Constructable {
+/**
 
-    public
-    static func construct(in pipe: Pipe) -> Self {
-        pipe.put(Self())
+ #Usage
+ ```
+    let store = CNContactStore.self|
+
+ ```
+ */
+extension CNContactStore: Obtain {
+
+    public 
+    static func obtain(by wand: Wand?) -> Self {
+        Self()
     }
 
 }

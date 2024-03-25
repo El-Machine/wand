@@ -13,24 +13,24 @@ import XCTest
 
 class Pipe_Tests: XCTestCase {
 
-    weak var pipe: Pipeline?
+    weak var pipe: Wand?
 
     func test_put() throws {
-        let pipe = Pipeline()
+        let pipe = Wand()
         self.pipe = pipe
 
         let struct_ = CLLocationCoordinate2D.any
-        pipe.put(struct_)
+        pipe.add(struct_)
 
         let custom_struct = Custom(foo: .any)
-        pipe.put(custom_struct)
+        pipe.add(custom_struct)
 
-        let class_ = pipe.put(CLLocation.any)
+        let class_ = pipe.add(CLLocation.any)
 
 
         let custom_class = CustomClass()
         custom_class.foo = .any
-        pipe.put(custom_class)
+        pipe.add(custom_class)
 
         // piped equals original
         let piped_struct: CLLocationCoordinate2D = try XCTUnwrap(pipe.get())
@@ -48,23 +48,23 @@ class Pipe_Tests: XCTestCase {
         pipe.close()
     }
 
-    func test_putPipable() throws {
-        let pipe = Pipeline()
-        self.pipe = pipe
+    func test_putWanded() throws {
+        let wand = Wand()
+        self.pipe = wand
 
         let original = CLLocation(latitude: (-90...90)|,
                                   longitude: (-180...180)|)
-        pipe.put(original)
+        wand.add(original)
 
         // piped equals original
-        let piped: CLLocation = try XCTUnwrap(pipe.get())
+        let piped: CLLocation = try XCTUnwrap(wand.get())
         XCTAssertEqual(original, piped)
 
         // pipe is same
-        XCTAssertTrue(pipe === piped.pipe)
-        XCTAssertTrue(original.pipe === piped.pipe)
+        XCTAssertTrue(wand === piped.wand)
+        XCTAssertTrue(original.wand === piped.wand)
 
-        pipe.close()
+        wand.close()
     }
 
     func test_closed() throws {
