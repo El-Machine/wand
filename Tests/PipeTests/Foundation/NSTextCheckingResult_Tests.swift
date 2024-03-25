@@ -8,7 +8,7 @@
 
 import Foundation.NSTextCheckingResult
 
-import Pipe
+import Wand
 import XCTest
 
 class NSTextCheckingResultCheckingType_Tests: XCTestCase {

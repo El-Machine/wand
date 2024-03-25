@@ -23,7 +23,6 @@
 
 import Foundation
 
-
 public func | (date: Date?, style: (date: DateFormatter.Style,
                                     time: DateFormatter.Style)) -> String? {
 
@@ -46,16 +45,15 @@ public func | (date: Date?, format: String) -> String? {
 }
 
 //DateFormatter
-extension DateFormatter: Constructable {
+extension DateFormatter: Obtain {
 
-    public
-    static func construct(from wand: Wand) -> Self {
-
+    public 
+    static func obtain(by wand: Wand?) -> Self {
         let formatter = Self()
 
         //TODO: both is required?
         if let style: (date: DateFormatter.Style,
-                       time: DateFormatter.Style) = wand.get() {
+                       time: DateFormatter.Style) = wand?.get() {
 
             formatter.dateStyle = style.0
             formatter.timeStyle = style.1
@@ -63,7 +61,7 @@ extension DateFormatter: Constructable {
             return formatter
         }
 
-        if let format: String = wand.get() {
+        if let format: String = wand?.get() {
             formatter.dateFormat = format
 
             return formatter

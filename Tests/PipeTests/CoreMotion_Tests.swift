@@ -24,7 +24,7 @@
 
 import CoreMotion
 
-import Pipe
+import Wand
 import XCTest
 
 class CoreMotion_Tests: XCTestCase {

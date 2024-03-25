@@ -9,7 +9,7 @@
 import CoreLocation
 import CoreMotion
 
-import Pipe
+import Wand
 import XCTest
 
 class Expect_T_Tests: XCTestCase {

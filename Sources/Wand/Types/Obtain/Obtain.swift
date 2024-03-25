@@ -23,48 +23,33 @@
 
 import Foundation
 
-/// Create object with default settings
-/// Use options to customize.
 public 
-protocol Constructable {
+protocol Obtain {
 
-    static func construct(from wand: Wand) -> Self
+    static func obtain(by wand: Wand?) -> Self
 
 }
 
-/// Construct on type
 public 
-postfix func |<T: Constructable>(type: T.Type) -> T {
-    T.construct(from: Wand())
+postfix func |<T: Obtain>(type: T.Type) -> T {
+    T.obtain(by: nil)
 }
 
-/// Construct
 public 
-postfix func |<T: Constructable>(wand: Wand?) -> T {
-    if let wand {
-        return wand.get() ?? T.construct(from: wand)
-    }
-
-    return T.construct(from: Wand())
+postfix func |<T: Obtain>(wand: Wand?) -> T {
+    wand?.get() ?? T.obtain(by: wand)
 }
 
-/// Construct with settings
-public 
-postfix func |<P, T: Constructable>(settings: P) -> T {
-    let wand = Wand.attach(to: settings)
+public
+extension Wand {
 
-    let object: T? = wand.get()
-    return object ?? T.construct(from: wand)
-}
-
-public extension Pipe {
-
-    /// Create Constructable if need
-    /// - Parameter key: Stroring key
-    /// - Returns: T
-    func get <T: Constructable> (for key: String? = nil) -> T {
-        let object: T? = get(for: key)
-        return object ?? self|
+    func obtain <T: Obtain> (for key: String? = nil) -> T {
+        get(for: key) ?? self|
     }
     
+}
+
+public
+postfix func |<C, T: Obtain>(context: C) -> T {
+    Wand.attach(to: context).obtain()
 }

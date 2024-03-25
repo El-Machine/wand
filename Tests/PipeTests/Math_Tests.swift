@@ -23,7 +23,7 @@
 //
 
 #if canImport(Pipe)
-import Pipe
+import Wand
 #endif
 
 import XCTest

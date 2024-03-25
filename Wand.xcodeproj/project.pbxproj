@@ -44,6 +44,7 @@
 		6162628928BC957500D63EA5 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627A28BC957500D63EA5 /* CoreLocation_any.swift */; };
 		6162628A28BC957500D63EA5 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627B28BC957500D63EA5 /* TestTools.swift */; };
 		6165343229CB296500541CBA /* REST_Array_GET_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61386BD2293A0362009B893F /* REST_Array_GET_Tests.swift */; };
+		617E80422BAD497900BD03B3 /* Pipe_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627028BC957500D63EA5 /* Pipe_Tests.swift */; };
 		6195667029A3496200167A08 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666D29A3496200167A08 /* Asking.swift */; };
 		6195667129A3496200167A08 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666E29A3496200167A08 /* Ask.swift */; };
 		6195667229A3496200167A08 /* AskingWithout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666F29A3496200167A08 /* AskingWithout.swift */; };
@@ -81,7 +82,7 @@
 		OBJ_196 /* UIEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* UIEvent_Pipe.swift */; };
 		OBJ_200 /* Visible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Visible.swift */; };
 		OBJ_204 /* Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Wand.swift */; };
-		OBJ_205 /* Constructable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* Constructable.swift */; };
+		OBJ_205 /* Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* Obtain.swift */; };
 		OBJ_213 /* |.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* |.swift */; };
 		OBJ_220 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_254 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
@@ -251,7 +252,7 @@
 		OBJ_84 /* VNObservation_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNObservation_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_85 /* VNRequest_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNRequest_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_86 /* Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand.swift; sourceTree = "<group>"; };
-		OBJ_89 /* Constructable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constructable.swift; sourceTree = "<group>"; };
+		OBJ_89 /* Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtain.swift; sourceTree = "<group>"; };
 		"pipe::Pipe::Product" /* Wand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Wand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"pipe::PipeTests::Product" /* WandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = WandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -772,17 +773,17 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_92 /* Ask */,
-				OBJ_88 /* Constructable */,
+				OBJ_88 /* Obtain */,
 			);
 			path = Types;
 			sourceTree = "<group>";
 		};
-		OBJ_88 /* Constructable */ = {
+		OBJ_88 /* Obtain */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_89 /* Constructable.swift */,
+				OBJ_89 /* Obtain.swift */,
 			);
-			path = Constructable;
+			path = Obtain;
 			sourceTree = "<group>";
 		};
 		OBJ_9 /* Wandable */ = {
@@ -865,7 +866,6 @@
 			buildPhases = (
 				OBJ_148 /* Sources */,
 				OBJ_214 /* Frameworks */,
-				61024FD229CDB94E00AFB3F3 /* Bump */,
 			);
 			buildRules = (
 			);
@@ -982,29 +982,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		61024FD229CDB94E00AFB3F3 /* Bump */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Bump;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then \n   xcrun agvtool next-version -all &\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		6162624828BC8E2B00D63EA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1060,7 +1037,7 @@
 				OBJ_200 /* Visible.swift in Sources */,
 				OBJ_204 /* Wand.swift in Sources */,
 				61056E8B2924C72100E2BFF0 /* Error.swift in Sources */,
-				OBJ_205 /* Constructable.swift in Sources */,
+				OBJ_205 /* Obtain.swift in Sources */,
 				OBJ_213 /* |.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,6 +1073,7 @@
 				61EBF95729AA1AD300033920 /* JSONplaceholderAPI.swift in Sources */,
 				61523E7329CDBEC6001832BF /* String_any.swift in Sources */,
 				6162628828BC957500D63EA5 /* any.swift in Sources */,
+				617E80422BAD497900BD03B3 /* Pipe_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,7 +1132,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1239,7 +1217,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1325,7 +1303,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1408,7 +1386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1447,7 +1425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1484,7 +1462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1570,7 +1548,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1611,7 +1589,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 146;
+				CURRENT_PROJECT_VERSION = 151;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;

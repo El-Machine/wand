@@ -22,7 +22,7 @@
 //  2020 El Machine
 //
 
-import Pipe
+import Wand
 import XCTest
 
 class URL_JSONObject_Tests: XCTestCase {

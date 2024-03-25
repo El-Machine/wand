@@ -5,7 +5,7 @@
 //  Created by Alex Kozin on 24.03.2023.
 //
 
-import Pipe
+import Wand
 
 extension GitHubAPI.Repo: GitHubAPI.Model {
 

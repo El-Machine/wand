@@ -5,7 +5,7 @@
 //  Created by Alex Kozin on 21.11.2022.
 //
 
-import Pipe
+import Wand
 import XCTest
 
 class REST_Tests: XCTestCase {

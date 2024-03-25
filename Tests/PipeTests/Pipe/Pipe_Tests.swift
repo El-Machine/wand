@@ -8,7 +8,7 @@
 
 import CoreLocation.CLLocation
 
-import Pipe
+import Wand
 import XCTest
 
 class Pipe_Tests: XCTestCase {

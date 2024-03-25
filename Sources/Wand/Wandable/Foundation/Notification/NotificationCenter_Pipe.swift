@@ -33,9 +33,10 @@ import Foundation.NSNotification
  ```
 
  */
-extension NotificationCenter: Constructable {
+extension NotificationCenter: Obtain {
 
-    public static func construct(from wand: Wand) -> Self {
+    public
+    static func obtain(by wand: Wand?) -> Self {
         Self.default as! Self
     }
 
