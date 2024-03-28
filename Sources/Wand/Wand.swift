@@ -74,32 +74,6 @@ class Wand {
 //    #endif
 
 }
- 
-
-//internal static subscript<T>(piped: T) -> Pipe? {
-//    get {
-//        return all[address(for: piped)]
-//    }
-//    set {
-//        if let pipe = newValue {
-//            all[address(for: piped)] = pipe
-//        }
-//    }
-//}
-//
-//static func address<T: AnyObject>(for model: T) -> String {
-//    "\(Unmanaged.passUnretained(model).toOpaque())"
-//}
-//
-//static func address<T>(for model: T) -> String {
-//    var address: String?
-//    var mutable = model
-//    withUnsafePointer(to: &mutable) { pointer in
-//        address = String(format: "%p", pointer)
-//    }
-//
-//    return address!
-//}
 
 //Get
 //From context
@@ -208,7 +182,6 @@ extension Wand {
 //For objects
 public
 extension Wand {
-
 
     func ask<T>(for ask: Ask<T>,
                        checkScope: Bool = false) -> Bool {
