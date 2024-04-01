@@ -26,6 +26,7 @@ protocol AskFor {
 
     var isInner: Bool {get}
 
+
 }
 
 public
@@ -33,6 +34,8 @@ class Ask<T>: AskFor {
 
     var key: String?
     let handler: (T)->(Bool)
+
+    var next: Ask<T>?
 
     //Inner is not asked by user
     public 
@@ -52,8 +55,8 @@ class Ask<T>: AskFor {
         self.handler = handler
     }
 
-    func handle(_ object: T) -> Bool {
-        handler(object)
+    func handle(_ object: T) -> Self? {
+        handler(object) ? self : nil
     }
 
 }

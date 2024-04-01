@@ -58,7 +58,7 @@ class Wand {
 
     public 
     private(set)
-    var asking = [String: [AskFor]]()
+    var asking = [String: AskFor]()
 
 //    #if TESTING
     
@@ -103,34 +103,30 @@ extension Wand {
     @discardableResult
     func add<T>(_ object: T, for key: String? = nil) -> T {
 
-        //Save to context
         let key = save(object, key: key)
 
-        //Somebody asking for?
-        guard let expectations = asking[key] as? [Ask<T>] else {
+        let last = asking[key] as? Ask<T>
+
+        if last == nil {
             return object
         }
 
-        //Make events happens
-        var onlyInner = true
-        asking[key] = expectations.filter {
-            if onlyInner && !$0.isInner {
-                onlyInner = false
-            }
+        //headAsk - ... - lastAsk - completionAsk -
+        let completion = last?.next
+        last?.next = nil
 
-            return $0.handle(object)
+        //head
+        var head = completion?.next
+
+        var onlyInner = false
+        while head != nil {
+
+            head = head?.handle(object) ?? head?.next
+            onlyInner = onlyInner || head?.isInner != nil
         }
 
-        //Handle not inner expectations
         guard !onlyInner else {
             return object
-        }
-
-        //Handle .any
-        if expectations.isEmpty == false {
-            (asking[Any.self|] as? [Ask<Any>])?.forEach {
-                _ = $0.handle(object)
-            }
         }
 
         closeIfDone(last: object)
@@ -184,39 +180,42 @@ public
 extension Wand {
 
     func ask<T>(for ask: Ask<T>,
-                       checkScope: Bool = false) -> Bool {
+                checkScope: Bool = false) -> Bool {
 
         let key = ask.key ?? T.self|
 
-        let stored = asking[key]
-        let isFirst = stored == nil
-        asking[key] = (stored ?? []) + [ask]
+        let stored = asking[key] as? Ask<T>
+        let completion = stored?.next
 
+        stored?.next = ask
+        ask.next = completion
+
+        asking[key] = ask
 
         //Call handler if object exist
-        if checkScope, let object: T = get() {
+//        if checkScope, let object: T = get() {
+//
+//            let thread = Thread.current
+//            let queue: DispatchQueue = thread.isMainThread ? .main : thread.qualityOfService|
+//
+//            queue.async {
+//
+//                //Should remove?
+//                //Optimize
+//                if ask.handle(object) == false {
+//                    self.asking[key] = (self.asking[key] as? [Ask<T>])?.filter {
+//                        $0 !== ask
+//                    }
+//                }
+//
+//                //Optimize
+//                self.closeIfDone(last: object)
+//
+//            }
+//
+//        }
 
-            let thread = Thread.current
-            let queue: DispatchQueue = thread.isMainThread ? .main : thread.qualityOfService|
-
-            queue.async {
-
-                //Should remove?
-                //Optimize
-                if ask.handle(object) == false {
-                    self.asking[key] = (self.asking[key] as? [Ask<T>])?.filter {
-                        $0 !== ask
-                    }
-                }
-
-                //Optimize
-                self.closeIfDone(last: object)
-
-            }
-
-        }
-
-        return isFirst
+        return stored == nil
     }
 
 }
