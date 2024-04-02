@@ -27,8 +27,8 @@ public
 final
 class Wand {
 
-    internal 
-    static var all = [Int: Wand]()
+    internal
+    static var all = [Int: Wand?]()
 
     internal 
     static subscript<T>(_ object: T) -> Wand? {
@@ -36,7 +36,7 @@ class Wand {
 
             if T.self is AnyClass {
                 let key = unsafeBitCast(object, to: Int.self)
-                return all[key]
+                return all[key] ?? nil
             }
 
             return nil
@@ -118,18 +118,17 @@ extension Wand {
         //head
         var head = completion?.next
 
-        var onlyInner = false
+
         while head != nil {
 
             head = head?.handle(object) ?? head?.next
-            onlyInner = onlyInner || head?.isInner != nil
         }
 
-        guard !onlyInner else {
-            return object
+        if head == nil {
+            _ = completion?.handler(object)
         }
 
-        closeIfDone(last: object)
+        asking[key] = head
 
         return object
     }
@@ -184,6 +183,8 @@ extension Wand {
 
         let key = ask.key ?? T.self|
 
+        ask.wand = self
+
         let stored = asking[key] as? Ask<T>
         let completion = stored?.next
 
@@ -236,17 +237,17 @@ extension Wand {
 
         root: for (_, list) in asking {
 
-            for ask in list {
-
-                //Find first NOT inner
-                if ask.isInner == false {
-
-                    expectingSomething = true
-                    break root
-
-                }
-
-            }
+//            for ask in list {
+//
+//                //Find first NOT inner
+//                if ask.isInner == false {
+//
+//                    expectingSomething = true
+//                    break root
+//
+//                }
+//
+//            }
 
         }
 

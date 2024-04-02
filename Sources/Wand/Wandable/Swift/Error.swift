@@ -36,7 +36,7 @@ public func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
 
 @discardableResult
 public func | (wand: Wand, ask: Ask<Error>) -> Wand {
-    _ = wand.ask(for: ask.inner())
+    _ = wand.ask(for: ask.optional())
     return wand
 }
 

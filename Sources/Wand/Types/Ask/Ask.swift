@@ -24,8 +24,6 @@
 public
 protocol AskFor {
 
-    var isInner: Bool {get}
-
 
 }
 
@@ -37,14 +35,21 @@ class Ask<T>: AskFor {
 
     var next: Ask<T>?
 
-    //Inner is not asked by user
-    public 
-    var isInner: Bool {
-        false
+    private var _strong_wand: Wand?
+    var wand: Wand? {
+
+        get {
+            _strong_wand
+        }
+
+        set {
+            _strong_wand = newValue
+        }
+
     }
 
-    func inner() -> Inner {
-        Inner(key: key, handler: handler)
+    func optional() -> Ask<T>.Optional {
+        type(of: self).Optional(key: key, handler: handler)
     }
 
     required
@@ -70,12 +75,21 @@ extension Ask {
     class One: Ask {
     }
 
-    class Inner: Ask {
+    class Optional: Ask {
 
-        public 
-        override var isInner: Bool {
-            true
+        private weak var _weak_wand: Wand?
+        override var wand: Wand? {
+
+            get {
+                _weak_wand
+            }
+
+            set {
+                _weak_wand = newValue
+            }
+
         }
+
     }
 
 }

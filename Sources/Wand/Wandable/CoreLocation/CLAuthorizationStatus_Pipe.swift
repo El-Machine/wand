@@ -41,13 +41,22 @@ extension CLAuthorizationStatus: AskingWithout {
 
     public static func ask<T>(_ ask: Ask<T>, by wand: Wand)  {
 
+        //Save ask
         guard wand.ask(for: ask) else {
             return
         }
 
+        //Request T for a first time
+
+        //Prepare context
         let source: CLLocationManager       = wand.obtain()
         let asking: CLAuthorizationStatus?  = wand.get()
 
+        //Set the cleaner before requesting
+        ask.next = .one()
+        ask.next?.next = ask //Save head
+
+        //Make request
         switch asking {
 
         #if !APPCLIP
@@ -61,7 +70,7 @@ extension CLAuthorizationStatus: AskingWithout {
             default:
                 break
         }
-        
+
     }
 
 }
