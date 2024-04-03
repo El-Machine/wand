@@ -36,16 +36,26 @@ import CoreMotion.CMPedometer
 #if !os(macOS)
 
 extension CMPedometerEvent: AskingWithout {
-    
-    public
-    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-        guard wand.ask(for: ask) else {
+    public
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+
+        //Save ask
+        guard wand.answer(the: ask) else {
             return
         }
 
+        //Request for a first time
+
+        //Prepare context
         let source: CMPedometer = wand.obtain()
-        
+
+        //Set the cleaner
+        ask.setCleaner { _ in
+            source.stopEventUpdates()
+        }
+
+        //Make request
         source.startEventUpdates { (update, error) in
             if let error = error {
                 wand.add(error)
@@ -54,10 +64,6 @@ extension CMPedometerEvent: AskingWithout {
 
             wand.add(update!)
         }
-
-//        ask.cleaner = {
-//            source.stopEventUpdates()
-//        }
         
     }
 

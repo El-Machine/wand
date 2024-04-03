@@ -13,11 +13,11 @@ import XCTest
 
 class Pipe_Tests: XCTestCase {
 
-    weak var pipe: Wand?
+    weak var wand: Wand?
 
     func test_put() throws {
         let pipe = Wand()
-        self.pipe = pipe
+        self.wand = pipe
 
         let struct_ = CLLocationCoordinate2D.any
         pipe.add(struct_)
@@ -50,7 +50,7 @@ class Pipe_Tests: XCTestCase {
 
     func test_putWanded() throws {
         let wand = Wand()
-        self.pipe = wand
+        self.wand = wand
 
         let original = CLLocation(latitude: (-90...90)|,
                                   longitude: (-180...180)|)
@@ -68,7 +68,7 @@ class Pipe_Tests: XCTestCase {
     }
 
     func test_closed() throws {
-        XCTAssertNil(pipe)
+        XCTAssertNil(wand)
     }
 
 

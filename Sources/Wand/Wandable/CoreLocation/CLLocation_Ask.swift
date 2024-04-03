@@ -23,47 +23,39 @@
 
 import CoreLocation.CLLocation
 
-/**
-
- #Usage
- ```
-     |{ (location: CLLocation) in
-
-     }
-
-     CLAuthorizationStatus.authorizedAlways | { (location: CLLocation) in
-
-     }
-
- ```
- */
-
-
+/// Ask
+///
+/// |{ (location: CLLocation) in
+/// 
+/// }
+/// 
+/// CLAuthorizationStatus.authorizedAlways | { (location: CLLocation) in
+/// 
+/// }
 extension CLLocation: AskingWithout {
 
-    public 
-    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
+    public
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
         //Save ask
-        guard wand.ask(for: ask) else {
+        guard wand.answer(the: ask) else {
             return
         }
 
-        //Request T for a first time
+        //Request for a first time
 
         //Prepare context
         let source: CLLocationManager = wand.obtain()
 
-        //Set the cleaner before requesting
-        ask.next = .one { _ in
+        //Set the cleaner
+        ask.setCleaner { _ in
             source.stopUpdatingLocation()
 
             print("Last")
         }
-        ask.next?.next = ask //Save head
 
         //Make request
-        wand | .while { (status: CLAuthorizationStatus) -> Bool in
+        wand | .Optional.while { (status: CLAuthorizationStatus) -> Bool in
 
             guard status != .notDetermined else {
                 return true
@@ -78,7 +70,7 @@ extension CLLocation: AskingWithout {
             }
 
             return false
-        }.optional()
+        }
 
     }
 

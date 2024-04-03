@@ -23,20 +23,27 @@
 
 import Foundation
 
-public 
+/// Get Object from Wand or create in Context
+public
 protocol Obtain {
 
     static func obtain(by wand: Wand?) -> Self
 
 }
 
-public 
-postfix func |<T: Obtain>(type: T.Type) -> T {
+/// Obtain
+///
+/// let object = T|
+///
+public postfix func |<T: Obtain>(type: T.Type) -> T {
     T.obtain(by: nil)
 }
 
-public 
-postfix func |<T: Obtain>(wand: Wand?) -> T {
+/// Obtain
+///
+/// let object: T = wand|
+///
+public postfix func |<T: Obtain>(wand: Wand?) -> T {
     wand?.get() ?? {
 
         let object = T.obtain(by: wand)
@@ -46,8 +53,7 @@ postfix func |<T: Obtain>(wand: Wand?) -> T {
     }()
 }
 
-public
-extension Wand {
+public extension Wand {
 
     func obtain <T: Obtain> (for key: String? = nil) -> T {
         get(for: key, or: T.obtain(by: self))
@@ -55,13 +61,21 @@ extension Wand {
     
 }
 
+/// Obtain
+///
+/// let object: T = context|
+///
 public
 postfix func |<C, T: Obtain>(context: C) -> T {
     Wand.attach(to: context).obtain()
 }
 
-
-//Obtain unwrap
+/// Obtain unwrap
+///
+/// let option: T? = nil
+///
+/// let object = option|
+///
 public
 postfix func |<T: Obtain> (object: T?) -> T {
     object ?? T.self|

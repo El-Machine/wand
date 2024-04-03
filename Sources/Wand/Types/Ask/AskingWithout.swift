@@ -23,53 +23,54 @@
 
 import Foundation
 
+///Ask from Wand
 public protocol AskingWithout: Asking {
 
 }
 
-///   |{ T in
+/// Ask
 ///
-///   }
+/// |{ T in
+///
+/// }
 @discardableResult
 public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
     nil | Ask.every(handler: handler)
 }
 
-///  Ask for:
-///  - `every`
-///  - `one`
-///  - `while`
+/// Ask
+/// - `every`
+/// - `one`
+/// - `while`
 ///
-///   |.one { T in
+/// |.one { T in
 ///
-///   }
+/// }
 @discardableResult
 public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
     nil | ask
 }
 
-///  Ask for:
-///  - `every`
-///  - `one`
-///  - `while`
+/// Ask
 ///
-///   |.one { T in
+/// |.every { T in
 ///
-///   }
+/// }
 @discardableResult
 public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
     wand ?? Wand() | ask
 }
 
-///  Chain
+/// Make the chain
 ///
-///  T.one | E.one
+/// T.one | E.one | { (error: Error) in
 ///
+/// }
 @discardableResult
-public func |<T: AskingWithout, E: AskingWithout>(wanded: Ask<T>, to: Ask<E>) -> Wand {
+public func |<T: AskingWithout, E: AskingWithout>(l: Ask<T>, r: Ask<E>) -> Wand {
     let wand = Wand()
-    T.ask(wanded, by: wand)
-    E.ask(to, by: wand)
+    T.wand(wand, asks: l)
+    E.wand(wand, asks: r)
 
     return wand
 }

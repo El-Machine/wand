@@ -33,22 +33,27 @@ import Foundation.NSNotification
  ```
 
  */
-
 extension Notification: Asking {
-    
+
     public
-    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
         let name: Notification.Name = wand.get()!
         let key = name.rawValue
 
         ask.key = key
 
-        guard wand.ask(for: ask) else {
+        //Save ask
+        guard wand.answer(the: ask) else {
             return
         }
 
+        //Skip request
+
+        //Prepare context
         let center: NotificationCenter = wand.obtain()
+
+
 
         let token = center.addObserver(forName: name,
                                        object: nil,
@@ -56,9 +61,12 @@ extension Notification: Asking {
             wand.add(notification, for: key)
         }
 
-//        ask.cleaner = {
-//            center.removeObserver(token)
-//        }
+        //Set the cleaner
+        ask.setCleaner { _ in
+            center.removeObserver(token)
+
+            print("Last")
+        }
 
     }
 

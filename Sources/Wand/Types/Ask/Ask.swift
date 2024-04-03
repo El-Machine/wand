@@ -21,14 +21,9 @@
 //  Created by Alex Kozin
 //
 
+///The question
 public
-protocol AskFor {
-
-
-}
-
-public
-class Ask<T>: AskFor {
+class Ask<T> {
 
     var key: String?
     let handler: (T)->(Bool)
@@ -36,20 +31,15 @@ class Ask<T>: AskFor {
     var next: Ask<T>?
 
     private var _strong_wand: Wand?
-    var wand: Wand? {
-
-        get {
-            _strong_wand
-        }
-
-        set {
-            _strong_wand = newValue
-        }
-
+    func set(wand: Wand) {
+        _strong_wand = wand
     }
 
-    func optional() -> Ask<T>.Optional {
-        type(of: self).Optional(key: key, handler: handler)
+    func setCleaner(block: ( (T) -> () )? = nil) {
+        let cleaner = Self.one(handler: block)
+
+        next = cleaner
+        cleaner.next = self
     }
 
     required
@@ -60,12 +50,26 @@ class Ask<T>: AskFor {
         self.handler = handler
     }
 
-    func handle(_ object: T) -> Self? {
-        handler(object) ? self : nil
-    }
+//    func handle(_ object: T) -> Ask<T>? {
+//        let save = handler(object)
+//
+//        if save {
+//
+//            next?.handle(object)
+//
+//            return self
+//        } else {
+//
+//            return next
+//        }
+//    }
 
 }
 
+/// Request object
+/// - `every`
+/// - `one`
+/// - `while`
 public
 extension Ask {
 
@@ -74,28 +78,6 @@ extension Ask {
 
     class One: Ask {
     }
-
-    class Optional: Ask {
-
-        private weak var _weak_wand: Wand?
-        override var wand: Wand? {
-
-            get {
-                _weak_wand
-            }
-
-            set {
-                _weak_wand = newValue
-            }
-
-        }
-
-    }
-
-}
-
-public
-extension Ask {
 
     static func every(_ type: T.Type? = nil,
                       key: String? = nil,
@@ -122,7 +104,27 @@ extension Ask {
 
 }
 
-//Sugar
+///Optional
+///Use for internal requests
+public
+extension Ask {
+
+    class Optional: Ask {
+
+        private weak var _weak_wand: Wand?
+        override func set(wand: Wand) {
+            _weak_wand = wand
+        }
+
+    }
+
+    func optional() -> Ask<T>.Optional {
+        type(of: self).Optional(key: key, handler: handler)
+    }
+
+}
+
+///Sugar
 public
 extension Ask {
 

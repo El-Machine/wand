@@ -7,14 +7,10 @@
 
 import CoreLocation.CLLocation
 
-/**
-
- #Usage
- ```
- let location: CLLocation = coordinate|
-
- ```
- */
+/// Convert
+///
+/// let location: CLLocation = coordinate|
+///
 
 //CLLocation
 public postfix func |(coordinate: CLLocationCoordinate2D) -> CLLocation {

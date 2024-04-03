@@ -34,16 +34,27 @@ import CoreMotion.CMPedometer
  
  */
 extension CMPedometerData: AskingWithout {
-    public
-    static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
 
-        guard wand.ask(for: ask) else {
+    public
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+
+        //Save ask
+        guard wand.answer(the: ask) else {
             return
         }
 
+        //Request for a first time
+
+        //Prepare context
         let source: CMPedometer = wand.obtain()
         let date: Date          = wand.get() ?? Date()
 
+        //Set the cleaner
+        ask.setCleaner { _ in
+            source.stopUpdates()
+        }
+
+        //Make request
         source.startUpdates(from: date) { (data, error) in
             if let error = error {
                 wand.add(error)
@@ -52,10 +63,6 @@ extension CMPedometerData: AskingWithout {
 
             wand.add(data!)
         }
-
-//        ask.cleaner = {
-//            source.stopUpdates()
-//        }
 
     }
 

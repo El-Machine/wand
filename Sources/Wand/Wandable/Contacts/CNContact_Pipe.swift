@@ -23,32 +23,36 @@
 
 import Contacts.CNContact
 
-/**
+/// Ask
+///
+/// |{ (contact: CNContact) in
+///
+/// }
+///
+/// CNContact.predicateForContacts(matchingName: "John Appleseed")
+/// | .every { (contact: CNContact) in
+///
+/// }
+extension CNContact: Asking  {
 
- #Usage
- ```
- |{ (contact: CNContact) in
+    public 
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
- }
-
- CNContact.predicateForContacts(matchingName: "John Appleseed")
- | .every { (contact: CNContact) in
-
- }
-
- ```
- */
-extension CNContact: Asking {
-
-    public static func ask<T>(_ ask: Ask<T>, by wand: Wand) {
-
-        guard wand.ask(for: ask) else {
+        //Save ask
+        guard wand.answer(the: ask) else {
             return
         }
 
+        //Request for a first time
+
+        //Prepare context
         let source: CNContactStore  = wand.obtain()
         let keys: [CNKeyDescriptor] = wand.get() ?? []
 
+        //Set the cleaner
+        ask.setCleaner()
+
+        //Make request
         source.requestAccess(for: .contacts) { granted, error in
             guard granted else {
                 return

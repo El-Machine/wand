@@ -23,46 +23,41 @@
 
 import CoreLocation.CLLocation
 
-/**
-
- #Usage
- ```
-     |{ (permissions: CLAuthorizationStatus) in
-
-     }
-
-     CLAuthorizationStatus.authorizedAlways | { (permissions: CLAuthorizationStatus) in
-
-     }
-
- ```
- */
+/// Ask
+///
+/// |{ (permissions: CLAuthorizationStatus) in
+///
+/// }
+///
+/// CLAuthorizationStatus.authorizedAlways | { (scope: CLAuthorizationStatus) in
+///
+/// }
 extension CLAuthorizationStatus: AskingWithout {
 
-    public static func ask<T>(_ ask: Ask<T>, by wand: Wand)  {
+    public
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
         //Save ask
-        guard wand.ask(for: ask) else {
+        guard wand.answer(the: ask) else {
             return
         }
 
-        //Request T for a first time
+        //Request for a first time
 
         //Prepare context
         let source: CLLocationManager       = wand.obtain()
         let asking: CLAuthorizationStatus?  = wand.get()
 
-        //Set the cleaner before requesting
-        ask.next = .one()
-        ask.next?.next = ask //Save head
+        //Set the cleaner
+        ask.setCleaner()
 
         //Make request
         switch asking {
 
-        #if !APPCLIP
-            case .authorizedAlways:
-                source.requestAlwaysAuthorization()
-        #endif
+            #if !APPCLIP
+                case .authorizedAlways:
+                    source.requestAlwaysAuthorization()
+            #endif
 
             case .none, .authorizedWhenInUse:
                 source.requestWhenInUseAuthorization()

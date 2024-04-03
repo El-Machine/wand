@@ -23,14 +23,10 @@
 
 import CoreLocation.CLLocation
 
-/**
-
- #Usage
- ```
- let manager: CLLocationManager = nil|
-
- ```
- */
+/// Obtain
+///
+/// let manager: CLLocationManager = nil|
+///
 extension CLLocationManager: Obtain {
 
     public static func obtain(by wand: Wand?) -> Self {

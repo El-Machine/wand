@@ -17,13 +17,13 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-            |.one { (l: CLLocation) in
-
-                print(l)
-            } | { (e: Error) in
-                print(e)
-
-            }
+//            |.one { (l: CLLocation) in
+//
+//                print(l)
+//            } | { (e: Error) in
+//                print(e)
+//
+//            }
 
 
 

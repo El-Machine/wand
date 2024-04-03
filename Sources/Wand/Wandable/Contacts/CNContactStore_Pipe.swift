@@ -23,14 +23,10 @@
 
 import Contacts.CNContactStore
 
-/**
-
- #Usage
- ```
-    let store = CNContactStore.self|
-
- ```
- */
+/// Obtain
+///
+/// let store = CNContactStore.self|
+///
 extension CNContactStore: Obtain {
 
     public 

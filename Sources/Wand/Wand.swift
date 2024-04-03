@@ -28,7 +28,14 @@ final
 class Wand {
 
     internal
-    static var all = [Int: Wand?]()
+    struct Weak {
+
+        weak var item: Wand?
+
+    }
+
+    internal
+    static var all = [Int: Wand.Weak]()
 
     internal 
     static subscript<T>(_ object: T) -> Wand? {
@@ -36,7 +43,7 @@ class Wand {
 
             if T.self is AnyClass {
                 let key = unsafeBitCast(object, to: Int.self)
-                return all[key] ?? nil
+                return all[key]?.item
             }
 
             return nil
@@ -44,9 +51,9 @@ class Wand {
         }
         set {
 
-            if let pipe = newValue, T.self is AnyClass {
+            if let wand = newValue, T.self is AnyClass {
                 let key = unsafeBitCast(object, to: Int.self)
-                all[key] = pipe
+                all[key] = Weak(item: wand)
             }
 
         }
@@ -58,25 +65,55 @@ class Wand {
 
     public 
     private(set)
-    var asking = [String: AskFor]()
+    var asking = [String: Any]()
 
-//    #if TESTING
-    
+    #if DEBUG
         init() {
             print("|💪🏽 #init\n\(self) ask \(asking)")
         }
+    #endif
+
+    deinit {
+        clean()
+        print("|✅ #bonsua\n\(self)\n")
+    }
 
 
-        deinit {
-            print("|✅ #bonsua\n\(self)\n")
-        }
+    func clean() {
 
-//    #endif
+
+//        asking.forEach {
+////            $0.value.nex
+//        }
+
+
+            //Notify .all
+            //        (asking["All"] as? [Ask<Any>])?.forEach {
+            //            _ = $0.handle(last)
+            //        }
+
+            //Release all objects
+            context.removeAll()
+            asking.removeAll()
+
+            //        cleaners.forEach {
+            //            $0()
+            //        }
+            //
+            //        cleaners.removeAll()
+
+            //Release Pipe
+            Wand.all = Wand.all.filter {
+                $0.value.item !== self
+            }
+
+
+    }
 
 }
 
-//Get
-//From context
+/// Get
+/// From context
 public
 extension Wand {
 
@@ -95,8 +132,8 @@ extension Wand {
 
 }
 
-//Add
-//Triggering Askings
+/// Add
+/// Triggering Askings
 public
 extension Wand {
 
@@ -121,7 +158,8 @@ extension Wand {
 
         while head != nil {
 
-            head = head?.handle(object) ?? head?.next
+            head = head?.handler(object) == true ? head : head?.next
+
         }
 
         if head == nil {
@@ -178,13 +216,14 @@ extension Wand {
 public
 extension Wand {
 
-    func ask<T>(for ask: Ask<T>,
-                checkScope: Bool = false) -> Bool {
+    func answer<T>(the ask: Ask<T>,
+                   checkContext: Bool = false) -> Bool {
 
         let key = ask.key ?? T.self|
 
-        ask.wand = self
+        ask.set(wand: self)
 
+        //Add ask to chain
         let stored = asking[key] as? Ask<T>
         let completion = stored?.next
 
@@ -224,66 +263,8 @@ extension Wand {
 //Close
 extension Wand {
 
-    internal func closeIfDone(last: Any? = nil) {
-        //TODO: ConcurrenY ?
-
-        //Try to close only if something expected before
-        guard !asking.isEmpty else {
-            return
-        }
-
-        //Close Pipe if only inner asks is live
-        var expectingSomething = false
-
-        root: for (_, list) in asking {
-
-//            for ask in list {
-//
-//                //Find first NOT inner
-//                if ask.isInner == false {
-//
-//                    expectingSomething = true
-//                    break root
-//
-//                }
-//
-//            }
-
-        }
-
-        //Close Pipe if only inner asks is live
-        if !expectingSomething {
-            close(last: last ?? self)
-        }
-
-    }
-
     public func close() {
-        close(last: self)
-    }
-
-    private func close(last: Any) {
-
-        //Notify .all
-        (asking["All"] as? [Ask<Any>])?.forEach {
-            _ = $0.handle(last)
-        }
-
-        //Release all objects
-        context.removeAll()
-        asking.removeAll()
-
-//        cleaners.forEach {
-//            $0()
-//        }
-//
-//        cleaners.removeAll()
-
-        //Release Pipe
-        Wand.all = Wand.all.filter {
-            $0.value !== self
-        }
-
+//        close(last: self)
     }
 
 }

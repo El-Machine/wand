@@ -21,41 +21,44 @@
 //  Created by Alex Kozin
 //
 
+///Ask from Context
 public protocol Asking: Wanded {
 
-    //TODO: static func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand
-    static func ask<T>(_ ask: Ask<T>, by wand: Wand)
+    //static func | (wand: Wand, ask: Ask<Self>)
+    static func wand<T>(_ wand: Wand, asks: Ask<T>)
 
 }
 
-///   context | { T in
+/// Ask
 ///
-///   }
+/// any | { T in
+///
+/// }
 @discardableResult
 public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
-    context | Ask.every(handler: handler)
+    Wand.attach(to: context) | Ask.every(handler: handler)
 }
 
-
-///  Ask for:
-///  - `every`
-///  - `one`
-///  - `while`
+/// Ask
+/// - `every`
+/// - `one`
+/// - `while`
 ///
-///   context | .one { T in
+/// any | .one { T in
 ///
-///   }
+/// }
 @discardableResult
 public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
-    let wand = Wand.attach(to: context)
-    T.ask(ask, by: wand)
-
-    return wand
+    Wand.attach(to: context) | ask
 }
 
+/// Ask
+///
+/// wand | .every { T in
+///
+/// }
 @discardableResult
 public func |<T: Asking> (wand: Wand, ask: Ask<T>) -> Wand {
-
-    T.ask(ask, by: wand)
+    T.wand(wand, asks: ask)
     return wand
 }
