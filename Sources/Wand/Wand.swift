@@ -1,25 +1,25 @@
-//  Copyright © 2020-2024 El Machine 🤖
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-//  Created by Alex Kozin
-//
+/// Copyright © 2020-2024 El Machine 🤖
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// Created by Alex Kozin
+///
 
 import Foundation
 
@@ -37,7 +37,7 @@ class Wand {
     internal
     static var all = [Int: Wand.Weak]()
 
-    internal 
+    internal
     static subscript<T>(_ object: T) -> Wand? {
         get {
 
@@ -59,55 +59,21 @@ class Wand {
         }
     }
 
-    public 
+    public
     private(set)
     var context = [String: Any]()
 
-    public 
+    public
     private(set)
-    var asking = [String: Any]()
+    var asking = [String: AskAny]()
 
-    #if DEBUG
-        init() {
-            print("|💪🏽 #init\n\(self) ask \(asking)")
-        }
-    #endif
-
-    deinit {
-        clean()
-        print("|✅ #bonsua\n\(self)\n")
+    init() {
+        log("|💪🏽 #init\n\(self) ask \(asking)")
     }
 
-
-    func clean() {
-
-
-//        asking.forEach {
-////            $0.value.nex
-//        }
-
-
-            //Notify .all
-            //        (asking["All"] as? [Ask<Any>])?.forEach {
-            //            _ = $0.handle(last)
-            //        }
-
-            //Release all objects
-            context.removeAll()
-            asking.removeAll()
-
-            //        cleaners.forEach {
-            //            $0()
-            //        }
-            //
-            //        cleaners.removeAll()
-
-            //Release Pipe
-            Wand.all = Wand.all.filter {
-                $0.value.item !== self
-            }
-
-
+    deinit {
+        close()
+        log("|✅ #bonsua\n\(self)\n")
     }
 
 }
@@ -152,18 +118,15 @@ extension Wand {
         let completion = last?.next
         last?.next = nil
 
-        //head
-        var head = completion?.next
-
-
-        while head != nil {
-
-            head = head?.handler(object) == true ? head : head?.next
-
-        }
+        //Start from Head
+        let head = completion?.next?.handle(object)
 
         if head == nil {
+            //Clean
             _ = completion?.handler(object)
+        } else {
+            //
+            head?.next = completion
         }
 
         asking[key] = head
@@ -260,16 +223,7 @@ extension Wand {
 
 }
 
-//Close
-extension Wand {
-
-    public func close() {
-//        close(last: self)
-    }
-
-}
-
-//Init with scope
+///Init with scope
 extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
     public typealias ArrayLiteralElement = Any
@@ -353,7 +307,6 @@ extension Wand: CustomStringConvertible, CustomDebugStringConvertible {
         "| Wand \(String(format: "%p", address))"
     }
 
-    
     public var debugDescription: String {
             """
 
@@ -365,4 +318,33 @@ extension Wand: CustomStringConvertible, CustomDebugStringConvertible {
             """
     }
     
+}
+
+/// Close
+public
+extension Wand {
+
+    func close() {
+
+        //Notify .all
+        //        (asking["All"] as? [Ask<Any>])?.forEach {
+        //            _ = $0.handle(last)
+        //        }
+
+        //Clean
+        asking.forEach {
+            $0.value.clean()
+        }
+        asking.removeAll()
+
+        //Release objects
+        context.removeAll()
+
+        //Clean Wands shelf
+        Wand.all = Wand.all.filter {
+            $0.value.item != nil
+        }
+
+    }
+
 }

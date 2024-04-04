@@ -17,13 +17,17 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-//            |.one { (l: CLLocation) in
-//
-//                print(l)
-//            } | { (e: Error) in
-//                print(e)
-//
-//            }
+            let wand = |.every { (l: CLLocation) in
+
+                print(l)
+            } | { (e: Error) in
+                print(e)
+
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                wand.close()
+            }
 
 
 

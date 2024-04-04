@@ -21,49 +21,18 @@
 /// Created by Alex Kozin
 ///
 
-import Foundation
-import CloudKit
-
-/**
- Add error handler
- - Parameters:
- - handler: Will be invoked after every error
- */
-@discardableResult
-public func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
-    wand | .every(handler: handler)
-}
-
-@discardableResult
-public func | (wand: Wand, ask: Ask<Error>) -> Wand {
-
-    let optional = ask.optional()
-
-    //Save ask
-    _ = wand.answer(the: optional)
-
-    //Set the cleaner
-    optional.addCleaner()
-
-    return wand
-}
-
 extension Wand {
 
-    struct Error: Swift.Error {
-
-        let code: Int
-        let reason: String
-
-        init(code: Int = .zero, reason: String, function: String = #function) {
-            self.code = code
-            self.reason = function + reason
-        }
-
-        static func vision(_ reason: String) -> Error {
-            Self(reason: reason)
-        }
-
+    @inline(__always)
+    static func log(_ message: String) {
+        #if DEBUG
+            print(message)
+        #endif
     }
 
+    @inline(__always)
+    func log(_ message: String) {
+        Wand.log(message)
+    }
 }
+
