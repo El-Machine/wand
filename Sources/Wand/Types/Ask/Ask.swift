@@ -22,39 +22,30 @@
 ///
 
 ///The question
-
-public
-protocol AskAny {
-
-    func clean()
-
-}
-
 public
 class Ask<T> {
 
     var key: String?
-    let handler: (T?)->(Bool)
+    let handler: (T)->(Bool)
 
     var next: Ask<T>?
 
     private
     var _strong_wand: Wand?
-
     func set(wand: Wand) {
         _strong_wand = wand
     }
 
     required
     init(key: String? = nil,
-         handler: @escaping (T?) -> (Bool)) {
+         handler: @escaping (T) -> (Bool)) {
 
         self.key = key
         self.handler = handler
     }
 
     internal
-    func handle(_ object: T?) -> Ask<T>? {
+    func handle(_ object: T) -> Ask<T>? {
         //Save while true
         if handler(object) {
 
@@ -67,28 +58,6 @@ class Ask<T> {
 
         }
     }
-}
-
-/// Clean
-extension Ask: AskAny {
-
-    internal
-    func addCleaner(block: ( () -> () )? = nil) {
-        let cleaner = Ask() { _ in
-            block?()
-            return false
-        }
-
-        next = cleaner
-        cleaner.next = self
-    }
-
-    public
-    func clean() {
-        _ = next!.handler(nil)
-        Wand.log("|🧼 \(self)")
-    }
-
 }
 
 /// Request object
@@ -108,7 +77,7 @@ extension Ask {
                       key: String? = nil,
                       handler: ( (T)->() )? = nil ) -> Ask.Every {
         .Every(key: key) {
-            handler?($0!)
+            handler?($0)
             return true
         }
     }
@@ -117,16 +86,14 @@ extension Ask {
                     key: String? = nil,
                     handler: ( (T)->() )? = nil ) -> Ask.One {
         .One(key: key) {
-            handler?($0!)
+            handler?($0)
             return false
         }
     }
 
     static func `while`(key: String? = nil,
                         handler: @escaping (T)->(Bool) ) -> Ask {
-        Ask(key: key) {
-            return handler($0!)
-        }
+        Ask(key: key, handler: handler)
     }
 
 }
@@ -165,7 +132,7 @@ extension Ask {
                 i += 1
             }
 
-            return handler($0!, i)
+            return handler($0, i)
         }
 
     }

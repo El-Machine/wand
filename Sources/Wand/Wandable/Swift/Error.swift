@@ -37,15 +37,10 @@ public func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
 @discardableResult
 public func | (wand: Wand, ask: Ask<Error>) -> Wand {
 
-    let optional = ask.optional()
-
-    //Save ask
-    _ = wand.answer(the: optional)
-
-    //Set the cleaner
-    optional.addCleaner()
-
+    //Save ask as Optional
+    _ = wand.answer(the: ask.optional())
     return wand
+    
 }
 
 extension Wand {

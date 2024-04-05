@@ -50,6 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "NO">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
+            BuildableName = "WandSandbox.app"
+            BlueprintName = "Sandbox (iOS)"
+            ReferencedContainer = "container:Wand.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <LocationScenarioReference
          identifier = "Mumbai, India"
          referenceType = "1">

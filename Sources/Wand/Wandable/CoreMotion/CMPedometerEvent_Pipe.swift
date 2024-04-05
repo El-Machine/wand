@@ -51,7 +51,7 @@ extension CMPedometerEvent: AskingWithout {
         let source: CMPedometer = wand.obtain()
 
         //Set the cleaner
-        ask.addCleaner {
+        wand.setCleaner(for: T.self) {
             source.stopEventUpdates()
         }
 

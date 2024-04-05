@@ -17,17 +17,21 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-            let wand = |.every { (l: CLLocation) in
+//            |.one { (l: CLLocation) in
+//
+//                print(l)
+//            } | { (e: Error) in
+//                print(e)
+//
+//            }
 
-                print(l)
-            } | { (e: Error) in
-                print(e)
-
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                wand.close()
-            }
+//            CLAuthorizationStatus.authorizedWhenInUse | .one { (s: CLAuthorizationStatus) in
+//
+//                print(s)
+//            } | { (e: Error) in
+//                print(e)
+//
+//            }
 
 
 
@@ -49,10 +53,6 @@ struct ContentView: View {
 
 
         }
-
-    }
-
-    func codes() {
 
     }
 

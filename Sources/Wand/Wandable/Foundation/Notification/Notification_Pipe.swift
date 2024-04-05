@@ -48,13 +48,10 @@ extension Notification: Asking {
             return
         }
 
-        //Skip request
-
         //Prepare context
         let center: NotificationCenter = wand.obtain()
 
-
-
+        //Start listening
         let token = center.addObserver(forName: name,
                                        object: nil,
                                        queue: nil) { notification in
@@ -62,7 +59,7 @@ extension Notification: Asking {
         }
 
         //Set the cleaner
-        ask.addCleaner {
+        wand.setCleaner(for: T.self) {
             center.removeObserver(token)
 
             print("Last")

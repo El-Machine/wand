@@ -49,7 +49,6 @@ public postfix func |<T: Obtain>(wand: Wand?) -> T {
         let object = T.obtain(by: wand)
         return wand?.add(object) ?? object
 
-
     }()
 }
 

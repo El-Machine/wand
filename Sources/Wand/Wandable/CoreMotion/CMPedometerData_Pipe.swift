@@ -50,7 +50,7 @@ extension CMPedometerData: AskingWithout {
         let date: Date          = wand.get() ?? Date()
 
         //Set the cleaner
-        ask.addCleaner {
+        wand.setCleaner(for: T.self) {
             source.stopUpdates()
         }
 

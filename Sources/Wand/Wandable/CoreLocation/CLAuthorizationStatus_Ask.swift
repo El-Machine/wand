@@ -48,9 +48,6 @@ extension CLAuthorizationStatus: AskingWithout {
         let source: CLLocationManager       = wand.obtain()
         let asking: CLAuthorizationStatus?  = wand.get()
 
-        //Set the cleaner
-        ask.addCleaner()
-
         //Make request
         switch asking {
 
@@ -69,8 +66,6 @@ extension CLAuthorizationStatus: AskingWithout {
     }
 
 }
-
-
 
 protocol Current {
 

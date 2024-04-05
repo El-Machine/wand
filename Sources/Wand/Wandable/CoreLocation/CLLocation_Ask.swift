@@ -48,7 +48,7 @@ extension CLLocation: AskingWithout {
         let source: CLLocationManager = wand.obtain()
 
         //Set the cleaner
-        ask.addCleaner {
+        wand.setCleaner(for: T.self) {
             source.stopUpdatingLocation()
 
             print("Last")

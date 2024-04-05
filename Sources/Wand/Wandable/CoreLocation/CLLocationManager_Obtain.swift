@@ -63,16 +63,12 @@ extension CLLocationManager {
 
         func locationManager(_ manager: CLLocationManager, 
                              didFailWithError error: Error) {
-
             isWanded?.add(error)
-
         }
 
         func locationManager(_ manager: CLLocationManager, 
                              didChangeAuthorization status: CLAuthorizationStatus) {
-
             isWanded?.add(status)
-
         }
         
     }

@@ -29,9 +29,7 @@ class Wand {
 
     internal
     struct Weak {
-
         weak var item: Wand?
-
     }
 
     internal
@@ -65,7 +63,7 @@ class Wand {
 
     public
     private(set)
-    var asking = [String: AskAny]()
+    var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
     init() {
         log("|💪🏽 #init\n\(self) ask \(asking)")
@@ -108,28 +106,31 @@ extension Wand {
 
         let key = save(object, key: key)
 
-        let last = asking[key] as? Ask<T>
-
-        if last == nil {
+        guard 
+            let stored = asking[key]
+        else {
             return object
         }
 
-        //headAsk - ... - lastAsk - completionAsk -
-        let completion = last?.next
+        //Get head from chain
+        let last = stored.last as? Ask<T>
+        let head = last?.next
+
         last?.next = nil
 
         //Start from Head
-        let head = completion?.next?.handle(object)
+        if let head = head?.handle(object) {
 
-        if head == nil {
-            //Clean
-            _ = completion?.handler(object)
+            //Save
+            asking[key] = (head, stored.cleaner)
+
         } else {
-            //
-            head?.next = completion
-        }
 
-        asking[key] = head
+            //Clean
+            stored.cleaner?()
+            asking[key] = nil
+
+        }
 
         return object
     }
@@ -180,50 +181,55 @@ public
 extension Wand {
 
     func answer<T>(the ask: Ask<T>,
-                   checkContext: Bool = false) -> Bool {
+                   check: Bool = false) -> Bool {
 
         let key = ask.key ?? T.self|
+        let stored = asking[key]
 
+        //Call handler if object exist
+        //TODO: Test with NFC
+        if check, let object: T = get() {
+
+            if !ask.handler(object) {
+                return stored == nil
+            }
+
+        }
+
+        //Attach wand
         ask.set(wand: self)
 
         //Add ask to chain
-        let stored = asking[key] as? Ask<T>
-        let completion = stored?.next
+        let cleaner: ( ()->() )?
+        if let stored {
 
-        stored?.next = ask
-        ask.next = completion
+            let last = (stored.last as! Ask<T>)
 
-        asking[key] = ask
+            last.next = ask
+            cleaner = stored.cleaner
+            ask.next = last.next
 
-        //Call handler if object exist
-//        if checkScope, let object: T = get() {
-//
-//            let thread = Thread.current
-//            let queue: DispatchQueue = thread.isMainThread ? .main : thread.qualityOfService|
-//
-//            queue.async {
-//
-//                //Should remove?
-//                //Optimize
-//                if ask.handle(object) == false {
-//                    self.asking[key] = (self.asking[key] as? [Ask<T>])?.filter {
-//                        $0 !== ask
-//                    }
-//                }
-//
-//                //Optimize
-//                self.closeIfDone(last: object)
-//
-//            }
-//
-//        }
+        } else {
+            ask.next = ask
+            cleaner = nil
+        }
+
+        asking.updateValue((last: ask, cleaner: cleaner),
+                           forKey: key)
 
         return stored == nil
     }
 
+    func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
+
+        let key = type|
+        asking[key] = (asking[key]!.last, cleaner)
+
+    }
+
 }
 
-///Init with scope
+///Init with context
 extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
     public typealias ArrayLiteralElement = Any
@@ -238,13 +244,13 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         context[T.self|] = object
     }
 
-    public convenience init(arrayLiteral elements: Any...) {
-        self.init(array: elements)
+    public convenience init(arrayLiteral array: Any...) {
+        self.init()
+        save(sequence: array)
     }
 
     public convenience init(array: [Any]) {
         self.init()
-
         save(sequence: array)
     }
 
@@ -308,14 +314,14 @@ extension Wand: CustomStringConvertible, CustomDebugStringConvertible {
     }
 
     public var debugDescription: String {
-            """
+        """
 
-            \(description)
+        \(description)
 
-            asking:
-            \(asking.keys)
+        asking:
+        \(asking.keys)
 
-            """
+        """
     }
     
 }
@@ -333,7 +339,8 @@ extension Wand {
 
         //Clean
         asking.forEach {
-            $0.value.clean()
+            $0.value.cleaner?()
+            Wand.log("|🧼 \($0.value)")
         }
         asking.removeAll()
 

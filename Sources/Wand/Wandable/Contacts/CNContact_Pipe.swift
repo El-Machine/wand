@@ -49,9 +49,6 @@ extension CNContact: Asking  {
         let source: CNContactStore  = wand.obtain()
         let keys: [CNKeyDescriptor] = wand.get() ?? []
 
-        //Set the cleaner
-        ask.addCleaner()
-
         //Make request
         source.requestAccess(for: .contacts) { granted, error in
             guard granted else {
