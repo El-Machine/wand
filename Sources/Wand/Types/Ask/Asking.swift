@@ -35,6 +35,7 @@ public protocol Asking: Wanded {
 ///
 /// }
 @discardableResult
+//@inline(__always)
 public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
     Wand.attach(to: context) | Ask.every(handler: handler)
 }
@@ -48,6 +49,7 @@ public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
 ///
 /// }
 @discardableResult
+//@inline(__always)
 public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
     Wand.attach(to: context) | ask
 }

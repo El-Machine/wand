@@ -5,6 +5,7 @@
 //  Created by Alex Kozin on 29.08.2022.
 //
 
+import Contacts
 import CoreBluetooth
 import CoreLocation
 
@@ -17,10 +18,30 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-            |.every { (l: CLLocation) in
+            |.while { (l: CLLocation, i: Int) in
 
-                print(l)
-            } | { (e: Error) in
+                print("1. \(l)")
+
+                print("1. 🎲 \(i)")
+
+                return i != 4
+            } | 
+            { (l: CLLocation) in
+
+                print("2. \(l)")
+
+            } | 
+            { (s: CLAuthorizationStatus) in
+
+                print("3. \(s)")
+
+            } | 
+            { (c: CNContact) in
+
+                print("4. \(c)")
+
+            } | 
+            { (e: Error) in
                 print(e)
 
             }

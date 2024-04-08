@@ -25,7 +25,16 @@ import Foundation
 
 public 
 final
-class Wand {
+class Wand: NSObject, Wanded {
+
+
+    public var pipe: Wand {
+        self
+    }
+
+    public var isPiped: Wand? {
+        self
+    }
 
     internal
     struct Weak {
@@ -65,7 +74,8 @@ class Wand {
     private(set)
     var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
-    init() {
+    override init() {
+        super.init()
         log("|💪🏽 #init\n\(self) ask \(asking)")
     }
 
@@ -119,10 +129,15 @@ extension Wand {
         last?.next = nil
 
         //Start from Head
-        if let head = head?.handle(object) {
+        if let b = head?.handle(object) {
+
+            let head = b.up
+
+            let tail = b.down!
+            tail.next = head
 
             //Save
-            asking[key] = (head, stored.cleaner)
+            asking[key] = (tail, stored.cleaner)
 
         } else {
 
@@ -204,10 +219,11 @@ extension Wand {
         if let stored {
 
             let last = (stored.last as! Ask<T>)
-
-            last.next = ask
-            cleaner = stored.cleaner
+            
             ask.next = last.next
+            last.next = ask
+
+            cleaner = stored.cleaner
 
         } else {
             ask.next = ask
@@ -270,10 +286,15 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
-    public static func attach<S>(to context: S? = nil) -> Wand {
+    public
+    static func attach<C>(to context: C? = nil) -> Wand {
 
         guard let context else {
             return Wand()
+        }
+
+        if let wand = context as? Wand {
+            return wand
         }
 
         if let wanded = context as? Wanded {
@@ -293,25 +314,13 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
 }
 
-extension Wand: Wanded {
+extension Wand {//}: CustomStringConvertible, CustomDebugStringConvertible {
 
-    public var pipe: Wand {
-        self
-    }
+//    public var description: String {
+//        "| Wand "//\(String(format: "%p", address))"
+//    }
 
-    public var isPiped: Wand? {
-        self
-    }
-
-}
-
-extension Wand: CustomStringConvertible, CustomDebugStringConvertible {
-
-    public var description: String {
-        "| Wand \(String(format: "%p", address))"
-    }
-
-    public var debugDescription: String {
+    public override var debugDescription: String {
         """
 
         \(description)

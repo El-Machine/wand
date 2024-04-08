@@ -42,43 +42,43 @@ extension Wanded {
 
 }
 
-extension Optional: Wanded {
+//extension Optional: Wanded {
+//
+//    public
+//    var wand: Wand {
+//        isWanded ?? Wand.attach(to: self)
+//    }
+//
+//    public
+//    var isWanded: Wand? {
+//        Wand[self]
+//    }
+//
+//}
 
-    public
-    var pipe: Wand {
-        isPiped ?? Wand.attach(to: self)
-    }
-
-    public
-    var isPiped: Wand? {
-        Wand[self]
-    }
-
-}
-
-public 
-extension Wanded where Self: AnyObject {
-
-    var address: Int {
-        Int(bitPattern: Unmanaged.passUnretained(self).toOpaque())
-    }
-
-}
-
-public 
-extension Wanded {
-
-    var address: Int {
-        var address: Int!
-        var mutable = self
-        withUnsafePointer(to: &mutable) { pointer in
-            address = Int(bitPattern: pointer)
-        }
-
-        return address!
-    }
-
-}
+//public 
+//extension Wanded where Self: AnyObject {
+//
+//    var address: Int {
+//        Int(bitPattern: Unmanaged.passUnretained(self).toOpaque())
+//    }
+//
+//}
+//
+//public 
+//extension Wanded {
+//
+//    var address: Int {
+//        var address: Int!
+//        var mutable = self
+//        withUnsafePointer(to: &mutable) { pointer in
+//            address = Int(bitPattern: pointer)
+//        }
+//
+//        return address!
+//    }
+//
+//}
 
 //NO FUCKING WAY, it breaks Pipe.attach(to: array)
 //extension Array: Pipable {

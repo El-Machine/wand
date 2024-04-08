@@ -45,18 +45,27 @@ class Ask<T> {
     }
 
     internal
-    func handle(_ object: T) -> Ask<T>? {
+    func handle(_ object: T) -> (up: Ask<T>, down: Ask<T>?)? {
 
+
+        var down: Ask<T>?
 
         if next == nil {
+            down = self
             print("Last was \(self)")
         }
 
         //Save while true
         if handler(object) {
 
-            next = next?.handle(object)
-            return self
+            let b = next?.handle(object)
+            next = b?.up
+
+            if let bdown = b?.down {
+                down = bdown
+            }
+
+            return (self, down)
 
         } else {
 
