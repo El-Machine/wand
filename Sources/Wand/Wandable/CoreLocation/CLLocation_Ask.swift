@@ -48,10 +48,10 @@ extension CLLocation: AskingWithout {
         let source: CLLocationManager = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) { [weak wand] in
+        wand.setCleaner(for: T.self) {
             source.stopUpdatingLocation()
 
-            print("|🌜 \(wand?.get() as T?)")
+            Wand.log("|🌜 Cleaned '\(T.self|)'")
         }
 
         //Make request

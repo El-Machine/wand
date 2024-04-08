@@ -33,7 +33,7 @@ import Contacts.CNContact
 /// | .every { (contact: CNContact) in
 ///
 /// }
-extension CNContact: Asking  {
+extension CNContact: AskingWithout  {
 
     public 
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
@@ -48,6 +48,9 @@ extension CNContact: Asking  {
         //Prepare context
         let source: CNContactStore  = wand.obtain()
         let keys: [CNKeyDescriptor] = wand.get() ?? []
+        
+        //Set the cleaner
+        wand.setCleaner(for: T.self)
 
         //Make request
         source.requestAccess(for: .contacts) { granted, error in

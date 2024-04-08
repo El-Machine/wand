@@ -21,79 +21,74 @@
 /// Created by Alex Kozin
 ///
 
-/// The question
-public
-class Ask<T> {
-
-    var key: String?
-    let handler: (T)->(Bool)
-
-    var next: Ask<T>?
-
-    private
-    var _strong_wand: Wand?
-    func set(wand: Wand) {
-        _strong_wand = wand
-    }
-
-    required
-    init(key: String? = nil,
-         handler: @escaping (T) -> (Bool)) {
-
-        self.key = key
-        self.handler = handler
-    }
-
-    internal
-    func handle(_ object: T) -> Ask<T>? {
-
-        //Save while true
-        if handler(object) {
-            let tail = next == nil ? self : next?.handle(object) ?? self
-            tail.next = self
-
-            return tail
-        } else {
-            return next?.handle(object)
-        }
-
-    }
-}
-
-/// Request object
-/// - `every`
-/// - `one`
-/// - `while`
+/// Optional
 public
 extension Ask {
 
-    class Every: Ask {
+    class Optional: Ask {
+
+        private
+        weak var _weak_wand: Wand?
+
+        override func set(wand: Wand) {
+            _weak_wand = wand
+        }
+
     }
 
-    class One: Ask {
+    func optional() -> Ask {
+        type(of: self).Optional(key: key, handler: handler)
     }
 
-    static func every(_ type: T.Type? = nil,
-                      key: String? = nil,
-                      handler: ( (T)->() )? = nil ) -> Ask.Every {
-        .Every(key: key) {
-            handler?($0)
-            return true
+}
+
+/// Ask for completion
+///
+/// wand | .all {
+///
+/// }
+public
+extension Ask {
+
+    class All: Optional {
+
+        required
+        init(key: String? = nil,
+             handler: @escaping (T) -> (Bool)) {
+            super.init(key: "All", handler: handler)
         }
     }
 
-    static func one(_ type: T.Type? = nil,
-                    key: String? = nil,
-                    handler: ( (T)->() )? = nil ) -> Ask.One {
-        .One(key: key) {
-            handler?($0)
+    static func all(handler: @escaping ()->() ) -> Ask<Wand>.All {
+        .All() { _ in
+            handler()
             return false
         }
     }
 
+}
+
+@discardableResult
+public func | (wand: Wand, all: Ask<Wand>.All ) -> Wand {
+    _ = wand.answer(the: all)
+    return wand
+}
+
+/// While counting
+public
+extension Ask {
+
     static func `while`(key: String? = nil,
-                        handler: @escaping (T)->(Bool) ) -> Ask {
-        Ask(key: key, handler: handler)
+                        handler: @escaping (T, Int)->(Bool) ) -> Ask {
+        var i = 0
+        return Ask(key: key) {
+            defer {
+                i += 1
+            }
+
+            return handler($0, i)
+        }
+
     }
 
 }

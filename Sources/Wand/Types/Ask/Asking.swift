@@ -22,11 +22,27 @@
 ///
 
 ///Ask from Context
-public protocol Asking: Wanded {
+public 
+protocol Asking: Wanded {
 
     //static func | (wand: Wand, ask: Ask<Self>)
     static func wand<T>(_ wand: Wand, asks: Ask<T>)
 
+//    static var every: Ask<Self>.Every {get}
+//    static var one: Ask<Self>.One {get}
+
+}
+
+public
+extension Asking {
+
+    static var every: Ask<Self>.Every {
+        Ask.every(self)
+    }
+
+    static var one: Ask<Self>.One {
+        Ask.one(self)
+    }
 }
 
 /// Ask

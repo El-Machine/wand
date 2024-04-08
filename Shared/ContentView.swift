@@ -26,11 +26,11 @@ struct ContentView: View {
 
                 return i != 4
             } | 
-            { (l: CLLocation) in
-
-                print("2. \(l)")
-
-            } | 
+//            { (l: CLLocation) in
+//
+//                print("2. \(l)")
+//
+//            } | 
 //            { (s: CLAuthorizationStatus) in
 //
 //                print("3. \(s)")
@@ -40,17 +40,21 @@ struct ContentView: View {
 //
 //                print("4. \(c)")
 //
-//            } |
+//            } //|
             .while { (c: CNContact) in
 
                 print("5. \(c)")
                 return c.familyName != "Higgins"
 
-            } |
-            { (e: Error) in
-                print(e)
-
+            } | .all {
+                print("Last")
             }
+
+            //|
+//            { (e: Error) in
+//                print(e)
+//
+//            }
 
 //            CLAuthorizationStatus.authorizedWhenInUse | .one { (s: CLAuthorizationStatus) in
 //

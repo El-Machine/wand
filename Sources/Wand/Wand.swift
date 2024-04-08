@@ -25,16 +25,7 @@ import Foundation
 
 public 
 final
-class Wand: NSObject, Wanded {
-
-
-    public var pipe: Wand {
-        self
-    }
-
-    public var isPiped: Wand? {
-        self
-    }
+class Wand {
 
     internal
     struct Weak {
@@ -74,8 +65,7 @@ class Wand: NSObject, Wanded {
     private(set)
     var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
-    override init() {
-        super.init()
+    init() {
         log("|💪🏽 #init\n\(self) ask \(asking)")
     }
 
@@ -129,9 +119,7 @@ extension Wand {
         last?.next = nil
 
         //Start from Head
-        if let b = head?.handle(object) {
-
-            let tail = b.down!
+        if let tail = head?.handle(object) {
 
             //Save
             asking[key] = (tail, stored.cleaner)
@@ -158,8 +146,8 @@ extension Wand {
 
 }
 
-//Save
-//Without triggering Askings
+/// Save
+/// Without triggering Askings
 public
 extension Wand {
 
@@ -187,8 +175,8 @@ extension Wand {
 
 }
 
-//Ask
-//For objects
+/// Ask
+/// For objects
 public
 extension Wand {
 
@@ -199,7 +187,7 @@ extension Wand {
         let stored = asking[key]
 
         //Call handler if object exist
-        //TODO: Test with NFC
+        //TODO: Test check with NFC
         if check, let object: T = get() {
 
             if !ask.handler(object) {
@@ -233,14 +221,28 @@ extension Wand {
         return stored == nil
     }
 
-    func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
-        let key = type|
-        asking[key] = (asking[key]!.last, cleaner)
-    }
+
+    #if DEBUG
+
+        func setCleaner(for type: Any.Type, cleaner: ( ()->() )? = nil) {
+            let key = type|
+            asking[key] = (asking[key]!.last, cleaner ?? {
+                Wand.log("|🌜 Cleaned '\(key)'")
+            })
+        }
+
+    #else
+
+        func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
+            let key = type|
+            asking[key] = (asking[key]!.last, cleaner)
+        }
+
+    #endif
 
 }
 
-///Init with context
+/// Init with context
 extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
     public typealias ArrayLiteralElement = Any
@@ -290,10 +292,6 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
             return Wand()
         }
 
-        if let wand = context as? Wand {
-            return wand
-        }
-
         if let wanded = context as? Wanded {
             return wanded.wand
         }
@@ -311,23 +309,17 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 
 }
 
-extension Wand {//}: CustomStringConvertible, CustomDebugStringConvertible {
+/// Wanded
+extension Wand: Wanded {
 
-//    public var description: String {
-//        "| Wand "//\(String(format: "%p", address))"
-//    }
-
-    public override var debugDescription: String {
-        """
-
-        \(description)
-
-        asking:
-        \(asking.keys)
-
-        """
+    public var wand: Wand {
+        self
     }
-    
+
+    public var isWanded: Wand? {
+        self
+    }
+
 }
 
 /// Close
@@ -337,11 +329,14 @@ extension Wand {
     func close() {
 
         //Notify .all
-        //        (asking["All"] as? [Ask<Any>])?.forEach {
-        //            _ = $0.handle(last)
-        //        }
+        if let last = asking["All"]?.last as? Ask<Wand> {
+            let head = last.next
+            last.next = nil
 
-        //Clean
+            _ = head?.handle(self)
+        }
+
+        //Clean questions
         asking.forEach {
             $0.value.cleaner?()
             Wand.log("|🧼 \($0.value)")
@@ -359,3 +354,22 @@ extension Wand {
     }
 
 }
+
+//extension Wand {//}: CustomStringConvertible, CustomDebugStringConvertible {
+//
+////    public var description: String {
+////        "| Wand "//\(String(format: "%p", address))"
+////    }
+//
+//    public override var debugDescription: String {
+//        """
+//
+//        \(description)
+//
+//        asking:
+//        \(asking.keys)
+//
+//        """
+//    }
+//
+//}

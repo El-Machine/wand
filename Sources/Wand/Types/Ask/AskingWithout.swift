@@ -67,7 +67,7 @@ public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
 ///
 /// }
 @discardableResult
-public func |<T: AskingWithout, E: AskingWithout>(l: Ask<T>, r: Ask<E>) -> Wand {
+public func |<T: AskingWithout, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
     let wand = Wand()
     T.wand(wand, asks: l)
     E.wand(wand, asks: r)
