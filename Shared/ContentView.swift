@@ -18,7 +18,7 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-            |.while { (l: CLLocation, i: Int) in
+            [[CNContactFamilyNameKey as CNKeyDescriptor]] | .while { (l: CLLocation, i: Int) in
 
                 print("1. \(l)")
 
@@ -31,16 +31,22 @@ struct ContentView: View {
                 print("2. \(l)")
 
             } | 
-            { (s: CLAuthorizationStatus) in
+//            { (s: CLAuthorizationStatus) in
+//
+//                print("3. \(s)")
+//
+//            } | 
+//            .one { (c: CLLocation) in
+//
+//                print("4. \(c)")
+//
+//            } |
+            .while { (c: CNContact) in
 
-                print("3. \(s)")
+                print("5. \(c)")
+                return c.familyName != "Higgins"
 
-            } | 
-            .one { (c: CLLocation) in
-
-                print("4. \(c)")
-
-            } | 
+            } |
             { (e: Error) in
                 print(e)
 
