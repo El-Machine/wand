@@ -25,7 +25,7 @@ import Foundation
 
 /// Get Object from Wand or create in Context
 public
-protocol Obtain {
+protocol Obtain: Wanded {
 
     static func obtain(by wand: Wand?) -> Self
 

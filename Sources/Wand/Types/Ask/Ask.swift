@@ -46,6 +46,12 @@ class Ask<T> {
 
     internal
     func handle(_ object: T) -> Ask<T>? {
+
+
+        if next == nil {
+            print("Last was \(self)")
+        }
+
         //Save while true
         if handler(object) {
 
@@ -113,7 +119,7 @@ extension Ask {
 
     }
 
-    func optional() -> Ask<T>.Optional {
+    func optional() -> Ask {
         type(of: self).Optional(key: key, handler: handler)
     }
 

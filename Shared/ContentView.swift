@@ -17,13 +17,13 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-//            |.one { (l: CLLocation) in
-//
-//                print(l)
-//            } | { (e: Error) in
-//                print(e)
-//
-//            }
+            |.every { (l: CLLocation) in
+
+                print(l)
+            } | { (e: Error) in
+                print(e)
+
+            }
 
 //            CLAuthorizationStatus.authorizedWhenInUse | .one { (s: CLAuthorizationStatus) in
 //

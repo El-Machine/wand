@@ -221,10 +221,8 @@ extension Wand {
     }
 
     func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
-
         let key = type|
         asking[key] = (asking[key]!.last, cleaner)
-
     }
 
 }

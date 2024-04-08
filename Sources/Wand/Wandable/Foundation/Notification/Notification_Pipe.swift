@@ -59,10 +59,10 @@ extension Notification: Asking {
         }
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) {
+        wand.setCleaner(for: T.self) { [weak wand] in
             center.removeObserver(token)
 
-            print("Last")
+            print("|🌜 \(wand?.get() as T?)")
         }
 
     }
