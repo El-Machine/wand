@@ -131,10 +131,7 @@ extension Wand {
         //Start from Head
         if let b = head?.handle(object) {
 
-            let head = b.up
-
             let tail = b.down!
-            tail.next = head
 
             //Save
             asking[key] = (tail, stored.cleaner)

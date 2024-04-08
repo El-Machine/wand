@@ -65,7 +65,9 @@ class Ask<T> {
                 down = bdown
             }
 
-            return (self, down)
+            down?.next = self
+
+            return (self, down ?? self)
 
         } else {
 

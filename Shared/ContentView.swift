@@ -36,7 +36,7 @@ struct ContentView: View {
                 print("3. \(s)")
 
             } | 
-            { (c: CNContact) in
+            .one { (c: CLLocation) in
 
                 print("4. \(c)")
 
