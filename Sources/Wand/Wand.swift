@@ -1,4 +1,4 @@
-/// Copyright © 2020-2024 El Machine 🤖
+/// Copyright © 2020-2024 El Machine 🤖 (http://el-machine.com/)
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@ public
 final
 class Wand {
 
+    //All Wands
     internal
     struct Weak {
         weak var item: Wand?
@@ -62,11 +63,11 @@ class Wand {
     var context = [String: Any]()
 
     public
-    private(set)
+    internal(set)
     var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
     init() {
-        log("|💪🏽 #init\n\(self) ask \(asking)")
+        log("|💪🏽 #init\n\(self)\n")
     }
 
     deinit {
@@ -97,7 +98,7 @@ extension Wand {
 }
 
 /// Add
-/// Triggering Askings
+/// Triggering Asking
 public
 extension Wand {
 
@@ -106,20 +107,15 @@ extension Wand {
 
         let key = save(object, key: key)
 
-        guard 
+        //Answer stored questions
+        guard
             let stored = asking[key]
         else {
             return object
         }
 
-        //Get head from chain
-        let last = stored.last as? Ask<T>
-        let head = last?.next
-
-        last?.next = nil
-
         //Start from Head
-        if let tail = head?.handle(object) {
+        if let tail = (stored.last as? Ask<T>)?.head(object) {
 
             //Save
             asking[key] = (tail, stored.cleaner)
@@ -131,6 +127,9 @@ extension Wand {
             asking[key] = nil
 
         }
+
+        //Handle Ask.any
+        (asking["Any"]?.last as? Ask<Any>)?.head(object)
 
         return object
     }
@@ -161,8 +160,8 @@ extension Wand {
         return result
     }
 
-    @discardableResult
-    func save(sequence: any Sequence) -> Self {
+    func save(sequence: any Sequence) {
+
         sequence.forEach { object in
             let key = type(of: object)|
 
@@ -170,7 +169,6 @@ extension Wand {
             context[key] = object
         }
 
-        return self
     }
 
 }
@@ -222,23 +220,10 @@ extension Wand {
     }
 
 
-    #if DEBUG
-
-        func setCleaner(for type: Any.Type, cleaner: ( ()->() )? = nil) {
-            let key = type|
-            asking[key] = (asking[key]!.last, cleaner ?? {
-                Wand.log("|🌜 Cleaned '\(key)'")
-            })
-        }
-
-    #else
-
-        func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
-            let key = type|
-            asking[key] = (asking[key]!.last, cleaner)
-        }
-
-    #endif
+    func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
+        let key = type|
+        asking[key] = (asking[key]!.last, cleaner)
+    }
 
 }
 
@@ -250,6 +235,7 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Any
 
+    //Init directly
     convenience init<T>(for object: T) {
         self.init()
 
@@ -285,6 +271,7 @@ extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
         }
     }
 
+    //Attach to Any thing
     public
     static func attach<C>(to context: C? = nil) -> Wand {
 
@@ -329,12 +316,7 @@ extension Wand {
     func close() {
 
         //Notify .all
-        if let last = asking["All"]?.last as? Ask<Wand> {
-            let head = last.next
-            last.next = nil
-
-            _ = head?.handle(self)
-        }
+        (asking["All"]?.last as? Ask<Wand>)?.head(self)
 
         //Clean questions
         asking.forEach {
@@ -354,22 +336,3 @@ extension Wand {
     }
 
 }
-
-//extension Wand {//}: CustomStringConvertible, CustomDebugStringConvertible {
-//
-////    public var description: String {
-////        "| Wand "//\(String(format: "%p", address))"
-////    }
-//
-//    public override var debugDescription: String {
-//        """
-//
-//        \(description)
-//
-//        asking:
-//        \(asking.keys)
-//
-//        """
-//    }
-//
-//}
