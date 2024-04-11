@@ -25,6 +25,7 @@ import Foundation.NSNotification
 
 extension NotificationCenter: Obtain {
 
+    @inline(__always)
     public
     static func obtain(by wand: Wand?) -> Self {
         Self.default as! Self

@@ -34,6 +34,7 @@ import CoreLocation.CLLocation
 /// }
 extension CLAuthorizationStatus: AskingNil, Wanded {
 
+    @inline(__always)
     public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
@@ -65,19 +66,4 @@ extension CLAuthorizationStatus: AskingNil, Wanded {
 
     }
 
-}
-
-public
-postfix func | (manager: CLLocationManager? = nil) -> CLAuthorizationStatus {
-
-    if #available(iOS 14.0, macOS 11.0, *) {
-        return manager|.authorizationStatus
-    } else {
-        return CLLocationManager.authorizationStatus()
-    }
-
-}
-public
-postfix func | (type: CLAuthorizationStatus.Type) -> CLAuthorizationStatus {
-    nil|
 }

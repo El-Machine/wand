@@ -34,6 +34,7 @@ import CoreLocation.CLLocation
 /// }
 extension CLLocation: AskingNil, Wanded {
 
+    @inline(__always)
     public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
@@ -48,7 +49,7 @@ extension CLLocation: AskingNil, Wanded {
         let source: CLLocationManager = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) {
+        wand.setCleaner(for: T.self|) {
             source.stopUpdatingLocation()
 
             Wand.log("|🌜 Cleaned '\(T.self|)'")

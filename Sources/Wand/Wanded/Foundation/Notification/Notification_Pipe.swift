@@ -23,18 +23,15 @@
 
 import Foundation.NSNotification
 
-/**
-
- #Usage
- ```
-     UIApplication.didBecomeActiveNotification | { (n: Notification) in
-
-     }
- ```
-
- */
+/// Ask
+///
+/// UIApplication.didBecomeActiveNotification | { (n: Notification) in
+///
+/// }
+///
 extension Notification: Asking, Wanded {
 
+    @inline(__always)
     public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
@@ -59,7 +56,7 @@ extension Notification: Asking, Wanded {
         }
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) { [weak wand] in
+        wand.setCleaner(for: key) { [weak wand] in
             center.removeObserver(token)
 
             print("|🌜 \(wand?.get() as T?)")
@@ -68,3 +65,18 @@ extension Notification: Asking, Wanded {
     }
 
 }
+
+@inline(__always)
+@discardableResult
+public
+func | (name: Notification.Name, handler: @escaping (Notification)->() ) -> Wand {
+    Wand(for: name) | .every(handler: handler)
+}
+
+@inline(__always)
+@discardableResult
+public
+func | (name: Notification.Name, ask: Ask<Notification>) -> Wand {
+    Wand(for: name) | ask
+}
+

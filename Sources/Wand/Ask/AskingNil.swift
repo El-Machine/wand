@@ -35,6 +35,7 @@ public protocol AskingNil: Asking {
 /// }
 ///
 @discardableResult
+@inline(__always)
 public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
     nil | Ask.every(handler: handler)
 }
@@ -49,6 +50,7 @@ public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
 /// }
 ///
 @discardableResult
+@inline(__always)
 public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
     nil | ask
 }
@@ -60,6 +62,7 @@ public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
 /// }
 ///
 @discardableResult
+@inline(__always)
 public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
     wand ?? Wand() | ask
 }
@@ -71,6 +74,7 @@ public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
 /// }
 ///
 @discardableResult
+@inline(__always)
 public func |<T: AskingNil, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
     let wand = Wand()
     T.wand(wand, asks: l)

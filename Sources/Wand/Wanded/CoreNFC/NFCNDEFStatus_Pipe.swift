@@ -25,40 +25,40 @@
 import CoreNFC
 
 @available(iOS 13.0, *)
-extension NFCNDEFStatus: AskingWithout, Pipable {
+extension NFCNDEFStatus: AskingNil, Wanded {
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
-        guard pipe.ask(for: ask, checkScope: true) else {
+        guard wand.answer(the: ask, check: true) else {
             return
         }
 
-        let session: NFCNDEFReaderSession = pipe.get()
+        let session: NFCNDEFReaderSession = wand.obtain()
 
-        pipe | .every { (tag: NFCNDEFTag) in
+        wand | .every { (tag: NFCNDEFTag) in
 
             session.connect(to: tag) { (error: Error?) in
 
-                guard pipe.putIf(exist: error) == nil else {
+                guard wand.addIf(exist: error) == nil else {
                     session.restartPolling()
                     return
                 }
 
                 tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
 
-                    guard pipe.putIf(exist: error) == nil else {
+                    guard wand.addIf(exist: error) == nil else {
                         return
                     }
 
-                    pipe.put(capacity)
-                    pipe.put(status)
+                    wand.put(capacity)
+                    wand.put(status)
                 }
 
             }
 
         }.inner()
 
-        pipe.addCleaner {
+        wand.addCleaner {
             session.invalidate()
         }
 

@@ -44,7 +44,8 @@ public postfix func |(piped: NFCNDEFMessage) -> URL? {
     piped.records.first?.wellKnownTypeURIPayload()
 }
 
-extension Pipe.Error {
+@available(iOS 13.0, *)
+extension Wand.Error {
 
     static func nfc(_ reason: String) -> Error {
         NFCReaderError.init(.readerErrorInvalidParameter,

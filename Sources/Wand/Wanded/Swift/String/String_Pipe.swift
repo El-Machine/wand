@@ -24,11 +24,13 @@
 import Foundation
 
 //Description
+@inline(__always)
 public
 postfix func |(piped: Any) -> String {
     String(describing: piped)
 }
 
+@inline(__always)
 public
 postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
     guard let piped = p else {
@@ -39,16 +41,19 @@ postfix func |<T: LosslessStringConvertible>(p: T?) -> String {
 }
 
 //Data
+@inline(__always)
 public
 postfix func |(data: Data) -> String {
     String(data: data, encoding: .utf8)!
 }
 
+@inline(__always)
 public
 postfix func |(data: Data) -> String? {
     String(data: data, encoding: .utf8)
 }
 
+@inline(__always)
 public
 postfix func |(data: Data?) -> String {
     guard let data else {
@@ -57,6 +62,7 @@ postfix func |(data: Data?) -> String {
     return String(data: data, encoding: .utf8)!
 }
 
+@inline(__always)
 public
 postfix func |(data: Data?) -> String? {
     guard let data else {
@@ -67,17 +73,23 @@ postfix func |(data: Data?) -> String? {
 
 extension Substring {
 
-    public static prefix func |(sub: Substring) -> String {
+    @inline(__always)
+    public
+    static prefix func |(sub: Substring) -> String {
         String(sub)
     }
 
 }
 
-public prefix func |(self: String?) -> String {
+@inline(__always)
+public
+prefix func |(self: String?) -> String {
     self ?? ""
 }
 
-public func |(p: String?, filtering: CharacterSet) -> String? {
+@inline(__always)
+public
+func |(p: String?, filtering: CharacterSet) -> String? {
     guard let piped = p else {
         return nil
     }
@@ -85,43 +97,55 @@ public func |(p: String?, filtering: CharacterSet) -> String? {
     return (piped | filtering) as String
 }
 
-public func |(p: String, filtering: CharacterSet) -> String {
+@inline(__always)
+public
+func |(p: String, filtering: CharacterSet) -> String {
     String(p.unicodeScalars.filter {
         filtering.contains($0)
     })
 }
-
-public func |(p: String, replace: (bounds: Range<String.Index>, to: String)) -> String {
+@inline(__always)
+public 
+func |(p: String, replace: (bounds: Range<String.Index>, to: String)) -> String {
     var piped = p
     piped.replaceSubrange(replace.0, with: replace.1)
     return piped
 }
 
-public func |(p: String, replace: (ClosedRange<String.Index>, String)) -> String {
+@inline(__always)
+public
+func |(p: String, replace: (ClosedRange<String.Index>, String)) -> String {
     var piped = p
     piped.replaceSubrange(replace.0, with: replace.1)
     return piped
 }
 
-public func |(p: String, range: NSRange) -> String {
+@inline(__always)
+public
+func |(p: String, range: NSRange) -> String {
     let from = p.index(p.startIndex, offsetBy: range.lowerBound)
     let to = p.index(p.startIndex, offsetBy: range.upperBound)
 
     return p | (from..<to)
 }
 
+@inline(__always)
 postfix func |(piped: NSRange) -> Range<Int> {
     Range(uncheckedBounds: (piped.lowerBound, piped.upperBound))
 }
 
-public func |(p: String, range: NSRange) -> Range<String.Index> {
+@inline(__always)
+public 
+func |(p: String, range: NSRange) -> Range<String.Index> {
     let from = p.index(p.startIndex, offsetBy: range.lowerBound)
     let to = p.index(p.startIndex, offsetBy: range.upperBound)
 
     return (from..<to)
 }
 
-public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
+@inline(__always)
+public
+func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
     var string = piped
 
     let range: Range<String.Index> = string | replace.bounds
@@ -130,11 +154,14 @@ public func |(piped: String, replace: (bounds: NSRange, to: String)) -> String {
 }
 
 //Components
+@inline(__always)
 public
 func |(piped: String?, separator: any StringProtocol) -> [String]? {
     piped?.components(separatedBy: separator)
 }
 
+@inline(__always)
+public
 func |(piped: String, separator: any StringProtocol) -> [String] {
     piped.components(separatedBy: separator)
 }

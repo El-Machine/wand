@@ -23,17 +23,13 @@
 
 import CoreMotion.CMPedometer
 
-/**
-
- #Usage
- ```
-    let pedometer: CMPedometer = nil|
-
- ```
- 
- */
+/// Obtain
+///
+/// let pedometer: CMPedometer = nil|
+///
 extension CMPedometer: Obtain {
 
+    @inline(__always)
     public static func obtain(by wand: Wand?) -> Self {
         Self()
     }

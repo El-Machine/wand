@@ -35,7 +35,8 @@ import Contacts.CNContact
 /// }
 extension CNContact: AskingNil, Wanded  {
 
-    public 
+    @inline(__always)
+    public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
         //Save ask
@@ -50,7 +51,7 @@ extension CNContact: AskingNil, Wanded  {
         let keys: [CNKeyDescriptor] = wand.get() ?? []
         
         //Set the cleaner
-        wand.setCleaner(for: T.self)
+//        wand.setCleaner(for: T.self)
 
         //Make request
         source.requestAccess(for: .contacts) { granted, error in

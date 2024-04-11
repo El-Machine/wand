@@ -219,9 +219,8 @@ extension Wand {
         return stored == nil
     }
 
-
-    func setCleaner(for type: Any.Type, cleaner: @escaping ()->()) {
-        let key = type|
+    func setCleaner(for key: String, cleaner: @escaping ()->()) {
+        
         asking[key] = (asking[key]!.last, cleaner)
     }
 

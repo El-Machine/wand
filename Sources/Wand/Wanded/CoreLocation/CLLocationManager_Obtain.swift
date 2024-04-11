@@ -29,6 +29,7 @@ import CoreLocation.CLLocation
 ///
 extension CLLocationManager: Obtain {
 
+    @inline(__always)
     public static func obtain(by wand: Wand?) -> Self {
 
         let source = Self()

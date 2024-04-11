@@ -25,40 +25,51 @@
 import CoreNFC
 
 //AskingNil
+@inline(__always)
+@available(iOS 13.0, *)
 @discardableResult
-public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Wand {
     nil | Ask.every(handler: handler)
 }
 
+@inline(__always)
+@available(iOS 13.0, *)
 @discardableResult
-public prefix func | (ask: Ask<NFCNDEFTag>) -> Pipe {
+public prefix func | (ask: Ask<NFCNDEFTag>) -> Wand {
     nil | ask
 }
 
+
+@inline(__always)
+@available(iOS 13.0, *)
 @discardableResult
-public func | (pipe: Pipe?, ask: Ask<NFCNDEFTag>) -> Pipe {
+public func | (pipe: Pipe?, ask: Ask<NFCNDEFTag>) -> Wand {
     (pipe ?? Pipe()) as Any | ask
 }
 
 //Asking
+@inline(__always)
+@available(iOS 13.0, *)
 @discardableResult
-public func |<S> (scope: S, handler: @escaping (NFCNDEFTag)->() ) -> Pipe {
+public func |<S> (scope: S, handler: @escaping (NFCNDEFTag)->() ) -> Wand {
     scope | Ask.every(handler: handler)
 }
 
+@inline(__always)
+@available(iOS 13.0, *)
 @discardableResult
-public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
-    let pipe = Pipe.attach(to: scope)
+public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Wand {
+    let pipe = Wand.attach(to: scope)
 
-    guard pipe.ask(for: ask, checkScope: true) else {
+    guard pipe.answer(the: ask, check: true) else {
         return pipe
     }
 
-    let session: NFCNDEFReaderSession = pipe.get()
+    let session: NFCNDEFReaderSession = pipe.obtain()
     session.alertMessage = pipe.get() ?? ""
     session.begin()
 
-    pipe.addCleaner {
+    pipe.setCleaner(for: NFCNDEFTag.self) {
         session.invalidate()
     }
 
@@ -68,82 +79,83 @@ public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Pipe {
 @available(iOS 13.0, *)
 extension NFCNDEFTag {
 
-    var pipe: Pipe {
-        isPiped ?? Pipe(object: self)
+    var wand: Wand {
+        isWanded ?? Wand(for: self)
     }
 
-    var isPiped: Pipe? {
-        Pipe[self]
+    var isWanded: Wand? {
+        Wand[self]
     }
 
 }
 
+@available(iOS 13.0, *)
 extension Ask where T == NFCNDEFTag {
 
     @available(iOS 13.0, *)
     public func write (_ message: NFCNDEFMessage, done: @escaping (NFCNDEFTag)->() ) -> Self {
 
-        let oldHandler = self.handler
-
-        self.handler = { tag in
-
-            let pipe = tag.pipe
-
-            let session: NFCNDEFReaderSession = pipe.get()
-            
-            session.connect(to: tag) { (error: Error?) in
-
-                guard pipe.putIf(exist: error) == nil else {
-                    return
-                }
-
-                pipe | .one { (status: NFCNDEFStatus) in
-
-                    switch status {
-
-                        case .readWrite:
-
-                            let message = message
-
-                            let capacity: Int = pipe.get()!
-                            if message.length > capacity {
-
-                                let e = Pipe.Error.nfc("Tag capacity is too small. Minimum size requirement is \(message.length) bytes.")
-                                pipe.put(e)
-
-                                return
-                            }
-
-                            tag.writeNDEF(message) { (error: Error?) in
-
-                                guard pipe.putIf(exist: error) == nil else {
-                                    return
-                                }
-
-                                done(tag)
-
-                            }
-
-                        case .readOnly:
-                            let e = Pipe.Error.nfc("Tag is not writable")
-                            pipe.put(e)
-
-                        case .notSupported:
-                            let e = Pipe.Error.nfc("Tag is not NDEF")
-                            pipe.put(e)
-
-                        @unknown default:
-                            fatalError()
-
-                    }
-
-                }.inner()
-                
-            }
-
-            //Call previous handler
-            return oldHandler(tag)
-        }
+//        let oldHandler = self.handler
+//
+//        self.handler = { tag in
+//
+//            let pipe = tag.pipe
+//
+//            let session: NFCNDEFReaderSession = pipe.get()
+//            
+//            session.connect(to: tag) { (error: Error?) in
+//
+//                guard pipe.putIf(exist: error) == nil else {
+//                    return
+//                }
+//
+//                pipe | .one { (status: NFCNDEFStatus) in
+//
+//                    switch status {
+//
+//                        case .readWrite:
+//
+//                            let message = message
+//
+//                            let capacity: Int = pipe.get()!
+//                            if message.length > capacity {
+//
+//                                let e = Pipe.Error.nfc("Tag capacity is too small. Minimum size requirement is \(message.length) bytes.")
+//                                pipe.put(e)
+//
+//                                return
+//                            }
+//
+//                            tag.writeNDEF(message) { (error: Error?) in
+//
+//                                guard pipe.putIf(exist: error) == nil else {
+//                                    return
+//                                }
+//
+//                                done(tag)
+//
+//                            }
+//
+//                        case .readOnly:
+//                            let e = Pipe.Error.nfc("Tag is not writable")
+//                            pipe.put(e)
+//
+//                        case .notSupported:
+//                            let e = Pipe.Error.nfc("Tag is not NDEF")
+//                            pipe.put(e)
+//
+//                        @unknown default:
+//                            fatalError()
+//
+//                    }
+//
+//                }.inner()
+//                
+//            }
+//
+//            //Call previous handler
+//            return oldHandler(tag)
+//        }
 
         return self
     }
@@ -153,44 +165,44 @@ extension Ask where T == NFCNDEFTag {
 
         let oldHandler = self.handler
 
-        self.handler = { tag in
-
-            let pipe = tag.pipe
-
-            let session: NFCNDEFReaderSession = pipe.get()
-
-            session.connect(to: tag) { (error: Error?) in
-
-                guard pipe.putIf(exist: error) == nil else {
-                    return
-                }
-
-                tag.writeLock { error in
-
-                    if let error = error as? NFCReaderError {
-
-                        switch error.code {
-                            case .ndefReaderSessionErrorTagUpdateFailure:
-
-                                let e = Pipe.Error.nfc("Already locked tag 🦾\n")
-                                pipe.put(e)
-
-                            default:
-                                pipe.put(error as Error)
-                        }
-
-
-                        return
-                    }
-
-                    done(tag)
-                }
-
-            }
-
-            //Call previous handler
-            return oldHandler(tag)
-        }
+//        self.handler = { tag in
+//
+//            let pipe = tag.pipe
+//
+//            let session: NFCNDEFReaderSession = pipe.get()
+//
+//            session.connect(to: tag) { (error: Error?) in
+//
+//                guard pipe.putIf(exist: error) == nil else {
+//                    return
+//                }
+//
+//                tag.writeLock { error in
+//
+//                    if let error = error as? NFCReaderError {
+//
+//                        switch error.code {
+//                            case .ndefReaderSessionErrorTagUpdateFailure:
+//
+//                                let e = Pipe.Error.nfc("Already locked tag 🦾\n")
+//                                pipe.put(e)
+//
+//                            default:
+//                                pipe.put(error as Error)
+//                        }
+//
+//
+//                        return
+//                    }
+//
+//                    done(tag)
+//                }
+//
+//            }
+//
+//            //Call previous handler
+//            return oldHandler(tag)
+//        }
 
         return self
     }

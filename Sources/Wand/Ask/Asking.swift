@@ -26,6 +26,7 @@ public
 protocol Asking {
 
     //static func | (wand: Wand, ask: Ask<Self>)
+    @inline(__always)
     static func wand<T>(_ wand: Wand, asks: Ask<T>)
 
 }
@@ -36,8 +37,8 @@ protocol Asking {
 ///
 /// }
 /// 
+@inline(__always)
 @discardableResult
-//@inline(__always)
 public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
     Wand.attach(to: context) | Ask.every(handler: handler)
 }
@@ -51,8 +52,8 @@ public func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
 ///
 /// }
 ///
+@inline(__always)
 @discardableResult
-//@inline(__always)
 public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
     Wand.attach(to: context) | ask
 }
@@ -63,6 +64,7 @@ public func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
 ///
 /// }
 ///
+@inline(__always)
 @discardableResult
 public func |<T: Asking> (wand: Wand, ask: Ask<T>) -> Wand {
     T.wand(wand, asks: ask)
@@ -78,10 +80,12 @@ public func |<T: Asking> (wand: Wand, ask: Ask<T>) -> Wand {
 public
 extension Asking {
 
+    @inline(__always)
     static var every: Ask<Self>.Every {
         .every(self)
     }
 
+    @inline(__always)
     static var one: Ask<Self>.One {
         .one(self)
     }

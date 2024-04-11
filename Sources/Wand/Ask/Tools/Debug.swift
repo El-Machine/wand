@@ -28,8 +28,7 @@ import Foundation
 //Debug cleaner
 extension Wand {
 
-    func setCleaner(for type: Any.Type) {
-        let key = type|
+    func setCleaner(for key: String) {
         asking[key] = (asking[key]!.last, {
             Wand.log("|🌜 Cleaned '\(key)'")
         })

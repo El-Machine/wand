@@ -21,18 +21,40 @@
 /// Created by Alex Kozin
 ///
 
-import Contacts.CNContactStore
+import Foundation
 
-/// Obtain
-///
-/// let store = CNContactStore.self|
-///
-extension CNContactStore: Obtain {
+import Wand
+import XCTest
 
-    @inline(__always)
-    public
-    static func obtain(by wand: Wand?) -> Self {
-        Self()
+class Notification_Tests: XCTestCase {
+
+    func test_Notification() {
+        let e = expectation()
+
+        //Simulate Memory Warning
+        //⌘+⇧+M
+        UIApplication.didReceiveMemoryWarningNotification | .one { n in
+            e.fulfill()
+        }
+
+        waitForExpectations()
+    }
+
+    func test_WhileNotification() {
+        let e = expectation()
+        e.expectedFulfillmentCount = 2
+
+        //Simulate Memory Warning
+        //⌘+⇧+M
+        UIApplication.didReceiveMemoryWarningNotification | .while { (notification, i) in
+            e.fulfill()
+
+            print(notification)
+
+            return i < 2
+        }
+
+        waitForExpectations()
     }
 
 }

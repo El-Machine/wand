@@ -59,6 +59,7 @@ extension Ask {
     class One: Ask {
     }
 
+    @inline(__always)
     static func every(_ type: T.Type? = nil,
                       key: String? = nil,
                       handler: ( (T)->() )? = nil ) -> Ask.Every {
@@ -68,6 +69,7 @@ extension Ask {
         }
     }
 
+    @inline(__always)
     static func one(_ type: T.Type? = nil,
                     key: String? = nil,
                     handler: ( (T)->() )? = nil ) -> Ask.One {
@@ -77,6 +79,7 @@ extension Ask {
         }
     }
 
+    @inline(__always)
     static func `while`(key: String? = nil,
                         handler: @escaping (T)->(Bool) ) -> Ask {
         Ask(key: key, handler: handler)

@@ -23,18 +23,15 @@
 
 import CoreMotion.CMPedometer
 
-/**
-
- #Usage
- ```
-     |{ (data: CMPedometerData) in
-
-     }
- ```
- 
- */
+/// Ask
+///
+/// |{ (data: CMPedometerData) in
+///
+/// }
+///
 extension CMPedometerData: AskingNil, Wanded {
 
+    @inline(__always)
     public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
@@ -50,7 +47,7 @@ extension CMPedometerData: AskingNil, Wanded {
         let date: Date          = wand.get() ?? Date()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) {
+        wand.setCleaner(for: T.self|) {
             source.stopUpdates()
         }
 

@@ -42,7 +42,6 @@ class Pipe_Tests: XCTestCase {
 
         let class_ = pipe.add(CLLocation.any)
 
-
         let custom_class = CustomClass()
         custom_class.foo = .any
         pipe.add(custom_class)

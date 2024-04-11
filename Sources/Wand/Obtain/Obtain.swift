@@ -27,6 +27,7 @@ import Foundation
 public
 protocol Obtain: Wanded {
 
+    @inline(__always)
     static func obtain(by wand: Wand?) -> Self
 
 }
@@ -35,6 +36,7 @@ protocol Obtain: Wanded {
 ///
 /// let object = T|
 ///
+@inline(__always)
 public postfix func |<T: Obtain>(type: T.Type) -> T {
     T.obtain(by: nil)
 }
@@ -58,6 +60,7 @@ public postfix func |<T: Obtain>(wand: Wand?) -> T {
 ///
 public extension Wand {
 
+    @inline(__always)
     func obtain <T: Obtain> (for key: String? = nil) -> T {
         get(for: key, or: T.obtain(by: self))
     }
@@ -68,6 +71,7 @@ public extension Wand {
 ///
 /// let object: T = context|
 ///
+@inline(__always)
 public
 postfix func |<C, T: Obtain>(context: C) -> T {
     Wand.attach(to: context).obtain()
@@ -79,6 +83,7 @@ postfix func |<C, T: Obtain>(context: C) -> T {
 ///
 /// let object = optional|
 ///
+@inline(__always)
 public
 postfix func |<T: Obtain> (object: T?) -> T {
     object ?? T.self|

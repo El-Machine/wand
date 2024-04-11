@@ -111,7 +111,7 @@ extension AVCaptureVideoDataOutput: Asking, Wanded {
 
         wand.add(output)
 
-        wand.setCleaner(for: T.self) {
+        wand.setCleaner(for: T.self|) {
             session.stopRunning()
         }
     }

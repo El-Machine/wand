@@ -23,20 +23,16 @@
 
 import CoreMotion.CMPedometer
 
-/**
-
- #Usage
- ```
-     |{ (data: CMPedometerEvent) in
-
-     }
- ```
-
- */
-#if !os(macOS)
-
+/// Ask
+///
+/// |{ (event: CMPedometerEvent) in
+///
+/// }
+///
+@available(iOS 13.0, watchOS 3.0, *)
 extension CMPedometerEvent: AskingNil, Wanded {
 
+    @inline(__always)
     public
     static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
@@ -51,7 +47,7 @@ extension CMPedometerEvent: AskingNil, Wanded {
         let source: CMPedometer = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self) {
+        wand.setCleaner(for: T.self|) {
             source.stopEventUpdates()
         }
 
@@ -68,4 +64,3 @@ extension CMPedometerEvent: AskingNil, Wanded {
     }
 
 }
-#endif

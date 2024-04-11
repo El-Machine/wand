@@ -24,36 +24,37 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
-extension NFCNDEFReaderSession: Constructable {
+extension NFCNDEFReaderSession: Obtain {
 
-    public static func construct(in pipe: Pipe) -> Self {
+    public static func obtain(by wand: Wand?) -> Self {
 
-        let delegate = pipe.put(Delegate())
+        let message: String = wand?.get() ?? "Hold to know what it is 🧙🏾‍♂️"
+
+        let wand = wand ?? Wand()
+
+        let delegate = wand.add(Delegate())
 
         let source = Self(delegate: delegate,
                           queue: DispatchQueue.global(),
                           invalidateAfterFirstRead: false) //while
 
-        let message: String = pipe.get() ?? "Hold to know what it is 🧙🏾‍♂️"
         source.alertMessage = message
 
-        pipe.put(source)
-
-        return pipe.put(source)
+        return source
     }
 
 }
 extension NFCNDEFReaderSession {
 
-    class Delegate: NSObject, NFCNDEFReaderSessionDelegate, Pipable {
+    class Delegate: NSObject, NFCNDEFReaderSessionDelegate, Wanded {
 
         func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
-            isPiped?.put(true as Bool, key: "NFCNDEFReaderSessionIsReady")
+            isWanded?.add(true as Bool, key: "NFCNDEFReaderSessionIsReady")
         }
 
         func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-            isPiped?.put(false as Bool, key: "NFCNDEFReaderSessionIsReady")
-            isPiped?.put(error)
+            isWanded?.add(false as Bool, key: "NFCNDEFReaderSessionIsReady")
+            isWanded?.add(error)
         }
 
         func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
@@ -65,15 +66,15 @@ extension NFCNDEFReaderSession {
             if let first = tags.first {
 //                isPiped?.put(first)
                 
-                if let pipe = isPiped {
+                if let wand = isWanded {
 
 
 
-                    let address = MemoryAddress.address(of: first)
-                    print("💪🏽 set \(address)")
-                    Pipe.all[address] = pipe
+//                    let address = MemoryAddress.address(of: first)
+//                    print("💪🏽 set \(address)")
+//                    Pipe.all[address] = pipe
 
-                    pipe.put(first)
+                    wand.add(first)
                 }
             }
 
