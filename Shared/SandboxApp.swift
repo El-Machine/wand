@@ -23,6 +23,7 @@
 
 import SwiftUI
 
+@available(macOS 11.0, *)
 @main
 struct SandboxApp: App {
 

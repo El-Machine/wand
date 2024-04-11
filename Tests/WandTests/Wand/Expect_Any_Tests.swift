@@ -30,6 +30,7 @@ import XCTest
 
 class Expect_Any_Tests: XCTestCase {
 
+    @available(macOS, unavailable)
     func test_Any() throws {
         let e = expectation(description: "event.any")
         e.assertForOverFulfill = false

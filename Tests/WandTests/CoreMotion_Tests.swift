@@ -30,6 +30,7 @@ class CoreMotion_Tests: XCTestCase {
 
 #if !targetEnvironment(simulator)
 
+    @available(macOS, unavailable)
     func test_CMPedometerEvent() {
         let e = expectation()
         e.assertForOverFulfill = false

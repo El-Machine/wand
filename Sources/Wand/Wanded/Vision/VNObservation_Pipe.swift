@@ -45,7 +45,7 @@ protocol VisionObservationAsking: Asking, Wanded {
 
 }
 
-@available(iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 public
 extension VisionObservationAsking {
 
@@ -81,7 +81,7 @@ extension VisionObservationAsking {
 
 }
 
-@available(iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 extension VNFaceObservation: VisionObservationAsking {
 
     public
@@ -89,7 +89,7 @@ extension VNFaceObservation: VisionObservationAsking {
 
 }
 
-@available(iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 extension VNBarcodeObservation: VisionObservationAsking {
 
     public
@@ -97,7 +97,7 @@ extension VNBarcodeObservation: VisionObservationAsking {
 
 }
 
-@available(iOS 14.0, macOS 11.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 extension VNHumanHandPoseObservation: VisionObservationAsking {
 
     public
@@ -111,7 +111,7 @@ extension VNHumanHandPoseObservation: VisionObservationAsking {
 
 }
 
-@available(iOS 14.0, macOS 11.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 extension VNHumanBodyPoseObservation: VisionObservationAsking {
 
     public
@@ -119,7 +119,7 @@ extension VNHumanBodyPoseObservation: VisionObservationAsking {
 
 }
 
-@available(iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, *)
 extension VNClassificationObservation: VisionObservationAsking {
 
     public

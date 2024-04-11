@@ -23,13 +23,16 @@
 
 import CoreMotion.CMPedometer
 
+//#if !os(macOS)
+
 /// Ask
 ///
 /// |{ (event: CMPedometerEvent) in
 ///
 /// }
 ///
-@available(iOS 13.0, watchOS 3.0, *)
+@available(iOS 10.0, watchOS 3.0, *)
+@available(macOS, unavailable)
 extension CMPedometerEvent: AskingNil, Wanded {
 
     @inline(__always)
@@ -64,3 +67,5 @@ extension CMPedometerEvent: AskingNil, Wanded {
     }
 
 }
+
+//#endif

@@ -28,10 +28,11 @@
 		6162625728BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
 		6162625928BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
-		6162626128BC8F3C00D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
 		6162626428BC944300D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
 		6162626528BC944300D63EA5 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6162628A28BC957500D63EA5 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627B28BC957500D63EA5 /* TestTools.swift */; };
+		616C636E2BC8190A003BCBC3 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
+		616C636F2BC8190A003BCBC3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		617E80422BAD497900BD03B3 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627028BC957500D63EA5 /* Wand_Tests.swift */; };
 		6195667029A3496200167A08 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666D29A3496200167A08 /* Asking.swift */; };
 		6195667129A3496200167A08 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666E29A3496200167A08 /* Ask.swift */; };
@@ -50,7 +51,6 @@
 		61B13CB72BC55FAB00C71F03 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627928BC957500D63EA5 /* any.swift */; };
 		61B13CB82BC55FB100C71F03 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627A28BC957500D63EA5 /* CoreLocation_any.swift */; };
 		61B13CB92BC55FE100C71F03 /* NSTextCheckingResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626D28BC957500D63EA5 /* NSTextCheckingResult_Tests.swift */; };
-		61B13CBA2BC5614500C71F03 /* Collections_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626B28BC957500D63EA5 /* Collections_Tests.swift */; };
 		61B13CBB2BC5615900C71F03 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626928BC957500D63EA5 /* Math_Tests.swift */; };
 		61B13CBC2BC5625400C71F03 /* CoreGraphics_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CoreGraphics_Convertable.swift */; };
 		61B13CBD2BC5626400C71F03 /* VNRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* VNRequest_Pipe.swift */; };
@@ -136,6 +136,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6162626528BC944300D63EA5 /* Wand.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		616C63702BC8190A003BCBC3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				616C636F2BC8190A003BCBC3 /* Wand.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6162626128BC8F3C00D63EA5 /* Wand.framework in Frameworks */,
+				616C636E2BC8190A003BCBC3 /* Wand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +895,7 @@
 				6162624D28BC8E2B00D63EA5 /* Sources */,
 				6162624E28BC8E2B00D63EA5 /* Frameworks */,
 				6162624F28BC8E2B00D63EA5 /* Resources */,
+				616C63702BC8190A003BCBC3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1116,7 +1128,6 @@
 				61B13CB42BC5555B00C71F03 /* Expect_Any_Tests.swift in Sources */,
 				61C4C25D2BBD51FE006BD985 /* Contacts_Tests.swift in Sources */,
 				61B13CBB2BC5615900C71F03 /* Math_Tests.swift in Sources */,
-				61B13CBA2BC5614500C71F03 /* Collections_Tests.swift in Sources */,
 				61B350462BB149E100D432DE /* CoreLocation_Tests.swift in Sources */,
 				61B13CB82BC55FB100C71F03 /* CoreLocation_any.swift in Sources */,
 				61B13CB72BC55FAB00C71F03 /* any.swift in Sources */,
@@ -1362,6 +1373,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1445,6 +1457,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1641,6 +1654,8 @@
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=iphoneos*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/Contents/MacOS/WandSandbox";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1681,6 +1696,8 @@
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=iphoneos*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};

@@ -34,6 +34,7 @@ class Collections_Tests: XCTestCase {
         XCTAssertTrue(range.last == array.count - 1)
     }
 
+    @available(macOS, unavailable)
     func test_ArrayIndexPath() throws {
         let array = [Bool](repeating: false, count: 42)
 
@@ -42,6 +43,7 @@ class Collections_Tests: XCTestCase {
         XCTAssertTrue(paths.last?.row == array.count - 1)
     }
 
+    @available(macOS, unavailable)
     func test_RangeIndexPath() throws {
         let range = 0..<42
 
