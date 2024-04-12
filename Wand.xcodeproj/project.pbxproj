@@ -401,9 +401,9 @@
 		6162624428BC8E2A00D63EA5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6162624728BC8E2B00D63EA5 /* Assets.xcassets */,
 				6162624528BC8E2A00D63EA5 /* SandboxApp.swift */,
 				6162624628BC8E2A00D63EA5 /* ContentView.swift */,
-				6162624728BC8E2B00D63EA5 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -454,6 +454,14 @@
 				61523E7229CDBEC5001832BF /* String_any.swift */,
 			);
 			path = any;
+			sourceTree = "<group>";
+		};
+		6187C70B2BC975F3003E0CC3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		619ABCBE29014EA600D5DB96 /* ARKit */ = {
@@ -699,11 +707,11 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_101 /* Tests */,
 				6162624428BC8E2A00D63EA5 /* Shared */,
+				6187C70B2BC975F3003E0CC3 /* iOS */,
 				6162625228BC8E2B00D63EA5 /* macOS */,
 				OBJ_138 /* Products */,
 				OBJ_141 /* LICENSE */,
@@ -1199,7 +1207,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "Sandbox (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 299;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
@@ -1291,7 +1299,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "Sandbox (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 299;
