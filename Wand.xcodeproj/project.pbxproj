@@ -39,7 +39,7 @@
 		6195667229A3496200167A08 /* AskingNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666F29A3496200167A08 /* AskingNil.swift */; };
 		6195667329A3498900167A08 /* String.IndexDistance_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */; };
 		6195667429A3498900167A08 /* String.Encoding_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */; };
-		61A4DBAF2BC7F47E00375480 /* CoreNFC_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA32BC7F21A00375480 /* CoreNFC_Wand.swift */; };
+		61A4DBAF2BC7F47E00375480 /* CoreNFC_Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA32BC7F21A00375480 /* CoreNFC_Convert.swift */; };
 		61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */; };
 		61AB1A712BC3F4AC000D1769 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627128BC957500D63EA5 /* Expect_Tests.swift */; };
 		61AB1A732BC3FA08000D1769 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB1A722BC3FA08000D1769 /* Optional.swift */; };
@@ -59,6 +59,11 @@
 		61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Pipe.swift */; };
 		61B13CC12BC5648D00C71F03 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Pipe.swift */; };
 		61B13CC82BC56CD500C71F03 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E7193C2BAC23E400360FA5 /* JsonObject.swift */; };
+		61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Ask.swift */; };
+		61B1B4192BC9617C00BD1F36 /* NFCNDEFReaderSession_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Obtain.swift */; };
+		61B1B41A2BC961B400BD1F36 /* NFCNDEFStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */; };
+		61B1B41B2BC9627E00BD1F36 /* NFCNDEFTag_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Ask.swift */; };
+		61B1B41D2BC96C5800BD1F36 /* CoreNFC_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1B4162BC95EF300BD1F36 /* CoreNFC_Tests.swift */; };
 		61B3503D2BB1444900D432DE /* CLAuthorizationStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* CLAuthorizationStatus_Ask.swift */; };
 		61B3503E2BB146CE00D432DE /* CLLocationManager_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* CLLocationManager_Obtain.swift */; };
 		61B3503F2BB1486B00D432DE /* CLLocation_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* CLLocation_Ask.swift */; };
@@ -67,9 +72,9 @@
 		61B350492BB14DC600D432DE /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
 		61B3504A2BB14DC600D432DE /* CNContact_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Pipe.swift */; };
 		61B3504C2BB1541E00D432DE /* Notification_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Notification_Pipe.swift */; };
-		61B3504D2BB1545D00D432DE /* CMPedometer_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CMPedometer_Pipe.swift */; };
-		61B3504E2BB1545D00D432DE /* CMPedometerData_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CMPedometerData_Pipe.swift */; };
-		61B3504F2BB1545D00D432DE /* CMPedometerEvent_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* CMPedometerEvent_Pipe.swift */; };
+		61B3504D2BB1545D00D432DE /* CMPedometer_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CMPedometer_Obtain.swift */; };
+		61B3504E2BB1545D00D432DE /* CMPedometerData_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CMPedometerData_Ask.swift */; };
+		61B3504F2BB1545D00D432DE /* CMPedometerEvent_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* CMPedometerEvent_Ask.swift */; };
 		61B350522BB1586F00D432DE /* CoreImage_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CoreImage_Pipe.swift */; };
 		61BD12C129B6105000702724 /* Foundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD12C029B6105000702724 /* Foundation_Pipe.swift */; };
 		61BD12C329B6106900702724 /* Bundle_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD12C229B6106900702724 /* Bundle_Pipe.swift */; };
@@ -198,11 +203,11 @@
 		6195666F29A3496200167A08 /* AskingNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskingNil.swift; sourceTree = "<group>"; };
 		619ABCBF29014EB400D5DB96 /* ARAppClipCodeAnchor_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAppClipCodeAnchor_Pipe.swift; sourceTree = "<group>"; };
 		619ABCC12901519E00D5DB96 /* ARSession_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSession_Pipe.swift; sourceTree = "<group>"; };
-		61A4DBA32BC7F21A00375480 /* CoreNFC_Wand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNFC_Wand.swift; sourceTree = "<group>"; };
-		61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFMessage_Pipe.swift; sourceTree = "<group>"; };
-		61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFReaderSession_Pipe.swift; sourceTree = "<group>"; };
-		61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFStatus_Pipe.swift; sourceTree = "<group>"; };
-		61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Pipe.swift; sourceTree = "<group>"; };
+		61A4DBA32BC7F21A00375480 /* CoreNFC_Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNFC_Convert.swift; sourceTree = "<group>"; };
+		61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFMessage_Ask.swift; sourceTree = "<group>"; };
+		61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Obtain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFReaderSession_Obtain.swift; sourceTree = "<group>"; };
+		61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFStatus_Ask.swift; sourceTree = "<group>"; };
+		61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCNDEFTag_Ask.swift; sourceTree = "<group>"; };
 		61A6F9E128EC06A30037CDBD /* Data_Convertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Convertable.swift; sourceTree = "<group>"; };
 		61A6F9E528EC06E20037CDBD /* String.Encoding_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.Encoding_Pipe.swift; sourceTree = "<group>"; };
 		61A6F9E628EC06E20037CDBD /* String.IndexDistance_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.IndexDistance_Pipe.swift; sourceTree = "<group>"; };
@@ -212,6 +217,8 @@
 		61B13CB22BC54E7300C71F03 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		61B13CB52BC55A6000C71F03 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		61B13CC22BC5663C00C71F03 /* Vision_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision_Tests.swift; sourceTree = "<group>"; };
+		61B1B4162BC95EF300BD1F36 /* CoreNFC_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNFC_Tests.swift; sourceTree = "<group>"; };
+		61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sandbox (iOS).entitlements"; sourceTree = "<group>"; };
 		61B3504B2BB153B300D432DE /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		61BD12C029B6105000702724 /* Foundation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation_Pipe.swift; sourceTree = "<group>"; };
 		61BD12C229B6106900702724 /* Bundle_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle_Pipe.swift; sourceTree = "<group>"; };
@@ -258,9 +265,9 @@
 		OBJ_26 /* CLLocationManager_Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager_Obtain.swift; sourceTree = "<group>"; };
 		OBJ_27 /* CLLocation_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation_Ask.swift; sourceTree = "<group>"; };
 		OBJ_28 /* CoreLocation_Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation_Convert.swift; sourceTree = "<group>"; };
-		OBJ_30 /* CMPedometerData_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerData_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_31 /* CMPedometerEvent_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerEvent_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_32 /* CMPedometer_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometer_Pipe.swift; sourceTree = "<group>"; };
+		OBJ_30 /* CMPedometerData_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerData_Ask.swift; sourceTree = "<group>"; };
+		OBJ_31 /* CMPedometerEvent_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerEvent_Ask.swift; sourceTree = "<group>"; };
+		OBJ_32 /* CMPedometer_Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometer_Obtain.swift; sourceTree = "<group>"; };
 		OBJ_44 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_46 /* NotificationCenter_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_47 /* Notification_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification_Pipe.swift; sourceTree = "<group>"; };
@@ -461,11 +468,11 @@
 		61A4DBA82BC7F21A00375480 /* CoreNFC */ = {
 			isa = PBXGroup;
 			children = (
-				61A4DBA32BC7F21A00375480 /* CoreNFC_Wand.swift */,
-				61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Pipe.swift */,
-				61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Pipe.swift */,
-				61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Pipe.swift */,
-				61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Pipe.swift */,
+				61A4DBA32BC7F21A00375480 /* CoreNFC_Convert.swift */,
+				61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Ask.swift */,
+				61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Obtain.swift */,
+				61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */,
+				61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Ask.swift */,
 			);
 			path = CoreNFC;
 			sourceTree = "<group>";
@@ -579,14 +586,6 @@
 		OBJ_101 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_102 /* WandTests */,
-			);
-			name = Tests;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_102 /* WandTests */ = {
-			isa = PBXGroup;
-			children = (
 				6162627628BC957500D63EA5 /* _Tools */,
 				6162626C28BC957500D63EA5 /* Foundation */,
 				6162626F28BC957500D63EA5 /* Wand */,
@@ -595,13 +594,13 @@
 				6162626A28BC957500D63EA5 /* CoreBluetooth_Tests.swift */,
 				6162627528BC957500D63EA5 /* CoreLocation_Tests.swift */,
 				6162626E28BC957500D63EA5 /* CoreMotion_Tests.swift */,
+				61B1B4162BC95EF300BD1F36 /* CoreNFC_Tests.swift */,
 				6162626928BC957500D63EA5 /* Math_Tests.swift */,
 				6162627328BC957500D63EA5 /* MultipeerConnectivity_Tests.swift */,
 				61B13CC22BC5663C00C71F03 /* Vision_Tests.swift */,
 				61B3504B2BB153B300D432DE /* TestPlan.xctestplan */,
 			);
-			name = WandTests;
-			path = Tests/WandTests;
+			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_13 /* Contacts */ = {
@@ -665,9 +664,9 @@
 		OBJ_29 /* CoreMotion */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_30 /* CMPedometerData_Pipe.swift */,
-				OBJ_31 /* CMPedometerEvent_Pipe.swift */,
-				OBJ_32 /* CMPedometer_Pipe.swift */,
+				OBJ_30 /* CMPedometerData_Ask.swift */,
+				OBJ_31 /* CMPedometerEvent_Ask.swift */,
+				OBJ_32 /* CMPedometer_Obtain.swift */,
 			);
 			path = CoreMotion;
 			sourceTree = "<group>";
@@ -699,6 +698,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_101 /* Tests */,
@@ -1065,6 +1065,7 @@
 				61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */,
 				OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */,
 				61B350402BB1493F00D432DE /* CoreLocation_Convert.swift in Sources */,
+				61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */,
 				OBJ_174 /* NotificationCenter_Pipe.swift in Sources */,
 				61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */,
 				61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */,
@@ -1081,6 +1082,7 @@
 				OBJ_186 /* QuartzCore+Pipe.swift in Sources */,
 				61B13CBF2BC5635400C71F03 /* VNImageRequestHandler_Pipe.swift in Sources */,
 				OBJ_187 /* Array_Pipe.swift in Sources */,
+				61B1B41B2BC9627E00BD1F36 /* NFCNDEFTag_Ask.swift in Sources */,
 				OBJ_188 /* Range_Pipe.swift in Sources */,
 				61B13CAF2BC54E1000C71F03 /* All.swift in Sources */,
 				61B3503E2BB146CE00D432DE /* CLLocationManager_Obtain.swift in Sources */,
@@ -1091,9 +1093,11 @@
 				61B3503D2BB1444900D432DE /* CLAuthorizationStatus_Ask.swift in Sources */,
 				61E719272BAC23C500360FA5 /* UIKit_Convertable.swift in Sources */,
 				61B13CB12BC54E4B00C71F03 /* Sugar.swift in Sources */,
-				61B3504D2BB1545D00D432DE /* CMPedometer_Pipe.swift in Sources */,
-				61B3504E2BB1545D00D432DE /* CMPedometerData_Pipe.swift in Sources */,
-				61B3504F2BB1545D00D432DE /* CMPedometerEvent_Pipe.swift in Sources */,
+				61B1B4192BC9617C00BD1F36 /* NFCNDEFReaderSession_Obtain.swift in Sources */,
+				61B3504D2BB1545D00D432DE /* CMPedometer_Obtain.swift in Sources */,
+				61B1B41A2BC961B400BD1F36 /* NFCNDEFStatus_Ask.swift in Sources */,
+				61B3504E2BB1545D00D432DE /* CMPedometerData_Ask.swift in Sources */,
+				61B3504F2BB1545D00D432DE /* CMPedometerEvent_Ask.swift in Sources */,
 				OBJ_191 /* CaseIterable_Pipe.swift in Sources */,
 				61DC807D29541F0200B57A0C /* Date_Pipe.swift in Sources */,
 				6195667429A3498900167A08 /* String.Encoding_Pipe.swift in Sources */,
@@ -1107,7 +1111,7 @@
 				61056E8B2924C72100E2BFF0 /* Error.swift in Sources */,
 				OBJ_205 /* Obtain.swift in Sources */,
 				61B3503F2BB1486B00D432DE /* CLLocation_Ask.swift in Sources */,
-				61A4DBAF2BC7F47E00375480 /* CoreNFC_Wand.swift in Sources */,
+				61A4DBAF2BC7F47E00375480 /* CoreNFC_Convert.swift in Sources */,
 				OBJ_213 /* |.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1124,6 +1128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				61B1B41D2BC96C5800BD1F36 /* CoreNFC_Tests.swift in Sources */,
 				61AB1A712BC3F4AC000D1769 /* Expect_Tests.swift in Sources */,
 				61B13CB42BC5555B00C71F03 /* Expect_Any_Tests.swift in Sources */,
 				61C4C25D2BBD51FE006BD985 /* Contacts_Tests.swift in Sources */,
@@ -1192,9 +1197,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 299;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1239,7 +1246,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.PipeSandbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1282,10 +1289,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 299;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1325,7 +1334,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.PipeSandbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1409,7 +1418,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.PipeSandbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1489,7 +1498,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.PipeSandbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

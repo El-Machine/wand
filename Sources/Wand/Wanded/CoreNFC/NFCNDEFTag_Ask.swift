@@ -24,58 +24,89 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
-//AskingNil
+/// Ask
+///
+/// |{ tag in
+///
+/// }
+///
 @inline(__always)
 @available(iOS 13.0, *)
 @discardableResult
-public prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Wand {
+public 
+prefix func | (handler: @escaping (NFCNDEFTag)->() ) -> Wand {
     nil | Ask.every(handler: handler)
 }
 
+/// Ask
+///
+/// |.every { tag in
+///
+/// }
+///
 @inline(__always)
 @available(iOS 13.0, *)
 @discardableResult
-public prefix func | (ask: Ask<NFCNDEFTag>) -> Wand {
+public 
+prefix func | (ask: Ask<NFCNDEFTag>) -> Wand {
     nil | ask
 }
 
-
+/// Ask
+///
+/// any | { tag in
+///
+/// }
+///
 @inline(__always)
 @available(iOS 13.0, *)
 @discardableResult
-public func | (pipe: Pipe?, ask: Ask<NFCNDEFTag>) -> Wand {
-    (pipe ?? Pipe()) as Any | ask
+public func |<C> (context: C?, handler: @escaping (NFCNDEFTag)->() ) -> Wand {
+    Wand.attach(to: context) | .every(handler: handler)
 }
 
-//Asking
+/// Ask
+///
+/// any | .every { tag in
+///
+/// }
+///
 @inline(__always)
 @available(iOS 13.0, *)
 @discardableResult
-public func |<S> (scope: S, handler: @escaping (NFCNDEFTag)->() ) -> Wand {
-    scope | Ask.every(handler: handler)
+public func |<C> (context: C?, ask: Ask<NFCNDEFTag>) -> Wand {
+    Wand.attach(to: context) | ask
 }
 
+/// Ask
+///
+/// wand | .every { tag in
+///
+/// }
+///
 @inline(__always)
 @available(iOS 13.0, *)
 @discardableResult
-public func |<S> (scope: S, ask: Ask<NFCNDEFTag>) -> Wand {
-    let pipe = Wand.attach(to: scope)
+public func | (wand: Wand?, ask: Ask<NFCNDEFTag>) -> Wand {
 
-    guard pipe.answer(the: ask, check: true) else {
-        return pipe
+    let wand = wand ?? Wand()
+
+    guard wand.answer(the: ask, check: true) else {
+        return wand
     }
 
-    let session: NFCNDEFReaderSession = pipe.obtain()
-    session.alertMessage = pipe.get() ?? ""
+    let session: NFCNDEFReaderSession = wand.obtain()
+    session.alertMessage = wand.get() ?? ""
     session.begin()
 
-    pipe.setCleaner(for: NFCNDEFTag.self) {
+    wand.setCleaner(for: NFCNDEFTag.self|) {
         session.invalidate()
     }
 
-    return pipe
+    return wand
 }
 
+/// Wanded
 @available(iOS 13.0, *)
 extension NFCNDEFTag {
 
@@ -90,8 +121,9 @@ extension NFCNDEFTag {
 }
 
 @available(iOS 13.0, *)
-extension Ask where T == NFCNDEFTag {
+extension Ask.One where T == NFCNDEFTag {
 
+    @inline(__always)
     @available(iOS 13.0, *)
     public func write (_ message: NFCNDEFMessage, done: @escaping (NFCNDEFTag)->() ) -> Self {
 
@@ -160,8 +192,10 @@ extension Ask where T == NFCNDEFTag {
         return self
     }
 
+    @inline(__always)
     @available(iOS 13.0, *)
-    public func lock (done: @escaping (NFCNDEFTag)->() ) -> Self {
+    public 
+    func lock (done: @escaping (NFCNDEFTag)->() ) -> Self {
 
         let oldHandler = self.handler
 

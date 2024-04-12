@@ -25,33 +25,57 @@
 import CoreNFC
 
 @available(iOS 13.0, *)
-public postfix func |(piped: URL) -> NFCNDEFMessage {
-    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped)!])
-}
+extension NFCNDEFStatus: AskingNil, Wanded {
 
-@available(iOS 13.0, *)
-public postfix func |(piped: URL?) -> NFCNDEFMessage {
-    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: piped!)!])
-}
+    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
-@available(iOS 13.0, *)
-public postfix func |(piped: NFCNDEFMessage?) -> URL? {
-    piped?.records.first?.wellKnownTypeURIPayload()
-}
+        //Save ask
+        guard wand.answer(the: ask, check: true) else {
+            return
+        }
 
-@available(iOS 13.0, *)
-public postfix func |(piped: NFCNDEFMessage) -> URL? {
-    piped.records.first?.wellKnownTypeURIPayload()
-}
+        //Request for a first time
 
-@available(iOS 13.0, *)
-extension Wand.Error {
+        //Prepare context
+        let session: NFCNDEFReaderSession = wand.obtain()
 
-    static func nfc(_ reason: String) -> Error {
-        NFCReaderError.init(.readerErrorInvalidParameter,
-                            userInfo: [NSLocalizedDescriptionKey: reason])
+        //Set the cleaner
+        wand.setCleaner(for: T.self|) {
+            session.invalidate()
+
+            Wand.log("|🌜 Cleaned '\(T.self|)'")
+        }
+
+        //Make request
+        //.one
+        wand | .Optional.every { (tag: NFCNDEFTag) in
+
+            session.connect(to: tag) { (error: Error?) in
+
+                guard wand.addIf(exist: error) == nil else {
+                    session.restartPolling()
+                    return
+                }
+
+                tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
+
+                    guard wand.addIf(exist: error) == nil else {
+                        return
+                    }
+
+                    wand.add(capacity)
+                    wand.add(status)
+
+                }
+
+            }
+
+        }
+
     }
 
 }
 
 #endif
+
+

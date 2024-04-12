@@ -24,18 +24,44 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
+/// Ask
+///
+/// |{ (message: NFCNDEFMessage) in
+///
+/// }
+///
 @available(iOS 13.0, *)
-extension NFCNDEFStatus: AskingNil, Wanded {
+@available(macOS, unavailable)
+extension NFCNDEFMessage: AskingNil, Wanded {
 
-    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+    @inline(__always)
+    public 
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
-        guard wand.answer(the: ask, check: true) else {
+        //Save ask
+        guard wand.answer(the: ask) else {
             return
         }
 
+        //Request for a first time
+
+        //Prepare context
         let session: NFCNDEFReaderSession = wand.obtain()
 
-        wand | .every { (tag: NFCNDEFTag) in
+        //Set the cleaner
+        wand.setCleaner(for: T.self|) {
+            session.invalidate()
+
+            Wand.log("|🌜 Cleaned '\(T.self|)'")
+        }
+
+//        type(of: ask).Optional { (tag: NFCNDEFTag) in
+//
+//        }
+
+        //Make request
+        //.one
+        wand | .Optional.every { (tag: NFCNDEFTag) in
 
             session.connect(to: tag) { (error: Error?) in
 
@@ -44,27 +70,35 @@ extension NFCNDEFStatus: AskingNil, Wanded {
                     return
                 }
 
-                tag.queryNDEFStatus() { (status: NFCNDEFStatus, capacity: Int, error: Error?) in
+                wand | .Optional.one { (status: NFCNDEFStatus) in
 
                     guard wand.addIf(exist: error) == nil else {
                         return
                     }
 
-                    wand.put(capacity)
-                    wand.put(status)
+                    tag.readNDEF { message, error in
+
+                        if let error = error as? NFCReaderError,
+                           error.code != .ndefReaderSessionErrorZeroLengthMessage
+                        {
+                            wand.add(error as Error)
+                        }
+
+                        wand.add(message ?? NFCNDEFMessage(data: Data())!)
+
+                    }
+
                 }
 
             }
 
-        }.inner()
-
-        wand.addCleaner {
-            session.invalidate()
         }
+
 
     }
 
 }
+
 
 #endif
 

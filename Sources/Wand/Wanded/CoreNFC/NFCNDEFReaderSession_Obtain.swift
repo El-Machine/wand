@@ -26,7 +26,9 @@ import CoreNFC
 
 extension NFCNDEFReaderSession: Obtain {
 
-    public static func obtain(by wand: Wand?) -> Self {
+    @inline(__always)
+    public 
+    static func obtain(by wand: Wand?) -> Self {
 
         let message: String = wand?.get() ?? "Hold to know what it is 🧙🏾‍♂️"
 
@@ -49,11 +51,11 @@ extension NFCNDEFReaderSession {
     class Delegate: NSObject, NFCNDEFReaderSessionDelegate, Wanded {
 
         func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
-            isWanded?.add(true as Bool, key: "NFCNDEFReaderSessionIsReady")
+            isWanded?.add(true as Bool, for: "NFCNDEFReaderSessionIsReady")
         }
 
         func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-            isWanded?.add(false as Bool, key: "NFCNDEFReaderSessionIsReady")
+            isWanded?.add(false as Bool, for: "NFCNDEFReaderSessionIsReady")
             isWanded?.add(error)
         }
 

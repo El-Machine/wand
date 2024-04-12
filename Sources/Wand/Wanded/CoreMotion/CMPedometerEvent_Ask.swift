@@ -23,8 +23,6 @@
 
 import CoreMotion.CMPedometer
 
-//#if !os(macOS)
-
 /// Ask
 ///
 /// |{ (event: CMPedometerEvent) in
@@ -67,5 +65,3 @@ extension CMPedometerEvent: AskingNil, Wanded {
     }
 
 }
-
-//#endif

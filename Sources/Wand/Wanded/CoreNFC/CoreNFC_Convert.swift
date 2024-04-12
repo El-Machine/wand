@@ -24,59 +24,56 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
+@inline(__always)
 @available(iOS 13.0, *)
-extension NFCNDEFMessage: AskingWithout, Pipable {
+public
+postfix func |(url: URL) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: url)!])
+}
 
-    public static func ask<T>(_ ask: Ask<T>, from pipe: Pipe) where T : Asking {
+@inline(__always)
+@available(iOS 13.0, *)
+public
+postfix func |(url: URL?) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(url: url!)!])
+}
 
-        guard pipe.ask(for: ask) else {
-            return
-        }
+@inline(__always)
+@available(iOS 13.0, *)
+public
+postfix func |(content: String) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(string: content)!])
+}
 
-        let session: NFCNDEFReaderSession = pipe.get()
+@inline(__always)
+@available(iOS 13.0, *)
+public
+postfix func |(content: String?) -> NFCNDEFMessage {
+    NFCNDEFMessage(records: [.wellKnownTypeURIPayload(string: content!)!])
+}
 
-        pipe | .every { (tag: NFCNDEFTag) in
+@inline(__always)
+@available(iOS 13.0, *)
+public
+postfix func |(piped: NFCNDEFMessage?) -> URL? {
+    piped?.records.first?.wellKnownTypeURIPayload()
+}
 
-            session.connect(to: tag) { (error: Error?) in
+@inline(__always)
+@available(iOS 13.0, *)
+public
+postfix func |(piped: NFCNDEFMessage) -> URL? {
+    piped.records.first?.wellKnownTypeURIPayload()
+}
 
-                guard pipe.putIf(exist: error) == nil else {
-                    session.restartPolling()
-                    return
-                }
+@available(iOS 13.0, *)
+extension Wand.Error {
 
-                pipe | .one { (status: NFCNDEFStatus) in
-
-                    guard pipe.putIf(exist: error) == nil else {
-                        return
-                    }
-
-                    tag.readNDEF { message, error in
-
-                        if let error = error as? NFCReaderError,
-                           error.code != .ndefReaderSessionErrorZeroLengthMessage
-                        {
-                            pipe.put(error as Error)
-                        }
-
-                        pipe.put(message ?? NFCNDEFMessage(data: Data())!)
-
-                    }
-
-                }.inner()
-
-            }
-
-        }.inner()
-
-        pipe.addCleaner {
-            session.invalidate()
-        }
-
+    static func nfc(_ reason: String) -> Error {
+        NFCReaderError.init(.readerErrorInvalidParameter,
+                            userInfo: [NSLocalizedDescriptionKey: reason])
     }
 
 }
 
-
 #endif
-
-

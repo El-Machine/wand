@@ -25,6 +25,7 @@ import AVFoundation
 import Contacts
 import CoreBluetooth
 import CoreLocation
+import CoreNFC
 import Vision
 
 import SwiftUI
@@ -38,6 +39,15 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
+
+
+
+
+//            Wand() | Ask.one(NFCNDEFTag.self).lock { d in
+//
+//            }
+
+//            //1. While location
 //            [[CNContactFamilyNameKey as CNKeyDescriptor]] | .while { (l: CLLocation, i: Int) in
 //
 //                print("1. \(l)")
@@ -45,53 +55,69 @@ struct ContentView: View {
 //                print("1. 🎲 \(i)")
 //
 //                return i != 4
-//            } //|
+//            } |
+//
+//            //2. Every location
 //            { (l: CLLocation) in
 //
 //                print("2. \(l)")
 //
-//            } | 
-//            { (s: CLAuthorizationStatus) in
+//            } |
 //
-//                print("3. \(s)")
-//
-//            } | 
+//            //3. One location
 //            .one { (c: CLLocation) in
 //
-//                print("4. \(c)")
+//                print("3. \(c)")
 //
-//            } //|
+//            } |
+//
+//            //4.1 One status
+//            { (s: CLAuthorizationStatus) in
+//
+//                print("4.1 \(s)")
+//
+//            } |
+//
+//            //4.2 Request authorizedAlways
+//            CLAuthorizationStatus.authorizedAlways | .one { (s: CLAuthorizationStatus) in
+//
+//                print("4.2 \(s)")
+//
+//            } |
+//
+//            //5. Find contact
 //            .while { (c: CNContact) in
 //
-//                print("5. \(c)")
+//                print("5️⃣ \(c)")
 //                return c.familyName != "Higgins"
 //
-//            } | 
-//            .all {
-//                print("Last")
-//            } | .any {
-//                print("Any \($0)")
-//            }
-
+//            } |
+//
+//            //7. One face
 //            |.one { (f: VNFaceObservation) in
 //
-//                print("6. \(f)")
+//                print("7️⃣ \(f)")
 //
-//            } //|
+//            } |
 
-            //|
-//            { (e: Error) in
-//                print(e)
-//
-//            }
+            |.one { (message: NFCNDEFMessage) in    //6️⃣ NFC read
 
-//            CLAuthorizationStatus.authorizedWhenInUse | .one { (s: CLAuthorizationStatus) in
-//
-//                print(s)
-//            } | { (e: Error) in
-//                print(e)
-//
-//            }
+                print("|6️⃣ \(message)")
+
+            } |
+
+            .any {                                  //.. Notify
+                print("|📦 Did add \($0)")
+            } |
+
+            .all {                                  //.. Completion
+                print("Last")
+            } |
+
+            { (e: Error) in                         //.. Error handling
+                print(e)
+
+            }
 
 
 
