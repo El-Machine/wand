@@ -64,6 +64,7 @@
 		61B1B41A2BC961B400BD1F36 /* NFCNDEFStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */; };
 		61B1B41B2BC9627E00BD1F36 /* NFCNDEFTag_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA72BC7F21A00375480 /* NFCNDEFTag_Ask.swift */; };
 		61B1B41D2BC96C5800BD1F36 /* CoreNFC_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1B4162BC95EF300BD1F36 /* CoreNFC_Tests.swift */; };
+		61B1B41E2BC9740000BD1F36 /* Notification_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C636B2BC81325003BCBC3 /* Notification_Tests.swift */; };
 		61B3503D2BB1444900D432DE /* CLAuthorizationStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* CLAuthorizationStatus_Ask.swift */; };
 		61B3503E2BB146CE00D432DE /* CLLocationManager_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* CLLocationManager_Obtain.swift */; };
 		61B3503F2BB1486B00D432DE /* CLLocation_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* CLLocation_Ask.swift */; };
@@ -1135,6 +1136,7 @@
 				61B13CBB2BC5615900C71F03 /* Math_Tests.swift in Sources */,
 				61B350462BB149E100D432DE /* CoreLocation_Tests.swift in Sources */,
 				61B13CB82BC55FB100C71F03 /* CoreLocation_any.swift in Sources */,
+				61B1B41E2BC9740000BD1F36 /* Notification_Tests.swift in Sources */,
 				61B13CB72BC55FAB00C71F03 /* any.swift in Sources */,
 				6162628A28BC957500D63EA5 /* TestTools.swift in Sources */,
 				61C4C25C2BBD51A3006BD985 /* CoreMotion_Tests.swift in Sources */,

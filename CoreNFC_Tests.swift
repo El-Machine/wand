@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if !targetEnvironment(simulator)
 #if canImport(CoreNFC)
 import CoreNFC
 
@@ -33,7 +34,6 @@ import XCTest
 @available(visionOS, unavailable)
 class CoreNFC_Tests: XCTestCase {
 
-#if !targetEnvironment(simulator)
 
     func test_NFCNDEFMessage_read() {
         let e = expectation()
@@ -116,8 +116,8 @@ class CoreNFC_Tests: XCTestCase {
         waitForExpectations(timeout: .default * 4)
     }
 
-#endif
 
 }
 
+#endif
 #endif

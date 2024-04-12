@@ -26,35 +26,62 @@ import Foundation
 import Wand
 import XCTest
 
+
+private
+extension Notification.Name {
+
+    static var custom = Self.init(String())
+
+}
+
 class Notification_Tests: XCTestCase {
 
-    func test_Notification() {
+
+    func test_Notification_custom() {
         let e = expectation()
 
-        //Simulate Memory Warning
-        //⌘+⇧+M
-        UIApplication.didReceiveMemoryWarningNotification | .one { n in
+        let name = Notification.Name.custom
+
+        name | .one { n in
             e.fulfill()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+
+            NotificationCenter.default.post(Notification(name: name))
+
         }
 
         waitForExpectations()
     }
 
-    func test_WhileNotification() {
-        let e = expectation()
-        e.expectedFulfillmentCount = 2
-
-        //Simulate Memory Warning
-        //⌘+⇧+M
-        UIApplication.didReceiveMemoryWarningNotification | .while { (notification, i) in
-            e.fulfill()
-
-            print(notification)
-
-            return i < 2
-        }
-
-        waitForExpectations()
-    }
+//    func test_Notification_memory() {
+//        let e = expectation()
+//
+//        //Simulate Memory Warning
+//        //⌘+⇧+M
+//        UIApplication.didReceiveMemoryWarningNotification | .one { n in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
+//
+//    func test_WhileNotification() {
+//        let e = expectation()
+//        e.expectedFulfillmentCount = 2
+//
+//        //Simulate Memory Warning
+//        //⌘+⇧+M
+//        UIApplication.didReceiveMemoryWarningNotification | .while { (notification, i) in
+//            e.fulfill()
+//
+//            print(notification)
+//
+//            return i < 2
+//        }
+//
+//        waitForExpectations()
+//    }
 
 }
