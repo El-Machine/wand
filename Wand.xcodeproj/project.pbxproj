@@ -54,7 +54,7 @@
 		61B13CBB2BC5615900C71F03 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162626928BC957500D63EA5 /* Math_Tests.swift */; };
 		61B13CBC2BC5625400C71F03 /* CoreGraphics_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CoreGraphics_Convertable.swift */; };
 		61B13CBD2BC5626400C71F03 /* VNRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* VNRequest_Pipe.swift */; };
-		61B13CBE2BC562BD00C71F03 /* VNObservation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* VNObservation_Pipe.swift */; };
+		61B13CBE2BC562BD00C71F03 /* VNObservation_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* VNObservation_Ask.swift */; };
 		61B13CBF2BC5635400C71F03 /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* VNImageRequestHandler_Pipe.swift */; };
 		61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Pipe.swift */; };
 		61B13CC12BC5648D00C71F03 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Pipe.swift */; };
@@ -72,7 +72,7 @@
 		61B350462BB149E100D432DE /* CoreLocation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162627528BC957500D63EA5 /* CoreLocation_Tests.swift */; };
 		61B350492BB14DC600D432DE /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
 		61B3504A2BB14DC600D432DE /* CNContact_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Pipe.swift */; };
-		61B3504C2BB1541E00D432DE /* Notification_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Notification_Pipe.swift */; };
+		61B3504C2BB1541E00D432DE /* Notification_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Notification_Ask.swift */; };
 		61B3504D2BB1545D00D432DE /* CMPedometer_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CMPedometer_Obtain.swift */; };
 		61B3504E2BB1545D00D432DE /* CMPedometerData_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CMPedometerData_Ask.swift */; };
 		61B3504F2BB1545D00D432DE /* CMPedometerEvent_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* CMPedometerEvent_Ask.swift */; };
@@ -88,7 +88,7 @@
 		61E719272BAC23C500360FA5 /* UIKit_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E719262BAC23C500360FA5 /* UIKit_Convertable.swift */; };
 		61E719582BAC297C00360FA5 /* DateFormatter_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC807C29541F0200B57A0C /* DateFormatter_Pipe.swift */; };
 		OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* NSTextCheckingResult_Pipe.swift */; };
-		OBJ_174 /* NotificationCenter_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* NotificationCenter_Pipe.swift */; };
+		OBJ_174 /* NotificationCenter_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* NotificationCenter_Obtain.swift */; };
 		OBJ_176 /* TimeZone_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* TimeZone_Pipe.swift */; };
 		OBJ_181 /* MKGeometry+Piped.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* MKGeometry+Piped.swift */; };
 		OBJ_182 /* MapKit+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* MapKit+Pipe.swift */; };
@@ -270,8 +270,8 @@
 		OBJ_31 /* CMPedometerEvent_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerEvent_Ask.swift; sourceTree = "<group>"; };
 		OBJ_32 /* CMPedometer_Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometer_Obtain.swift; sourceTree = "<group>"; };
 		OBJ_44 /* NSTextCheckingResult_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextCheckingResult_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_46 /* NotificationCenter_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_47 /* Notification_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification_Pipe.swift; sourceTree = "<group>"; };
+		OBJ_46 /* NotificationCenter_Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter_Obtain.swift; sourceTree = "<group>"; };
+		OBJ_47 /* Notification_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification_Ask.swift; sourceTree = "<group>"; };
 		OBJ_48 /* TimeZone_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_55 /* MKGeometry+Piped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKGeometry+Piped.swift"; sourceTree = "<group>"; };
 		OBJ_56 /* MapKit+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Pipe.swift"; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		OBJ_79 /* UIImage_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_81 /* Visible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visible.swift; sourceTree = "<group>"; };
 		OBJ_83 /* VNImageRequestHandler_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNImageRequestHandler_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_84 /* VNObservation_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNObservation_Pipe.swift; sourceTree = "<group>"; };
+		OBJ_84 /* VNObservation_Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNObservation_Ask.swift; sourceTree = "<group>"; };
 		OBJ_85 /* VNRequest_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNRequest_Pipe.swift; sourceTree = "<group>"; };
 		OBJ_86 /* Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand.swift; sourceTree = "<group>"; };
 		OBJ_89 /* Obtain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtain.swift; sourceTree = "<group>"; };
@@ -698,8 +698,8 @@
 		OBJ_45 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_46 /* NotificationCenter_Pipe.swift */,
-				OBJ_47 /* Notification_Pipe.swift */,
+				OBJ_46 /* NotificationCenter_Obtain.swift */,
+				OBJ_47 /* Notification_Ask.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -825,7 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_83 /* VNImageRequestHandler_Pipe.swift */,
-				OBJ_84 /* VNObservation_Pipe.swift */,
+				OBJ_84 /* VNObservation_Ask.swift */,
 				OBJ_85 /* VNRequest_Pipe.swift */,
 			);
 			path = Vision;
@@ -1069,13 +1069,13 @@
 				61B350492BB14DC600D432DE /* CNContactStore_Pipe.swift in Sources */,
 				61B3504A2BB14DC600D432DE /* CNContact_Pipe.swift in Sources */,
 				61E719252BAC23AA00360FA5 /* Dispatch+Pipe.swift in Sources */,
-				61B3504C2BB1541E00D432DE /* Notification_Pipe.swift in Sources */,
+				61B3504C2BB1541E00D432DE /* Notification_Ask.swift in Sources */,
 				6195667029A3496200167A08 /* Asking.swift in Sources */,
 				61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */,
 				OBJ_173 /* NSTextCheckingResult_Pipe.swift in Sources */,
 				61B350402BB1493F00D432DE /* CoreLocation_Convert.swift in Sources */,
 				61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */,
-				OBJ_174 /* NotificationCenter_Pipe.swift in Sources */,
+				OBJ_174 /* NotificationCenter_Obtain.swift in Sources */,
 				61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */,
 				61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */,
 				OBJ_176 /* TimeZone_Pipe.swift in Sources */,
@@ -1114,7 +1114,7 @@
 				OBJ_195 /* UIColor_Pipe.swift in Sources */,
 				OBJ_196 /* UIEvent_Pipe.swift in Sources */,
 				OBJ_200 /* Visible.swift in Sources */,
-				61B13CBE2BC562BD00C71F03 /* VNObservation_Pipe.swift in Sources */,
+				61B13CBE2BC562BD00C71F03 /* VNObservation_Ask.swift in Sources */,
 				OBJ_204 /* Wand.swift in Sources */,
 				61B13CB32BC54E7300C71F03 /* Any.swift in Sources */,
 				61056E8B2924C72100E2BFF0 /* Error.swift in Sources */,
@@ -1209,7 +1209,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1302,7 +1302,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1396,7 +1396,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1481,7 +1481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1521,7 +1521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1558,7 +1558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1644,7 +1644,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1687,7 +1687,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 307;
+				CURRENT_PROJECT_VERSION = 314;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
