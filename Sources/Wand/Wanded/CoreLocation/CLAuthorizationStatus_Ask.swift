@@ -67,3 +67,18 @@ extension CLAuthorizationStatus: AskingNil, Wanded {
     }
 
 }
+
+@inline(__always)
+@discardableResult
+public
+func | (request: CLAuthorizationStatus, handler: @escaping (CLAuthorizationStatus)->() ) -> Wand {
+    Wand(for: request) | .every(handler: handler)
+}
+
+@inline(__always)
+@discardableResult
+public
+func | (request: CLAuthorizationStatus, ask: Ask<CLAuthorizationStatus> ) -> Wand {
+    Wand(for: request) | ask
+}
+
