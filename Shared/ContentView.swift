@@ -39,14 +39,6 @@ struct ContentView: View {
 
         Text("Hello, Wand |").onAppear {
 
-
-
-
-
-//            Wand() | Ask.one(NFCNDEFTag.self).lock { d in
-//
-//            }
-
 //            //1. While location
 //            [[CNContactFamilyNameKey as CNKeyDescriptor]] | .while { (l: CLLocation, i: Int) in
 //
@@ -100,26 +92,32 @@ struct ContentView: View {
 //
 //            } |
 
-            |.one { (message: NFCNDEFMessage) in    //6️⃣ NFC read
+//            |.one { (message: NFCNDEFMessage) in    //6️⃣ NFC read
+//
+//                print("|6️⃣ \(message)")
+//
+//            } |
+//
+//            .any {                                  //.. Notify
+//                print("|📦 Did add \($0)")
+//            } |
+//
+//            .all {                                  //.. Completion
+//                print("Last")
+//            } |
+//
+//            { (e: Error) in                         //.. Error handling
+//                print(e)
+//
+//            }
 
-                print("|6️⃣ \(message)")
-
-            } |
-
-            .any {                                  //.. Notify
-                print("|📦 Did add \($0)")
-            } |
-
-            .all {                                  //.. Completion
-                print("Last")
-            } |
-
-            { (e: Error) in                         //.. Error handling
-                print(e)
-
-            }
 
 
+
+
+//            Wand() | Ask.one(NFCNDEFTag.self).lock { d in
+//
+//            }
 
 //            |
 //                .retrieve { (peripherals: [CBPeripheral]) in
