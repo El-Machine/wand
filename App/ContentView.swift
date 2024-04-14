@@ -25,7 +25,11 @@ import AVFoundation
 import Contacts
 import CoreBluetooth
 import CoreLocation
+
+#if canImport(CoreNFC)
 import CoreNFC
+#endif
+
 import Vision
 
 import SwiftUI

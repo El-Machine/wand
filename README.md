@@ -118,16 +118,20 @@ view.layer.addSublayer(preview!)
 ### Сoncept
 
 Wand started from idea about receiving anything in most efficient and fast way 🪄  
-Just add one sign to completion handler and retreive the result 📦  
+Just add on¯e sign to completion handler and retreive the result 📦  
 
 You ideas, comments, contribution are welcome |
 
 Tasks
 
+- [x] Contacts
+- [x] CoreLocation
+- [x] CoreMotion
 - [x] NSNotification
-- [ ] NFCNDEFTag
+- [ ] CoreNFC
 - [ ] Vision
 - [ ] Rest
+- [ ] MultipeerConnectivity
 
 [Alex Kozin](mailto:al@el-machine.com)  
 [El Machine 🤖](https://el-machine.com) 2020...
