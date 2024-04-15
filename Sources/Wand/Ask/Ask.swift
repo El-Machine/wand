@@ -30,6 +30,10 @@ class Ask<T> {
 
     var next: Ask<T>?
 
+    var isOne: Bool {
+        false
+    }
+
     private
     var wand: Wand?
     func set(wand: Wand) {
@@ -57,6 +61,12 @@ extension Ask {
     }
 
     class One: Ask {
+
+        override
+        var isOne: Bool {
+            true
+        }
+
     }
 
     @inline(__always)
