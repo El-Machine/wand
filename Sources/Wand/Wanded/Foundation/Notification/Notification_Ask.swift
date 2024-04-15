@@ -56,10 +56,10 @@ extension Notification: Asking, Wanded {
         }
 
         //Set the cleaner
-        wand.setCleaner(for: ask) { [weak wand] in
+        wand.setCleaner(for: ask) {
             center.removeObserver(token)
 
-            print("|🌜 \(wand?.get() as T?)")
+            Wand.log("|🌜 Cleaned '\(ask.key)'")
         }
 
     }

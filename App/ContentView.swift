@@ -41,6 +41,8 @@ struct ContentView: View {
 
     var body: some View {
 
+        let urlString = "https://en.wikipedia.org/wiki/Laozi"
+
         Text("Hello, Wand |").onAppear {
 
 //            //1. While location
@@ -101,6 +103,10 @@ struct ContentView: View {
 //                print("|6️⃣ \(message)")
 //
 //            } |
+
+            |.one(NFCNDEFTag.self).write(urlString|) { tag in
+                print(tag)
+            } |
 //
 //            .any {                                  //.. Notify
 //                print("|📦 Did add \($0)")
@@ -110,18 +116,10 @@ struct ContentView: View {
 //                print("Last")
 //            } |
 //
-//            { (e: Error) in                         //.. Error handling
-//                print(e)
-//
-//            }
+            { (e: Error) in                         //.. Error handling
+                print(e)
 
-
-
-
-
-//            Wand() | Ask.one(NFCNDEFTag.self).lock { d in
-//
-//            }
+            }
 
 //            |
 //                .retrieve { (peripherals: [CBPeripheral]) in

@@ -121,73 +121,73 @@ extension NFCNDEFTag {
 }
 
 @available(iOS 13.0, *)
-extension Ask.One where T == NFCNDEFTag {
+extension Ask where T == NFCNDEFTag {
 
     @inline(__always)
     @available(iOS 13.0, *)
     public func write (_ message: NFCNDEFMessage, done: @escaping (NFCNDEFTag)->() ) -> Self {
 
-//        let oldHandler = self.handler
-//
-//        self.handler = { tag in
-//
-//            let pipe = tag.pipe
-//
-//            let session: NFCNDEFReaderSession = pipe.get()
-//            
-//            session.connect(to: tag) { (error: Error?) in
-//
-//                guard pipe.putIf(exist: error) == nil else {
-//                    return
-//                }
-//
-//                pipe | .one { (status: NFCNDEFStatus) in
-//
-//                    switch status {
-//
-//                        case .readWrite:
-//
-//                            let message = message
-//
-//                            let capacity: Int = pipe.get()!
-//                            if message.length > capacity {
-//
-//                                let e = Pipe.Error.nfc("Tag capacity is too small. Minimum size requirement is \(message.length) bytes.")
-//                                pipe.put(e)
-//
-//                                return
-//                            }
-//
-//                            tag.writeNDEF(message) { (error: Error?) in
-//
-//                                guard pipe.putIf(exist: error) == nil else {
-//                                    return
-//                                }
-//
-//                                done(tag)
-//
-//                            }
-//
-//                        case .readOnly:
-//                            let e = Pipe.Error.nfc("Tag is not writable")
-//                            pipe.put(e)
-//
-//                        case .notSupported:
-//                            let e = Pipe.Error.nfc("Tag is not NDEF")
-//                            pipe.put(e)
-//
-//                        @unknown default:
-//                            fatalError()
-//
-//                    }
-//
-//                }.inner()
-//                
-//            }
-//
-//            //Call previous handler
-//            return oldHandler(tag)
-//        }
+        let oldHandler = self.handler
+
+        self.handler = { tag in
+
+            let wand = tag.wand
+
+            let session: NFCNDEFReaderSession = wand.obtain()
+
+            session.connect(to: tag) { (error: Error?) in
+
+                guard wand.addIf(exist: error) == nil else {
+                    return
+                }
+
+                wand | .Optional.one { (status: NFCNDEFStatus) in
+
+                    switch status {
+
+                        case .readWrite:
+
+                            let message = message
+
+                            let capacity: Int = wand.get()!
+                            if message.length > capacity {
+
+                                let e = Wand.Error.nfc("Tag capacity is too small. Minimum size requirement is \(message.length) bytes.")
+                                wand.add(e)
+
+                                return
+                            }
+
+                            tag.writeNDEF(message) { (error: Error?) in
+
+                                guard wand.addIf(exist: error) == nil else {
+                                    return
+                                }
+
+                                done(tag)
+
+                            }
+
+                        case .readOnly:
+                            let e = Wand.Error.nfc("Tag is not writable")
+                            wand.add(e)
+
+                        case .notSupported:
+                            let e = Wand.Error.nfc("Tag is not NDEF")
+                            wand.add(e)
+
+                        @unknown default:
+                            fatalError()
+
+                    }
+
+                }
+                
+            }
+
+            //Call previous handler
+            return oldHandler(tag)
+        }
 
         return self
     }

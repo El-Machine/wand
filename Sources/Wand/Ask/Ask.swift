@@ -25,7 +25,7 @@
 public
 class Ask<T> {
 
-    let handler: (T)->(Bool)
+    var handler: (T)->(Bool)
 
     var next: Ask<T>?
 

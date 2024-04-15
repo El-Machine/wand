@@ -59,7 +59,7 @@ class Wand {
     }
 
     public
-    private(set)
+    internal(set)
     var context = [String: Any]()
 
     public
@@ -70,9 +70,44 @@ class Wand {
         log("|💪🏽 #init\n\(self)\n")
     }
 
+    public
+    convenience init<T>(for object: T) {
+        self.init()
+
+        Wand[object] = self
+        context[T.self|] = object
+    }
+
     deinit {
         close()
         log("|✅ #bonsua\n\(self)\n")
+    }
+
+}
+
+/// Attach
+extension Wand {
+
+    public
+    static func attach<C>(to context: C? = nil) -> Wand {
+
+        guard let context else {
+            return Wand()
+        }
+
+        if let wanded = context as? Wanded {
+            return wanded.wand
+        }
+
+        if let array = context as? [Any] {
+            return Wand(array: array)
+        }
+
+        if let dictionary = context as? [String: Any] {
+            return Wand(dictionary: dictionary)
+        }
+
+        return Wand(for: context)
     }
 
 }
@@ -103,9 +138,9 @@ public
 extension Wand {
 
     @discardableResult
-    func add<T>(_ object: T, for key: String? = nil) -> T {
+    func add<T>(_ object: T, for raw: String? = nil) -> T {
 
-        let key = save(object, key: key)
+        let key = save(object, key: raw)
 
         //Answer stored questions
         guard
@@ -222,75 +257,6 @@ extension Wand {
     func setCleaner<T>(for ask: Ask<T>, cleaner: @escaping ()->()) {
         let key = ask.key
         asking[key] = (asking[key]!.last, cleaner)
-    }
-
-}
-
-/// Init with context
-extension Wand: ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
-
-    public typealias ArrayLiteralElement = Any
-
-    public typealias Key = String
-    public typealias Value = Any
-
-    //Init directly
-    convenience init<T>(for object: T) {
-        self.init()
-
-        Wand[object] = self
-        context[T.self|] = object
-    }
-
-    public convenience init(arrayLiteral array: Any...) {
-        self.init()
-        save(sequence: array)
-    }
-
-    public convenience init(array: [Any]) {
-        self.init()
-        save(sequence: array)
-    }
-
-    public convenience init(dictionaryLiteral elements: (String, Any)...) {
-        self.init()
-
-        elements.forEach { (key, object) in
-            Wand[object] = self
-            context[key] = object
-        }
-    }
-
-    public convenience init(dictionary: [String: Any]) {
-        self.init()
-
-        dictionary.forEach { (key, object) in
-            Wand[object] = self
-            context[key] = object
-        }
-    }
-
-    //Attach to Any thing
-    public
-    static func attach<C>(to context: C? = nil) -> Wand {
-
-        guard let context else {
-            return Wand()
-        }
-
-        if let wanded = context as? Wanded {
-            return wanded.wand
-        }
-
-        if let array = context as? [Any] {
-            return Wand(array: array)
-        }
-
-        if let dictionary = context as? [String: Any] {
-            return Wand(dictionary: dictionary)
-        }
-
-        return Wand(for: context)
     }
 
 }
