@@ -48,7 +48,7 @@ extension CMPedometerEvent: AskingNil, Wanded {
         let source: CMPedometer = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self|) {
+        wand.setCleaner(for: ask) {
             source.stopEventUpdates()
         }
 

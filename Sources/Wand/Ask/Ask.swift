@@ -25,13 +25,23 @@
 public
 class Ask<T> {
 
-    var key: String?
     let handler: (T)->(Bool)
 
     var next: Ask<T>?
 
     var isOne: Bool {
         false
+    }
+
+    private
+    var _key: String?
+    var key: String {
+        get {
+            _key ?? T.self|
+        }
+        set {
+            _key = newValue
+        }
     }
 
     private
@@ -44,7 +54,7 @@ class Ask<T> {
     init(key: String? = nil,
          handler: @escaping (T) -> (Bool)) {
 
-        self.key = key
+        self._key = key
         self.handler = handler
     }
 

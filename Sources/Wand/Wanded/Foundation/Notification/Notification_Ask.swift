@@ -56,7 +56,7 @@ extension Notification: Asking, Wanded {
         }
 
         //Set the cleaner
-        wand.setCleaner(for: key) { [weak wand] in
+        wand.setCleaner(for: ask) { [weak wand] in
             center.removeObserver(token)
 
             print("|🌜 \(wand?.get() as T?)")

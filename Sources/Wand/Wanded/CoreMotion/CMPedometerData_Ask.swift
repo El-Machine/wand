@@ -47,7 +47,7 @@ extension CMPedometerData: AskingNil, Wanded {
         let date: Date          = wand.get() ?? Date()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self|) {
+        wand.setCleaner(for: ask) {
             source.stopUpdates()
         }
 

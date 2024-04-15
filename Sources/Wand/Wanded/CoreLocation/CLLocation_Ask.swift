@@ -49,10 +49,10 @@ extension CLLocation: AskingNil, Wanded {
         let source: CLLocationManager = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self|) {
+        wand.setCleaner(for: ask) {
             source.stopUpdatingLocation()
 
-            Wand.log("|🌜 Cleaned '\(T.self|)'")
+            Wand.log("|🌜 Cleaned '\(ask.key)'")
         }
 
         //Make request

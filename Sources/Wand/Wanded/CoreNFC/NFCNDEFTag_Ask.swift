@@ -99,7 +99,7 @@ public func | (wand: Wand?, ask: Ask<NFCNDEFTag>) -> Wand {
     session.alertMessage = wand.get() ?? ""
     session.begin()
 
-    wand.setCleaner(for: NFCNDEFTag.self|) {
+    wand.setCleaner(for: ask) {
         session.invalidate()
     }
 

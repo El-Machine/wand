@@ -40,10 +40,10 @@ extension NFCNDEFStatus: AskingNil, Wanded {
         let session: NFCNDEFReaderSession = wand.obtain()
 
         //Set the cleaner
-        wand.setCleaner(for: T.self|) {
+        wand.setCleaner(for: ask) {
             session.invalidate()
 
-            Wand.log("|🌜 Cleaned '\(T.self|)'")
+            Wand.log("|🌜 Cleaned '\(ask.key)'")
         }
 
         //Make request

@@ -181,7 +181,7 @@ extension Wand {
     func answer<T>(the ask: Ask<T>,
                    check: Bool = false) -> Bool {
 
-        let key = ask.key ?? T.self|
+        let key = ask.key
         let stored = asking[key]
 
         //Call handler if object exist
@@ -219,8 +219,8 @@ extension Wand {
         return stored == nil
     }
 
-    func setCleaner(for key: String, cleaner: @escaping ()->()) {
-        
+    func setCleaner<T>(for ask: Ask<T>, cleaner: @escaping ()->()) {
+        let key = ask.key
         asking[key] = (asking[key]!.last, cleaner)
     }
 
