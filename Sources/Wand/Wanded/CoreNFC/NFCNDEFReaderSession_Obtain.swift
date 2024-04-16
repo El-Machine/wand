@@ -24,25 +24,40 @@
 #if canImport(CoreNFC)
 import CoreNFC
 
-extension NFCNDEFReaderSession: Obtain {
+extension NFCNDEFReaderSession: AskingNil {
 
     @inline(__always)
     public 
-    static func obtain(by wand: Wand?) -> Self {
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
 
-        let message: String = wand?.get() ?? "Hold to know what it is 🧙🏾‍♂️"
+        //Save ask
+        guard wand.answer(the: ask) else {
+            return
+        }
 
-        let wand = wand ?? Wand()
+        //Request for a first time
 
+        //Prepare context
         let delegate = wand.add(Delegate())
 
-        let source = Self(delegate: delegate,
+        let session = Self(delegate: delegate,
                           queue: DispatchQueue.global(),
-                          invalidateAfterFirstRead: false) //while
+                          invalidateAfterFirstRead: false)
 
-        source.alertMessage = message
+        let message: String = wand.get() ?? "Hold to know what it is 🧙🏾‍♂️"
+        session.alertMessage = message
 
-        return source
+        //Set the cleaner
+        wand.setCleaner(for: ask) {
+            session.invalidate()
+
+            Wand.log("|🌜 Cleaned '\(ask.key)'")
+        }
+
+        wand.add(session)
+
+        //Make request
+        session.begin()
     }
 
 }
@@ -75,6 +90,10 @@ extension NFCNDEFReaderSession {
 //                    let address = MemoryAddress.address(of: first)
 //                    print("💪🏽 set \(address)")
 //                    Pipe.all[address] = pipe
+
+
+                    Wand.all[Wand.address(for: first)] = Wand.Weak(item: wand)
+//                    context[NFCNDEFTag.self|] = object
 
                     wand.add(first)
                 }

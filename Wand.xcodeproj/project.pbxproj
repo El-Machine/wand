@@ -46,7 +46,6 @@
 		6180564D2BCB90D60013EC56 /* CoreBluetooth_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562E2BCB90D60013EC56 /* CoreBluetooth_Tests.swift */; };
 		6180564E2BCB90D60013EC56 /* CoreLocation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562F2BCB90D60013EC56 /* CoreLocation_Tests.swift */; };
 		6180564F2BCB90D60013EC56 /* CoreMotion_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056302BCB90D60013EC56 /* CoreMotion_Tests.swift */; };
-		618056502BCB90D60013EC56 /* CoreNFC_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056312BCB90D60013EC56 /* CoreNFC_Tests.swift */; };
 		618056512BCB90D60013EC56 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056322BCB90D60013EC56 /* Math_Tests.swift */; };
 		6195667029A3496200167A08 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666D29A3496200167A08 /* Asking.swift */; };
 		6195667129A3496200167A08 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666E29A3496200167A08 /* Ask.swift */; };
@@ -66,7 +65,6 @@
 		61B13CBF2BC5635400C71F03 /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* VNImageRequestHandler_Pipe.swift */; };
 		61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Pipe.swift */; };
 		61B13CC12BC5648D00C71F03 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Pipe.swift */; };
-		61B13CC82BC56CD500C71F03 /* JsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E7193C2BAC23E400360FA5 /* JsonObject.swift */; };
 		61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Ask.swift */; };
 		61B1B4192BC9617C00BD1F36 /* NFCNDEFReaderSession_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Obtain.swift */; };
 		61B1B41A2BC961B400BD1F36 /* NFCNDEFStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */; };
@@ -1070,7 +1068,6 @@
 				OBJ_188 /* Range_Pipe.swift in Sources */,
 				61B13CAF2BC54E1000C71F03 /* All.swift in Sources */,
 				61B3503E2BB146CE00D432DE /* CLLocationManager_Obtain.swift in Sources */,
-				61B13CC82BC56CD500C71F03 /* JsonObject.swift in Sources */,
 				6195667229A3496200167A08 /* AskingNil.swift in Sources */,
 				OBJ_189 /* Comparable+Pipe.swift in Sources */,
 				61B350522BB1586F00D432DE /* CoreImage_Pipe.swift in Sources */,
@@ -1119,7 +1116,6 @@
 				6180564C2BCB90D60013EC56 /* Contacts_Tests.swift in Sources */,
 				6180564D2BCB90D60013EC56 /* CoreBluetooth_Tests.swift in Sources */,
 				6180563B2BCB90D60013EC56 /* TestTools.swift in Sources */,
-				618056502BCB90D60013EC56 /* CoreNFC_Tests.swift in Sources */,
 				6180563A2BCB90D60013EC56 /* String_any.swift in Sources */,
 				6180564F2BCB90D60013EC56 /* CoreMotion_Tests.swift in Sources */,
 				618056462BCB90D60013EC56 /* Notification_Tests.swift in Sources */,
@@ -1187,7 +1183,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1280,7 +1276,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1374,7 +1370,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1459,7 +1455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1499,7 +1495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1536,7 +1532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1622,7 +1618,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1665,7 +1661,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 411;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;

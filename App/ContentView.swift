@@ -104,8 +104,10 @@ struct ContentView: View {
 //
 //            } |
 
-            |.one(NFCNDEFTag.self).write(urlString|) { tag in
+            |Ask<NFCNDEFTag>.one().write(urlString|) { tag in
+                
                 print(tag)
+
             } |
 //
 //            .any {                                  //.. Notify

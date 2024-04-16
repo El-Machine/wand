@@ -95,13 +95,7 @@ public func | (wand: Wand?, ask: Ask<NFCNDEFTag>) -> Wand {
         return wand
     }
 
-    let session: NFCNDEFReaderSession = wand.obtain()
-    session.alertMessage = wand.get() ?? ""
-    session.begin()
-
-    wand.setCleaner(for: ask) {
-        session.invalidate()
-    }
+    wand | Ask<NFCNDEFReaderSession>.Optional.every()
 
     return wand
 }
@@ -129,11 +123,13 @@ extension Ask where T == NFCNDEFTag {
 
         let oldHandler = self.handler
 
-        self.handler = { tag in
+        let once = self.once
+
+        self.handler = {tag in
 
             let wand = tag.wand
 
-            let session: NFCNDEFReaderSession = wand.obtain()
+            let session: NFCNDEFReaderSession = wand.get()!
 
             session.connect(to: tag) { (error: Error?) in
 
@@ -141,7 +137,7 @@ extension Ask where T == NFCNDEFTag {
                     return
                 }
 
-                wand | .Optional.one { (status: NFCNDEFStatus) in
+                wand | .Optional.once(once) { (status: NFCNDEFStatus) in
 
                     switch status {
 

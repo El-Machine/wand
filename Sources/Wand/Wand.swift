@@ -274,6 +274,26 @@ extension Wand: Wanded {
 
 }
 
+/// Tools
+extension Wand {
+
+    static func address<T: AnyObject>(for model: T) -> Int {
+        Int(bitPattern: Unmanaged.passUnretained(model).toOpaque())
+    }
+
+    static func address<T>(for model: T) -> Int {
+        var address: String?
+        var mutable = model
+
+        withUnsafePointer(to: &mutable) { pointer in
+            address = String(format: "%p", pointer)
+        }
+
+        return Int(address!)!
+    }
+
+}
+
 /// Close
 public
 extension Wand {

@@ -45,23 +45,11 @@ extension NFCNDEFMessage: AskingNil, Wanded {
 
         //Request for a first time
 
-        //Prepare context
-        let session: NFCNDEFReaderSession = wand.obtain()
-
-        //Set the cleaner
-        wand.setCleaner(for: ask) {
-            session.invalidate()
-
-            Wand.log("|🌜 Cleaned '\(ask.key)'")
-        }
-
-//        type(of: ask).Optional { (tag: NFCNDEFTag) in
-//
-//        }
-
         //Make request
         //.one
-        wand | .Optional.every { (tag: NFCNDEFTag) in
+        wand | .Optional.once(ask.once) { (tag: NFCNDEFTag) in
+
+            let session: NFCNDEFReaderSession = wand.get()!
 
             session.connect(to: tag) { (error: Error?) in
 
@@ -70,7 +58,7 @@ extension NFCNDEFMessage: AskingNil, Wanded {
                     return
                 }
 
-                wand | .Optional.one { (status: NFCNDEFStatus) in
+                wand | .Optional.once(ask.once) { (status: NFCNDEFStatus) in
 
                     guard wand.addIf(exist: error) == nil else {
                         return

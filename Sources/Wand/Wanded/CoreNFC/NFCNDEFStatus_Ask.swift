@@ -37,18 +37,12 @@ extension NFCNDEFStatus: AskingNil, Wanded {
         //Request for a first time
 
         //Prepare context
-        let session: NFCNDEFReaderSession = wand.obtain()
-
-        //Set the cleaner
-        wand.setCleaner(for: ask) {
-            session.invalidate()
-
-            Wand.log("|🌜 Cleaned '\(ask.key)'")
-        }
 
         //Make request
         //.one
-        wand | .Optional.every { (tag: NFCNDEFTag) in
+        wand | .Optional.once(ask.once) { (tag: NFCNDEFTag) in
+
+            let session: NFCNDEFReaderSession = wand.get()!
 
             session.connect(to: tag) { (error: Error?) in
 

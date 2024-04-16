@@ -67,7 +67,7 @@ class CoreNFC_Tests: XCTestCase {
                 return
             }
 
-            wand | Ask.one(NFCNDEFTag.self).lock { done in
+            wand | Ask<NFCNDEFTag>.one().lock { done in
 
                 lastWrited = payload
 
@@ -102,11 +102,13 @@ class CoreNFC_Tests: XCTestCase {
 
             let content = "https://el-machine.com/tool"
             let message: NFCNDEFMessage = content|
-            wand | .one(NFCNDEFTag.self).write(message) { done in
+            wand | Ask<NFCNDEFTag>.one().write(message) { done in
 
                 lastWrited = message.records.first?.payload
 
                 print("Writed ✅ " + content)
+
+                e.fulfill()
 
             }
 
