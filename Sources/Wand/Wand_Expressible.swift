@@ -7,14 +7,6 @@
 
 import Foundation
 
-/// Context
-/// Expressible
-@inline(__always)
-public
-postfix func |<T>(context: T?) -> Wand {
-    Wand.attach(to: context)
-}
-
 /// Nil
 /// Expressible
 extension Wand: ExpressibleByNilLiteral {

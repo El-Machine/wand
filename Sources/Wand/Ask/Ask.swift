@@ -27,11 +27,9 @@ class Ask<T> {
 
     var handler: (T)->(Bool)
 
-    var next: Ask<T>?
+    var next: Ask?
 
-    var isOne: Bool {
-        false
-    }
+    let once: Bool
 
     private
     var _key: String?
@@ -50,12 +48,26 @@ class Ask<T> {
         self.wand = wand
     }
 
+    internal
     required
     init(key: String? = nil,
+         once: Bool = false,
          handler: @escaping (T) -> (Bool)) {
 
         self._key = key
+        self.once = once
         self.handler = handler
+    }
+
+    static func once (_ once: Bool,
+                      key: String? = nil,
+                      handler: ( (T) -> () )? = nil) -> Ask {
+
+        self.init(key: key) {
+            handler?($0)
+            return !once
+        }
+
     }
 
 }
@@ -67,41 +79,24 @@ class Ask<T> {
 public
 extension Ask {
 
-    class Every: Ask {
-    }
-
-    class One: Ask {
-
-        override
-        var isOne: Bool {
-            true
-        }
-
-    }
-
     @inline(__always)
-    static func every(_ type: T.Type? = nil,
-                      key: String? = nil,
-                      handler: ( (T)->() )? = nil ) -> Ask.Every {
-        .Every(key: key) {
+    static func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Ask {
+        Ask(key: key) {
             handler?($0)
             return true
         }
     }
 
     @inline(__always)
-    static func one(_ type: T.Type? = nil,
-                    key: String? = nil,
-                    handler: ( (T)->() )? = nil ) -> Ask.One {
-        .One(key: key) {
+    static func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Ask {
+        Ask(key: key, once: true) {
             handler?($0)
             return false
         }
     }
 
     @inline(__always)
-    static func `while`(key: String? = nil,
-                        handler: @escaping (T)->(Bool) ) -> Ask {
+    static func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Ask {
         Ask(key: key, handler: handler)
     }
 
@@ -112,7 +107,7 @@ extension Ask {
 
     @discardableResult
     internal
-    func head(_ object: T) -> Ask<T>? {
+    func head(_ object: T) -> Ask? {
         let head = next
         self.next = nil
 
@@ -120,7 +115,7 @@ extension Ask {
     }
 
     internal
-    func handle(_ object: T) -> Ask<T>? {
+    func handle(_ object: T) -> Ask? {
         //Save while true
         if handler(object) {
             let tail = next == nil ? self : next?.handle(object) ?? self

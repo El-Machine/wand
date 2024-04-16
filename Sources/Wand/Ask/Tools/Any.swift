@@ -29,12 +29,8 @@
 public
 extension Ask {
 
-    class `Any`: Optional {
-
-    }
-
-    static func any(handler: @escaping (Any)->() ) -> Ask<Any>.`Any` {
-        .`Any`() {
+    static func any(handler: @escaping (Any)->() ) -> Ask<Any> {
+        .Optional() {
             handler($0)
             return true
         }
@@ -44,7 +40,7 @@ extension Ask {
 
 @discardableResult
 public 
-func | (wand: Wand, any: Ask<Any>.`Any`) -> Wand {
+func | (wand: Wand, any: Ask<Any>) -> Wand {
     _ = wand.answer(the: any)
     return wand
 }

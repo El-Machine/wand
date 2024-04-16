@@ -62,12 +62,10 @@ extension CLLocation: AskingNil, Wanded {
                 return true
             }
 
-            switch ask {
-                case is Ask<T>.One:
-                    source.requestLocation()
-
-                default:
-                    source.startUpdatingLocation()
+            if ask.once {
+                source.requestLocation()
+            } else {
+                source.startUpdatingLocation()
             }
 
             return false

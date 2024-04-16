@@ -33,12 +33,15 @@ extension Ask {
 
         required
         init(key: String? = nil,
+             once: Bool = false,
              handler: @escaping (T) -> (Bool)) {
-            super.init(key: "All", handler: handler)
+
+            super.init(key: "All", once: false, handler: handler)
         }
+
     }
 
-    static func all(handler: @escaping ()->() ) -> Ask<Wand>.All {
+    static func all(handler: @escaping ()->() ) -> Ask<Wand> {
         .All() { _ in
             handler()
             return false
@@ -48,7 +51,7 @@ extension Ask {
 }
 
 @discardableResult
-public func | (wand: Wand, all: Ask<Wand>.All ) -> Wand {
+public func | (wand: Wand, all: Ask<Wand> ) -> Wand {
     _ = wand.answer(the: all)
     return wand
 }
