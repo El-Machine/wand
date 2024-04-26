@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import Contacts
 
 import Wand
@@ -51,7 +52,7 @@ class Contacts_Tests: XCTestCase {
     }
 
 #if targetEnvironment(simulator)
-    
+
     func test_CNContact_Predicate_Keys() {
         let e = expectation()
         e.assertForOverFulfill = false
@@ -79,3 +80,5 @@ class Contacts_Tests: XCTestCase {
     }
 
 }
+
+#endif

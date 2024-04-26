@@ -21,32 +21,47 @@
 /// Created by Alex Kozin
 ///
 
-import AVFoundation
-import Contacts
-import CoreBluetooth
-import CoreLocation
-
-#if canImport(CoreNFC)
-import CoreNFC
+#if canImport(AVFoundation)
+    import AVFoundation
 #endif
 
-import Vision
+#if canImport(Contacts)
+    import Contacts
+#endif
+
+#if canImport(CoreBluetooth)
+    import CoreBluetooth
+#endif
+
+#if canImport(CoreLocation)
+    import CoreLocation
+#endif
+
+#if canImport(CoreNFC)
+    import CoreNFC
+#endif
+
+#if canImport(Vision)
+    import Vision
+#endif
 
 import SwiftUI
 import Wand
 
+@available(tvOS 13, watchOS 6, *)
 struct ContentView: View {
-
-    var preview: AVCaptureVideoPreviewLayer?
 
     var body: some View {
 
-        let urlString = "https://en.wikipedia.org/wiki/Laozi"
 
         Text("Hello, Wand |").onAppear {
 
+//            let urlString = "https://en.wikipedia.org/wiki/Laozi"
+//
+//            let wand: Wand = [[CNContactFamilyNameKey as CNKeyDescriptor]]
+//
 //            //1. While location
-//            [[CNContactFamilyNameKey as CNKeyDescriptor]] | .while { (l: CLLocation, i: Int) in
+//            wand | .while { (l: CLLocation, i: Int) in
 //
 //                print("1. \(l)")
 //
@@ -122,80 +137,66 @@ struct ContentView: View {
 //                print(e)
 //
 //            }
-
+//
 //            |
 //                .retrieve { (peripherals: [CBPeripheral]) in
 //                    print()
 //                }
-
-//            let uids: [CBUUID] = [.flipperZerof6,
-//                                  .flipperZeroWhite,
-//                                  .flipperZeroBlack]
 //
-//            let pipe = Wand()
-//            pipe.store(uids)
 //
-//            pipe | { (peripheral: CBPeripheral) in
-//                print(peripheral.name)
-//            }
-
 //            let wand = |{ (observations: [VNHumanBodyPoseObservation]) in
 //
 //                observations.forEach {
 //                    print(try! $0.recognizedPoint(.leftWrist))
 //                }
 //            }
-
-            //        let pipe = |{ (observations: [VNHumanHandPoseObservation]) in
-            //
-            //            DispatchQueue.main.sync {
-            //                self.viewT.forEach{
-            //                    $0.removeFromSuperview()
-            //                }
-            //                self.viewT.removeAll()
-            //            }
-            //
-            //            observations.forEach {
-            //
-            //                let point = $0 | .wrist
-            //                guard let converted = preview?.layerPointConverted(fromCaptureDevicePoint: point) else {
-            //                    return
-            //                }
-            //
-            //
-            //                DispatchQueue.main.sync {
-            //
-            //                    let view = UIView(frame: (0,0,20,20)|)
-            //                    view.center = converted
-            //                    view.backgroundColor = .red
-            //
-            //
-            //                    UIApplication.shared.visibleViewController?.view.addSubview(view)
-            //
-            //                    self.viewT.append(view)
-            //                }
-            //            }
-            //        }
-
+//
+//        let wand = |{ (observations: [VNHumanHandPoseObservation]) in
+//
+//            DispatchQueue.main.sync {
+//                self.viewT.forEach{
+//                    $0.removeFromSuperview()
+//                }
+//                self.viewT.removeAll()
+//            }
+//
+//            observations.forEach {
+//
+//                let point = $0 | .wrist
+//                guard let converted = preview?.layerPointConverted(fromCaptureDevicePoint: point) else {
+//                    return
+//                }
+//
+//
+//                DispatchQueue.main.sync {
+//
+//                    let view = UIView(frame: (0,0,20,20)|)
+//                    view.center = converted
+//                    view.backgroundColor = .red
+//
+//
+//                    UIApplication.shared.visibleViewController?.view.addSubview(view)
+//
+//                    self.viewT.append(view)
+//                }
+//            }
+//        }
+//
 //            let request: VNDetectHumanHandPoseRequest = wand.obtain()
 //            request.maximumHandCount = 2
-
+//
 //            let preview = wand.obtain() as AVCaptureVideoPreviewLayer
 //            preview.frame = UIScreen.main.bounds
 //
 //            UIApplication.shared.visibleViewController?.view.layer.addSublayer(preview)
-
-
+//
         }
 
     }
 
 }
 
-struct ContentView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        ContentView()
-    }
-
+@available(tvOS 13, watchOS 6, *)
+#Preview {
+    ContentView()
 }

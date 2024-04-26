@@ -21,13 +21,11 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion) && !targetEnvironment(simulator) && !os(macOS)
 import CoreMotion
 
 import Wand
 import XCTest
-
-#if !os(macOS)
-#if !targetEnvironment(simulator)
 
 class CoreMotion_Tests: XCTestCase {
 
@@ -44,15 +42,15 @@ class CoreMotion_Tests: XCTestCase {
     }
 
     //Test it while walking
-//    func test_CMPedometerData() {
-//        let e = expectation()
-//
-//        |{ (location: CMPedometerData) in
-//            e.fulfill()
-//        }
-//
-//        waitForExpectations()
-//    }
+    func test_CMPedometerData() {
+        let e = expectation()
+
+        |{ (location: CMPedometerData) in
+            e.fulfill()
+        }
+
+        waitForExpectations()
+    }
 
 
     func test_CMPedometer() {
@@ -60,5 +58,4 @@ class CoreMotion_Tests: XCTestCase {
     }
 }
 
-#endif
 #endif

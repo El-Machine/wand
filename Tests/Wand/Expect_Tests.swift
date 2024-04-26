@@ -21,9 +21,6 @@
 /// Created by Alex Kozin
 ///
 
-import CoreLocation
-import CoreMotion
-
 import Wand
 import XCTest
 

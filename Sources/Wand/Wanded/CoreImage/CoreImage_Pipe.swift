@@ -21,7 +21,7 @@
 /// Created by Alex Kozin
 ///
 
-#if canImport(UIKit)
+#if canImport(UIKit) && canImport(CoreImage)
 import UIKit.UIImage
 
 public struct Barcode {

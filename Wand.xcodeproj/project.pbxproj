@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -22,16 +22,11 @@
 
 /* Begin PBXBuildFile section */
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
-		6162625428BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
-		6162625528BC8E2B00D63EA5 /* SandboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* SandboxApp.swift */; };
+		6162625428BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
-		6162625728BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
-		6162625928BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
-		6162626428BC944300D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
-		6162626528BC944300D63EA5 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		616C636E2BC8190A003BCBC3 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
-		616C636F2BC8190A003BCBC3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6162626428BC944300D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; platformFilters = (driverkit, ios, macos, tvos, xros, ); };
+		6162626528BC944300D63EA5 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; platformFilters = (driverkit, ios, macos, tvos, xros, ); settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		618056372BCB90D60013EC56 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056102BCB90D60013EC56 /* any.swift */; };
 		618056382BCB90D60013EC56 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056112BCB90D60013EC56 /* CoreLocation_any.swift */; };
 		618056392BCB90D60013EC56 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056122BCB90D60013EC56 /* Range_any.swift */; };
@@ -148,27 +143,14 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		616C63702BC8190A003BCBC3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				616C636F2BC8190A003BCBC3 /* Wand.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		610017E929E02F72004CEBB0 /* ARView_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView_Pipe.swift; sourceTree = "<group>"; };
-		6162624528BC8E2A00D63EA5 /* SandboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxApp.swift; sourceTree = "<group>"; };
+		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6162624C28BC8E2B00D63EA5 /* WandSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WandSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6162625128BC8E2B00D63EA5 /* WandSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WandSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6162625328BC8E2B00D63EA5 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		618056102BCB90D60013EC56 /* any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.swift; sourceTree = "<group>"; };
 		618056112BCB90D60013EC56 /* CoreLocation_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation_any.swift; sourceTree = "<group>"; };
 		618056122BCB90D60013EC56 /* Range_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range_any.swift; sourceTree = "<group>"; };
@@ -217,7 +199,7 @@
 		61B13CB02BC54E4A00C71F03 /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
 		61B13CB22BC54E7300C71F03 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		61B13CB52BC55A6000C71F03 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
-		61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sandbox (iOS).entitlements"; sourceTree = "<group>"; };
+		61B1B41C2BC9696200BD1F36 /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
 		61BD12C029B6105000702724 /* Foundation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation_Pipe.swift; sourceTree = "<group>"; };
 		61BD12C229B6106900702724 /* Bundle_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle_Pipe.swift; sourceTree = "<group>"; };
 		61C4C25E2BBE9D7A006BD985 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -308,14 +290,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6162624E28BC8E2B00D63EA5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				616C636E2BC8190A003BCBC3 /* Wand.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		OBJ_214 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
@@ -337,21 +311,12 @@
 		6162624428BC8E2A00D63EA5 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				6162625228BC8E2B00D63EA5 /* macOS */,
-				6187C70B2BC975F3003E0CC3 /* iOS */,
 				6162624728BC8E2B00D63EA5 /* Assets.xcassets */,
-				6162624528BC8E2A00D63EA5 /* SandboxApp.swift */,
 				6162624628BC8E2A00D63EA5 /* ContentView.swift */,
+				61B1B41C2BC9696200BD1F36 /* Entitlements.entitlements */,
+				6162624528BC8E2A00D63EA5 /* Play.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		6162625228BC8E2B00D63EA5 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				6162625328BC8E2B00D63EA5 /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		618056142BCB90D60013EC56 /* any */ = {
@@ -454,14 +419,6 @@
 				618056342BCB90D60013EC56 /* TestPlan.xctestplan */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		6187C70B2BC975F3003E0CC3 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				61B1B41C2BC9696200BD1F36 /* Sandbox (iOS).entitlements */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		619ABCBE29014EA600D5DB96 /* ARKit */ = {
@@ -607,7 +564,6 @@
 				"pipe::Pipe::Product" /* Wand.framework */,
 				"pipe::PipeTests::Product" /* WandTests.xctest */,
 				6162624C28BC8E2B00D63EA5 /* WandSandbox.app */,
-				6162625128BC8E2B00D63EA5 /* WandSandbox.app */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -700,6 +656,7 @@
 		OBJ_54 /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_57 /* Math */,
 				OBJ_55 /* MKGeometry+Piped.swift */,
 				OBJ_56 /* MapKit+Pipe.swift */,
 			);
@@ -831,7 +788,6 @@
 				61A4DBA82BC7F21A00375480 /* CoreNFC */,
 				OBJ_37 /* Foundation */,
 				OBJ_54 /* MapKit */,
-				OBJ_57 /* Math */,
 				OBJ_61 /* QuartzCore */,
 				OBJ_63 /* Swift */,
 				OBJ_74 /* UIKIt */,
@@ -871,24 +827,6 @@
 			name = "Sandbox (iOS)";
 			productName = "Sandbox (iOS)";
 			productReference = 6162624C28BC8E2B00D63EA5 /* WandSandbox.app */;
-			productType = "com.apple.product-type.application";
-		};
-		6162625028BC8E2B00D63EA5 /* Sandbox (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6162625D28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Sandbox (macOS)" */;
-			buildPhases = (
-				6162624D28BC8E2B00D63EA5 /* Sources */,
-				6162624E28BC8E2B00D63EA5 /* Frameworks */,
-				6162624F28BC8E2B00D63EA5 /* Resources */,
-				616C63702BC8190A003BCBC3 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Sandbox (macOS)";
-			productName = "Sandbox (macOS)";
-			productReference = 6162625128BC8E2B00D63EA5 /* WandSandbox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		"pipe::Pipe" /* Wand */ = {
@@ -947,15 +885,10 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftMigration = 9999;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					6162624B28BC8E2B00D63EA5 = {
-						CreatedOnToolsVersion = 13.4.1;
-						DevelopmentTeam = LZSP4Z4B6A;
-						ProvisioningStyle = Automatic;
-					};
-					6162625028BC8E2B00D63EA5 = {
 						CreatedOnToolsVersion = 13.4.1;
 						DevelopmentTeam = LZSP4Z4B6A;
 						ProvisioningStyle = Automatic;
@@ -989,7 +922,6 @@
 				"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */,
 				"pipe::PipeTests" /* WandTests */,
 				6162624B28BC8E2B00D63EA5 /* Sandbox (iOS) */,
-				6162625028BC8E2B00D63EA5 /* Sandbox (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -1003,14 +935,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6162624F28BC8E2B00D63EA5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6162625928BC8E2B00D63EA5 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1019,16 +943,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */,
-				6162625428BC8E2B00D63EA5 /* SandboxApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6162624D28BC8E2B00D63EA5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6162625728BC8E2B00D63EA5 /* ContentView.swift in Sources */,
-				6162625528BC8E2B00D63EA5 /* SandboxApp.swift in Sources */,
+				6162625428BC8E2B00D63EA5 /* Play.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,9 +1100,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1231,16 +1146,21 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 			};
 			name = Debug;
 		};
@@ -1277,10 +1197,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1319,192 +1239,33 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
 				PRODUCT_NAME = WandSandbox;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6162625E28BC8E2B00D63EA5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = App/macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 427;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
-				ENABLE_HARDENED_RUNTIME = YES;
-				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
-				ENABLE_PREVIEWS = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Wand;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
-				PRODUCT_NAME = WandSandbox;
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-			};
-			name = Debug;
-		};
-		6162625F28BC8E2B00D63EA5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = App/macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 427;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
-				ENABLE_HARDENED_RUNTIME = YES;
-				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_PREVIEWS = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Wand;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
-				PRODUCT_NAME = WandSandbox;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
 		OBJ_146 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1525,8 +1286,13 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = Wand;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
@@ -1537,11 +1303,12 @@
 		OBJ_147 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1562,8 +1329,13 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = Wand;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 4.0;
@@ -1574,6 +1346,7 @@
 		OBJ_217 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				LD = /usr/bin/true;
@@ -1589,6 +1362,7 @@
 		OBJ_218 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				LD = /usr/bin/true;
@@ -1624,7 +1398,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1647,13 +1421,18 @@
 				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=iphoneos*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/Contents/MacOS/WandSandbox";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
@@ -1667,7 +1446,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 427;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1690,12 +1469,17 @@
 				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=iphoneos*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
@@ -1833,15 +1617,6 @@
 			buildConfigurations = (
 				6162625B28BC8E2B00D63EA5 /* Debug */,
 				6162625C28BC8E2B00D63EA5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6162625D28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Sandbox (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6162625E28BC8E2B00D63EA5 /* Debug */,
-				6162625F28BC8E2B00D63EA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

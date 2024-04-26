@@ -21,6 +21,8 @@
 /// Created by Alex Kozin
 ///
 
+
+#if !os(watchOS)
 import AVFoundation
 
 public postfix func | (piped: Pipe.Resource) -> AVPlayerLayer {
@@ -34,3 +36,5 @@ public postfix func | (piped: AVPlayer) -> AVPlayerLayer {
 public postfix func | (piped: Pipe.Resource) -> AVPlayer {
     AVPlayer(url: piped|)
 }
+
+#endif

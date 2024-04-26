@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import CoreMotion.CMPedometer
 
 /// Ask
@@ -64,3 +65,5 @@ extension CMPedometerData: AskingNil, Wanded {
     }
 
 }
+
+#endif

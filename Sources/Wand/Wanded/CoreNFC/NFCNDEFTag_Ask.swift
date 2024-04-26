@@ -193,7 +193,7 @@ extension Ask where T == NFCNDEFTag {
     public 
     func lock (done: @escaping (NFCNDEFTag)->() ) -> Self {
 
-        let oldHandler = self.handler
+//        let oldHandler = self.handler
 
 //        self.handler = { tag in
 //

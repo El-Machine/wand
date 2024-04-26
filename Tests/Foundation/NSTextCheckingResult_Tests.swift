@@ -28,7 +28,7 @@ import XCTest
 
 class NSTextCheckingResultCheckingType_Tests: XCTestCase {
 
-    @available(macOS 15.0, iOS 15, *)
+    @available(macOS 15.0, iOS 15, tvOS 15, watchOS 8, *)
     func test_NSTextCheckingResult_date() {
         let hour = Int.any(in: 0...24)
 

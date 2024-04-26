@@ -62,11 +62,20 @@ extension CLLocation: AskingNil, Wanded {
                 return true
             }
 
-            if ask.once {
+            #if os(tvOS)
+
                 source.requestLocation()
-            } else {
-                source.startUpdatingLocation()
-            }
+
+            #else
+
+                if ask.once {
+                    source.requestLocation()
+                } else {
+
+                    source.startUpdatingLocation()
+                }
+
+            #endif
 
             return false
         }

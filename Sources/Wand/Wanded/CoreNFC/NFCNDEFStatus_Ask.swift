@@ -71,5 +71,3 @@ extension NFCNDEFStatus: AskingNil, Wanded {
 }
 
 #endif
-
-

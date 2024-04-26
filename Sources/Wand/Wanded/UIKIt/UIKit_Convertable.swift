@@ -68,9 +68,14 @@ public postfix func |(piped: (CGFloat)) -> UIEdgeInsets {
     UIEdgeInsets(top: piped, left: piped, bottom: piped, right: piped)
 }
 
+
+#if !os(watchOS)
+
 public postfix func |(p: (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)) -> UIView {
     UIView(frame: CGRect(x: p.0, y: p.1, width: p.2, height: p.3))
 }
+
+#endif
 
 //UITextRange
 

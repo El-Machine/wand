@@ -21,10 +21,11 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(Vision)
+import Vision.VNRequest
+
 import CoreGraphics.CGImage
 import CoreImage.CIImage
-
-import Vision.VNRequest
 
 extension VNImageRequestHandler: Obtain {
 
@@ -39,7 +40,7 @@ extension VNImageRequestHandler: Obtain {
 
         let request: Self
         if let buffer: CMSampleBuffer = wand.get() {
-            if #available(iOS 14.0, macOS 11.0, *) {
+            if #available(iOS 14.0, macOS 11.0, tvOS 14, *) {
                 request = Self(cmSampleBuffer: buffer,
                                orientation: orientation,
                                options: options)
@@ -104,3 +105,5 @@ extension VNImageRequestHandler: Obtain {
     }
 
 }
+
+#endif

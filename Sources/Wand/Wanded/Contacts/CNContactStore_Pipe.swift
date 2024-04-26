@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(Contacts)
 import Contacts.CNContactStore
 
 /// Obtain
@@ -36,3 +37,5 @@ extension CNContactStore: Obtain {
     }
 
 }
+
+#endif

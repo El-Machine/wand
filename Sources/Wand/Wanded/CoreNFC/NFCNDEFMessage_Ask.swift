@@ -87,7 +87,4 @@ extension NFCNDEFMessage: AskingNil, Wanded {
 
 }
 
-
 #endif
-
-

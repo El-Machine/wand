@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(Contacts)
 import Contacts.CNContact
 
 /// Ask
@@ -68,7 +69,7 @@ extension CNContact: AskingNil, Wanded  {
                         wand.add(contact)
                     }
                 } catch {
-                    print(error)
+                    wand.add(error)
                 }
 
             }
@@ -78,3 +79,5 @@ extension CNContact: AskingNil, Wanded  {
     }
 
 }
+
+#endif

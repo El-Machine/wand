@@ -21,23 +21,28 @@
 /// Created by Alex Kozin
 ///
 
-import Contacts
-import CoreLocation
-import CoreMotion
-
 import Wand
 import XCTest
 
 class Expect_Any_Tests: XCTestCase {
 
-    @available(macOS, unavailable)
     func test_Any() throws {
         let e = expectation(description: "event.any")
         e.assertForOverFulfill = false
 
-        CLLocation.every | CMPedometerEvent.every | .any {
+        let wand = Point.every | String.every | .any {
             print("Every " + $0|)
             e.fulfill()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak wand] in
+
+            if .random() {
+                wand?.add(Point.any)
+            } else {
+                wand?.add(String.any)
+            }
+
         }
 
         waitForExpectations()
@@ -63,6 +68,15 @@ class Expect_Any_Tests: XCTestCase {
 //
 //        waitForExpectations()
 //    }
+
+
+}
+
+extension String: Asking
+{
+    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+        _ = wand.answer(the: ask)
+    }
 
 
 }

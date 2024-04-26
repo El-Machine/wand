@@ -22,6 +22,8 @@
 //  2020 El Machine
 //
 
+#if !os(watchOS)
+
 import MapKit
 
 public postfix func | (piped: MKMapRect) -> MKPolygon {
@@ -38,3 +40,5 @@ public postfix func | (piped: MKMapRect) -> MKPolygon {
 
     return MKPolygon(points:&points, count: points.count)
 }
+
+#endif

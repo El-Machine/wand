@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(Vision)
 import Vision
 
 /// Obtain
@@ -34,3 +35,5 @@ extension VNRequest: Obtain {
     }
 
 }
+
+#endif

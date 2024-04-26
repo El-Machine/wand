@@ -50,19 +50,26 @@ extension CLAuthorizationStatus: AskingNil, Wanded {
         let asking: CLAuthorizationStatus?  = wand.get()
 
         //Make request
-        switch asking {
+        #if APPCLIP || os(tvOS)
 
-            #if !APPCLIP
+            source.requestWhenInUseAuthorization()
+
+        #else
+
+            switch asking {
+
                 case .authorizedAlways:
                     source.requestAlwaysAuthorization()
-            #endif
 
-            case .none, .authorizedWhenInUse:
-                source.requestWhenInUseAuthorization()
 
-            default:
-                break
-        }
+                case .none, .authorizedWhenInUse:
+                    source.requestWhenInUseAuthorization()
+
+                default:
+                    break
+            }
+
+        #endif
 
     }
 

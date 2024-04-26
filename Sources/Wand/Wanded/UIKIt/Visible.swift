@@ -6,7 +6,7 @@
 //  Copyright © Tradernet All rights reserved.
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 public extension UIViewController {
@@ -64,7 +64,7 @@ public extension UIApplication {
     }
 
     var visibleWindow: UIWindow? {
-        if #available(iOS 13, *) {
+        if #available(iOS 13, tvOS 13, *) {
 
             let scene = UIApplication.shared.connectedScenes.first {
                 ($0 as? UIWindowScene)?.activationState == .foregroundActive

@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import CoreMotion.CMPedometer
 
 /// Obtain
@@ -35,3 +36,5 @@ extension CMPedometer: Obtain {
     }
      
 }
+
+#endif
