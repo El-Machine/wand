@@ -22,22 +22,27 @@
 ///
 
 import Foundation
-import XCTest
 
-extension TimeInterval {
+import Wand
 
-    static var `default` = 4.2
+internal
+struct Point: Equatable, Any_ {
 
+    let id: Int
+
+    let x, y, z: Float
+    var t: TimeInterval
+
+
+    static var any: Point {
+        .init(id: .any(in: 0...4), x: .any, y: .any, z: .any, t: .any)
+    }
 }
 
-extension XCTestCase {
+extension Point: AskingNil, Wanded {
 
-    func expectation(function: String = #function) -> XCTestExpectation {
-        expectation(description: function)
-    }
-
-    func waitForExpectations() {
-        waitForExpectations(timeout: .default)
+    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+        _ = wand.answer(the: ask)
     }
 
 }

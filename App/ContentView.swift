@@ -97,18 +97,18 @@ struct ContentView: View {
 //                print("7️⃣ \(f)")
 //
 //            } |
-
+//
 //            |.one { (message: NFCNDEFMessage) in    //6️⃣ NFC read
 //
 //                print("|6️⃣ \(message)")
 //
 //            } |
-
-            |Ask<NFCNDEFTag>.one().write(urlString|) { tag in
-                
-                print(tag)
-
-            } |
+//
+//            |Ask<NFCNDEFTag>.one().write(urlString|) { tag in
+//                
+//                print(tag)
+//
+//            } |
 //
 //            .any {                                  //.. Notify
 //                print("|📦 Did add \($0)")
@@ -118,10 +118,10 @@ struct ContentView: View {
 //                print("Last")
 //            } |
 //
-            { (e: Error) in                         //.. Error handling
-                print(e)
-
-            }
+//            { (e: Error) in                         //.. Error handling
+//                print(e)
+//
+//            }
 
 //            |
 //                .retrieve { (peripherals: [CBPeripheral]) in

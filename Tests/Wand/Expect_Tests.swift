@@ -36,24 +36,24 @@ class Expect_T_Tests: XCTestCase {
         let e = expectation()
         e.expectedFulfillmentCount = count
 
-        var last: Vector?
+        var last: Point?
 
-        //Wait for 'count' Vectors
+        //Wait for 'count' Points
         weak var wand: Wand!
-        wand = |.every { (vector: Vector) in
+        wand = |.every { (point: Point) in
             //Is equal?
-            if vector == last {
+            if point == last {
                 e.fulfill()
             }
         }
 
-        //Put for 'count' Vectors
+        //Put for 'count' Points
         var i = 0
         (0..<count).forEach { _ in
-            let vector = Vector.any
-            last = vector
+            let point = Point.any
+            last = point
 
-            wand.add(vector)
+            wand.add(point)
 
             print(count)
             i = i+1
@@ -69,14 +69,14 @@ class Expect_T_Tests: XCTestCase {
     func test_One() throws {
         let e = expectation()
 
-        let vector = Vector.any
+        let point = Point.any
 
         weak var wand: Wand!
-        wand = |.one { (vector: Vector) in
+        wand = |.one { (point: Point) in
             e.fulfill()
         }
 
-        wand.add(vector)
+        wand.add(point)
 
         waitForExpectations()
         XCTAssertNil(wand)
@@ -86,16 +86,16 @@ class Expect_T_Tests: XCTestCase {
 
         func put() {
             DispatchQueue.main.async {
-                wand.add(Vector.any)
+                wand.add(Point.any)
             }
         }
 
         let e = expectation()
 
         weak var wand: Wand!
-        wand = |.while { (vector: Vector) in
+        wand = |.while { (point: Point) in
 
-            if vector.id == 2 {
+            if point.id == 2 {
                 e.fulfill()
                 return false
             } else {
@@ -111,29 +111,5 @@ class Expect_T_Tests: XCTestCase {
         XCTAssertNil(wand)
     }
 
-
-}
-
-
-fileprivate struct Vector: Equatable, Any_ {
-
-    let id: Int
-
-    let x, y, z: Float
-    var t: TimeInterval
-
-
-    static var any: Vector {
-        .init(id: .any(in: 0...4), x: .any, y: .any, z: .any, t: .any)
-    }
-}
-
-extension Vector: AskingNil, Wanded {
-
-    static func wand<T>(_ wand: Wand, asks: Ask<T>) {
-
-        _ = wand.answer(the: asks)
-
-    }
 
 }

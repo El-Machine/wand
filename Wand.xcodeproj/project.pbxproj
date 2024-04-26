@@ -85,6 +85,7 @@
 		61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C4C25E2BBE9D7A006BD985 /* Logger.swift */; };
 		61C70629299CC056007E24A8 /* String_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* String_Pipe.swift */; };
 		61DC807D29541F0200B57A0C /* Date_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC807B29541F0200B57A0C /* Date_Pipe.swift */; };
+		61DEBDE82BDB9B8100AAD44D /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBDE72BDB9B8100AAD44D /* Point.swift */; };
 		61E719272BAC23C500360FA5 /* UIKit_Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E719262BAC23C500360FA5 /* UIKit_Convertable.swift */; };
 		61E719582BAC297C00360FA5 /* DateFormatter_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC807C29541F0200B57A0C /* DateFormatter_Pipe.swift */; };
 		61EC3FB42BCD6B21000FA3DB /* Wand_Expressible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */; };
@@ -222,6 +223,7 @@
 		61C4C25E2BBE9D7A006BD985 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		61DC807B29541F0200B57A0C /* Date_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_Pipe.swift; sourceTree = "<group>"; };
 		61DC807C29541F0200B57A0C /* DateFormatter_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_Pipe.swift; sourceTree = "<group>"; };
+		61DEBDE72BDB9B8100AAD44D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		61E719262BAC23C500360FA5 /* UIKit_Convertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKit_Convertable.swift; sourceTree = "<group>"; };
 		61E719282BAC23E400360FA5 /* CKFetchRecordsOperation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation_Pipe.swift; sourceTree = "<group>"; };
 		61E719292BAC23E400360FA5 /* CKModifyRecordsOperation_Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKModifyRecordsOperation_Pipe.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				618056142BCB90D60013EC56 /* any */,
+				61DEBDE72BDB9B8100AAD44D /* Point.swift */,
 				618056152BCB90D60013EC56 /* TestTools.swift */,
 			);
 			path = _Tools;
@@ -1120,6 +1123,7 @@
 				6180564F2BCB90D60013EC56 /* CoreMotion_Tests.swift in Sources */,
 				618056462BCB90D60013EC56 /* Notification_Tests.swift in Sources */,
 				6180564A2BCB90D60013EC56 /* Wand_Tests.swift in Sources */,
+				61DEBDE82BDB9B8100AAD44D /* Point.swift in Sources */,
 				618056382BCB90D60013EC56 /* CoreLocation_any.swift in Sources */,
 				618056482BCB90D60013EC56 /* Expect_Any_Tests.swift in Sources */,
 				618056372BCB90D60013EC56 /* any.swift in Sources */,
@@ -1183,7 +1187,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1276,7 +1280,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/iOS/Sandbox (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1370,11 +1374,12 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1455,11 +1460,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1495,7 +1501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1532,7 +1538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1618,7 +1624,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1661,7 +1667,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 411;
+				CURRENT_PROJECT_VERSION = 424;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;

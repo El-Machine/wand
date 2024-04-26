@@ -26,11 +26,12 @@ import CoreMotion
 import Wand
 import XCTest
 
-class CoreMotion_Tests: XCTestCase {
-
+#if !os(macOS)
 #if !targetEnvironment(simulator)
 
-    @available(macOS, unavailable)
+class CoreMotion_Tests: XCTestCase {
+
+
     func test_CMPedometerEvent() {
         let e = expectation()
         e.assertForOverFulfill = false
@@ -53,9 +54,11 @@ class CoreMotion_Tests: XCTestCase {
 //        waitForExpectations()
 //    }
 
-#endif
 
     func test_CMPedometer() {
         XCTAssertNotNil(CMPedometer.self|)
     }
 }
+
+#endif
+#endif
