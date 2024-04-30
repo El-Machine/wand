@@ -30,7 +30,7 @@ let package = Package(
     name: "Wand",
     defaultLocalization: "ru",
     platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
+        .iOS(.v14), .macOS(.v11), .watchOS(.v4), .tvOS(.v12)
     ],
     products: [
         .library(
@@ -42,6 +42,9 @@ let package = Package(
             name: "Wand"),
         .testTarget(
             name: "WandTests",
+            dependencies: ["Wand"]),
+        .testTarget(
+            name: "WatchPlayTests",
             dependencies: ["Wand"]),
     ]
 )
