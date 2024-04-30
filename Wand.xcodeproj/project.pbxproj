@@ -22,10 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
-		6139661A2BE0F4EF004C18A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613966192BE0F4EF004C18A3 /* ContentView.swift */; };
-		6139661C2BE0F4F0004C18A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6139661B2BE0F4F0004C18A3 /* Assets.xcassets */; };
 		613966272BE0F532004C18A3 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
-		6139664B2BE0F87A004C18A3 /* WatchPlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */; };
 		613966512BE0F90F004C18A3 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562A2BCB90D60013EC56 /* Wand_Tests.swift */; };
 		613966532BE0F90F004C18A3 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056102BCB90D60013EC56 /* any.swift */; };
 		613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */; };
@@ -42,6 +39,10 @@
 		613966612BE0F90F004C18A3 /* CoreLocation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562F2BCB90D60013EC56 /* CoreLocation_Tests.swift */; };
 		613966622BE0F90F004C18A3 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056152BCB90D60013EC56 /* TestTools.swift */; };
 		613966632BE0F90F004C18A3 /* NSTextCheckingResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056262BCB90D60013EC56 /* NSTextCheckingResult_Tests.swift */; };
+		613966662BE0FB0D004C18A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
+		613966672BE0FB14004C18A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
+		613966692BE0FB2E004C18A3 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
+		6139666A2BE0FB2E004C18A3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6162625428BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
@@ -135,6 +136,13 @@
 			remoteGlobalIDString = 613966142BE0F4EF004C18A3;
 			remoteInfo = WatchPlay;
 		};
+		6139666B2BE0FB2E004C18A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "pipe::Pipe";
+			remoteInfo = Wand;
+		};
 		6162624228BC8D4400D63EA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -159,6 +167,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6139666D2BE0FB2E004C18A3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6139666A2BE0FB2E004C18A3 /* Wand.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6162626628BC944300D63EA5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,11 +194,8 @@
 /* Begin PBXFileReference section */
 		610017E929E02F72004CEBB0 /* ARView_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView_Pipe.swift; sourceTree = "<group>"; };
 		613966152BE0F4EF004C18A3 /* WatchPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		613966192BE0F4EF004C18A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6139661B2BE0F4F0004C18A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPlayTests.swift; sourceTree = "<group>"; };
-		613966652BE0F942004C18A3 /* WatchPlay.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WatchPlay.xctestplan; sourceTree = SOURCE_ROOT; };
+		613966652BE0F942004C18A3 /* WatchPlayTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WatchPlayTestPlan.xctestplan; sourceTree = SOURCE_ROOT; };
 		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -319,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613966692BE0FB2E004C18A3 /* Wand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,22 +372,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		613966162BE0F4EF004C18A3 /* WatchPlay */ = {
-			isa = PBXGroup;
-			children = (
-				613966192BE0F4EF004C18A3 /* ContentView.swift */,
-				6139661B2BE0F4F0004C18A3 /* Assets.xcassets */,
-			);
-			path = WatchPlay;
-			sourceTree = "<group>";
-		};
 		613966492BE0F87A004C18A3 /* WatchPlayTests */ = {
 			isa = PBXGroup;
 			children = (
-				6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */,
-				613966652BE0F942004C18A3 /* WatchPlay.xctestplan */,
+				613966652BE0F942004C18A3 /* WatchPlayTestPlan.xctestplan */,
 			);
 			path = WatchPlayTests;
+			sourceTree = "<group>";
+		};
+		613966682BE0FB2E004C18A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6162624428BC8E2A00D63EA5 /* App */ = {
@@ -714,11 +728,11 @@
 				OBJ_7 /* Sources */,
 				618056362BCB90D60013EC56 /* Tests */,
 				6162624428BC8E2A00D63EA5 /* App */,
-				613966162BE0F4EF004C18A3 /* WatchPlay */,
 				613966492BE0F87A004C18A3 /* WatchPlayTests */,
 				OBJ_138 /* Products */,
 				OBJ_141 /* LICENSE */,
 				OBJ_142 /* README.md */,
+				613966682BE0FB2E004C18A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -887,10 +901,12 @@
 				613966112BE0F4EF004C18A3 /* Sources */,
 				613966122BE0F4EF004C18A3 /* Frameworks */,
 				613966132BE0F4EF004C18A3 /* Resources */,
+				6139666D2BE0FB2E004C18A3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6139666C2BE0FB2E004C18A3 /* PBXTargetDependency */,
 			);
 			name = WatchPlay;
 			productName = "WatchPlay Watch App";
@@ -1044,7 +1060,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6139661C2BE0F4F0004C18A3 /* Assets.xcassets in Resources */,
+				613966662BE0FB0D004C18A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,8 +1086,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6139661A2BE0F4EF004C18A3 /* ContentView.swift in Sources */,
 				613966272BE0F532004C18A3 /* Play.swift in Sources */,
+				613966672BE0FB14004C18A3 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,7 +1095,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6139664B2BE0F87A004C18A3 /* WatchPlayTests.swift in Sources */,
 				613966512BE0F90F004C18A3 /* Wand_Tests.swift in Sources */,
 				613966532BE0F90F004C18A3 /* any.swift in Sources */,
 				613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */,
@@ -1214,6 +1229,11 @@
 			isa = PBXTargetDependency;
 			target = 613966142BE0F4EF004C18A3 /* WatchPlay */;
 			targetProxy = 6139664C2BE0F87A004C18A3 /* PBXContainerItemProxy */;
+		};
+		6139666C2BE0FB2E004C18A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "pipe::Pipe" /* Wand */;
+			targetProxy = 6139666B2BE0FB2E004C18A3 /* PBXContainerItemProxy */;
 		};
 		6162626328BC929D00D63EA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

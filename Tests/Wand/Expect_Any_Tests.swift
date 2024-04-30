@@ -31,7 +31,6 @@ class Expect_Any_Tests: XCTestCase {
         e.assertForOverFulfill = false
 
         let wand = Point.every | String.every | .any {
-            print("Every " + $0|)
             e.fulfill()
         }
 

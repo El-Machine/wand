@@ -52,7 +52,6 @@ class Expect_T_Tests: XCTestCase {
 
             wand.add(point)
 
-            print(count)
             i = i+1
         }
 

@@ -1,6 +1,12 @@
 {
   "configurations" : [
+    {
+      "id" : "63B646C1-A26B-4FC6-88F7-327B2E6F5B5D",
+      "name" : "Configuration 1",
+      "options" : {
 
+      }
+    }
   ],
   "defaultOptions" : {
     "locationScenario" : {

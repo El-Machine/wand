@@ -71,7 +71,6 @@ extension CLLocation: AskingNil, Wanded {
                 if ask.once {
                     source.requestLocation()
                 } else {
-
                     source.startUpdatingLocation()
                 }
 

@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:WatchPlay.xctestplan"
+            reference = "container:WatchPlayTestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
