@@ -25,7 +25,7 @@ import SwiftUI
 
 @available(macOS 11.0, tvOS 14, watchOS 7, *)
 @main
-struct SandboxApp: App {
+struct PlayApp: App {
 
     var body: some Scene {
         WindowGroup {

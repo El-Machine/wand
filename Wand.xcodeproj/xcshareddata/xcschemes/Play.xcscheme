@@ -4,8 +4,25 @@
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES"
-      buildArchitectures = "Automatic">
+      buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "cd $PROJECT_DIR&#10;xcrun agvtool next-version -all&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
+                     BuildableName = "Play.app"
+                     BlueprintName = "Play"
+                     ReferencedContainer = "container:Wand.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -15,9 +32,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6162625028BC8E2B00D63EA5"
-               BuildableName = "WandSandbox.app"
-               BlueprintName = "Sandbox (macOS)"
+               BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
+               BuildableName = "Play.app"
+               BlueprintName = "Play"
                ReferencedContainer = "container:Wand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,8 +44,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -44,12 +62,16 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6162625028BC8E2B00D63EA5"
-            BuildableName = "WandSandbox.app"
-            BlueprintName = "Sandbox (macOS)"
+            BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
+            BuildableName = "Play.app"
+            BlueprintName = "Play"
             ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <LocationScenarioReference
+         identifier = "Mexico City, Mexico"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -61,9 +83,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6162625028BC8E2B00D63EA5"
-            BuildableName = "WandSandbox.app"
-            BlueprintName = "Sandbox (macOS)"
+            BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
+            BuildableName = "Play.app"
+            BlueprintName = "Play"
             ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

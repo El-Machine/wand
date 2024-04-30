@@ -89,8 +89,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
-            BuildableName = "WandSandbox.app"
-            BlueprintName = "Sandbox (iOS)"
+            BuildableName = "Play.app"
+            BlueprintName = "Play"
             ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -110,8 +110,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
-            BuildableName = "WandSandbox.app"
-            BlueprintName = "Sandbox (iOS)"
+            BuildableName = "Play.app"
+            BlueprintName = "Play"
             ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

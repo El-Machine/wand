@@ -74,10 +74,17 @@ extension VisionObservationAsking {
             perform(handler)
         } else {
             //Otherwise wait for buffer
-            wand | { (buffer: CMSampleBuffer) in
+            
+            if #available(tvOS 17.0, *) {
 
-                let request = VNImageRequestHandler(cmSampleBuffer: buffer)
-                perform(request)
+                wand | { (buffer: CMSampleBuffer) in
+
+                    let request = VNImageRequestHandler(cmSampleBuffer: buffer)
+                    perform(request)
+                }
+
+            } else {
+                //TODO: Fallback on earlier versions
             }
         }
     }

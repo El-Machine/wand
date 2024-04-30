@@ -150,7 +150,7 @@
 		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6162624C28BC8E2B00D63EA5 /* WandSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WandSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6162624C28BC8E2B00D63EA5 /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618056102BCB90D60013EC56 /* any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.swift; sourceTree = "<group>"; };
 		618056112BCB90D60013EC56 /* CoreLocation_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation_any.swift; sourceTree = "<group>"; };
 		618056122BCB90D60013EC56 /* Range_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range_any.swift; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 			children = (
 				"pipe::Pipe::Product" /* Wand.framework */,
 				"pipe::PipeTests::Product" /* WandTests.xctest */,
-				6162624C28BC8E2B00D63EA5 /* WandSandbox.app */,
+				6162624C28BC8E2B00D63EA5 /* Play.app */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -811,9 +811,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6162624B28BC8E2B00D63EA5 /* Sandbox (iOS) */ = {
+		6162624B28BC8E2B00D63EA5 /* Play */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Sandbox (iOS)" */;
+			buildConfigurationList = 6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Play" */;
 			buildPhases = (
 				6162624828BC8E2B00D63EA5 /* Sources */,
 				6162624928BC8E2B00D63EA5 /* Frameworks */,
@@ -824,9 +824,9 @@
 			);
 			dependencies = (
 			);
-			name = "Sandbox (iOS)";
+			name = Play;
 			productName = "Sandbox (iOS)";
-			productReference = 6162624C28BC8E2B00D63EA5 /* WandSandbox.app */;
+			productReference = 6162624C28BC8E2B00D63EA5 /* Play.app */;
 			productType = "com.apple.product-type.application";
 		};
 		"pipe::Pipe" /* Wand */ = {
@@ -921,7 +921,7 @@
 				"pipe::SwiftPMPackageDescription" /* WandPackageDescription */,
 				"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */,
 				"pipe::PipeTests" /* WandTests */,
-				6162624B28BC8E2B00D63EA5 /* Sandbox (iOS) */,
+				6162624B28BC8E2B00D63EA5 /* Play */,
 			);
 		};
 /* End PBXProject section */
@@ -1051,7 +1051,7 @@
 /* Begin PBXTargetDependency section */
 		6162626328BC929D00D63EA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6162624B28BC8E2B00D63EA5 /* Sandbox (iOS) */;
+			target = 6162624B28BC8E2B00D63EA5 /* Play */;
 			targetProxy = 6162626228BC929D00D63EA5 /* PBXContainerItemProxy */;
 		};
 		OBJ_225 /* PBXTargetDependency */ = {
@@ -1102,7 +1102,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1150,8 +1150,8 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
-				PRODUCT_NAME = WandSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.Play";
+				PRODUCT_NAME = Play;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1200,7 +1200,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1243,8 +1243,8 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WandSandbox";
-				PRODUCT_NAME = WandSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.Play";
+				PRODUCT_NAME = Play;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
 				SUPPORTS_MACCATALYST = NO;
@@ -1262,7 +1262,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1305,7 +1305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1398,7 +1398,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1431,9 +1431,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = PipeTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/Contents/MacOS/WandSandbox";
+				TEST_HOST = "";
+				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1446,7 +1446,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 69;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1478,9 +1478,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = PipeTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
-				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/WandSandbox.app/WandSandbox";
+				TEST_HOST = "";
+				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1612,7 +1612,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Sandbox (iOS)" */ = {
+		6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Play" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6162625B28BC8E2B00D63EA5 /* Debug */,
