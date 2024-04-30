@@ -22,6 +22,26 @@
 
 /* Begin PBXBuildFile section */
 		61056E8B2924C72100E2BFF0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Error.swift */; };
+		6139661A2BE0F4EF004C18A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613966192BE0F4EF004C18A3 /* ContentView.swift */; };
+		6139661C2BE0F4F0004C18A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6139661B2BE0F4F0004C18A3 /* Assets.xcassets */; };
+		613966272BE0F532004C18A3 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
+		6139664B2BE0F87A004C18A3 /* WatchPlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */; };
+		613966512BE0F90F004C18A3 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562A2BCB90D60013EC56 /* Wand_Tests.swift */; };
+		613966532BE0F90F004C18A3 /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056102BCB90D60013EC56 /* any.swift */; };
+		613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */; };
+		613966552BE0F90F004C18A3 /* Contacts_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562D2BCB90D60013EC56 /* Contacts_Tests.swift */; };
+		613966572BE0F90F004C18A3 /* CoreBluetooth_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562E2BCB90D60013EC56 /* CoreBluetooth_Tests.swift */; };
+		613966582BE0F90F004C18A3 /* CoreMotion_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056302BCB90D60013EC56 /* CoreMotion_Tests.swift */; };
+		613966592BE0F90F004C18A3 /* Range_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056122BCB90D60013EC56 /* Range_any.swift */; };
+		6139665A2BE0F90F004C18A3 /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056132BCB90D60013EC56 /* String_any.swift */; };
+		6139665B2BE0F90F004C18A3 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBDE72BDB9B8100AAD44D /* Point.swift */; };
+		6139665D2BE0F90F004C18A3 /* Notification_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056252BCB90D60013EC56 /* Notification_Tests.swift */; };
+		6139665E2BE0F90F004C18A3 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056292BCB90D60013EC56 /* Expect_Tests.swift */; };
+		6139665F2BE0F90F004C18A3 /* Math_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056322BCB90D60013EC56 /* Math_Tests.swift */; };
+		613966602BE0F90F004C18A3 /* CoreLocation_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056112BCB90D60013EC56 /* CoreLocation_any.swift */; };
+		613966612BE0F90F004C18A3 /* CoreLocation_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180562F2BCB90D60013EC56 /* CoreLocation_Tests.swift */; };
+		613966622BE0F90F004C18A3 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056152BCB90D60013EC56 /* TestTools.swift */; };
+		613966632BE0F90F004C18A3 /* NSTextCheckingResult_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056262BCB90D60013EC56 /* NSTextCheckingResult_Tests.swift */; };
 		6162625428BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
@@ -108,6 +128,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6139664C2BE0F87A004C18A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 613966142BE0F4EF004C18A3;
+			remoteInfo = WatchPlay;
+		};
 		6162624228BC8D4400D63EA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -147,6 +174,12 @@
 
 /* Begin PBXFileReference section */
 		610017E929E02F72004CEBB0 /* ARView_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView_Pipe.swift; sourceTree = "<group>"; };
+		613966152BE0F4EF004C18A3 /* WatchPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		613966192BE0F4EF004C18A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6139661B2BE0F4F0004C18A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPlayTests.swift; sourceTree = "<group>"; };
+		613966652BE0F942004C18A3 /* WatchPlay.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WatchPlay.xctestplan; sourceTree = SOURCE_ROOT; };
 		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +315,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		613966122BE0F4EF004C18A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		613966452BE0F87A004C18A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6162624928BC8E2B00D63EA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +355,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613966162BE0F4EF004C18A3 /* WatchPlay */ = {
+			isa = PBXGroup;
+			children = (
+				613966192BE0F4EF004C18A3 /* ContentView.swift */,
+				6139661B2BE0F4F0004C18A3 /* Assets.xcassets */,
+			);
+			path = WatchPlay;
+			sourceTree = "<group>";
+		};
+		613966492BE0F87A004C18A3 /* WatchPlayTests */ = {
+			isa = PBXGroup;
+			children = (
+				6139664A2BE0F87A004C18A3 /* WatchPlayTests.swift */,
+				613966652BE0F942004C18A3 /* WatchPlay.xctestplan */,
+			);
+			path = WatchPlayTests;
+			sourceTree = "<group>";
+		};
 		6162624428BC8E2A00D63EA5 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +629,8 @@
 				"pipe::Pipe::Product" /* Wand.framework */,
 				"pipe::PipeTests::Product" /* WandTests.xctest */,
 				6162624C28BC8E2B00D63EA5 /* Play.app */,
+				613966152BE0F4EF004C18A3 /* WatchPlay.app */,
+				613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -647,6 +714,8 @@
 				OBJ_7 /* Sources */,
 				618056362BCB90D60013EC56 /* Tests */,
 				6162624428BC8E2A00D63EA5 /* App */,
+				613966162BE0F4EF004C18A3 /* WatchPlay */,
+				613966492BE0F87A004C18A3 /* WatchPlayTests */,
 				OBJ_138 /* Products */,
 				OBJ_141 /* LICENSE */,
 				OBJ_142 /* README.md */,
@@ -811,6 +880,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		613966142BE0F4EF004C18A3 /* WatchPlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 613966262BE0F4F0004C18A3 /* Build configuration list for PBXNativeTarget "WatchPlay" */;
+			buildPhases = (
+				613966112BE0F4EF004C18A3 /* Sources */,
+				613966122BE0F4EF004C18A3 /* Frameworks */,
+				613966132BE0F4EF004C18A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchPlay;
+			productName = "WatchPlay Watch App";
+			productReference = 613966152BE0F4EF004C18A3 /* WatchPlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		613966472BE0F87A004C18A3 /* WatchPlayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6139664E2BE0F87A004C18A3 /* Build configuration list for PBXNativeTarget "WatchPlayTests" */;
+			buildPhases = (
+				613966442BE0F87A004C18A3 /* Sources */,
+				613966452BE0F87A004C18A3 /* Frameworks */,
+				613966462BE0F87A004C18A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6139664D2BE0F87A004C18A3 /* PBXTargetDependency */,
+			);
+			name = WatchPlayTests;
+			productName = WatchPlayTests;
+			productReference = 613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6162624B28BC8E2B00D63EA5 /* Play */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Play" */;
@@ -888,6 +992,13 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					613966142BE0F4EF004C18A3 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					613966472BE0F87A004C18A3 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 613966142BE0F4EF004C18A3;
+					};
 					6162624B28BC8E2B00D63EA5 = {
 						CreatedOnToolsVersion = 13.4.1;
 						DevelopmentTeam = LZSP4Z4B6A;
@@ -922,11 +1033,28 @@
 				"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */,
 				"pipe::PipeTests" /* WandTests */,
 				6162624B28BC8E2B00D63EA5 /* Play */,
+				613966142BE0F4EF004C18A3 /* WatchPlay */,
+				613966472BE0F87A004C18A3 /* WatchPlayTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		613966132BE0F4EF004C18A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6139661C2BE0F4F0004C18A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		613966462BE0F87A004C18A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6162624A28BC8E2B00D63EA5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -938,6 +1066,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		613966112BE0F4EF004C18A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6139661A2BE0F4EF004C18A3 /* ContentView.swift in Sources */,
+				613966272BE0F532004C18A3 /* Play.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		613966442BE0F87A004C18A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6139664B2BE0F87A004C18A3 /* WatchPlayTests.swift in Sources */,
+				613966512BE0F90F004C18A3 /* Wand_Tests.swift in Sources */,
+				613966532BE0F90F004C18A3 /* any.swift in Sources */,
+				613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */,
+				613966552BE0F90F004C18A3 /* Contacts_Tests.swift in Sources */,
+				613966572BE0F90F004C18A3 /* CoreBluetooth_Tests.swift in Sources */,
+				613966582BE0F90F004C18A3 /* CoreMotion_Tests.swift in Sources */,
+				613966592BE0F90F004C18A3 /* Range_any.swift in Sources */,
+				6139665A2BE0F90F004C18A3 /* String_any.swift in Sources */,
+				6139665B2BE0F90F004C18A3 /* Point.swift in Sources */,
+				6139665D2BE0F90F004C18A3 /* Notification_Tests.swift in Sources */,
+				6139665E2BE0F90F004C18A3 /* Expect_Tests.swift in Sources */,
+				6139665F2BE0F90F004C18A3 /* Math_Tests.swift in Sources */,
+				613966602BE0F90F004C18A3 /* CoreLocation_any.swift in Sources */,
+				613966612BE0F90F004C18A3 /* CoreLocation_Tests.swift in Sources */,
+				613966622BE0F90F004C18A3 /* TestTools.swift in Sources */,
+				613966632BE0F90F004C18A3 /* NSTextCheckingResult_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6162624828BC8E2B00D63EA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1049,6 +1210,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6139664D2BE0F87A004C18A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 613966142BE0F4EF004C18A3 /* WatchPlay */;
+			targetProxy = 6139664C2BE0F87A004C18A3 /* PBXContainerItemProxy */;
+		};
 		6162626328BC929D00D63EA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6162624B28BC8E2B00D63EA5 /* Play */;
@@ -1067,9 +1233,206 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		613966242BE0F4F0004C18A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchPlay;
+				INFOPLIST_KEY_NSContactsUsageDescription = 12;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "el-machine.Play";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.Play.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		613966252BE0F4F0004C18A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchPlay;
+				INFOPLIST_KEY_NSContactsUsageDescription = 12;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "el-machine.Play";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.Play.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		6139664F2BE0F87A004C18A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WatchPlayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		613966502BE0F87A004C18A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = LZSP4Z4B6A;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WatchPlayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
 		6162625B28BC8E2B00D63EA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1102,7 +1465,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1167,6 +1530,7 @@
 		6162625C28BC8E2B00D63EA5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1200,7 +1564,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1262,7 +1626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1305,7 +1669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1398,7 +1762,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1434,6 +1798,7 @@
 				TEST_HOST = "";
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
+				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1446,7 +1811,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1480,7 +1845,8 @@
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "";
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
-				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
+				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1612,6 +1978,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		613966262BE0F4F0004C18A3 /* Build configuration list for PBXNativeTarget "WatchPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				613966242BE0F4F0004C18A3 /* Debug */,
+				613966252BE0F4F0004C18A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6139664E2BE0F87A004C18A3 /* Build configuration list for PBXNativeTarget "WatchPlayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6139664F2BE0F87A004C18A3 /* Debug */,
+				613966502BE0F87A004C18A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6162625A28BC8E2B00D63EA5 /* Build configuration list for PBXNativeTarget "Play" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

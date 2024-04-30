@@ -1,20 +1,25 @@
 {
   "configurations" : [
+    {
+      "id" : "738A3088-B67E-401C-BFC1-D5E393C715FF",
+      "name" : "Configuration 1",
+      "options" : {
 
+      }
+    }
   ],
   "defaultOptions" : {
     "locationScenario" : {
       "identifier" : "Tokyo, Japan",
       "referenceType" : "built-in"
-    },
-    "testTimeoutsEnabled" : true
+    }
   },
   "testTargets" : [
     {
       "target" : {
         "containerPath" : "container:Wand.xcodeproj",
-        "identifier" : "pipe::PipeTests",
-        "name" : "WandTests"
+        "identifier" : "613966472BE0F87A004C18A3",
+        "name" : "WatchPlayTests"
       }
     }
   ],
