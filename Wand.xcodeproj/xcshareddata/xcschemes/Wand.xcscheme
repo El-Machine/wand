@@ -95,7 +95,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "Mumbai, India"
+         identifier = "Tokyo, Japan"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>

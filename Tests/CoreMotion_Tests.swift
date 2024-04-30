@@ -42,16 +42,15 @@ class CoreMotion_Tests: XCTestCase {
     }
 
     //Test it while walking
-    func test_CMPedometerData() {
-        let e = expectation()
-
-        |{ (location: CMPedometerData) in
-            e.fulfill()
-        }
-
-        waitForExpectations()
-    }
-
+//    func test_CMPedometerData() {
+//        let e = expectation()
+//
+//        |{ (location: CMPedometerData) in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
 
     func test_CMPedometer() {
         XCTAssertNotNil(CMPedometer.self|)
