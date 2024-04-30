@@ -1,0 +1,18 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "images" : [
+    {
+      "filename" : "TopShelfImage.png",
+      "idiom" : "tv",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "TopShelfImage@2x.png",
+      "scale" : "2x",
+      "idiom" : "tv"
+    }
+  ]
+}
