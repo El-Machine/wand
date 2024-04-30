@@ -20,62 +20,23 @@
 ///
 /// Created by Alex Kozin
 ///
+///
+#if !os(watchOS)
 
-import Wand
-import XCTest
+import AVFoundation.AVCaptureVideoDataOutput
+import CoreMedia.CMSampleBuffer
 
-class Expect_Any_Tests: XCTestCase {
+@available(watchOS 6, tvOS 17.0, *)
+@available(visionOS, unavailable)
+extension CMSampleBuffer: Asking {
 
-    func test_Any() throws {
-        let e = expectation(description: "event.any")
-        e.assertForOverFulfill = false
+    public static func wand<T>(_ wand: Wand, asks: Ask<T>) {
 
-        let wand = Point.every | String.every | .any { _ in
-            e.fulfill()
-        }
+        //AVCaptureVideoDataOutput will produce CMSampleBuffer
+        wand | Ask<AVCaptureVideoDataOutput>.every()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak wand] in
-
-            if .random() {
-                wand?.add(Point.any)
-            } else {
-                wand?.add(String.any)
-            }
-
-        }
-
-        waitForExpectations()
     }
-
-    //Works in Debug and Prod
-//    func test_All() throws {
-//        let e = expectation(description: "event.any")
-//        e.expectedFulfillmentCount = 2
-//
-//        weak var wand: Wand!
-//        wand = CLLocation.one | CNContact.one | .all {
-//
-//            if let piped: CLLocation = wand.get() {
-//                e.fulfill()
-//            }
-//
-//            if let piped: CMPedometerEvent = wand.get() {
-//                e.fulfill()
-//            }
-//
-//        }
-//
-//        waitForExpectations()
-//    }
-
 
 }
 
-extension String: Asking
-{
-    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
-        _ = wand.answer(the: ask)
-    }
-
-
-}
+#endif

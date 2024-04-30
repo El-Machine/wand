@@ -26,7 +26,7 @@ import CoreLocation.CLLocation
 import Wand
 import XCTest
 
-class Pipe_Tests: XCTestCase {
+class Wand_Tests: XCTestCase {
 
     weak var wand: Wand?
 

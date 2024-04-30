@@ -68,11 +68,15 @@ extension CLLocationManager {
             isWanded?.add(error)
         }
 
-        func locationManager(_ manager: CLLocationManager, 
-                             didChangeAuthorization status: CLAuthorizationStatus) {
-            isWanded?.add(status)
-        }
-        
+        #if !os(visionOS)
+
+            func locationManager(_ manager: CLLocationManager,
+                                 didChangeAuthorization status: CLAuthorizationStatus) {
+                isWanded?.add(status)
+            }
+
+        #endif
+
     }
     
 }

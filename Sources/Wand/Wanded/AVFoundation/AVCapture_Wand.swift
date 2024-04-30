@@ -26,6 +26,7 @@ import AVFoundation
 #if !os(watchOS)
 
 @available(tvOS 17.0, *)
+@available(visionOS, unavailable)
 extension AVCaptureDevice: Obtain {
 
     public static func obtain(by wand: Wand?) -> Self {
@@ -49,6 +50,7 @@ extension AVCaptureDevice: Obtain {
 }
 
 @available(tvOS 17.0, *)
+@available(visionOS, unavailable)
 extension AVCaptureDeviceInput: Obtain {
 
     public static func obtain(by wand: Wand?) -> Self {
@@ -73,6 +75,7 @@ extension AVCaptureSession: Obtain {
 }
 
 @available(tvOS 17.0, *)
+@available(visionOS, unavailable)
 extension AVCaptureVideoDataOutput: Asking, Wanded {
 
     public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
@@ -125,7 +128,7 @@ extension AVCaptureVideoDataOutput: Asking, Wanded {
 
 }
 
-@available(tvOS 17.0, *)
+@available(watchOS 6, tvOS 17.0, *)
 extension AVCaptureVideoDataOutput {
 
     class Delegate: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Wanded {
@@ -139,6 +142,7 @@ extension AVCaptureVideoDataOutput {
 }
 
 @available(tvOS 17.0, *)
+@available(visionOS, unavailable)
 extension AVCaptureVideoPreviewLayer: Obtain {
 
     public static func obtain(by wand: Wand?) -> Self {
@@ -147,21 +151,6 @@ extension AVCaptureVideoPreviewLayer: Obtain {
         layer.session =         wand!.obtain()
 
         return wand?.add(layer) ?? layer
-    }
-
-}
-
-//CoreMedia_Pipe
-import CoreMedia.CMSampleBuffer
-
-@available(watchOS 6, tvOS 17.0, *)
-extension CMSampleBuffer: Asking {
-
-    public static func wand<T>(_ wand: Wand, asks: Ask<T>) {
-
-        //AVCaptureVideoDataOutput will produce CMSampleBuffer
-        wand | Ask<AVCaptureVideoDataOutput>.every()
-
     }
 
 }

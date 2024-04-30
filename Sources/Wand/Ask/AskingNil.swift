@@ -55,18 +55,6 @@ public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
     nil | ask
 }
 
-/// Ask
-///
-/// |.every { T in
-///
-/// }
-///
-@discardableResult
-@inline(__always)
-public func |<T: Asking> (wand: Wand?, ask: Ask<T>) -> Wand {
-    wand ?? Wand() | ask
-}
-
 /// Make the chain
 ///
 /// T.one | E.one | { (error: Error) in

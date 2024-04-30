@@ -28,6 +28,7 @@ import CoreMotion.CMPedometer
 ///
 /// let pedometer: CMPedometer = nil|
 ///
+@available(visionOS, unavailable)
 extension CMPedometer: Obtain {
 
     @inline(__always)

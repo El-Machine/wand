@@ -43,6 +43,7 @@
 		613966672BE0FB14004C18A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		613966692BE0FB2E004C18A3 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
 		6139666A2BE0FB2E004C18A3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6139666F2BE0FD79004C18A3 /* CMSampleBuffer_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6139666E2BE0FD79004C18A3 /* CMSampleBuffer_Wand.swift */; };
 		6162625428BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
@@ -79,8 +80,8 @@
 		61B13CBD2BC5626400C71F03 /* VNRequest_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* VNRequest_Pipe.swift */; };
 		61B13CBE2BC562BD00C71F03 /* VNObservation_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* VNObservation_Ask.swift */; };
 		61B13CBF2BC5635400C71F03 /* VNImageRequestHandler_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* VNImageRequestHandler_Pipe.swift */; };
-		61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Pipe.swift */; };
-		61B13CC12BC5648D00C71F03 /* AVFoundation_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Pipe.swift */; };
+		61B13CC02BC5648800C71F03 /* AVCapture_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AVCapture_Wand.swift */; };
+		61B13CC12BC5648D00C71F03 /* AVFoundation_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AVFoundation_Wand.swift */; };
 		61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA42BC7F21A00375480 /* NFCNDEFMessage_Ask.swift */; };
 		61B1B4192BC9617C00BD1F36 /* NFCNDEFReaderSession_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA52BC7F21A00375480 /* NFCNDEFReaderSession_Obtain.swift */; };
 		61B1B41A2BC961B400BD1F36 /* NFCNDEFStatus_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A4DBA62BC7F21A00375480 /* NFCNDEFStatus_Ask.swift */; };
@@ -89,8 +90,8 @@
 		61B3503E2BB146CE00D432DE /* CLLocationManager_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* CLLocationManager_Obtain.swift */; };
 		61B3503F2BB1486B00D432DE /* CLLocation_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* CLLocation_Ask.swift */; };
 		61B350402BB1493F00D432DE /* CoreLocation_Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CoreLocation_Convert.swift */; };
-		61B350492BB14DC600D432DE /* CNContactStore_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Pipe.swift */; };
-		61B3504A2BB14DC600D432DE /* CNContact_Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Pipe.swift */; };
+		61B350492BB14DC600D432DE /* CNContactStore_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CNContactStore_Wand.swift */; };
+		61B3504A2BB14DC600D432DE /* CNContact_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* CNContact_Wand.swift */; };
 		61B3504C2BB1541E00D432DE /* Notification_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Notification_Ask.swift */; };
 		61B3504D2BB1545D00D432DE /* CMPedometer_Obtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CMPedometer_Obtain.swift */; };
 		61B3504E2BB1545D00D432DE /* CMPedometerData_Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CMPedometerData_Ask.swift */; };
@@ -196,6 +197,7 @@
 		613966152BE0F4EF004C18A3 /* WatchPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		613966652BE0F942004C18A3 /* WatchPlayTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WatchPlayTestPlan.xctestplan; sourceTree = SOURCE_ROOT; };
+		6139666E2BE0FD79004C18A3 /* CMSampleBuffer_Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSampleBuffer_Wand.swift; sourceTree = "<group>"; };
 		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -280,12 +282,12 @@
 		61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand_Expressible.swift; sourceTree = "<group>"; };
 		61FB590E2A29DFC0002D5D27 /* CBPeripheral+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_100 /* |.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
-		OBJ_11 /* AVCapture_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_12 /* AVFoundation_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundation_Pipe.swift; sourceTree = "<group>"; };
-		OBJ_14 /* CNContactStore_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactStore_Pipe.swift; sourceTree = "<group>"; };
+		OBJ_11 /* AVCapture_Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture_Wand.swift; sourceTree = "<group>"; };
+		OBJ_12 /* AVFoundation_Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundation_Wand.swift; sourceTree = "<group>"; };
+		OBJ_14 /* CNContactStore_Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactStore_Wand.swift; sourceTree = "<group>"; };
 		OBJ_141 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_142 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		OBJ_15 /* CNContact_Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContact_Pipe.swift; sourceTree = "<group>"; };
+		OBJ_15 /* CNContact_Wand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContact_Wand.swift; sourceTree = "<group>"; };
 		OBJ_17 /* CBCentralManager+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBCentralManager+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_18 /* CBManagerState+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBManagerState+Pipe.swift"; sourceTree = "<group>"; };
 		OBJ_19 /* [CBPeripheral]+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[CBPeripheral]+Pipe.swift"; sourceTree = "<group>"; };
@@ -385,6 +387,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		613966702BE0FDAD004C18A3 /* CoreMedia */ = {
+			isa = PBXGroup;
+			children = (
+				6139666E2BE0FD79004C18A3 /* CMSampleBuffer_Wand.swift */,
+			);
+			path = CoreMedia;
 			sourceTree = "<group>";
 		};
 		6162624428BC8E2A00D63EA5 /* App */ = {
@@ -622,8 +632,8 @@
 		OBJ_10 /* AVFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* AVCapture_Pipe.swift */,
-				OBJ_12 /* AVFoundation_Pipe.swift */,
+				OBJ_11 /* AVCapture_Wand.swift */,
+				OBJ_12 /* AVFoundation_Wand.swift */,
 			);
 			path = AVFoundation;
 			sourceTree = "<group>";
@@ -631,8 +641,8 @@
 		OBJ_13 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* CNContactStore_Pipe.swift */,
-				OBJ_15 /* CNContact_Pipe.swift */,
+				OBJ_14 /* CNContactStore_Wand.swift */,
+				OBJ_15 /* CNContact_Wand.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -862,6 +872,7 @@
 			children = (
 				619ABCBE29014EA600D5DB96 /* ARKit */,
 				OBJ_10 /* AVFoundation */,
+				613966702BE0FDAD004C18A3 /* CoreMedia */,
 				OBJ_13 /* Contacts */,
 				OBJ_16 /* CoreBluetooth */,
 				OBJ_20 /* CoreGraphics */,
@@ -1134,8 +1145,8 @@
 				61EC3FB42BCD6B21000FA3DB /* Wand_Expressible.swift in Sources */,
 				6195667329A3498900167A08 /* String.IndexDistance_Pipe.swift in Sources */,
 				61B13CBD2BC5626400C71F03 /* VNRequest_Pipe.swift in Sources */,
-				61B350492BB14DC600D432DE /* CNContactStore_Pipe.swift in Sources */,
-				61B3504A2BB14DC600D432DE /* CNContact_Pipe.swift in Sources */,
+				61B350492BB14DC600D432DE /* CNContactStore_Wand.swift in Sources */,
+				61B3504A2BB14DC600D432DE /* CNContact_Wand.swift in Sources */,
 				61B3504C2BB1541E00D432DE /* Notification_Ask.swift in Sources */,
 				6195667029A3496200167A08 /* Asking.swift in Sources */,
 				61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */,
@@ -1144,12 +1155,13 @@
 				61B1B4182BC9602400BD1F36 /* NFCNDEFMessage_Ask.swift in Sources */,
 				OBJ_174 /* NotificationCenter_Obtain.swift in Sources */,
 				61A6F9E428EC06C60037CDBD /* Data_Convertable.swift in Sources */,
-				61B13CC02BC5648800C71F03 /* AVCapture_Pipe.swift in Sources */,
+				61B13CC02BC5648800C71F03 /* AVCapture_Wand.swift in Sources */,
 				OBJ_176 /* TimeZone_Pipe.swift in Sources */,
 				61B13CB62BC55A6000C71F03 /* Debug.swift in Sources */,
 				OBJ_181 /* MKGeometry+Piped.swift in Sources */,
+				6139666F2BE0FD79004C18A3 /* CMSampleBuffer_Wand.swift in Sources */,
 				OBJ_182 /* MapKit+Pipe.swift in Sources */,
-				61B13CC12BC5648D00C71F03 /* AVFoundation_Pipe.swift in Sources */,
+				61B13CC12BC5648D00C71F03 /* AVFoundation_Wand.swift in Sources */,
 				OBJ_183 /* CoreGraphicsMath+pipe.swift in Sources */,
 				OBJ_184 /* Math+Pipe.swift in Sources */,
 				61B13CBC2BC5625400C71F03 /* CoreGraphics_Convertable.swift in Sources */,
@@ -1271,7 +1283,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
@@ -1329,7 +1341,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1380,7 +1392,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -1425,7 +1437,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1485,7 +1497,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1584,7 +1596,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1646,7 +1658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1689,7 +1701,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1782,7 +1794,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1831,7 +1843,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 426;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;

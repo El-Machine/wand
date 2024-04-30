@@ -59,8 +59,8 @@ struct ContentView: View {
 //            let urlString = "https://en.wikipedia.org/wiki/Laozi"
 //
 //            let wand: Wand = [[CNContactFamilyNameKey as CNKeyDescriptor]]
-//
-//            //1. While location
+
+            //1. While location
 //            wand | .while { (l: CLLocation, i: Int) in
 //
 //                print("1. \(l)")
@@ -71,11 +71,11 @@ struct ContentView: View {
 //            } |
 //
 //            //2. Every location
-//            { (l: CLLocation) in
-//
-//                print("2. \(l)")
-//
-//            } |
+            |{ (l: CLLocation) in
+
+                print("2. \(l)")
+
+            } //|
 //
 //            //3. One location
 //            .one { (c: CLLocation) in

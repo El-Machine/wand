@@ -6,7 +6,7 @@
 //  Copyright © Tradernet All rights reserved.
 //
 
-#if canImport(UIKit) && !os(watchOS)
+#if canImport(UIKit) && !os(watchOS) && !os(visionOS)
 import UIKit
 
 public extension UIViewController {
