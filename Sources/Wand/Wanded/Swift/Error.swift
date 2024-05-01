@@ -53,13 +53,10 @@ extension Wand {
         let code: Int
         let reason: String
 
+        public
         init(code: Int = .zero, reason: String, function: String = #function) {
             self.code = code
             self.reason = function + reason
-        }
-
-        static func vision(_ reason: String) -> Error {
-            Self(reason: reason)
         }
 
     }
