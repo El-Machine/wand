@@ -29,10 +29,13 @@ class Ask<T> {
 
     var next: Ask?
 
+    public
     let once: Bool
 
     private
     var _key: String?
+
+    public
     var key: String {
         get {
             _key ?? T.self|

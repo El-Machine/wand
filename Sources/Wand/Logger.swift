@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+public
 extension Wand {
 
     @inline(__always)
