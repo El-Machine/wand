@@ -28,12 +28,12 @@ final
 class Wand {
 
     //All Wands
-    internal
+    public
     struct Weak {
         weak var item: Wand?
     }
 
-    internal
+    public
     static var all = [Int: Wand.Weak]()
 
     internal
@@ -275,6 +275,7 @@ extension Wand: Wanded {
 }
 
 /// Tools
+public
 extension Wand {
 
     static func address<T: AnyObject>(for model: T) -> Int {
