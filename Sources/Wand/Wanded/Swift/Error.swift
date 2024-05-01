@@ -45,6 +45,7 @@ public func | (wand: Wand, ask: Ask<Error>) -> Wand {
     
 }
 
+public
 extension Wand {
 
     struct Error: Swift.Error {
