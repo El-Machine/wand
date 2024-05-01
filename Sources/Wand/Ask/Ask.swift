@@ -22,7 +22,7 @@
 ///
 
 /// The question
-public
+open
 class Ask<T> {
 
     var handler: (T)->(Bool)
@@ -48,7 +48,7 @@ class Ask<T> {
         self.wand = wand
     }
 
-    internal
+    public
     required
     init(key: String? = nil,
          once: Bool = false,
