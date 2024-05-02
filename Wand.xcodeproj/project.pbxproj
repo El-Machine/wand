@@ -54,7 +54,7 @@
 		61B13CB12BC54E4B00C71F03 /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B13CB02BC54E4A00C71F03 /* Sugar.swift */; };
 		61B13CB32BC54E7300C71F03 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B13CB22BC54E7300C71F03 /* Any.swift */; };
 		61B13CB62BC55A6000C71F03 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B13CB52BC55A6000C71F03 /* Debug.swift */; };
-		61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C4C25E2BBE9D7A006BD985 /* Logger.swift */; };
+		61C4C25F2BBE9D7A006BD985 /* Wand_Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C4C25E2BBE9D7A006BD985 /* Wand_Log.swift */; };
 		61C70629299CC056007E24A8 /* String_Wand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* String_Wand.swift */; };
 		61EC3FB42BCD6B21000FA3DB /* Wand_Expressible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */; };
 		OBJ_185 /* Wanded.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* Wanded.swift */; };
@@ -155,7 +155,7 @@
 		61B13CB22BC54E7300C71F03 /* Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
 		61B13CB52BC55A6000C71F03 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		61B1B41C2BC9696200BD1F36 /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
-		61C4C25E2BBE9D7A006BD985 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		61C4C25E2BBE9D7A006BD985 /* Wand_Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand_Log.swift; sourceTree = "<group>"; };
 		61DEBDE72BDB9B8100AAD44D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand_Expressible.swift; sourceTree = "<group>"; };
 		OBJ_100 /* |.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				OBJ_9 /* Wanded */,
 				OBJ_86 /* Wand.swift */,
 				61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */,
-				61C4C25E2BBE9D7A006BD985 /* Logger.swift */,
+				61C4C25E2BBE9D7A006BD985 /* Wand_Log.swift */,
 				OBJ_100 /* |.swift */,
 			);
 			name = Wand;
@@ -610,7 +610,7 @@
 				61EC3FB42BCD6B21000FA3DB /* Wand_Expressible.swift in Sources */,
 				6195667329A3498900167A08 /* String.IndexDistance_Wand.swift in Sources */,
 				6195667029A3496200167A08 /* Asking.swift in Sources */,
-				61C4C25F2BBE9D7A006BD985 /* Logger.swift in Sources */,
+				61C4C25F2BBE9D7A006BD985 /* Wand_Log.swift in Sources */,
 				61B13CB62BC55A6000C71F03 /* Debug.swift in Sources */,
 				OBJ_185 /* Wanded.swift in Sources */,
 				61B13CAF2BC54E1000C71F03 /* All.swift in Sources */,
@@ -695,7 +695,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
@@ -753,7 +753,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -804,7 +804,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -849,7 +849,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -909,7 +909,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1008,7 +1008,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1070,7 +1070,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1113,7 +1113,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1206,7 +1206,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
@@ -1255,7 +1255,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 462;
+				CURRENT_PROJECT_VERSION = 467;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;

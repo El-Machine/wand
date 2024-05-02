@@ -59,17 +59,6 @@ class Ask<T> {
         self.handler = handler
     }
 
-    static func once (_ once: Bool,
-                      key: String? = nil,
-                      handler: ( (T) -> () )? = nil) -> Ask {
-
-        self.init(key: key) {
-            handler?($0)
-            return !once
-        }
-
-    }
-
 }
 
 /// Request object

@@ -21,8 +21,6 @@
 import Foundation
 import CloudKit
 
-//import Wand
-
 /**
  Add error handler
  - Parameters:
