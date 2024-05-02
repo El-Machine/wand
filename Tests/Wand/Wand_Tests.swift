@@ -15,6 +15,8 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 ///
+/// Created by Alex Kozin
+/// 2020 El Machine
 
 import CoreLocation.CLLocation
 
