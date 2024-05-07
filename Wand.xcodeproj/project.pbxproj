@@ -21,29 +21,23 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		610021B82BE10651003E23BA /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056102BCB90D60013EC56 /* any.swift */; };
-		610021B92BE10652003E23BA /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056102BCB90D60013EC56 /* any.swift */; };
-		610021BA2BE10663003E23BA /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBDE72BDB9B8100AAD44D /* Point.swift */; };
-		610021BB2BE10664003E23BA /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBDE72BDB9B8100AAD44D /* Point.swift */; };
-		610021BC2BE1066C003E23BA /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056132BCB90D60013EC56 /* String_any.swift */; };
-		610021BD2BE1066D003E23BA /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056132BCB90D60013EC56 /* String_any.swift */; };
 		612253E62BE23CC1006D467D /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612253E52BE23CC1006D467D /* Error.swift */; };
 		613966272BE0F532004C18A3 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
-		613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */; };
-		6139665E2BE0F90F004C18A3 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056292BCB90D60013EC56 /* Expect_Tests.swift */; };
-		613966622BE0F90F004C18A3 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056152BCB90D60013EC56 /* TestTools.swift */; };
 		613966662BE0FB0D004C18A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
 		613966672BE0FB14004C18A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		613966692BE0FB2E004C18A3 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; };
 		6139666A2BE0FB2E004C18A3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		614017DB2BEA1FDF00D196EE /* any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017CB2BEA1FDF00D196EE /* any.swift */; };
+		614017DC2BEA1FDF00D196EE /* String_any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017CC2BEA1FDF00D196EE /* String_any.swift */; };
+		614017DD2BEA1FDF00D196EE /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017CE2BEA1FDF00D196EE /* Point.swift */; };
+		614017DE2BEA1FDF00D196EE /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017CF2BEA1FDF00D196EE /* TestTools.swift */; };
+		614017DF2BEA1FDF00D196EE /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017D32BEA1FDF00D196EE /* Expect_Any_Tests.swift */; };
+		614017E02BEA1FDF00D196EE /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614017D42BEA1FDF00D196EE /* Expect_Tests.swift */; };
 		6162625428BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624528BC8E2A00D63EA5 /* Play.swift */; };
 		6162625628BC8E2B00D63EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* ContentView.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
 		6162626428BC944300D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; platformFilters = (driverkit, ios, macos, tvos, xros, ); };
 		6162626528BC944300D63EA5 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; platformFilters = (driverkit, ios, macos, tvos, xros, ); settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6180563B2BCB90D60013EC56 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056152BCB90D60013EC56 /* TestTools.swift */; };
-		618056482BCB90D60013EC56 /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */; };
-		618056492BCB90D60013EC56 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618056292BCB90D60013EC56 /* Expect_Tests.swift */; };
 		6195667029A3496200167A08 /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666D29A3496200167A08 /* Asking.swift */; };
 		6195667129A3496200167A08 /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666E29A3496200167A08 /* Ask.swift */; };
 		6195667229A3496200167A08 /* AskingNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195666F29A3496200167A08 /* AskingNil.swift */; };
@@ -132,18 +126,19 @@
 		612253E52BE23CC1006D467D /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		613966152BE0F4EF004C18A3 /* WatchPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		613966482BE0F87A004C18A3 /* WatchPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		613966652BE0F942004C18A3 /* WatchTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = WatchTestPlan.xctestplan; path = Tests/WatchTestPlan.xctestplan; sourceTree = SOURCE_ROOT; };
+		614017CB2BEA1FDF00D196EE /* any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.swift; sourceTree = "<group>"; };
+		614017CC2BEA1FDF00D196EE /* String_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_any.swift; sourceTree = "<group>"; };
+		614017CE2BEA1FDF00D196EE /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		614017CF2BEA1FDF00D196EE /* TestTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
+		614017D32BEA1FDF00D196EE /* Expect_Any_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect_Any_Tests.swift; sourceTree = "<group>"; };
+		614017D42BEA1FDF00D196EE /* Expect_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect_Tests.swift; sourceTree = "<group>"; };
+		614017D52BEA1FDF00D196EE /* Wand_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wand_Tests.swift; sourceTree = "<group>"; };
+		614017D72BEA1FDF00D196EE /* TestPlan.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		614017D92BEA1FDF00D196EE /* WatchTestPlan.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WatchTestPlan.xctestplan; sourceTree = "<group>"; };
 		6162624528BC8E2A00D63EA5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		6162624628BC8E2A00D63EA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6162624728BC8E2B00D63EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6162624C28BC8E2B00D63EA5 /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		618056102BCB90D60013EC56 /* any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.swift; sourceTree = "<group>"; };
-		618056132BCB90D60013EC56 /* String_any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_any.swift; sourceTree = "<group>"; };
-		618056152BCB90D60013EC56 /* TestTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
-		618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect_Any_Tests.swift; sourceTree = "<group>"; };
-		618056292BCB90D60013EC56 /* Expect_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expect_Tests.swift; sourceTree = "<group>"; };
-		6180562A2BCB90D60013EC56 /* Wand_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wand_Tests.swift; sourceTree = "<group>"; };
-		618056342BCB90D60013EC56 /* TestPlan.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		6195666D29A3496200167A08 /* Asking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asking.swift; sourceTree = "<group>"; };
 		6195666E29A3496200167A08 /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		6195666F29A3496200167A08 /* AskingNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskingNil.swift; sourceTree = "<group>"; };
@@ -156,7 +151,6 @@
 		61B13CB52BC55A6000C71F03 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		61B1B41C2BC9696200BD1F36 /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
 		61C4C25E2BBE9D7A006BD985 /* Wand_Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand_Log.swift; sourceTree = "<group>"; };
-		61DEBDE72BDB9B8100AAD44D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		61EC3FB32BCD6B21000FA3DB /* Wand_Expressible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wand_Expressible.swift; sourceTree = "<group>"; };
 		OBJ_100 /* |.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "|.swift"; sourceTree = "<group>"; };
 		OBJ_141 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -219,6 +213,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		614017CD2BEA1FDF00D196EE /* any */ = {
+			isa = PBXGroup;
+			children = (
+				614017CB2BEA1FDF00D196EE /* any.swift */,
+				614017CC2BEA1FDF00D196EE /* String_any.swift */,
+			);
+			path = any;
+			sourceTree = "<group>";
+		};
+		614017D02BEA1FDF00D196EE /* _Tools */ = {
+			isa = PBXGroup;
+			children = (
+				614017CD2BEA1FDF00D196EE /* any */,
+				614017CE2BEA1FDF00D196EE /* Point.swift */,
+				614017CF2BEA1FDF00D196EE /* TestTools.swift */,
+			);
+			path = _Tools;
+			sourceTree = "<group>";
+		};
+		614017D12BEA1FDF00D196EE /* Wand */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wand;
+			sourceTree = "<group>";
+		};
+		614017D22BEA1FDF00D196EE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				614017D12BEA1FDF00D196EE /* Wand */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		614017D62BEA1FDF00D196EE /* Wand */ = {
+			isa = PBXGroup;
+			children = (
+				614017D32BEA1FDF00D196EE /* Expect_Any_Tests.swift */,
+				614017D42BEA1FDF00D196EE /* Expect_Tests.swift */,
+				614017D52BEA1FDF00D196EE /* Wand_Tests.swift */,
+			);
+			path = Wand;
+			sourceTree = "<group>";
+		};
+		614017D82BEA1FDF00D196EE /* WandTests */ = {
+			isa = PBXGroup;
+			children = (
+				614017D02BEA1FDF00D196EE /* _Tools */,
+				614017D22BEA1FDF00D196EE /* Foundation */,
+				614017D62BEA1FDF00D196EE /* Wand */,
+				614017D72BEA1FDF00D196EE /* TestPlan.xctestplan */,
+			);
+			path = WandTests;
+			sourceTree = "<group>";
+		};
+		614017DA2BEA1FDF00D196EE /* WatchPlayTests */ = {
+			isa = PBXGroup;
+			children = (
+				614017D92BEA1FDF00D196EE /* WatchTestPlan.xctestplan */,
+			);
+			path = WatchPlayTests;
+			sourceTree = "<group>";
+		};
 		6162624428BC8E2A00D63EA5 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,42 +287,11 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		618056142BCB90D60013EC56 /* any */ = {
-			isa = PBXGroup;
-			children = (
-				618056102BCB90D60013EC56 /* any.swift */,
-				618056132BCB90D60013EC56 /* String_any.swift */,
-			);
-			path = any;
-			sourceTree = "<group>";
-		};
-		618056162BCB90D60013EC56 /* _Tools */ = {
-			isa = PBXGroup;
-			children = (
-				618056142BCB90D60013EC56 /* any */,
-				61DEBDE72BDB9B8100AAD44D /* Point.swift */,
-				618056152BCB90D60013EC56 /* TestTools.swift */,
-			);
-			path = _Tools;
-			sourceTree = "<group>";
-		};
-		6180562B2BCB90D60013EC56 /* Wand */ = {
-			isa = PBXGroup;
-			children = (
-				618056282BCB90D60013EC56 /* Expect_Any_Tests.swift */,
-				618056292BCB90D60013EC56 /* Expect_Tests.swift */,
-				6180562A2BCB90D60013EC56 /* Wand_Tests.swift */,
-			);
-			path = Wand;
-			sourceTree = "<group>";
-		};
 		618056362BCB90D60013EC56 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				618056162BCB90D60013EC56 /* _Tools */,
-				6180562B2BCB90D60013EC56 /* Wand */,
-				618056342BCB90D60013EC56 /* TestPlan.xctestplan */,
-				613966652BE0F942004C18A3 /* WatchTestPlan.xctestplan */,
+				614017D82BEA1FDF00D196EE /* WandTests */,
+				614017DA2BEA1FDF00D196EE /* WatchPlayTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -582,12 +608,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				610021BC2BE1066C003E23BA /* String_any.swift in Sources */,
-				610021B82BE10651003E23BA /* any.swift in Sources */,
-				610021BA2BE10663003E23BA /* Point.swift in Sources */,
-				613966542BE0F90F004C18A3 /* Expect_Any_Tests.swift in Sources */,
-				6139665E2BE0F90F004C18A3 /* Expect_Tests.swift in Sources */,
-				613966622BE0F90F004C18A3 /* TestTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,12 +657,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				610021BD2BE1066D003E23BA /* String_any.swift in Sources */,
-				618056492BCB90D60013EC56 /* Expect_Tests.swift in Sources */,
-				610021B92BE10652003E23BA /* any.swift in Sources */,
-				610021BB2BE10664003E23BA /* Point.swift in Sources */,
-				6180563B2BCB90D60013EC56 /* TestTools.swift in Sources */,
-				618056482BCB90D60013EC56 /* Expect_Any_Tests.swift in Sources */,
+				614017E02BEA1FDF00D196EE /* Expect_Tests.swift in Sources */,
+				614017DB2BEA1FDF00D196EE /* any.swift in Sources */,
+				614017DF2BEA1FDF00D196EE /* Expect_Any_Tests.swift in Sources */,
+				614017DC2BEA1FDF00D196EE /* String_any.swift in Sources */,
+				614017DD2BEA1FDF00D196EE /* Point.swift in Sources */,
+				614017DE2BEA1FDF00D196EE /* TestTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +715,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
@@ -753,7 +773,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -804,7 +824,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -828,7 +848,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -849,7 +869,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -869,7 +889,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -909,7 +929,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -953,7 +973,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1008,7 +1028,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Entitlements.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1047,7 +1067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1070,7 +1090,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1081,12 +1101,12 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "${PROJECT_NAME}.xcodeproj/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1103,7 +1123,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = Wand;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
@@ -1113,7 +1133,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1124,12 +1144,12 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "${PROJECT_NAME}.xcodeproj/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1146,7 +1166,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				TARGET_NAME = Wand;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
@@ -1156,13 +1176,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.3.0";
 				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
@@ -1172,13 +1192,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.3.0";
 				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 12.0;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
@@ -1206,10 +1226,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1222,7 +1242,7 @@
 					"@loader_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1243,7 +1263,7 @@
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
 				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
@@ -1255,10 +1275,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 467;
+				CURRENT_PROJECT_VERSION = 470;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
-				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
+				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1271,7 +1291,7 @@
 					"@loader_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -1291,7 +1311,7 @@
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
@@ -1342,7 +1362,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wand;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
@@ -1354,7 +1374,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 				USE_HEADERMAP = NO;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
@@ -1402,7 +1422,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wand;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1414,7 +1434,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 				USE_HEADERMAP = NO;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
