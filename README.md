@@ -1,7 +1,7 @@
 
 <picture>
-    <source srcset="./App/Assets.xcassets/icon.imageset/icon.png" media="(prefers-color-scheme: dark)" alt="🪄">
-    <img src="./App/Assets.xcassets/icon.imageset/icon_dark.png" alt="🪄">
+    <source srcset="./App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-64.png" media="(prefers-color-scheme: dark)" alt="Wand 🪄">
+    <img src="./App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-64.png" alt="Wand 🪄">
 </picture>
 
 ## API for Any (thing) |
@@ -130,8 +130,10 @@ You ideas, comments, contribution are welcome |
 ## Credits
 
 <a href="https://www.flaticon.com/free-icons/wand" title="wand icons">
-    <img src="./App/Assets.xcassets/icon.imageset/icon_dark.png" alt="🪄">
-    Wand icon created by Freepik - Flaticon
+            
+![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-16.png)
+Wand icon created by Freepik - Flaticon
+            
 </a>
 
 ## Tasks
