@@ -10,11 +10,7 @@
 
                                Alex Kozin
 
-
-
-          _1._1. _R_e_l_e_a_s_e _1._0 _R_e_f_e_r_e_n_c_e _C_D
-
-          🙏 You are welcome 🤝
+            🙏 You are welcome
 
           - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of Bell Labs
                 https://wikipedia.org/wiki/Pipeline_(Unix)
@@ -25,34 +21,38 @@
           - 🤖  Upscaled by AI
                 https://google.com/?q=ai+upscale+image
 
-          -     _3_8_6_B_S_D
-                https://github.com/386bsd/386bsd/tree/2.0
+          - 👨‍🎓  BSD
+                https://wikipedia.org/wiki/BSD
 
-          -     Windows Production:
+          - 🪟  Windows Production
                 Stan Barnes
                 William and Lynne Jolitz
+                https://support.microsoft.com/windows
 
-          -     CD Production:
+          - 💿  CD Production
                 Sony Digital Audio Disk Corporation
+                ソニー・グループ株式会社
+                https://sony.com
+
+          - 📱  iPod
+                Tony Fadell
+                [ˈaɪˌpɔd]
+                https://wikipedia.org/wiki/Tony_Fadell
+
+          - 🍏  Apple
+                Steven Paul Jobs
+                A prominent part of macOS's original brand identity was the use of Roman numeral X,
+                pronounced "ten", as well as code naming each release after species of big cats,
+                and later, places within California
+                https://wikipedia.org/wiki/Steve_Jobs
 
 
+          - 🤝
 
-
-
-
-
-
-
-
-
-
-
-
-
-          The  individual  can  and  does  make  a
+          The individual can and does make  a
           difference!
 
-          |WWAANNDD CCOONNTTRRIIBB LLIISSTT           11                  MMAAYY 22002244|
+          |WWAANNDD CCOONNTTRRIIBBLLIISSTT           11                  MMAAYY 22002244|
 
 
 
@@ -104,10 +104,12 @@
 
 
 
+          The individual can and does make  a
+          difference!
 
+          |WWAANNDD CCOONNTTRRIIBBLLIISSTT           22                  MMAAYY 22002244|
 
 
-          |WWAANNDD CCOONNTTRRIIBB LLIISSTT           22                  MMAAYY 22002244|
 
 
 
@@ -157,9 +159,7 @@
 
 
 
+          The individual can and does make  a
+          difference!
 
-
-
-
-
-          |WWAANNDD CCOONNTTRRIIBB LLIISSTT           33                  MMAAYY 22002244|
+          |WWAANNDD CCOONNTTRRIIBBLLIISSTT           33                  MMAAYY 22002244|
