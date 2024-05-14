@@ -1,4 +1,9 @@
 
+<picture>
+    <source srcset="./App/Assets.xcassets/icon.imageset/icon.png" media="(prefers-color-scheme: dark)" alt="🪄">
+    <img src="./App/Assets.xcassets/icon.imageset/icon_dark.png" alt="🪄">
+</picture>
+
 ## API for Any (thing) |
 **An ideal API acts as a black box 📦**  
 **It’s possible to incapsulate whole data receiving and memory managment into one symbol?**  
@@ -122,7 +127,14 @@ Just add on¯e sign to completion handler and retreive the result 📦
 
 You ideas, comments, contribution are welcome |
 
-Tasks
+## Credits
+
+<a href="https://www.flaticon.com/free-icons/wand" title="wand icons">
+    <img src="./App/Assets.xcassets/icon.imageset/icon_dark.png" alt="🪄">
+    Wand icon created by Freepik - Flaticon
+</a>
+
+## Tasks
 
 - [x] Contacts
 - [x] CoreLocation
@@ -134,4 +146,5 @@ Tasks
 - [ ] MultipeerConnectivity
 
 [Alex Kozin](mailto:al@el-machine.com)  
-[El Machine 🤖](https://el-machine.com) 2020...
+[El Machine 🤖](https://el-machine.com)  
+Mobile Apps since 2008
