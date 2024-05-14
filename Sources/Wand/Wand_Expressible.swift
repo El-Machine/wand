@@ -134,10 +134,10 @@ extension Wand: ExpressibleByStringInterpolation {
 
     public
     convenience
-    init(stringInterpolation value: StringInterpolation) {
+    init(stringInterpolation: StringInterpolation) {
         self.init()
 
-        context[StringInterpolation.self|] = value
+        context[StringInterpolation.self|] = stringInterpolation
     }
 
 }
