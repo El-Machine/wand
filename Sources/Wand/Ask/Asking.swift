@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) LICENSE file
+/// 1) .LICENSE
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -18,11 +18,13 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
+import Foundation
+
 /// Ask from Context
 public
 protocol Asking {
 
-    //static func | (wand: Wand, ask: Ask<Self>)
+    //static func | (wand: Wand, asks: Ask<Self>)
     @inline(__always)
     static func wand<T>(_ wand: Wand, asks: Ask<T>)
 

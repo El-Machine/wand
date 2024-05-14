@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) LICENSE file
+/// 1) .LICENSE
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -20,7 +20,9 @@
 
 import Foundation
 
-public 
+/// The API for Any (thing) |
+/// The Factory for `protocol Any`
+public
 final
 class Wand {
 
@@ -171,8 +173,19 @@ extension Wand {
         guard let object = object else {
             return nil
         }
-
         return add(object, for: key)
+    }
+
+}
+
+/// Remove
+/// Without triggering
+public
+extension Wand {
+
+    @discardableResult
+    func remove(_ raw: String) -> Any? {
+        context.removeValue(forKey: raw)
     }
 
 }
@@ -282,11 +295,9 @@ extension Wand {
     static func address<T>(for model: T) -> Int {
         var address: String?
         var mutable = model
-
         withUnsafePointer(to: &mutable) { pointer in
             address = String(format: "%p", pointer)
         }
-
         return Int(address!)!
     }
 

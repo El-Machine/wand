@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) LICENSE file
+/// 1) .LICENSE
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -18,9 +18,11 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
+import Foundation
+
 import SwiftUI
 
-@available(macOS 11.0, tvOS 14, watchOS 7, *)
+@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
 @main
 struct PlayApp: App {
 
@@ -30,4 +32,22 @@ struct PlayApp: App {
         }
     }
 
+}
+
+@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
+struct ContentView: View {
+    var body: some View {
+
+        VStack {
+            Image(systemName: "wand.and.stars")
+            Text("Hello, world!")
+        }
+        .padding()
+
+    }
+}
+
+@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
+#Preview {
+    ContentView()
 }

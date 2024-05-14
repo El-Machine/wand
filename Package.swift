@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.6
 ///
 /// Copyright © 2020-2024 El Machine 🤖
 /// https://el-machine.com/
@@ -7,7 +7,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) LICENSE file
+/// 1) .LICENSE
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -19,27 +19,38 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
+import Foundation
+
 import PackageDescription
 
 let package = Package(
     name: "Wand",
     defaultLocalization: "ru",
     platforms: [
+
         .iOS(.v14), .macOS(.v11), .watchOS(.v4), .tvOS(.v12)
+
     ],
     products: [
+
         .library(
             name: "Wand",
             targets: ["Wand"]),
+
     ],
     targets: [
+
         .target(
             name: "Wand"),
+
         .testTarget(
             name: "WandTests",
             dependencies: ["Wand"]),
+
         .testTarget(
             name: "WatchPlayTests",
             dependencies: ["Wand"]),
+
     ]
+
 )
