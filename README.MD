@@ -128,41 +128,44 @@ Just add one sign to completion handler and retreive the result 📦
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
-- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of Bell Labs   
+- 💻  El Machine
+    Alex Kozin
+
+- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of
+    Bell Labs
     https://wikipedia.org/wiki/Pipeline_(Unix)
 
-- |   Wand icon created by Freepik - Flaticon   
+- |   Wand icon
+    Freepik - Flaticon
     https://flaticon.com/free-icons/wand
 
-- 🤖  Upscaled by AI   
+- 🤖  Upscaled by AI
     https://google.com/?q=ai+upscale+image
 
-- 👨‍🎓  BSD   
+- 👨‍🎓  BSD
     https://wikipedia.org/wiki/BSD
 
-- 🪟  Windows Production   
-    Stan Barnes   
-    William and Lynne Jolitz   
-    https://support.microsoft.com/windows
+- 🪟  Windows Production
+    Stan Barnes William and Lynne Jolitz
 
-- 💿  CD Production   
-    Sony Digital Audio Disk Corporation   
-    ソニー・グループ株式会社   
-    https://sony.com
+- 💿  CD Production
+    Sony Digital Audio Disk Corporation ソニー・グループ株式会社
 
-- 📱  iPod   
-    Tony Fadell   
-    [ˈaɪˌpɔd]   
-    https://wikipedia.org/wiki/Tony_Fadell
+- 📱  iPod
+    Tony Fadell
 
-- 🍏  Apple   
-    Steven Paul Jobs   
-    A prominent part of macOS's original brand identity was the use of Roman numeral X,   
-    pronounced "ten", as well as code naming each release after species of big cats,   
-    and later, places within California   
-    https://wikipedia.org/wiki/Steve_Jobs
+- 🍏  Apple
+    Steven Paul Jobs
 
-- 🤝
+- ⚡️  Macromedia® Flash
+    600 Townsend Street, San Francisco, CA 94103 1997
+
+- 🐢  Logo
+    Bolt, Beranek and Newman 1967
+
+- 
+
+
 
 ## Tasks
 
