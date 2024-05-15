@@ -91,6 +91,13 @@ extension Ask {
         Ask(key: key, handler: handler)
     }
 
+    static func once(_ once: Bool, handler: @escaping (T) -> ()) -> Self {
+        self.init(once: once)  {
+            handler($0)
+            return once
+        }
+    }
+
 }
 
 /// Handle answer
