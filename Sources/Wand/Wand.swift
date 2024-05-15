@@ -191,7 +191,7 @@ extension Wand {
 }
 
 /// Save
-/// Without triggering Askings
+/// Without triggering Asks
 public
 extension Wand {
 

@@ -128,22 +128,17 @@ Just add one sign to completion handler and retreive the result 📦
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
-- 💻  El Machine
-    Alex Kozin
-
 - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of
     Bell Labs
-    https://wikipedia.org/wiki/Pipeline_(Unix)
 
 - |   Wand icon
     Freepik - Flaticon
-    https://flaticon.com/free-icons/wand
 
 - 🤖  Upscaled by AI
-    https://google.com/?q=ai+upscale+image
+
 
 - 👨‍🎓  BSD
-    https://wikipedia.org/wiki/BSD
+
 
 - 🪟  Windows Production
     Stan Barnes William and Lynne Jolitz
