@@ -8,14 +8,15 @@
                                Wand Release 1.0
                                Contributors List
 
-                               Alex Kozin
+          - 💻  El Machine
+                Alex Kozin
 
-            🙏 You are welcome
-
-          - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of Bell Labs
+          - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of
+                Bell Labs
                 https://wikipedia.org/wiki/Pipeline_(Unix)
 
-          - |   Wand icon created by Freepik - Flaticon
+          - |   Wand icon
+                Freepik - Flaticon
                 https://flaticon.com/free-icons/wand
 
           - 🤖  Upscaled by AI
@@ -46,8 +47,7 @@
                 and later, places within California
                 https://wikipedia.org/wiki/Steve_Jobs
 
-
-          - 🤝
+            🙏 You are welcome
 
           The individual can and does make  a
           difference!
@@ -60,21 +60,21 @@
 
 
 
+                               Wand Release 1.0
+                               Contributors List
 
+          - ⚡️  Macromedia® Flash
+                600 Townsend Street, San Francisco, CA 94103 1997
+                Now vector-based interactive web animations, buttons, and graphics
+                can be used on every Web page
+                https://wikipedia.org/wiki/Macromedia
 
+          - 🐢  Logo
+                Bolt, Beranek and Newman 1967
+                Logo is a wonderful
+                https://wikipedia.org/wiki/Macromedia
 
-
-
-
-
-
-
-
-
-
-
-
-
+          - 🤝
 
 
 
