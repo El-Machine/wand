@@ -315,7 +315,7 @@ extension Wand {
         //Clean questions
         asking.forEach {
             $0.value.cleaner?()
-            Wand.log("|🧼 \($0.value)")
+            log("|🧼 \($0.value)")
         }
         asking.removeAll()
 

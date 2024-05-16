@@ -27,7 +27,7 @@ extension Wand {
 
     func setCleaner(for key: String) {
         asking[key] = (asking[key]!.last, {
-            Wand.log("|🌜 Cleaned '\(key)'")
+            log("|🌜 Cleaned '\(key)'")
         })
     }
 
