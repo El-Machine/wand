@@ -723,7 +723,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
@@ -777,7 +777,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -823,7 +823,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
@@ -864,7 +864,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -965,7 +965,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -1059,7 +1059,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1163,7 +1163,7 @@
 				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1180,7 +1180,7 @@
 				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1192,7 +1192,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = WandPackageTests;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -1202,7 +1202,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = WandPackageTests;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -1250,7 +1250,7 @@
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Contents/MacOS/Play";
 				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
@@ -1298,7 +1298,7 @@
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
 				"TEST_HOST[sdk=watchos*]" = "$(BUILT_PRODUCTS_DIR)/WatchPlay.app/WatchPlay";
-				TVOS_DEPLOYMENT_TARGET = "($inherited)";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
