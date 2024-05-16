@@ -83,7 +83,6 @@ extension Asking {
     static var every: Ask<Self> {
         .every()
     }
-
     @inline(__always)
     static var one: Ask<Self> {
         .one()

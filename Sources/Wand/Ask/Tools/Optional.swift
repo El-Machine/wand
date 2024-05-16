@@ -28,7 +28,6 @@ extension Ask {
     class Optional: Ask {
 
         override func set(wand: Wand) {
-
         }
 
     }

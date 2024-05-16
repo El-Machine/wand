@@ -76,5 +76,4 @@ extension String: Asking
         _ = wand.answer(the: ask)
     }
 
-
 }

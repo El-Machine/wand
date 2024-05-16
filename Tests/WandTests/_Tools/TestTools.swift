@@ -18,7 +18,6 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
 import XCTest
 
 extension TimeInterval {

@@ -18,8 +18,7 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
-
+//import Foundation
 //import CoreLocation.CLLocation
 //
 //import Wand

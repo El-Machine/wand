@@ -49,8 +49,7 @@ public func |(p: String, replace: (bounds: Range<Int>, to: String)) -> String {
 }
 
 public func |(piped: String?, range: PartialRangeFrom<Int>?) -> (String, String)? {
-    piped == nil || range == nil ? nil
-    : piped! | range!
+    piped == nil || range == nil ? nil : piped! | range!
 }
 
 public func |(piped: String, range: PartialRangeFrom<Int>) -> (String, String) {

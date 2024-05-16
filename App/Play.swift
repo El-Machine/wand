@@ -18,8 +18,6 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
-
 import SwiftUI
 
 @available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)

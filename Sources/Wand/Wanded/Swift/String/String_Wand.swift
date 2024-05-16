@@ -164,5 +164,4 @@ func |(piped: String, separator: any StringProtocol) -> [String] {
 }
 
 //public func |(format: String, arguments: CVarArg...) -> String {
-//
 //}

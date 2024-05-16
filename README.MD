@@ -128,39 +128,60 @@ Just add one sign to completion handler and retreive the result 📦
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
-- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's ancestral home of
+- 💻  Equality Idea
+    Alex Kozin, El Machine, 2020
+    https://el-machine.com
+
+- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's
     Bell Labs
+    https://wikipedia.org/wiki/Pipeline_(Unix)
 
 - |   Wand icon
     Freepik - Flaticon
+    https://flaticon.com/free-icons/wand
 
 - 🤖  Upscaled by AI
+    AI
 
-
-- 👨‍🎓  BSD
-
+- ⚙️  BSD
+    Berkeley, 1974
+    https://wikipedia.org/wiki/BSD
 
 - 🪟  Windows Production
-    Stan Barnes William and Lynne Jolitz
+    Stan Barnes, William and Lynne Jolitz
+    https://support.microsoft.com/windows
 
 - 💿  CD Production
     Sony Digital Audio Disk Corporation ソニー・グループ株式会社
+    https://sony.com
 
 - 📱  iPod
     Tony Fadell
+    https://wikipedia.org/wiki/Tony_Fadell
 
 - 🍏  Apple
     Steven Paul Jobs
+    https://wikipedia.org/wiki/Steve_Jobs
 
 - ⚡️  Macromedia® Flash
-    600 Townsend Street, San Francisco, CA 94103 1997
+    600 Townsend Street, San Francisco, CA 94103, 1997
+    Now vector-based interactive web animations, buttons, and graphics
+    can be used on every Web page
+    https://wikipedia.org/wiki/Macromedia
 
 - 🐢  Logo
-    Bolt, Beranek and Newman 1967
+    Bolt, Beranek and Newman, 1967
+    Logo is a wonderful
+    https://wikipedia.org/wiki/Macromedia
 
-- 
+- 🐬  Flipper
+    Anna Prosvetova, Pavel Zhovner
+    Flipper Zero is a portable multi-tool for pentesters and hardware geeks
+    in a toy-like body. It loves to explore the digital world around:
+    radio protocols, access control systems, hardware, and more
+    https://flipperzero.one
 
-
+- 🤝
 
 ## Tasks
 

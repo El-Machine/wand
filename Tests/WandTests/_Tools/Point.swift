@@ -19,7 +19,6 @@
 /// 2020 El Machine
 
 import Foundation
-
 import Wand
 
 internal

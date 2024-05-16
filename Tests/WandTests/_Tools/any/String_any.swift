@@ -24,13 +24,11 @@ import Foundation
 extension String: Any_ {
 
     static var any: Self {
-
         #if DEBUG
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non gravida felis. Vivamus interdum massa nulla, eu egestas ipsum eleifend non. Ut vel augue et orci fermentum consequat eget nec est. Aenean eleifend tempor nibh, a posuere lacus pharetra non. Praesent elementum ac urna convallis porttitor."
         #else
             .init()
         #endif
-
     }
 
 }

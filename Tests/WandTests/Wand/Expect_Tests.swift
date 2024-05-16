@@ -106,5 +106,4 @@ class Expect_T_Tests: XCTestCase {
         XCTAssertNil(wand)
     }
 
-
 }
