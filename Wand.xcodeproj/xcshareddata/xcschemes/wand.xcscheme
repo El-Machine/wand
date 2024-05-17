@@ -64,7 +64,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "pipe::PipeTests"
                BuildableName = "WandTests.xctest"
-               BlueprintName = "WandTests"
+               BlueprintName = "wandTests"
                ReferencedContainer = "container:Wand.xcodeproj">
             </BuildableReference>
             <LocationScenarioReference

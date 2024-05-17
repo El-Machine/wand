@@ -18,6 +18,8 @@
 	<string>1.1.1</string>
 	<key>CFBundleVersion</key>
 	<string>557</string>
+    <key>UILaunchStoryboardName</key>
+    <string></string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

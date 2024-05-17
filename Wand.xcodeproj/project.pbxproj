@@ -466,9 +466,9 @@
 			productReference = "pipe::Pipe::Product" /* Wand.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"pipe::PipeTests" /* WandTests */ = {
+		"pipe::PipeTests" /* wandTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_227 /* Build configuration list for PBXNativeTarget "WandTests" */;
+			buildConfigurationList = OBJ_227 /* Build configuration list for PBXNativeTarget "wandTests" */;
 			buildPhases = (
 				OBJ_230 /* Sources */,
 				OBJ_253 /* Frameworks */,
@@ -479,7 +479,7 @@
 				OBJ_255 /* PBXTargetDependency */,
 				6162626328BC929D00D63EA5 /* PBXTargetDependency */,
 			);
-			name = WandTests;
+			name = wandTests;
 			productName = PipeTests;
 			productReference = "pipe::PipeTests::Product" /* WandTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -550,7 +550,7 @@
 				"pipe::SwiftPMPackageDescription" /* WandPackageDescription */,
 				"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */,
 				6162624B28BC8E2B00D63EA5 /* Play */,
-				"pipe::PipeTests" /* WandTests */,
+				"pipe::PipeTests" /* wandTests */,
 				613966142BE0F4EF004C18A3 /* watchPlay */,
 				613966472BE0F87A004C18A3 /* watchPlayTests */,
 			);
@@ -685,7 +685,7 @@
 		};
 		OBJ_225 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "pipe::PipeTests" /* WandTests */;
+			target = "pipe::PipeTests" /* wandTests */;
 			targetProxy = 6162624328BC8D4400D63EA5 /* PBXContainerItemProxy */;
 		};
 		OBJ_255 /* PBXTargetDependency */ = {
@@ -848,6 +848,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WatchPlayTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -890,6 +892,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "el-machine.WatchPlayTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1240,7 +1244,7 @@
 				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1248,7 +1252,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,5,6,7";
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "";
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
@@ -1289,14 +1293,14 @@
 				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,5,6,7";
 				TARGET_NAME = PipeTests;
 				TEST_HOST = "";
 				"TEST_HOST[sdk=*]" = "$(BUILT_PRODUCTS_DIR)/Play.app/Play";
@@ -1498,7 +1502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_227 /* Build configuration list for PBXNativeTarget "WandTests" */ = {
+		OBJ_227 /* Build configuration list for PBXNativeTarget "wandTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_228 /* Debug */,
