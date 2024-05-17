@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		"pipe::PipePackageTests::ProductTarget" /* wandPackageTests */ = {
+		"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_222 /* Build configuration list for PBXAggregateTarget "wandPackageTests" */;
+			buildConfigurationList = OBJ_222 /* Build configuration list for PBXAggregateTarget "WandPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
 				OBJ_225 /* PBXTargetDependency */,
 			);
-			name = wandPackageTests;
+			name = WandPackageTests;
 			productName = PipePackageTests;
 		};
 /* End PBXAggregateTarget section */
@@ -176,7 +176,7 @@
 		6162624C28BC8E2B00D63EA5 /* Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"pipe::Pipe::Product" /* Wand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Wand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"pipe::PipeTests::Product" /* wandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = wandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"pipe::PipeTests::Product" /* WandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = WandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,7 +322,7 @@
 			path = Wanded;
 			sourceTree = "<group>";
 		};
-		615158D12BF751EB001646EA /* wand */ = {
+		615158D12BF751EB001646EA /* Wand */ = {
 			isa = PBXGroup;
 			children = (
 				615158C22BF751EB001646EA /* Ask */,
@@ -333,13 +333,13 @@
 				615158CF2BF751EB001646EA /* log.swift */,
 				615158D02BF751EB001646EA /* Wand.swift */,
 			);
-			path = wand;
+			path = Wand;
 			sourceTree = "<group>";
 		};
 		615158D22BF751EB001646EA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				615158D12BF751EB001646EA /* wand */,
+				615158D12BF751EB001646EA /* Wand */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				"pipe::Pipe::Product" /* Wand.framework */,
-				"pipe::PipeTests::Product" /* wandTests.xctest */,
+				"pipe::PipeTests::Product" /* WandTests.xctest */,
 				6162624C28BC8E2B00D63EA5 /* Play.app */,
 				613966152BE0F4EF004C18A3 /* watchPlay.app */,
 				613966482BE0F87A004C18A3 /* watchPlayTests.xctest */,
@@ -450,9 +450,9 @@
 			productReference = 6162624C28BC8E2B00D63EA5 /* Play.app */;
 			productType = "com.apple.product-type.application";
 		};
-		"pipe::Pipe" /* wand */ = {
+		"pipe::Pipe" /* Wand */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_145 /* Build configuration list for PBXNativeTarget "wand" */;
+			buildConfigurationList = OBJ_145 /* Build configuration list for PBXNativeTarget "Wand" */;
 			buildPhases = (
 				OBJ_148 /* Sources */,
 				OBJ_214 /* Frameworks */,
@@ -461,14 +461,14 @@
 			);
 			dependencies = (
 			);
-			name = wand;
+			name = Wand;
 			productName = Pipe;
 			productReference = "pipe::Pipe::Product" /* Wand.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"pipe::PipeTests" /* wandTests */ = {
+		"pipe::PipeTests" /* WandTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_227 /* Build configuration list for PBXNativeTarget "wandTests" */;
+			buildConfigurationList = OBJ_227 /* Build configuration list for PBXNativeTarget "WandTests" */;
 			buildPhases = (
 				OBJ_230 /* Sources */,
 				OBJ_253 /* Frameworks */,
@@ -479,14 +479,14 @@
 				OBJ_255 /* PBXTargetDependency */,
 				6162626328BC929D00D63EA5 /* PBXTargetDependency */,
 			);
-			name = wandTests;
+			name = WandTests;
 			productName = PipeTests;
-			productReference = "pipe::PipeTests::Product" /* wandTests.xctest */;
+			productReference = "pipe::PipeTests::Product" /* WandTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"pipe::SwiftPMPackageDescription" /* wandPackageDescription */ = {
+		"pipe::SwiftPMPackageDescription" /* WandPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_216 /* Build configuration list for PBXNativeTarget "wandPackageDescription" */;
+			buildConfigurationList = OBJ_216 /* Build configuration list for PBXNativeTarget "WandPackageDescription" */;
 			buildPhases = (
 				OBJ_219 /* Sources */,
 			);
@@ -494,7 +494,7 @@
 			);
 			dependencies = (
 			);
-			name = wandPackageDescription;
+			name = WandPackageDescription;
 			productName = PipePackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
@@ -533,7 +533,7 @@
 					};
 				};
 			};
-			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "wand" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Wand" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -546,11 +546,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"pipe::Pipe" /* wand */,
-				"pipe::SwiftPMPackageDescription" /* wandPackageDescription */,
-				"pipe::PipePackageTests::ProductTarget" /* wandPackageTests */,
+				"pipe::Pipe" /* Wand */,
+				"pipe::SwiftPMPackageDescription" /* WandPackageDescription */,
+				"pipe::PipePackageTests::ProductTarget" /* WandPackageTests */,
 				6162624B28BC8E2B00D63EA5 /* Play */,
-				"pipe::PipeTests" /* wandTests */,
+				"pipe::PipeTests" /* WandTests */,
 				613966142BE0F4EF004C18A3 /* watchPlay */,
 				613966472BE0F87A004C18A3 /* watchPlayTests */,
 			);
@@ -675,7 +675,7 @@
 		};
 		6139666C2BE0FB2E004C18A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "pipe::Pipe" /* wand */;
+			target = "pipe::Pipe" /* Wand */;
 			targetProxy = 6139666B2BE0FB2E004C18A3 /* PBXContainerItemProxy */;
 		};
 		6162626328BC929D00D63EA5 /* PBXTargetDependency */ = {
@@ -685,12 +685,12 @@
 		};
 		OBJ_225 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "pipe::PipeTests" /* wandTests */;
+			target = "pipe::PipeTests" /* WandTests */;
 			targetProxy = 6162624328BC8D4400D63EA5 /* PBXContainerItemProxy */;
 		};
 		OBJ_255 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "pipe::Pipe" /* wand */;
+			target = "pipe::Pipe" /* Wand */;
 			targetProxy = 6162624228BC8D4400D63EA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -715,7 +715,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
@@ -776,7 +776,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -829,7 +829,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -875,7 +875,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -936,7 +936,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1023,7 +1023,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1073,7 +1073,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1117,7 +1117,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1164,7 +1164,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.3.0";
-				PRODUCT_NAME = wandPackageDescription;
+				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
@@ -1181,7 +1181,7 @@
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.3.0";
-				PRODUCT_NAME = wandPackageDescription;
+				PRODUCT_NAME = WandPackageDescription;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
@@ -1194,7 +1194,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
-				PRODUCT_NAME = wandPackageTests;
+				PRODUCT_NAME = WandPackageTests;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1204,7 +1204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
-				PRODUCT_NAME = wandPackageTests;
+				PRODUCT_NAME = WandPackageTests;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4,5,6,7";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1217,7 +1217,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1237,7 +1237,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_NAME = wandTests;
+				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
@@ -1266,7 +1266,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 555;
+				CURRENT_PROJECT_VERSION = 557;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1286,7 +1286,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_NAME = wandTests;
+				PRODUCT_NAME = WandTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
@@ -1462,7 +1462,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_145 /* Build configuration list for PBXNativeTarget "wand" */ = {
+		OBJ_145 /* Build configuration list for PBXNativeTarget "Wand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_146 /* Debug */,
@@ -1471,7 +1471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_2 /* Build configuration list for PBXProject "wand" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "Wand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
@@ -1480,7 +1480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_216 /* Build configuration list for PBXNativeTarget "wandPackageDescription" */ = {
+		OBJ_216 /* Build configuration list for PBXNativeTarget "WandPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_217 /* Debug */,
@@ -1489,7 +1489,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_222 /* Build configuration list for PBXAggregateTarget "wandPackageTests" */ = {
+		OBJ_222 /* Build configuration list for PBXAggregateTarget "WandPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_223 /* Debug */,
@@ -1498,7 +1498,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_227 /* Build configuration list for PBXNativeTarget "wandTests" */ = {
+		OBJ_227 /* Build configuration list for PBXNativeTarget "WandTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_228 /* Debug */,

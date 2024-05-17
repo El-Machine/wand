@@ -23,7 +23,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "wand",
+    name: "Wand",
     defaultLocalization: "ru",
 
     platforms: [
@@ -34,7 +34,7 @@ let package = Package(
     ],
 
     products: [
-        .library(name: "wand", targets: ["wand"])
+        .library(name: "Wand", targets: ["wand"])
     ],
 
     dependencies: [
