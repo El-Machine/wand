@@ -381,10 +381,10 @@
 			isa = PBXGroup;
 			children = (
 				6162624428BC8E2A00D63EA5 /* App */,
+				615158D22BF751EB001646EA /* Sources */,
 				615158E72BF75EEC001646EA /* info.plist */,
 				OBJ_6 /* Package.swift */,
 				OBJ_138 /* Products */,
-				615158D22BF751EB001646EA /* Sources */,
 				618056362BCB90D60013EC56 /* Tests */,
 				615A968B2BF39E88003875F5 /* CONTRIB.TXT */,
 				615A968A2BF39E88003875F5 /* LICENSE */,
