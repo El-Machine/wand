@@ -20,7 +20,7 @@
 
 import SwiftUI
 
-@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
+@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
 @main
 struct PlayApp: App {
 
@@ -32,7 +32,7 @@ struct PlayApp: App {
 
 }
 
-@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
+@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
 struct ContentView: View {
     var body: some View {
 
@@ -45,7 +45,7 @@ struct ContentView: View {
     }
 }
 
-@available(macOS 12, iOS 14, tvOS 12, watchOS 7, *)
+@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
 #Preview {
     ContentView()
 }

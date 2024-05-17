@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) .LICENSE
+/// 1) LICENSE file
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -18,22 +18,19 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import XCTest
+import Foundation
 
-extension TimeInterval {
 
-    static var `default` = 4.2
+extension String: Any_ {
 
-}
+    static var any: Self {
 
-extension XCTestCase {
+        #if DEBUG
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non gravida felis. Vivamus interdum massa nulla, eu egestas ipsum eleifend non. Ut vel augue et orci fermentum consequat eget nec est. Aenean eleifend tempor nibh, a posuere lacus pharetra non. Praesent elementum ac urna convallis porttitor."
+        #else
+            .init()
+        #endif
 
-    func expectation(function: String = #function) -> XCTestExpectation {
-        expectation(description: function)
-    }
-
-    func waitForExpectations() {
-        waitForExpectations(timeout: .default)
     }
 
 }

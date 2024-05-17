@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "613966142BE0F4EF004C18A3"
-               BuildableName = "WatchPlay.app"
-               BlueprintName = "WatchPlay"
-               ReferencedContainer = "container:Wand.xcodeproj">
+               BuildableName = "watchPlay.app"
+               BlueprintName = "watchPlay"
+               ReferencedContainer = "container:wand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/WatchTestPlan.xctestplan"
+            reference = "container:App/watchTestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -50,9 +50,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "613966142BE0F4EF004C18A3"
-            BuildableName = "WatchPlay.app"
-            BlueprintName = "WatchPlay"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            BuildableName = "watchPlay.app"
+            BlueprintName = "watchPlay"
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "613966142BE0F4EF004C18A3"
-            BuildableName = "WatchPlay.app"
-            BlueprintName = "WatchPlay"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            BuildableName = "watchPlay.app"
+            BlueprintName = "watchPlay"
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

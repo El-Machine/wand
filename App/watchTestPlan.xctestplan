@@ -17,9 +17,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:Wand.xcodeproj",
+        "containerPath" : "container:wand.xcodeproj",
         "identifier" : "613966472BE0F87A004C18A3",
-        "name" : "WatchPlayTests"
+        "name" : "watchPlayTests"
       }
     }
   ],

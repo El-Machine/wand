@@ -1,5 +1,3 @@
-// swift-tools-version: 5.6
-
 ///
 /// Copyright © 2020-2024 El Machine 🤖
 /// https://el-machine.com/
@@ -8,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) .LICENSE
+/// 1) LICENSE file
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -20,29 +18,18 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import PackageDescription
+import Foundation
+import XCTest
 
-let package = Package(
-    name: "wand",
-    defaultLocalization: "ru",
+import Wand
 
-    platforms: [
-        .iOS(.v14),
-        .macOS(.v12),
-        .tvOS(.v14),
-        .watchOS(.v7),
-    ],
+/// Test Unit
+//struct Unit {
+//
+//}
 
-    products: [
-        .library(name: "wand", targets: ["wand"])
-    ],
+extension TimeInterval {
 
-    dependencies: [
-        
-    ],
+    static var `default` = 4.2
 
-    targets: [
-        .target(name: "wand"),
-        .testTarget(name: "wandTests", dependencies: ["wand"])
-    ]
-)
+}
