@@ -71,27 +71,32 @@ public
 extension Ask {
 
     @inline(__always)
-    static func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Ask {
-        Ask(key: key) {
+    static
+    func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
+        Self(key: key) {
             handler?($0)
             return true
         }
     }
 
     @inline(__always)
-    static func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Ask {
-        Ask(key: key, once: true) {
+    static 
+    func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
+        Self(key: key, once: true) {
             handler?($0)
             return false
         }
     }
 
     @inline(__always)
-    static func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Ask {
-        Ask(key: key, handler: handler)
+    static 
+    func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Self {
+        Self(key: key, handler: handler)
     }
 
-    static func once(_ once: Bool, handler: @escaping (T) -> ()) -> Self {
+    @inline(__always)
+    static
+    func once(_ once: Bool, handler: @escaping (T) -> ()) -> Self {
         self.init(once: once)  {
             handler($0)
             return once
