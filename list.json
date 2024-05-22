@@ -1,0 +1,14 @@
+{
+    "name": "Wand",
+    "packages": [
+        {
+            "url": "https://gitlab.com/el-machine/wand-CoreMotion.git"
+        },
+        {
+            "url": "https://gitlab.com/el-machine/wand-CoreLotion.git"
+        },
+        {
+            "url": "https://gitlab.com/el-machine/wand-Foundation.git"
+        }
+    ]
+}
