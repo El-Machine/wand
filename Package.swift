@@ -24,7 +24,7 @@ import PackageDescription
 
 let package = Package(
     name: "Wand",
-    defaultLocalization: "ru",
+    defaultLocalization: "ru_su",
 
     platforms: [
         .iOS(.v14),
@@ -34,7 +34,7 @@ let package = Package(
     ],
 
     products: [
-        .library(name: "Wand", targets: ["wand"])
+        .library(name: "Wand", targets: ["Wand"])
     ],
 
     dependencies: [
@@ -42,7 +42,7 @@ let package = Package(
     ],
 
     targets: [
-        .target(name: "wand"),
-        .testTarget(name: "wandTests", dependencies: ["wand"])
+        .target(name: "Wand"),
+        .testTarget(name: "wandTests", dependencies: ["Wand"])
     ]
 )

@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "7E1EF4E5-10CC-4EB2-BA49-647A0C6D8443",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "locationScenario" : {
+      "identifier" : "Tokyo, Japan",
+      "referenceType" : "built-in"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "wandTests",
+        "name" : "wandTests"
+      }
+    }
+  ],
+  "version" : 1
+}
