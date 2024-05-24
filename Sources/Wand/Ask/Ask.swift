@@ -24,6 +24,7 @@ import Foundation
 open
 class Ask<T> {
 
+    public
     var handler: (T)->(Bool)
 
     var next: Ask?
