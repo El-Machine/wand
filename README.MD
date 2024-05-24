@@ -8,6 +8,7 @@
 [Habr.com](https://habr.com/ru/post/674010/)
   
 >In Unix-like computer operating systems, a [pipeline](https://wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
+
 ### 💬 bash
 ```bash
 command1 | command2 | command3
@@ -71,7 +72,7 @@ UIWindow.keyboardWillShowNotification | { (n: Notification) in
 }
 
 #Enumerate Contacts
-CNContact.predicateForContacts(matchingName: "Appleseed") | .every { (contact: CNContact) in
+CNContact.predicateForContacts(matchingName: "John") | .every { (contact: CNContact) in
                         
 }
 
@@ -113,15 +114,14 @@ view.layer.addSublayer(preview!)
 ```
 
 ### 💡 Idea
-  Imagine that you have the black box that can give you an ```Any``` object   
+  Imagine that you have the black box that can give you an ```Any``` object.   
   You don't know what's already in the box or what will happen inside   
       
-  Ask for object that you need   
-  |
+  Ask for object that you need |
 
 ### 🪄 Сoncept
 
-Wand started from the idea about receiving anything in most efficient and fast way   
+Wand started from the idea about receiving anything in most efficient and fast way.   
 Just add one sign to completion handler and retreive the result 📦   
 ex Pipe 
 
@@ -192,8 +192,6 @@ ex Pipe
     radio protocols, access control systems, hardware, and more   
     https://flipperzero.one
 
-- 🤝
-
 ## Tasks
 
 - [x] Contacts
@@ -205,5 +203,6 @@ ex Pipe
 - [ ] Rest
 - [ ] MultipeerConnectivity
 
-[Alex Kozin](mailto:al@el-machine.com) [El Machine 🤖](https://el-machine.com)  
-Mobile Apps since 2008
+[Alex Kozin](mailto:al@el-machine.com)   
+[El Machine 🤖](https://el-machine.com)  
+since 2008
