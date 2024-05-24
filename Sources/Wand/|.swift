@@ -18,11 +18,9 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
-
-// func |
-// The operator for Factory
-// extension Optional
+/// func |
+/// The operator for Factory
+///
 prefix operator |
 postfix operator |
 
