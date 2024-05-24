@@ -71,12 +71,12 @@ UIWindow.keyboardWillShowNotification | { (n: Notification) in
 }
 
 #Enumerate Contacts
-CNContact.predicateForContacts(matchingName: "John Appleseed") | .every { (contact: CNContact) in
+CNContact.predicateForContacts(matchingName: "Appleseed") | .every { (contact: CNContact) in
                         
 }
 
 #Scan a tag
-| .every { (tag: NFCNDEFTag) in
+|.every { (tag: NFCNDEFTag) in
 
 }
 
@@ -113,7 +113,7 @@ view.layer.addSublayer(preview!)
 ```
 
 ### 💡 Idea
-  Imagine that you have black box that can give you ```Any``` object   
+  Imagine that you have the black box that can give you an ```Any``` object   
   You don't know what's already in the box or what will happen inside   
       
   Ask for object that you need   
@@ -121,7 +121,7 @@ view.layer.addSublayer(preview!)
 
 ### 🪄 Сoncept
 
-Wand started from idea about receiving anything in most efficient and fast way   
+Wand started from the idea about receiving anything in most efficient and fast way   
 Just add one sign to completion handler and retreive the result 📦   
 ex Pipe 
 
@@ -183,7 +183,7 @@ ex Pipe
 - 🐢  Logo   
     Bolt, Beranek and Newman, 1967   
     Logo is a wonderful   
-    https://wikipedia.org/wiki/Macromedia
+    https://wikipedia.org/wiki/Logo_(programming_language)
 
 - 🐬  Flipper   
     Anna Prosvetova, Pavel Zhovner   
@@ -205,6 +205,5 @@ ex Pipe
 - [ ] Rest
 - [ ] MultipeerConnectivity
 
-[Alex Kozin](mailto:al@el-machine.com)  
-[El Machine 🤖](https://el-machine.com)  
+[Alex Kozin](mailto:al@el-machine.com) [El Machine 🤖](https://el-machine.com)  
 Mobile Apps since 2008
