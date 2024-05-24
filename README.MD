@@ -2,11 +2,11 @@
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
 **📦 An ideal API acts as the [black box](https://wikipedia.org/wiki/Blackbox)**  
 **⚡️ It’s possible to incapsulate whole data receiving and memory managment to one symbol**  
-<font size=42>?</font>   
+<font size=42>  ?</font>   
 [Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
 [Habr.com](https://habr.com/ru/post/674010/)
   
->In Unix-like computer operating systems, a [pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
+>In Unix-like computer operating systems, a [pipeline](https://wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
 ### 💬 bash
 ```bash
 command1 | command2 | command3
@@ -109,19 +109,22 @@ request.maximumHandCount = 4
 
 let preview: AVCaptureVideoPreviewLayer = wand.obtain()
 view.layer.addSublayer(preview!)
-
 ```
+
 ### 💡 Idea
-  Imagine that you have black box that can give you any object   
-  You don't know what is already in box or what will happen inside    
-  Simply ask for objects that you need
+  Imagine that you have black box that can give you ```Any``` object   
+  You don't know what's already in the box or what will happen inside   
+      
+  Ask for object that you need   
+  |
 
 ### 🪄 Сoncept
 
 Wand started from idea about receiving anything in most efficient and fast way   
-Just add one sign to completion handler and retreive the result 📦  
+Just add one sign to completion handler and retreive the result 📦   
+ex Pipe 
 
-💳 [Feel free to contribute. You are welcome |](https://github.com/El-Machine/Wand/graphs/contributors)
+[Feel free to contribute. You are welcome 🔬](https://github.com/El-Machine/Wand/graphs/contributors)
 
 ### 📚 Books
 
@@ -186,6 +189,7 @@ Just add one sign to completion handler and retreive the result 📦
     https://flipperzero.one
 
 - 🤝
+
 
 ## Tasks
 
