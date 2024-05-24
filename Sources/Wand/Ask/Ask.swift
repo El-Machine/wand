@@ -49,7 +49,7 @@ class Ask<T> {
     private
     var wand: Wand?
 
-    public
+    open
     func set(wand: Wand) {
         self.wand = wand
     }
