@@ -128,10 +128,6 @@ Just add one sign to completion handler and retreive the result 📦
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
-- 💻  Equality Idea   
-    Alex Kozin, El Machine, 2020   
-    https://el-machine.com
-
 - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's   
     Bell Labs   
     https://wikipedia.org/wiki/Pipeline_(Unix)

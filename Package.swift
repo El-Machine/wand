@@ -24,7 +24,7 @@ import PackageDescription
 
 let package = Package(
     name: "Wand",
-    defaultLocalization: "ru_su",
+    defaultLocalization: "ru",
 
     platforms: [
         .iOS(.v14),
@@ -38,11 +38,16 @@ let package = Package(
     ],
 
     dependencies: [
-        
+        .package(url: "https://github.com/el-machine/Any.git", from: "1.0.0")
     ],
 
     targets: [
         .target(name: "Wand"),
-        .testTarget(name: "wandTests", dependencies: ["Wand"])
+        .testTarget(name: "wandTests", dependencies:
+                        [
+                            "Wand",
+                            .product(name: "Any_", package: "Any")
+                        ]
+                   )
     ]
 )

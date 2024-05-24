@@ -33,3 +33,15 @@ extension TimeInterval {
     static var `default` = 4.2
 
 }
+
+extension XCTestCase {
+
+    func expectation(function: String = #function) -> XCTestExpectation {
+        expectation(description: function)
+    }
+
+    func waitForExpectations() {
+        waitForExpectations(timeout: .default)
+    }
+
+}
