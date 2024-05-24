@@ -33,10 +33,13 @@ class Wand {
     }
 
     public
-    static var all = [Int: Wand.Weak]()
+    static 
+    var all = [Int: Wand.Weak]()
 
     internal
-    static subscript<T>(_ object: T) -> Wand? {
+    static 
+    subscript <T> (_ object: T) -> Wand? {
+
         get {
 
             if T.self is AnyClass {
@@ -47,6 +50,7 @@ class Wand {
             return nil
 
         }
+
         set {
 
             if let wand = newValue, T.self is AnyClass {
@@ -55,6 +59,7 @@ class Wand {
             }
 
         }
+
     }
 
     public
@@ -70,7 +75,8 @@ class Wand {
     }
 
     public
-    convenience init<T>(for object: T) {
+    convenience 
+    init<T>(for object: T) {
         self.init()
 
         Wand[object] = self
@@ -88,7 +94,8 @@ class Wand {
 extension Wand {
 
     public
-    static func attach<C>(to context: C? = nil) -> Wand {
+    static 
+    func attach<C>(to context: C? = nil) -> Wand {
 
         guard let context else {
             return Wand()
@@ -170,10 +177,24 @@ extension Wand {
 
     @discardableResult
     func addIf<T>(exist object: T?, for key: String? = nil) -> T? {
+        
         guard let object = object else {
             return nil
         }
+
         return add(object, for: key)
+    }
+
+}
+
+/// Check object availability
+/// Context contains
+public
+extension Wand {
+
+    @discardableResult
+    func contains(_ key: String) -> Any? {
+        context.keys.contains(key)
     }
 
 }
@@ -184,8 +205,8 @@ public
 extension Wand {
 
     @discardableResult
-    func remove(_ raw: String) -> Any? {
-        context.removeValue(forKey: raw)
+    func remove(_ key: String) -> Any? {
+        context.removeValue(forKey: key)
     }
 
 }
@@ -284,31 +305,11 @@ extension Wand: Wanded {
 
 }
 
-/// Tools
-public
-extension Wand {
-
-    static func address<T: AnyObject>(for model: T) -> Int {
-        Int(bitPattern: Unmanaged.passUnretained(model).toOpaque())
-    }
-
-    static func address<T>(for model: T) -> Int {
-        var address: String?
-        var mutable = model
-        withUnsafePointer(to: &mutable) { pointer in
-            address = String(format: "%p", pointer)
-        }
-        return Int(address!)!
-    }
-
-}
-
 /// Close
 public
 extension Wand {
 
     func close() {
-
         //Notify .all
         (asking["All"]?.last as? Ask<Wand>)?.head(self)
 
@@ -326,7 +327,6 @@ extension Wand {
         Wand.all = Wand.all.filter {
             $0.value.item != nil
         }
-
     }
 
 }
