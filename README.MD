@@ -2,7 +2,7 @@
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
 **📦 An ideal API acts as the [black box](https://wikipedia.org/wiki/Blackbox)**  
 **⚡️ It’s possible to incapsulate whole data receiving and memory managment to one symbol**  
-<font size=42>  ?</font>   
+**?
 [Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
 [Habr.com](https://habr.com/ru/post/674010/)
   
@@ -132,10 +132,13 @@ ex Pipe
     GOF: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
 
 - 🧼  Clean Code: A Handbook of Agile Software Craftsmanship (2008)   
-    Robert C. Martin 
+    Robert C. Martin  
+
+- 🎼  Introduction to TRIZ. Basic Concepts and Approaches (2015)   
+    G.S. Altshuller  
 
 - 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)   
-    Robert C. Martin 
+    Robert C. Martin
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
@@ -189,7 +192,6 @@ ex Pipe
     https://flipperzero.one
 
 - 🤝
-
 
 ## Tasks
 
