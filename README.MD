@@ -125,13 +125,13 @@ Just add one sign to completion handler and retreive the result 📦
 
 ### 📚 Books
 
-- 🧑‍💻  Design Patterns: Elements of Reusable Object-Oriented Software (1994)
+- 🧑‍💻  Design Patterns: Elements of Reusable Object-Oriented Software (1994)   
     GOF: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
 
-- 🧼  Clean Code: A Handbook of Agile Software Craftsmanship (2008)
+- 🧼  Clean Code: A Handbook of Agile Software Craftsmanship (2008)   
     Robert C. Martin 
 
-- 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)
+- 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)   
     Robert C. Martin 
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
