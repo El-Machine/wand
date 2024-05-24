@@ -6,10 +6,7 @@
 [Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
 [Habr.com](https://habr.com/ru/post/674010/)
   
-
 >In Unix-like computer operating systems, a [pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
-  
-
 ### 💬 bash
 ```bash
 command1 | command2 | command3
@@ -125,6 +122,17 @@ Wand started from idea about receiving anything in most efficient and fast way
 Just add one sign to completion handler and retreive the result 📦  
 
 💳 [Feel free to contribute. You are welcome |](https://github.com/El-Machine/Wand/graphs/contributors)
+
+### 📚 Books
+
+- 🧑‍💻  Design Patterns: Elements of Reusable Object-Oriented Software (1994)
+    GOF: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+
+- 🧼  Clean Code: A Handbook of Agile Software Craftsmanship (2008)
+    Robert C. Martin 
+
+- 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)
+    Robert C. Martin 
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
