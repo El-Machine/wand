@@ -2,7 +2,7 @@
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
 **📦 An ideal API acts as the [black box](https://wikipedia.org/wiki/Blackbox)**  
 **⚡️ It’s possible to incapsulate whole data receiving and memory managment to one symbol**  
-**?
+**?**
 [Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
 [Habr.com](https://habr.com/ru/post/674010/)
   
