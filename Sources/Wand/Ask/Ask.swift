@@ -45,7 +45,7 @@ class Ask<T> {
         }
     }
 
-    private
+    public
     var wand: Wand?
     func set(wand: Wand) {
         self.wand = wand
