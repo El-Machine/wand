@@ -45,11 +45,15 @@ class Ask<T> {
         }
     }
 
-    public
+    //@synthesize Wand
+    private
     var wand: Wand?
+
+    public
     func set(wand: Wand) {
         self.wand = wand
     }
+    //
 
     public
     required
