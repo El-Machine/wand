@@ -176,7 +176,7 @@ ex Pipe
 
 - 🖼️  Мысмаксом   
     Lesha Reva, Max Pominenko   
-    UX/UI Design
+    UX/UI Design   
     https://mysmaxom.com
 
 - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's   
