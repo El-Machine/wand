@@ -18,15 +18,17 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Swift
+extension Wand {
 
-/// log
-@inline(__always)
-public
-func log(_ message: String) {
+    /// log
+    @inline(__always)
+    public
+    func log(_ message: String) {
 
-    #if DEBUG
-        print(message)
-    #endif
+        #if DEBUG
+            print(message)
+        #endif
+
+    }
 
 }
