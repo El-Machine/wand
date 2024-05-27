@@ -19,39 +19,27 @@
 /// 2020 El Machine
 
 import Foundation
-import CloudKit
 
-/**
- Add error handler
- - Parameters:
- - handler: Will be invoked after every error
- */
-@discardableResult
-public func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
-    wand | .every(handler: handler)
-}
-
-@discardableResult
-public func | (wand: Wand, ask: Ask<Error>) -> Wand {
-
-    //Save ask as Optional
-    _ = wand.answer(the: ask.optional())
-    return wand
-    
-}
-
+/// While counting
 public
-extension Wand {
+extension Ask {
 
-    struct Error: Swift.Error {
-
-        let code: Int
-        let reason: String
-
-        public
-        init(code: Int = .zero, reason: String, function: String = #function) {
-            self.code = code
-            self.reason = function + reason
+    /// Ask .while
+    ///
+    /// |.while { (object, i) in
+    ///
+    /// }
+    ///
+    @inline(__always)
+    static
+    func `while`(key: String? = nil,
+                 handler: @escaping (T, Int)->(Bool) ) -> Ask {
+        var i = 0
+        return Ask(key: key) {
+            defer {
+                i += 1
+            }
+            return handler($0, i)
         }
 
     }

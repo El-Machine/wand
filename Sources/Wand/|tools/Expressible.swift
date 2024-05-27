@@ -24,8 +24,9 @@ import Foundation
 /// Expressible
 extension Wand: ExpressibleByNilLiteral {
 
+    convenience
     public
-    convenience init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
         self.init()
     }
 
@@ -35,12 +36,16 @@ extension Wand: ExpressibleByNilLiteral {
 /// Expressible
 extension Wand: ExpressibleByArrayLiteral {
 
-    public convenience init(arrayLiteral array: Any...) {
+    convenience
+    public
+    init(arrayLiteral array: Any...) {
         self.init()
         save(sequence: array)
     }
 
-    public convenience init(array: [Any]) {
+    convenience
+    public
+    init(array: [Any]) {
         self.init()
         save(sequence: array)
     }
@@ -51,8 +56,9 @@ extension Wand: ExpressibleByArrayLiteral {
 /// Expressible
 extension Wand: ExpressibleByFloatLiteral {
 
+    convenience
     public
-    convenience init(floatLiteral value: Float) {
+    init(floatLiteral value: Float) {
         self.init()
 
         context[FloatLiteralType.self|] = value
@@ -64,8 +70,8 @@ extension Wand: ExpressibleByFloatLiteral {
 /// Expressible
 extension Wand: ExpressibleByStringLiteral {
 
-    public
     convenience
+    public
     init(stringLiteral value: String) {
         self.init()
 
@@ -78,8 +84,8 @@ extension Wand: ExpressibleByStringLiteral {
 /// Expressible
 extension Wand: ExpressibleByBooleanLiteral {
 
-    public
     convenience
+    public
     init(booleanLiteral value: Bool) {
         self.init()
 
@@ -92,8 +98,8 @@ extension Wand: ExpressibleByBooleanLiteral {
 /// Expressible
 extension Wand: ExpressibleByIntegerLiteral {
 
-    public
     convenience
+    public
     init(integerLiteral value: Int) {
         self.init()
 
@@ -106,8 +112,9 @@ extension Wand: ExpressibleByIntegerLiteral {
 /// Expressible
 extension Wand: ExpressibleByDictionaryLiteral {
 
+    convenience
     public
-    convenience init(dictionaryLiteral elements: (String, Any)...) {
+    init(dictionaryLiteral elements: (String, Any)...) {
         self.init()
 
         elements.forEach { (key, object) in
@@ -116,8 +123,9 @@ extension Wand: ExpressibleByDictionaryLiteral {
         }
     }
 
+    convenience
     public
-    convenience init(dictionary: [String: Any]) {
+    init(dictionary: [String: Any]) {
         self.init()
 
         dictionary.forEach { (key, object) in
@@ -132,8 +140,8 @@ extension Wand: ExpressibleByDictionaryLiteral {
 /// Expressible
 extension Wand: ExpressibleByStringInterpolation {
 
-    public
     convenience
+    public
     init(stringInterpolation: StringInterpolation) {
         self.init()
 
@@ -146,8 +154,8 @@ extension Wand: ExpressibleByStringInterpolation {
 /// Expressible
 extension Wand: ExpressibleByUnicodeScalarLiteral {
 
-    public
     convenience
+    public
     init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
         self.init()
 
@@ -160,8 +168,8 @@ extension Wand: ExpressibleByUnicodeScalarLiteral {
 /// Expressible
 extension Wand: ExpressibleByExtendedGraphemeClusterLiteral {
 
-    public
     convenience
+    public
     init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
         self.init()
 

@@ -18,78 +18,78 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-//import Foundation
-//import CoreLocation.CLLocation
-//
-//import Wand
-//import XCTest
-//
-//class Wand_Tests: XCTestCase {
-//
-//    weak var wand: Wand?
-//
-//    func test_put() throws {
-//        let pipe = Wand()
-//        self.wand = pipe
-//
-//        let struct_ = CLLocationCoordinate2D.any
-//        pipe.add(struct_)
-//
-//        let custom_struct = Custom(foo: .any)
-//        pipe.add(custom_struct)
-//
-//        let class_ = pipe.add(CLLocation.any)
-//
-//        let custom_class = CustomClass()
-//        custom_class.foo = .any
-//        pipe.add(custom_class)
-//
-//        // piped equals original
-//        let piped_struct: CLLocationCoordinate2D = try XCTUnwrap(pipe.get())
-//        XCTAssertTrue(struct_.latitude == piped_struct.latitude &&
-//                      struct_.longitude == piped_struct.longitude)
-//
-//        let piped_custom_struct: Custom = try XCTUnwrap(pipe.get())
-//        XCTAssertTrue(custom_struct.foo == piped_custom_struct.foo)
-//
-//        XCTAssertEqual(class_, pipe.get())
-//
-//        let piped_custom_class: CustomClass = try XCTUnwrap(pipe.get())
-//        XCTAssertIdentical(custom_class, piped_custom_class)
-//
-//        pipe.close()
-//    }
-//
-//    func test_putWanded() throws {
-//        let wand = Wand()
-//        self.wand = wand
-//
-//        let original = CLLocation(latitude: (-90...90)|,
-//                                  longitude: (-180...180)|)
-//        wand.add(original)
-//
-//        // piped equals original
-//        let piped: CLLocation = try XCTUnwrap(wand.get())
-//        XCTAssertEqual(original, piped)
-//
-//        // pipe is same
-//        XCTAssertTrue(wand === piped.wand)
-//        XCTAssertTrue(original.wand === piped.wand)
-//
-//        wand.close()
-//    }
-//
-//    func test_closed() throws {
-//        XCTAssertNil(wand)
-//    }
-//
-//
-//    private struct Custom {
-//        var foo: Int
-//    }
-//
-//    private class CustomClass {
-//        var foo: Int?
-//    }
-//
-//}
+import Foundation
+import CoreLocation.CLLocation
+
+import Wand
+import XCTest
+
+class Wand_Tests: XCTestCase {
+
+    weak var wand: Wand?
+
+    func test_put() throws {
+        let wand = Wand()
+        self.wand = wand
+
+        let struct_ = CLLocationCoordinate2D.any
+        wand.add(struct_)
+
+        let custom_struct = Custom(bar: .any)
+        wand.add(custom_struct)
+
+        let class_ = wand.add(CLLocation.any)
+
+        let custom_class = CustomClass()
+        custom_class.bar = .any
+        wand.add(custom_class)
+
+        // wanded equals original
+        let wanded_struct: CLLocationCoordinate2D = try XCTUnwrap(wand.get() )
+        XCTAssertTrue(struct_.latitude == wanded_struct.latitude &&
+                      struct_.longitude == wanded_struct.longitude)
+
+        let wanded_custom_struct: Custom = try XCTUnwrap(wand.get())
+        XCTAssertTrue(custom_struct.bar == wanded_custom_struct.bar)
+
+        XCTAssertEqual(class_, wand.get())
+
+        let wanded_custom_class: CustomClass = try XCTUnwrap(wand.get())
+        XCTAssertIdentical(custom_class, wanded_custom_class)
+
+        wand.close()
+    }
+
+    func test_putWanded() throws {
+        let wand = Wand()
+        self.wand = wand
+
+        let original: CLLocation = CLLocation.any
+        wand.add(original)
+
+        // wanded equals original
+        let wanded: CLLocation = try XCTUnwrap(wand.get())
+        XCTAssertEqual(original, wanded)
+
+        // wand is the same
+        XCTAssertTrue(wand === (wanded as Optional).wand)
+        XCTAssertTrue((original as Optional).wand === (wanded as Optional).wand)
+
+        wand.close()
+    }
+
+    func test_closed() throws {
+        XCTAssertNil(wand)
+    }
+
+    private 
+    struct Custom {
+        var bar: Int
+    }
+
+    private 
+    class CustomClass {
+        var bar: Int?
+    }
+
+}

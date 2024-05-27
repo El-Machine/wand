@@ -20,21 +20,38 @@
 
 import Foundation
 
-struct Memory {
+/// Wait for Error
+///
+/// wand | { (error: Error) in
+///
+/// }
+///
+@discardableResult
+@inline(__always)
+public
+func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
+    wand | .Optional.every(handler: handler)
+}
 
-    static 
-    func address<T: AnyObject>(for model: T) -> Int {
-        Int(bitPattern: Unmanaged.passUnretained(model).toOpaque())
-    }
+@discardableResult
+@inline(__always)
+public
+func | (wand: Wand, ask: Ask<Error>) -> Wand {
+    _ = wand.answer(the: ask.optional())
+    return wand
+}
 
-    static 
-    func address<T>(for model: T) -> Int {
-        var address: String?
-        var mutable = model
-        withUnsafePointer(to: &mutable) { pointer in
-            address = String(format: "%p", pointer)
-        }
-        return Int(address!)!
+public
+struct Error: Swift.Error {
+
+    let code: Int
+    let reason: String
+
+    @inline(__always)
+    public
+    init(code: Int = .zero, reason: String, function: String = #function) {
+        self.code = code
+        self.reason = function + reason
     }
 
 }

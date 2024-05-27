@@ -24,36 +24,37 @@ import Foundation
 public
 protocol Wanded {
 
+    
     var wand:       Wand    {get}
     var isWanded:   Wand?   {get}
 
 }
 
-public 
 extension Wanded {
 
+    public
     var wand:       Wand    {
         isWanded ?? Wand(for: self)
     }
 
+    public
     var isWanded:   Wand?   {
         Wand[self]
     }
 
 }
 
+/// Any?: Wanded
+extension Optional: Wanded {
 
-//
-//extension Optional: Wanded {
-//
-//    public
-//    var wand: Wand {
-//        isWanded ?? Wand.attach(to: self)
-//    }
-//
-//    public
-//    var isWanded: Wand? {
-//        Wand[self]
-//    }
-//
-//}
+    public
+    var wand: Wand {
+        isWanded ?? Wand.attach(to: self)
+    }
+
+    public
+    var isWanded: Wand? {
+        Wand[self]
+    }
+
+}

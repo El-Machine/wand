@@ -20,20 +20,24 @@
 
 import Foundation
 
-/// While counting
 public
-extension Ask {
+struct Memory {
 
-    static func `while`(key: String? = nil,
-                        handler: @escaping (T, Int)->(Bool) ) -> Ask {
-        var i = 0
-        return Ask(key: key) {
-            defer {
-                i += 1
-            }
-            return handler($0, i)
+    static
+    public
+    func address<T: AnyObject>(for model: T) -> Int {
+        Int(bitPattern: Unmanaged.passUnretained(model).toOpaque())
+    }
+
+    static
+    public
+    func address<T>(for model: T) -> Int {
+        var address: String?
+        var mutable = model
+        withUnsafePointer(to: &mutable) { pointer in
+            address = String(format: "%p", pointer)
         }
-
+        return Int(address!)!
     }
 
 }

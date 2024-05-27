@@ -20,13 +20,12 @@
 
 import Foundation
 
-/// The API for Any (thing) |
-/// The Factory for `protocol Any`
+/// Wand
+/// Bus for <#Any#> Factory unit + cache
 public
 final
 class Wand {
 
-    //All Wands
     public
     struct Weak {
         weak var item: Wand?
@@ -37,28 +36,37 @@ class Wand {
     var all = [Int: Wand.Weak]()
 
     internal
-    static 
+    static
+    subscript <T> (_ object: T?) -> Wand? {
+
+        get { if let object {
+            return Wand[object]
+        } else {
+            return nil
+        }}
+
+        set { if let object {
+            Wand[object] = newValue
+        }}
+
+    }
+
+    @inline(__always)
+    internal
+    static
     subscript <T> (_ object: T) -> Wand? {
 
-        get {
-
-            if T.self is AnyClass {
-                let key = unsafeBitCast(object, to: Int.self)
-                return all[key]?.item
-            }
-
+        get { if T.self is AnyClass {
+            let key = unsafeBitCast(object, to: Int.self)
+            return all[key]?.item
+        } else {
             return nil
+        }}
 
-        }
-
-        set {
-
-            if let wand = newValue, T.self is AnyClass {
-                let key = unsafeBitCast(object, to: Int.self)
-                all[key] = Weak(item: wand)
-            }
-
-        }
+        set { if T.self is AnyClass, let wand = newValue {
+            let key = unsafeBitCast(object, to: Int.self)
+            all[key] = Weak(item: wand)
+        }}
 
     }
 
@@ -74,8 +82,8 @@ class Wand {
         log("|💪🏽 #init\n\(self)\n")
     }
 
+    convenience
     public
-    convenience 
     init<T>(for object: T) {
         self.init()
 
@@ -90,7 +98,7 @@ class Wand {
 
 }
 
-/// Attach
+/// Attach to Any?
 extension Wand {
 
     public
@@ -127,7 +135,7 @@ extension Wand {
         context[key ?? T.self|] as? T
     }
 
-    func get<T>(for key: String? = nil, or create: @autoclosure ()->(T)) -> T {
+    func get<T>(for key: String? = nil, or create: @autoclosure ()->(T) ) -> T {
         get(for: key) ?? {
             let object = create()
             save(object, key: key)
@@ -138,35 +146,35 @@ extension Wand {
 
 }
 
-/// Add
-/// Triggering Asking
+/// Add object
+/// Satisfy action
 public
 extension Wand {
 
     @discardableResult
     func add<T>(_ object: T, for raw: String? = nil) -> T {
 
+        //Retreive key for saved
         let key = save(object, key: raw)
 
-        //Answer stored questions
+        //Answer questions
         guard
             let stored = asking[key]
         else {
             return object
         }
 
-        //Start from Head
-        if let tail = (stored.last as? Ask<T>)?.head(object) {
-
+        //From head
+        if let tail = (stored.last as? Ask<T>)?.head(object)
+        {
             //Save
             asking[key] = (tail, stored.cleaner)
-
-        } else {
-
+        } 
+        else
+        {
             //Clean
             stored.cleaner?()
             asking[key] = nil
-
         }
 
         //Handle Ask.any
@@ -176,6 +184,7 @@ extension Wand {
     }
 
     @discardableResult
+    @inline(__always)
     func addIf<T>(exist object: T?, for key: String? = nil) -> T? {
         
         guard let object = object else {
@@ -193,6 +202,7 @@ public
 extension Wand {
 
     @discardableResult
+    @inline(__always)
     func contains(_ key: String) -> Any? {
         context.keys.contains(key)
     }
@@ -205,6 +215,7 @@ public
 extension Wand {
 
     @discardableResult
+    @inline(__always)
     func remove(_ key: String) -> Any? {
         context.removeValue(forKey: key)
     }
@@ -251,7 +262,6 @@ extension Wand {
         let stored = asking[key]
 
         //Call handler if object exist
-        //TODO: Test check with NFC
         if check, let object: T = get() {
 
             if !ask.handler(object) {
@@ -266,14 +276,12 @@ extension Wand {
         //Add ask to chain
         let cleaner: ( ()->() )?
         if let stored {
-
             let last = (stored.last as! Ask<T>)
-            
+
             ask.next = last.next
             last.next = ask
 
             cleaner = stored.cleaner
-
         } else {
             ask.next = ask
             cleaner = nil
@@ -285,7 +293,7 @@ extension Wand {
         return stored == nil
     }
 
-    func setCleaner<T>(for ask: Ask<T>, cleaner: @escaping ()->()) {
+    func setCleaner<T>(for ask: Ask<T>, cleaner: @escaping ()->() ) {
         let key = ask.key
         asking[key] = (asking[key]!.last, cleaner)
     }
@@ -295,32 +303,35 @@ extension Wand {
 /// Wanded
 extension Wand: Wanded {
 
-    public var wand: Wand {
+    public
+    var wand: Wand {
         self
     }
 
-    public var isWanded: Wand? {
+    public
+    var isWanded: Wand? {
         self
     }
 
 }
 
 /// Close
-public
 extension Wand {
 
+    public
     func close() {
-        //Notify .all
+
+        //Handle Ask.all
         (asking["All"]?.last as? Ask<Wand>)?.head(self)
 
-        //Clean questions
+        //Remove questions
         asking.forEach {
             $0.value.cleaner?()
             log("|🧼 \($0.value)")
         }
         asking.removeAll()
 
-        //Release objects
+        //Release context
         context.removeAll()
 
         //Clean Wands shelf

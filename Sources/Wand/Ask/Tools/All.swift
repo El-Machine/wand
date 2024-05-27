@@ -25,22 +25,29 @@ import Foundation
 /// wand | .all {
 ///
 /// }
+/// 
 public
 extension Ask {
 
     class All: Optional {
 
+        /// Ask.all
+        @inline(__always)
+        public
         required
         init(key: String? = nil,
              once: Bool = false,
-             handler: @escaping (T) -> (Bool)) {
+             handler: @escaping (T) -> (Bool) ) {
 
             super.init(key: "All", once: false, handler: handler)
         }
 
     }
 
-    static func all(handler: @escaping ()->() ) -> Ask<Wand> {
+    /// .all
+    @inline(__always)
+    static
+    func all(handler: @escaping ()->() ) -> Ask<Wand> {
         .All() { _ in
             handler()
             return false
@@ -49,8 +56,11 @@ extension Ask {
 
 }
 
+/// Add completion to wand
 @discardableResult
-public func | (wand: Wand, all: Ask<Wand> ) -> Wand {
+@inline(__always)
+public
+func | (wand: Wand, all: Ask<Wand>) -> Wand {
     _ = wand.answer(the: all)
     return wand
 }

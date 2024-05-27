@@ -25,10 +25,14 @@ import Foundation
 /// wand | .any { any in
 ///
 /// }
+/// 
 public
 extension Ask {
-
-    static func any(handler: @escaping (Any)->() ) -> Ask<Any> {
+    
+    /// .any
+    @inline(__always)
+    static
+    func any(handler: @escaping (Any)->() ) -> Ask<Any> {
         .Optional() {
             handler($0)
             return true
@@ -37,8 +41,10 @@ extension Ask {
 
 }
 
+/// Add any object handler
+@inline(__always)
 @discardableResult
-public 
+public
 func | (wand: Wand, any: Ask<Any>) -> Wand {
     _ = wand.answer(the: any)
     return wand

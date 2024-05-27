@@ -22,7 +22,7 @@ import Swift
 
 /// log
 @inline(__always)
-public 
+public
 func log(_ message: String) {
 
     #if DEBUG

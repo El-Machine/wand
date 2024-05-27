@@ -20,12 +20,14 @@
 
 import Foundation
 
-/// Get Object from Wand or create in Context
+/// Get Object from Wand 
+/// or create in Context
 public
 protocol Obtain: Wanded {
 
     @inline(__always)
-    static func obtain(by wand: Wand?) -> Self
+    static 
+    func obtain(by wand: Wand?) -> Self
 
 }
 
@@ -34,7 +36,9 @@ protocol Obtain: Wanded {
 /// let object = T|
 ///
 @inline(__always)
-public postfix func |<T: Obtain>(type: T.Type) -> T {
+postfix
+public
+func |<T: Obtain>(type: T.Type) -> T {
     T.obtain(by: nil)
 }
 
@@ -42,7 +46,10 @@ public postfix func |<T: Obtain>(type: T.Type) -> T {
 ///
 /// let object: T = wand|
 ///
-public postfix func |<T: Obtain>(wand: Wand?) -> T {
+@inline(__always)
+postfix
+public
+func |<T: Obtain>(wand: Wand?) -> T {
     wand?.get() ?? {
 
         let object = T.obtain(by: wand)
@@ -55,7 +62,8 @@ public postfix func |<T: Obtain>(wand: Wand?) -> T {
 ///
 /// let object: T = wand.obtain()
 ///
-public extension Wand {
+public
+extension Wand {
 
     @inline(__always)
     func obtain <T: Obtain> (for key: String? = nil) -> T {
@@ -69,19 +77,20 @@ public extension Wand {
 /// let object: T = context|
 ///
 @inline(__always)
+postfix
 public
-postfix func |<C, T: Obtain>(context: C) -> T {
+func |<C, T: Obtain>(context: C) -> T {
     Wand.attach(to: context).obtain()
 }
 
 /// Obtain unwrap
 ///
 /// let option: T? = nil
-///
-/// let object = optional|
+/// let object = option|
 ///
 @inline(__always)
+postfix
 public
-postfix func |<T: Obtain> (object: T?) -> T {
+func |<T: Obtain> (object: T?) -> T {
     object ?? T.self|
 }

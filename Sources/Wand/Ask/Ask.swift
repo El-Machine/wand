@@ -20,21 +20,24 @@
 
 import Foundation
 
-/// The question
+/// Ask the question
 open
 class Ask<T> {
 
     public
-    var handler: (T)->(Bool)
-
-    var next: Ask?
-
-    public
     let once: Bool
 
+    public
+    var handler: (T)->(Bool)
+
+    public
+    var next: Ask?
+
+    ///@synthesize key
     private
     var _key: String?
 
+    @inline(__always)
     public
     var key: String {
         get {
@@ -45,25 +48,52 @@ class Ask<T> {
         }
     }
 
-    //@synthesize Wand
+    ///@synthesize Wand
     private
     var wand: Wand?
 
+    @inline(__always)
     open
     func set(wand: Wand) {
         self.wand = wand
     }
-    //
 
+    ///.init
+    @inline(__always)
     public
     required
     init(key: String? = nil,
          once: Bool = false,
-         handler: @escaping (T) -> (Bool)) {
+         handler: @escaping (T) -> (Bool) ) {
 
         self._key = key
         self.once = once
         self.handler = handler
+    }
+
+    /// .ask?
+    /// .Optional Ask won't retain Wand
+    public
+    class Optional: Ask {
+
+        @inline(__always)
+        override
+        public
+        func set(wand: Wand) {
+        }
+
+        @inline(__always)
+        override
+        public
+        func optional() -> Ask {
+            self
+        }
+
+    }
+
+    @inline(__always)
+    func optional() -> Ask {
+        type(of: self).Optional(key: key, handler: handler)
     }
 
 }
@@ -75,6 +105,12 @@ class Ask<T> {
 public
 extension Ask {
 
+    /// Ask
+    ///
+    /// |.every { T in
+    ///
+    /// }
+    ///
     @inline(__always)
     static
     func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
@@ -84,6 +120,12 @@ extension Ask {
         }
     }
 
+    /// Ask
+    ///
+    /// |.one { T in
+    ///
+    /// }
+    ///
     @inline(__always)
     static 
     func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
@@ -93,15 +135,28 @@ extension Ask {
         }
     }
 
+    /// Ask
+    ///
+    /// |.while { T in
+    ///     true
+    /// }
+    ///
     @inline(__always)
     static 
     func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Self {
         Self(key: key, handler: handler)
     }
 
+    /// Ask
+    /// while true
+    ///
+    /// |.once(while) { T in
+    ///
+    /// }
+    ///
     @inline(__always)
     static
-    func once(_ once: Bool, handler: @escaping (T) -> ()) -> Self {
+    func once(_ once: Bool, handler: @escaping (T) -> () ) -> Self {
         self.init(once: once)  {
             handler($0)
             return once
@@ -114,6 +169,7 @@ extension Ask {
 extension Ask {
 
     @discardableResult
+    @inline(__always)
     internal
     func head(_ object: T) -> Ask? {
         let head = next
@@ -122,16 +178,22 @@ extension Ask {
         return head?.handle(object)
     }
 
+    @inlinable
     internal
     func handle(_ object: T) -> Ask? {
-        //Save while true
-        if handler(object) {
-            let tail = next == nil ? self : next?.handle(object) ?? self
+        
+        //Store ask while true
+        if handler(object) 
+        {
+            let tail = next?.handle(object) ?? self
             tail.next = self
-
             return tail
-        } else {
+        } 
+        else
+        {
             return next?.handle(object)
         }
+
     }
+
 }

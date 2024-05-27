@@ -20,8 +20,10 @@
 
 import Foundation
 
-/// Ask from Nil
-public protocol AskingNil: Asking {
+/// Ask from Context
+/// func | (context: C?, asks: Ask<Self>)
+public
+protocol AskingNil: Asking {
 
 }
 
@@ -33,7 +35,9 @@ public protocol AskingNil: Asking {
 ///
 @discardableResult
 @inline(__always)
-public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
+prefix
+public
+func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
     nil | Ask.every(handler: handler)
 }
 
@@ -48,7 +52,9 @@ public prefix func |<T: Asking> (handler: @escaping (T)->() ) -> Wand {
 ///
 @discardableResult
 @inline(__always)
-public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
+prefix
+public
+func |<T: Asking> (ask: Ask<T>) -> Wand {
     nil | ask
 }
 
@@ -60,7 +66,8 @@ public prefix func |<T: Asking> (ask: Ask<T>) -> Wand {
 ///
 @discardableResult
 @inline(__always)
-public func |<T: AskingNil, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
+public
+func |<T: AskingNil, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
     let wand = Wand()
     T.wand(wand, asks: l)
     E.wand(wand, asks: r)

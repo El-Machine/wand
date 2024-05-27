@@ -72,7 +72,9 @@ class Expect_Any_Tests: XCTestCase {
 
 extension String: Asking
 {
-    public static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+    public
+    static
+    func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
         _ = wand.answer(the: ask)
     }
 
