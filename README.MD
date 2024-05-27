@@ -139,57 +139,74 @@ ex Pipe
     G.S. Altshuller  
 
 - 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)   
-    Robert C. Martin
+    Robert C. Martin  
+
+- 😜  The Inmates Are Running the Asylum:   
+    Why High Tech Products Drive Us Crazy and How to Restore the Sanity (2019)   
+    Alan Cooper (Author)  
+
+- ⊶  Origin (2017)   
+    Dan Brown
 
 ## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
 
-- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's   
-    Bell Labs   
-    https://wikipedia.org/wiki/Pipeline_(Unix)
-
-- |   Wand icon   
-    Freepik - Flaticon   
-    https://flaticon.com/free-icons/wand
-
-- 🤖  Upscaled by AI   
-    AI
-
-- ⚙️  BSD   
-    Berkeley, 1974   
-    https://wikipedia.org/wiki/BSD
-
-- 🪟  Windows Production   
-    Stan Barnes, William and Lynne Jolitz   
-    https://support.microsoft.com/windows
-
-- 💿  CD Production   
-    Sony Digital Audio Disk Corporation ソニー・グループ株式会社   
+- 💿  CD Production
+    Sony Digital Audio Disk Corporation
+    ソニー・グループ株式会社
     https://sony.com
 
-- 📱  iPod   
-    Tony Fadell   
+- 🪟  Windows Production
+    Stan Barnes, William and Lynne Jolitz
+    https://support.microsoft.com/windows
+
+- 📱  iPod
+    Tony Fadell
+    [ˈaɪˌpɔd]
     https://wikipedia.org/wiki/Tony_Fadell
 
-- 🍏  Apple   
-    Steven Paul Jobs   
+- 🍏  Apple
+    Steven Paul Jobs
+    A prominent part of macOS's original brand identity was
+    the use of Roman numeral X, pronounced "ten"
     https://wikipedia.org/wiki/Steve_Jobs
 
-- ⚡️  Macromedia® Flash   
-    600 Townsend Street, San Francisco, CA 94103, 1997   
-    Now vector-based interactive web animations, buttons, and graphics   
-    can be used on every Web page   
+- ⚙️  BSD
+    Berkeley, 1974
+    https://wikipedia.org/wiki/BSD
+
+- 🖼️  Мысмаксом
+    Lesha Reva, Max Pominenko
+    UX/UI Design
+    https://mysmaxom.com
+
+- 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's
+    Bell Labs
+    https://wikipedia.org/wiki/Pipeline_(Unix)
+
+- |   Wand icon
+    Freepik - Flaticon
+    https://flaticon.com/free-icons/wand
+
+- 🤖  Upscaled by AI
+    AI
+    
+- ⚡️  Macromedia® Flash
+    600 Townsend Street, San Francisco, CA 94103 1997
+    Now vector-based interactive web animations, buttons, and graphics
+    can be used on every Web page
     https://wikipedia.org/wiki/Macromedia
 
-- 🐢  Logo   
-    Bolt, Beranek and Newman, 1967   
-    Logo is a wonderful   
-    https://wikipedia.org/wiki/Logo_(programming_language)
+- 🐢  Logo
+    Bolt, Beranek and Newman 1967
+    Logo is a wonderful
+    https://wikipedia.org/wiki/Macromedia
 
-- 🐬  Flipper   
-    Anna Prosvetova, Pavel Zhovner   
-    Flipper Zero is a portable multi-tool for pentesters and hardware geeks   
-    in a toy-like body. It loves to explore the digital world around:   
-    radio protocols, access control systems, hardware, and more   
+- 🐬  Flipper
+    Anna Prosvetova, Pavel Zhovner
+    Flipper Zero is a portable multi-tool for pentesters and hardware geeks
+    in a toy-like body. It loves to explore the digital world around:
+    radio protocols, access control systems, hardware, and more.
+    The main idea behind the Flipper Zero is to combine all the research
     https://flipperzero.one
 
 ## Tasks
