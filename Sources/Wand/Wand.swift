@@ -21,7 +21,7 @@
 import Foundation
 
 /// Wand
-/// Bus for <#Any#> Factory unit + cache
+/// Bus for <#Any#> Factory + Cache
 public
 final
 class Wand {
