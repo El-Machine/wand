@@ -23,23 +23,26 @@ import Foundation
 import Any_
 import Wand
 
-internal
 struct Point: Equatable, Any_ {
 
     let id: Int
 
     let x, y, z: Float
-    var t: TimeInterval
+    let t: TimeInterval
 
-
-    static var any: Point {
+    public
+    static
+    var any: Point {
         .init(id: .any(in: 0...4), x: .any, y: .any, z: .any, t: .any)
     }
+
 }
 
 extension Point: AskingNil, Wanded {
 
-    static func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
+    public
+    static
+    func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
         _ = wand.answer(the: ask)
     }
 
