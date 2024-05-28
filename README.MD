@@ -174,11 +174,6 @@ ex Pipe
     Berkeley, 1974   
     https://wikipedia.org/wiki/BSD
 
-- 🖼️  Мысмаксом   
-    Lesha Reva, Max Pominenko   
-    UX/UI Design   
-    https://mysmaxom.com
-
 - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's   
     Bell Labs   
     https://wikipedia.org/wiki/Pipeline_(Unix)
@@ -208,6 +203,7 @@ ex Pipe
     radio protocols, access control systems, hardware, and more.   
     The main idea behind the Flipper Zero is to combine all the research   
     https://flipperzero.one
+
 
 ## Tasks
 
