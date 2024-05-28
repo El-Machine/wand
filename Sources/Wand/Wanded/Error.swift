@@ -41,17 +41,24 @@ func | (wand: Wand, ask: Ask<Error>) -> Wand {
     return wand
 }
 
-public
-struct Error: Swift.Error {
+extension Wand {
 
-    let code: Int
-    let reason: String
-
-    @inline(__always)
     public
-    init(code: Int = .zero, reason: String, function: String = #function) {
-        self.code = code
-        self.reason = function + reason
+    struct Error: Swift.Error {
+
+        public
+        let code: Int
+
+        public
+        let reason: String
+
+        @inline(__always)
+        public
+        init(code: Int = .zero, reason: String, function: String = #function) {
+            self.code = code
+            self.reason = function + reason
+        }
+
     }
 
 }

@@ -24,7 +24,6 @@ import Foundation
 public
 protocol Wanded {
 
-    
     var wand:       Wand    {get}
     var isWanded:   Wand?   {get}
 

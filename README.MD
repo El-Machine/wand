@@ -205,7 +205,6 @@ ex Pipe
     The main idea behind the Flipper Zero is to combine all the research   
     https://flipperzero.one
 
-
 ## Tasks
 
 - [x] Contacts
