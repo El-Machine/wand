@@ -183,7 +183,8 @@ ex Pipe
     https://flaticon.com/free-icons/wand
 
 - 🤖  Upscaled by AI   
-    AI
+    Augmented Intelligence   
+    https://www.google.com?q=ai+upscale+image
     
 - ⚡️  Macromedia® Flash   
     600 Townsend Street, San Francisco, CA 94103 1997   
