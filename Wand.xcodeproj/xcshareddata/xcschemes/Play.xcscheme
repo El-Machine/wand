@@ -17,7 +17,7 @@
                      BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
                      BuildableName = "Play.app"
                      BlueprintName = "Play"
-                     ReferencedContainer = "container:wand.xcodeproj">
+                     ReferencedContainer = "container:Wand.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
                BuildableName = "Play.app"
                BlueprintName = "Play"
-               ReferencedContainer = "container:wand.xcodeproj">
+               ReferencedContainer = "container:Wand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -65,7 +65,7 @@
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
             BuildableName = "Play.app"
             BlueprintName = "Play"
-            ReferencedContainer = "container:wand.xcodeproj">
+            ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
@@ -86,7 +86,7 @@
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
             BuildableName = "Play.app"
             BlueprintName = "Play"
-            ReferencedContainer = "container:wand.xcodeproj">
+            ReferencedContainer = "container:Wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

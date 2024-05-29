@@ -123,7 +123,8 @@ view.layer.addSublayer(preview!)
 
 Wand started from the idea about receiving anything in most efficient and fast way.   
 Just add one sign to completion handler and retreive the result 📦   
-ex Pipe 
+ex [Pipe](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)   
+ex [API](https://github.com/El-Machine/iOS-API-Wrapper)   
 
 [Feel free to contribute. You are welcome 🔬](https://github.com/El-Machine/Wand/graphs/contributors)
 
