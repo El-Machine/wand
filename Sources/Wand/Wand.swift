@@ -265,7 +265,7 @@ extension Wand {
         if check, let object: T = get() {
 
             if !ask.handler(object) {
-                return stored == nil
+                return stored != nil
             }
 
         }
