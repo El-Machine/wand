@@ -21,7 +21,6 @@
 extension Wand {
 
     /// log
-    @inlinable
     public
     func log(_ message: String) {
 
