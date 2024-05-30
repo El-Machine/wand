@@ -40,7 +40,7 @@ protocol Asking {
 @discardableResult
 public
 func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
-    Wand.attach(to: context) | Ask.every(handler: handler)
+    .to(context) | Ask.every(handler: handler)
 }
 
 /// Ask
@@ -56,7 +56,7 @@ func |<C, T: Asking> (context: C?, handler: @escaping (T)->() ) -> Wand {
 @discardableResult
 public
 func |<C, T: Asking> (context: C?, ask: Ask<T>) -> Wand {
-    Wand.attach(to: context) | ask
+    .to(context) | ask
 }
 
 /// Ask

@@ -80,7 +80,7 @@ extension Wand {
 postfix
 public
 func |<C, T: Obtain>(context: C) -> T {
-    Wand.attach(to: context).obtain()
+    Wand.to(context).obtain()
 }
 
 /// Obtain unwrap

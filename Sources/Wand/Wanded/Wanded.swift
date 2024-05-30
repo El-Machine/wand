@@ -48,7 +48,7 @@ extension Optional: Wanded {
 
     public
     var wand: Wand {
-        isWanded ?? Wand.attach(to: self)
+        isWanded ?? .to(self)
     }
 
     public

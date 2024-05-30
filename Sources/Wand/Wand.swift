@@ -103,7 +103,7 @@ extension Wand {
 
     public
     static 
-    func attach<C>(to context: C? = nil) -> Wand {
+    func to<C>(_ context: C? = nil) -> Wand {
 
         guard let context else {
             return Wand()
