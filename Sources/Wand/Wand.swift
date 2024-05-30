@@ -216,8 +216,8 @@ extension Wand {
 
     @discardableResult
     @inline(__always)
-    func extract<T>(_ key: String) -> T? {
-        context.removeValue(forKey: key) as? T
+    func extract<T>(_ key: String? = nil) -> T? {
+        context.removeValue(forKey: key ?? T.self|) as? T
     }
 
 }
