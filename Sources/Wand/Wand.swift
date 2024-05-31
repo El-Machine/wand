@@ -43,7 +43,7 @@ class Wand {
     static 
     var all = [Int: Wand.Weak]()
 
-    internal
+    public
     static
     subscript <T> (_ object: T?) -> Wand? {
 
@@ -78,12 +78,12 @@ class Wand {
 
     }
 
-    public
     internal(set)
+    public
     var context = [String: Any]()
 
-    public
     internal(set)
+    public
     var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
     init() {
