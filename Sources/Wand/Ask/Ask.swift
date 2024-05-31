@@ -159,7 +159,7 @@ extension Ask {
     func once(_ once: Bool, handler: @escaping (T) -> () ) -> Self {
         self.init(once: once)  {
             handler($0)
-            return once
+            return !once
         }
     }
 
