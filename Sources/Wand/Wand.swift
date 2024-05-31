@@ -28,7 +28,11 @@ class Wand {
 
     public
     struct Weak {
-        weak var item: Wand?
+
+        private(set)
+        weak
+        var item: Wand?
+
     }
 
     public
