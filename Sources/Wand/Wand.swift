@@ -29,9 +29,13 @@ class Wand {
     public
     struct Weak {
 
-        public
         weak
         var item: Wand?
+
+        public
+        init(item: Wand) {
+            self.item = item
+        }
 
     }
 
