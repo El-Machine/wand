@@ -18,7 +18,7 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-extension Wand {
+//extension Wand {
 
     /// log
     public
@@ -30,4 +30,4 @@ extension Wand {
 
     }
 
-}
+//}

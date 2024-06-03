@@ -59,7 +59,6 @@ class Ask<T> {
     }
 
     ///.init
-    @inline(__always)
     public
     required
     init(key: String? = nil,
@@ -71,7 +70,7 @@ class Ask<T> {
         self.handler = handler
     }
 
-    /// .ask?
+    /// Ask?
     /// .Optional Ask won't retain Wand
     public
     class Optional: Ask {

@@ -1,5 +1,3 @@
-// swift-tools-version: 5.6
-
 ///
 /// Copyright © 2020-2024 El Machine 🤖
 /// https://el-machine.com/
@@ -20,34 +18,16 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import PackageDescription
+public
+struct Weak {
 
-let package = Package(
-    name: "Wand",
-    defaultLocalization: "ru",
+    weak
+    var item: Wand?
 
-    platforms: [
-        .iOS(.v14),
-        .macOS(.v12),
-        .tvOS(.v14),
-        .watchOS(.v7),
-    ],
+    @inline(__always)
+    public
+    init(item: Wand) {
+        self.item = item
+    }
 
-    products: [
-        .library(name: "Wand", targets: ["Wand"])
-    ],
-
-    dependencies: [
-        .package(url: "https://github.com/el-machine/Any.git", from: "1.0.1")
-    ],
-
-    targets: [
-        .target(name: "Wand"),
-        .testTarget(name: "wandTests", dependencies:
-                        [
-                            "Wand",
-                            .product(name: "Any_", package: "Any")
-                        ]
-                   )
-    ]
-)
+}

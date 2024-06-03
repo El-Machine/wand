@@ -57,8 +57,6 @@ class Expect_T_Tests: XCTestCase {
         waitForExpectations(timeout: .default)
 
         wand.close()
-        //TODO: Fix
-        //XCTAssertNil(wand)
     }
 
     func test_One() throws {

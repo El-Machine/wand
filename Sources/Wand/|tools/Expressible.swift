@@ -24,6 +24,7 @@ import Foundation
 /// Expressible
 extension Wand: ExpressibleByNilLiteral {
 
+    @inline(__always)
     convenience
     public
     init(nilLiteral: ()) {
@@ -36,6 +37,7 @@ extension Wand: ExpressibleByNilLiteral {
 /// Expressible
 extension Wand: ExpressibleByArrayLiteral {
 
+    @inline(__always)
     convenience
     public
     init(arrayLiteral array: Any...) {
@@ -43,6 +45,7 @@ extension Wand: ExpressibleByArrayLiteral {
         save(sequence: array)
     }
 
+    @inline(__always)
     convenience
     public
     init(array: [Any]) {
@@ -56,6 +59,7 @@ extension Wand: ExpressibleByArrayLiteral {
 /// Expressible
 extension Wand: ExpressibleByFloatLiteral {
 
+    @inline(__always)
     convenience
     public
     init(floatLiteral value: Float) {
@@ -70,6 +74,7 @@ extension Wand: ExpressibleByFloatLiteral {
 /// Expressible
 extension Wand: ExpressibleByStringLiteral {
 
+    @inline(__always)
     convenience
     public
     init(stringLiteral value: String) {
@@ -84,6 +89,7 @@ extension Wand: ExpressibleByStringLiteral {
 /// Expressible
 extension Wand: ExpressibleByBooleanLiteral {
 
+    @inline(__always)
     convenience
     public
     init(booleanLiteral value: Bool) {
@@ -98,6 +104,7 @@ extension Wand: ExpressibleByBooleanLiteral {
 /// Expressible
 extension Wand: ExpressibleByIntegerLiteral {
 
+    @inline(__always)
     convenience
     public
     init(integerLiteral value: Int) {
@@ -112,6 +119,7 @@ extension Wand: ExpressibleByIntegerLiteral {
 /// Expressible
 extension Wand: ExpressibleByDictionaryLiteral {
 
+    @inline(__always)
     convenience
     public
     init(dictionaryLiteral elements: (String, Any)...) {

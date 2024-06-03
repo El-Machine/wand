@@ -24,18 +24,23 @@ import Foundation
 public
 protocol Wanded {
 
+    @inline(__always)
     var wand:       Wand    {get}
+
+    @inline(__always)
     var isWanded:   Wand?   {get}
 
 }
 
 extension Wanded {
 
+    @inline(__always)
     public
     var wand:       Wand    {
         isWanded ?? Wand(for: self)
     }
 
+    @inline(__always)
     public
     var isWanded:   Wand?   {
         Wand[self]
@@ -46,11 +51,13 @@ extension Wanded {
 /// Any?: Wanded
 extension Optional: Wanded {
 
+    @inline(__always)
     public
     var wand: Wand {
         isWanded ?? .to(self)
     }
 
+    @inline(__always)
     public
     var isWanded: Wand? {
         Wand[self]

@@ -27,22 +27,10 @@ final
 class Wand {
 
     public
-    struct Weak {
+    static
+    var all = [Int: Weak]()
 
-        weak
-        var item: Wand?
-
-        public
-        init(item: Wand) {
-            self.item = item
-        }
-
-    }
-
-    public
-    static 
-    var all = [Int: Wand.Weak]()
-
+    @inline(__always)
     public
     static
     subscript <T> (_ object: T?) -> Wand? {
@@ -80,12 +68,13 @@ class Wand {
 
     internal(set)
     public
-    var context = [String: Any]()
+    var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
     internal(set)
     public
-    var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
+    var context = [String: Any]()
 
+    @inline(__always)
     init() {
         log("|💪🏽 #init\n\(self)\n")
     }
@@ -109,6 +98,7 @@ class Wand {
 /// Attach to Any?
 extension Wand {
 
+    @inline(__always)
     public
     static 
     func to<C>(_ context: C? = nil) -> Wand {
@@ -139,10 +129,12 @@ extension Wand {
 public
 extension Wand {
 
+    @inline(__always)
     func get<T>(for key: String? = nil) -> T? {
         context[key ?? T.self|] as? T
     }
 
+    @inline(__always)
     func get<T>(for key: String? = nil, or create: @autoclosure ()->(T) ) -> T {
         get(for: key) ?? {
             let object = create()
@@ -160,6 +152,7 @@ public
 extension Wand {
 
     @discardableResult
+    @inline(__always)
     func add<T>(_ object: T, for raw: String? = nil) -> T {
 
         //Retreive key for saved
@@ -236,6 +229,7 @@ public
 extension Wand {
 
     @discardableResult
+    @inline(__always)
     func save<T>(_ object: T, key: String? = nil) -> String {
 
         let result = key ?? T.self|
@@ -245,6 +239,7 @@ extension Wand {
         return result
     }
 
+    @inline(__always)
     func save(sequence: any Sequence) {
 
         sequence.forEach { object in
@@ -270,12 +265,12 @@ extension Wand {
         let stored = asking[key]
 
         //Call handler if object exist
-        if check, let object: T = get() {
-
-            if !ask.handler(object) {
-                return stored != nil
-            }
-
+        if 
+            check,
+            let object: T = get(),
+            !ask.handler(object)
+        {
+            return stored != nil
         }
 
         //Attach wand
@@ -301,6 +296,7 @@ extension Wand {
         return stored == nil
     }
 
+    @inline(__always)
     func setCleaner<T>(for ask: Ask<T>, cleaner: @escaping ()->() ) {
         let key = ask.key
         asking[key] = (asking[key]!.last, cleaner)
@@ -311,11 +307,13 @@ extension Wand {
 /// Wanded
 extension Wand: Wanded {
 
+    @inline(__always)
     public
     var wand: Wand {
         self
     }
 
+    @inline(__always)
     public
     var isWanded: Wand? {
         self
@@ -326,6 +324,7 @@ extension Wand: Wanded {
 /// Close
 extension Wand {
 
+    @inline(__always)
     public
     func close() {
 
@@ -346,6 +345,7 @@ extension Wand {
         Wand.all = Wand.all.filter {
             $0.value.item != nil
         }
+
     }
 
 }

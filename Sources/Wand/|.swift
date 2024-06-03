@@ -18,7 +18,7 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-/// The API for Any (thing)
+/// Abstract interface
 prefix operator |
 postfix operator |
 infix operator | : AdditionPrecedence
