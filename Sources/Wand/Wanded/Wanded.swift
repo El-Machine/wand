@@ -25,10 +25,10 @@ public
 protocol Wanded {
 
     @inline(__always)
-    var wand:       Wand    {get}
+    var wand: Wand {get}
 
     @inline(__always)
-    var isWanded:   Wand?   {get}
+    var isWanded: Wand? {get}
 
 }
 
@@ -36,13 +36,13 @@ extension Wanded {
 
     @inline(__always)
     public
-    var wand:       Wand    {
+    var wand: Wand {
         isWanded ?? Wand(for: self)
     }
 
     @inline(__always)
     public
-    var isWanded:   Wand?   {
+    var isWanded: Wand? {
         Wand[self]
     }
 

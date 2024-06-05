@@ -34,14 +34,15 @@ extension TimeInterval {
 
 }
 
-extension XCTestCase {
+///Performance
+extension [XCTMetric] {
 
-    func expectation(function: String = #function) -> XCTestExpectation {
-        expectation(description: function)
-    }
-
-    func waitForExpectations() {
-        waitForExpectations(timeout: .default)
-    }
+    static
+    var `default`: Self = {[
+        XCTCPUMetric(),
+        XCTClockMetric(),
+        XCTMemoryMetric(),
+        XCTStorageMetric(),
+    ]}()
 
 }

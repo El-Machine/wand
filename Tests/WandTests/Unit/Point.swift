@@ -25,15 +25,12 @@ import Wand
 
 struct Point: Equatable, Any_ {
 
-    let id: Int
-
-    let x, y, z: Float
-    let t: TimeInterval
+    let x, y, z, t: Double
 
     public
     static
     var any: Point {
-        .init(id: .any(in: 0...4), x: .any, y: .any, z: .any, t: .any)
+        .init(x: .any, y: .any, z: .any, t: .any(in: 0...5))
     }
 
 }

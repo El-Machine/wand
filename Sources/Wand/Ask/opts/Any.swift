@@ -20,7 +20,7 @@
 
 import Foundation
 
-/// Notify about any object
+/// Notify about <#Any#> object
 ///
 /// wand | .any { any in
 ///

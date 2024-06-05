@@ -64,7 +64,6 @@ extension Wand: ExpressibleByFloatLiteral {
     public
     init(floatLiteral value: Float) {
         self.init()
-
         context[FloatLiteralType.self|] = value
     }
 
@@ -79,7 +78,6 @@ extension Wand: ExpressibleByStringLiteral {
     public
     init(stringLiteral value: String) {
         self.init()
-
         context[StringLiteralType.self|] = value
     }
 
@@ -94,7 +92,6 @@ extension Wand: ExpressibleByBooleanLiteral {
     public
     init(booleanLiteral value: Bool) {
         self.init()
-
         context[BooleanLiteralType.self|] = value
     }
 
@@ -109,7 +106,6 @@ extension Wand: ExpressibleByIntegerLiteral {
     public
     init(integerLiteral value: Int) {
         self.init()
-
         context[IntegerLiteralType.self|] = value
     }
 
@@ -131,6 +127,7 @@ extension Wand: ExpressibleByDictionaryLiteral {
         }
     }
 
+    @inline(__always)
     convenience
     public
     init(dictionary: [String: Any]) {
@@ -148,11 +145,11 @@ extension Wand: ExpressibleByDictionaryLiteral {
 /// Expressible
 extension Wand: ExpressibleByStringInterpolation {
 
+    @inline(__always)
     convenience
     public
     init(stringInterpolation: StringInterpolation) {
         self.init()
-
         context[StringInterpolation.self|] = stringInterpolation
     }
 
@@ -162,11 +159,11 @@ extension Wand: ExpressibleByStringInterpolation {
 /// Expressible
 extension Wand: ExpressibleByUnicodeScalarLiteral {
 
+    @inline(__always)
     convenience
     public
     init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
         self.init()
-
         context[UnicodeScalarLiteralType.self|] = value
     }
 
@@ -176,11 +173,11 @@ extension Wand: ExpressibleByUnicodeScalarLiteral {
 /// Expressible
 extension Wand: ExpressibleByExtendedGraphemeClusterLiteral {
 
+    @inline(__always)
     convenience
     public
     init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
         self.init()
-
         context[ExtendedGraphemeClusterLiteralType.self|] = value
     }
 

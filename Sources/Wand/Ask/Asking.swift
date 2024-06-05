@@ -26,7 +26,8 @@ public
 protocol Asking {
 
     @inline(__always)
-    static func wand<T>(_ wand: Wand, asks: Ask<T>)
+    static 
+    func wand<T>(_ wand: Wand, asks: Ask<T>)
 
 }
 

@@ -8,45 +8,45 @@
                                Wand Release 1.0
                                Contributors List
 
-          - 💿  CD Production
-                Sony Digital Audio Disk Corporation
-                ソニー・グループ株式会社
-                https://sony.com
+          - 🤖  Alex Kozin
+                El Machine
 
-          - 🪟  Windows Production
-                Stan Barnes, William and Lynne Jolitz
-                https://support.microsoft.com/windows
 
-          - 📱  iPod
-                Tony Fadell
-                [ˈaɪˌpɔd]
-                https://wikipedia.org/wiki/Tony_Fadell
 
-          - 🍏  Apple I
-                Steve Jobs, Steve Wozniak
-                https://ru.wikipedia.org/wiki/Apple_I
 
-          - ⚙️  BSD
-                Berkeley, 1974
-                https://wikipedia.org/wiki/BSD
 
-          - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's
-                Bell Labs
-                https://wikipedia.org/wiki/Pipeline_(Unix)
 
-          - |   Wand icon
-                Freepik - Flaticon
-                https://flaticon.com/free-icons/wand
 
-          - 🤖  Upscaled by AI
-                Augmented Intelligence
-                https://www.google.com?q=ai+upscale+image
 
-          - ⚡️  Macromedia® Flash
-                600 Townsend Street, San Francisco, CA 94103 1997
-                Now vector-based interactive web animations, buttons, and graphics
-                can be used on every Web page
-                https://wikipedia.org/wiki/Macromedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           The individual can and does make  a
           difference!
@@ -62,20 +62,20 @@
                                Wand Release 1.0
                                Contributors List
 
-          - 🐢  Logo
-                Bolt, Beranek and Newman 1967
-                Logo is a wonderful
-                https://wikipedia.org/wiki/Macromedia
 
-          - 🐬  Flipper
-                Anna Prosvetova, Pavel Zhovner
-                Flipper Zero is a portable multi-tool for pentesters and hardware geeks
-                in a toy-like body. It loves to explore the digital world around:
-                radio protocols, access control systems, hardware, and more.
-                The main idea behind the Flipper Zero is to combine all the research
-                https://flipperzero.one
 
-          - 🤝
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

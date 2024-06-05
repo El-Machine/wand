@@ -59,6 +59,7 @@ class Ask<T> {
     }
 
     ///.init
+    @inline(__always)
     public
     required
     init(key: String? = nil,
@@ -91,8 +92,16 @@ class Ask<T> {
     }
 
     @inline(__always)
+    public
     func optional() -> Ask {
         type(of: self).Optional(key: key, handler: handler)
+    }
+
+    @inline(__always)
+    public
+    static
+    func optional(for key: String? = nil, handler: @escaping (T)->() ) -> Optional {
+        .Optional.once(false, for: key, handler: handler)
     }
 
 }
@@ -128,7 +137,7 @@ extension Ask {
     @inline(__always)
     static 
     func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
-        Self(key: key, once: true) {
+        Self(key: key, once: true) { //.once
             handler?($0)
             return false
         }
@@ -155,9 +164,9 @@ extension Ask {
     ///
     @inline(__always)
     static
-    func once(_ once: Bool, handler: @escaping (T) -> () ) -> Self {
-        self.init(once: once)  {
-            handler($0)
+    func once(_ once: Bool, for key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
+        self.init(key: key, once: once)  {
+            handler?($0)
             return !once
         }
     }

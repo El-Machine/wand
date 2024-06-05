@@ -18,16 +18,13 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-//extension Wand {
+/// log
+@inline(__always)
+public
+func log(_ message: String) {
 
-    /// log
-    public
-    func log(_ message: String) {
+    #if DEBUG
+        print(message)
+    #endif
 
-        #if DEBUG
-            print(message)
-        #endif
-
-    }
-
-//}
+}

@@ -88,6 +88,7 @@ class Wand {
         context[T.self|] = object
     }
 
+    @inlinable
     deinit {
         close()
         log("|✅ #bonsua\n\(self)\n")
@@ -96,11 +97,11 @@ class Wand {
 }
 
 /// Attach to Any?
+public
 extension Wand {
 
     @inline(__always)
-    public
-    static 
+    static
     func to<C>(_ context: C? = nil) -> Wand {
 
         guard let context else {
@@ -262,6 +263,7 @@ extension Wand {
 public
 extension Wand {
 
+    @inlinable
     func answer<T>(the ask: Ask<T>,
                    check: Bool = false) -> Bool {
 

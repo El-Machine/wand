@@ -46,28 +46,6 @@ class Expect_Any_Tests: XCTestCase {
         waitForExpectations()
     }
 
-    //Works in Debug and Prod
-//    func test_All() throws {
-//        let e = expectation(description: "event.any")
-//        e.expectedFulfillmentCount = 2
-//
-//        weak var wand: Wand!
-//        wand = CLLocation.one | CNContact.one | .all {
-//
-//            if let piped: CLLocation = wand.get() {
-//                e.fulfill()
-//            }
-//
-//            if let piped: CMPedometerEvent = wand.get() {
-//                e.fulfill()
-//            }
-//
-//        }
-//
-//        waitForExpectations()
-//    }
-
-
 }
 
 extension String: Asking

@@ -33,6 +33,12 @@ func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
     wand | .Optional.every(handler: handler)
 }
 
+/// Wait for Error
+///
+/// wand | .one { (error: Error) in
+///
+/// }
+///
 @discardableResult
 @inline(__always)
 public

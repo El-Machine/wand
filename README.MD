@@ -130,81 +130,81 @@ ex [API](https://github.com/El-Machine/iOS-API-Wrapper)
 
 ### 📚 Books
 
-- 🧑‍💻  Design Patterns: Elements of Reusable Object-Oriented Software (1994)   
-    GOF: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+- 🖼️  Design Patterns: Elements of Reusable Object-Oriented Software (1994)   
+      GOF: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
 
 - 🧼  Clean Code: A Handbook of Agile Software Craftsmanship (2008)   
-    Robert C. Martin  
+      Robert C. Martin  
 
 - 🎼  Introduction to TRIZ. Basic Concepts and Approaches (2015)   
-    G.S. Altshuller  
+      G.S. Altshuller  
 
 - 🏛️  Clean Architecture: A Craftsman's Guide to Software Structure and Design (2017)   
-    Robert C. Martin  
+      Robert C. Martin  
 
 - 😜  The Inmates Are Running the Asylum:   
-    Why High Tech Products Drive Us Crazy and How to Restore the Sanity (2019)   
-    Alan Cooper (Author)  
+      Why High Tech Products Drive Us Crazy and How to Restore the Sanity (2019)   
+      Alan Cooper (Author)  
 
 - ⊶  Origin (2017)   
-    Dan Brown
+      Dan Brown
 
-## [🤝 Credits](https://github.com/El-Machine/Wand/blob/main/CONTRIB.TXT)
+## [🤝 Inspirtation](https://github.com/El-Machine/Wand/blob/main/INSPIRATION.TXT)
 
 - 💿  CD Production   
-    Sony Digital Audio Disk Corporation   
-    ソニー・グループ株式会社   
-    https://sony.com
+      Sony Digital Audio Disk Corporation   
+      ソニー・グループ株式会社   
+      https://sony.com
 
 - 🪟  Windows Production   
-    Stan Barnes, William and Lynne Jolitz   
-    https://support.microsoft.com/windows
+      Stan Barnes, William and Lynne Jolitz   
+      https://support.microsoft.com/windows
 
 - 📱  iPod   
-    Tony Fadell   
-    [ˈaɪˌpɔd]   
-    https://wikipedia.org/wiki/Tony_Fadell
+      Tony Fadell   
+      [ˈaɪˌpɔd]   
+      https://wikipedia.org/wiki/Tony_Fadell
 
 - 🍏  Apple   
-    Steven Paul Jobs   
-    A prominent part of macOS's original brand identity was   
-    the use of Roman numeral X, pronounced "ten"   
-    https://wikipedia.org/wiki/Steve_Jobs
+      Steven Paul Jobs   
+      A prominent part of macOS's original brand identity was   
+      the use of Roman numeral X, pronounced "ten"   
+      https://wikipedia.org/wiki/Steve_Jobs
 
 - ⚙️  BSD   
-    Berkeley, 1974   
-    https://wikipedia.org/wiki/BSD
+      Berkeley, 1974   
+      https://wikipedia.org/wiki/BSD
 
 - 🔔  The concept of pipelines was championed by Douglas McIlroy at Unix's   
-    Bell Labs   
-    https://wikipedia.org/wiki/Pipeline_(Unix)
+      Bell Labs   
+      https://wikipedia.org/wiki/Pipeline_(Unix)
 
 - |   Wand icon   
-    Freepik - Flaticon   
-    https://flaticon.com/free-icons/wand
+      Freepik - Flaticon   
+      https://flaticon.com/free-icons/wand
 
 - 🤖  Upscaled by AI   
-    Augmented Intelligence   
-    https://www.google.com?q=ai+upscale+image
+      Augmented Intelligence   
+      https://www.google.com?q=ai+upscale+image
     
 - ⚡️  Macromedia® Flash   
-    600 Townsend Street, San Francisco, CA 94103 1997   
-    Now vector-based interactive web animations, buttons, and graphics   
-    can be used on every Web page   
-    https://wikipedia.org/wiki/Macromedia
+      600 Townsend Street, San Francisco, CA 94103 1997   
+      Now vector-based interactive web animations, buttons, and graphics   
+      can be used on every Web page   
+      https://wikipedia.org/wiki/Macromedia
 
 - 🐢  Logo   
-    Bolt, Beranek and Newman 1967   
-    Logo is a wonderful   
-    https://wikipedia.org/wiki/Macromedia
+      Bolt, Beranek and Newman 1967   
+      Logo is a wonderful   
+      https://wikipedia.org/wiki/Macromedia
 
 - 🐬  Flipper   
-    Anna Prosvetova, Pavel Zhovner   
-    Flipper Zero is a portable multi-tool for pentesters and hardware geeks   
-    in a toy-like body. It loves to explore the digital world around:   
-    radio protocols, access control systems, hardware, and more.   
-    The main idea behind the Flipper Zero is to combine all the research   
-    https://flipperzero.one
+      Anna Prosvetova, Pavel Zhovner   
+      Flipper Zero is a portable multi-tool for pentesters and hardware geeks   
+      in a toy-like body. It loves to explore the digital world around:   
+      radio protocols, access control systems, hardware, and more.   
+      The main idea behind the Flipper Zero is to combine all the research   
+      https://flipperzero.one
 
 ## Tasks
 

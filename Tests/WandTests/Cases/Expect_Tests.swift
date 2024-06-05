@@ -88,7 +88,7 @@ class Expect_T_Tests: XCTestCase {
         weak var wand: Wand!
         wand = |.while { (point: Point) in
 
-            if point.id == 2 {
+            if point.t > 2 {
                 e.fulfill()
                 return false
             } else {

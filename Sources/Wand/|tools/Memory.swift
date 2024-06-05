@@ -23,12 +23,14 @@ import Foundation
 public
 struct Memory {
 
+    @inline(__always)
     static
     public
     func address<T: AnyObject>(for model: T) -> Int {
         Int(bitPattern: Unmanaged.passUnretained(model).toOpaque())
     }
 
+    @inline(__always)
     static
     public
     func address<T>(for model: T) -> Int {
