@@ -48,7 +48,7 @@ class Wand {
     }
 
     @inline(__always)
-    internal
+    public
     static
     subscript <T> (_ object: T) -> Wand? {
 
@@ -66,19 +66,19 @@ class Wand {
 
     }
 
-    internal(set)
     public
     var asking = [String: (last: Any, cleaner: ( ()->() )? )]()
 
-    internal(set)
     public
     var context = [String: Any]()
 
     @inline(__always)
+    public
     init() {
         log("|💪🏽 #init\n\(self)\n")
     }
 
+    @inlinable
     convenience
     public
     init<T>(for object: T) {
@@ -136,12 +136,7 @@ extension Wand {
 
     @inline(__always)
     func get<T>(for key: String? = nil, or create: @autoclosure ()->(T) ) -> T {
-        get(for: key) ?? {
-            let object = create()
-            save(object, key: key)
-
-            return object
-        }()
+        get(for: key) ?? save(create(), key: key)
     }
 
 }
@@ -152,11 +147,11 @@ public
 extension Wand {
 
     @discardableResult
-    @inline(__always)
+    @inlinable
     func add<T>(_ object: T, for raw: String? = nil) -> T {
 
         //Retreive key for saved
-        let key = save(object, key: raw)
+        let key = store(object, key: raw)
 
         //Answer questions
         guard
@@ -230,17 +225,14 @@ extension Wand {
 
     @discardableResult
     @inline(__always)
-    func save<T>(_ object: T, key: String? = nil) -> String {
-
-        let result = key ?? T.self|
-        Wand[object] = self
-        context[result] = object
-
-        return result
+    func save<T>(_ object: T, key: String? = nil) -> T {
+        store(object, key: key)
+        return object
     }
 
+    @discardableResult
     @inline(__always)
-    func save(sequence: any Sequence) {
+    func save<T: Sequence>(sequence: T) -> T {
 
         sequence.forEach { object in
             let key = type(of: object)|
@@ -249,6 +241,18 @@ extension Wand {
             context[key] = object
         }
 
+        return sequence
+    }
+
+    @discardableResult
+    @inline(__always)
+    func store<T>(_ object: T, key: String? = nil) -> String {
+
+        let result = key ?? T.self|
+        Wand[object] = self
+        context[result] = object
+
+        return result
     }
 
 }

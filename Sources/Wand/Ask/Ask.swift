@@ -169,7 +169,7 @@ extension Ask {
 
     @discardableResult
     @inline(__always)
-    internal
+    public
     func head(_ object: T) -> Ask? {
         let head = next
         self.next = nil
