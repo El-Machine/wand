@@ -121,8 +121,9 @@ view.layer.addSublayer(preview!)
 
 ### 🪄 Сoncept
 
-Wand started from the idea about receiving anything in most efficient and fast way.   
-Just add one sign to completion handler and retreive the result 📦   
+Wand started from the idea about receiving anything in most efficient way. 
+  
+Add one sign to completion handler and retreive the result 📦   
 ex [Pipe](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)   
 ex [API](https://github.com/El-Machine/iOS-API-Wrapper)   
 
