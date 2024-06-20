@@ -44,9 +44,9 @@ extension Ask {
     /// .all
     @inline(__always)
     static
-    func all(handler: @escaping ()->() ) -> Ask<Wand> {
-        .All() { _ in
-            handler()
+    func all(handler: @escaping (Wand)->() ) -> Ask<Wand> {
+        .All() {
+            handler($0)
             return false
         }
     }
