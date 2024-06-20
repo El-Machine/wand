@@ -22,11 +22,3 @@
 prefix operator |
 postfix operator |
 infix operator | : AdditionPrecedence
-
-/// Describing <#Any#>
-@inline(__always)
-postfix
-public
-func |(wanded: Any) -> String {
-    String(describing: wanded)
-}

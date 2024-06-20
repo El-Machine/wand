@@ -18,35 +18,42 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import SwiftUI
-import Wand
-
-@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
-@main
-struct PlayApp: App {
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-
+///<#Any#>
+@inline(__always)
+postfix
+public
+func |(object: Any) -> String {
+    String(describing: object)
 }
 
-@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
-struct ContentView: View {
-    var body: some View {
+///Data
+#if canImport(Foundation)
+import Foundation.NSData
 
-        VStack {
-            Image(systemName: "wand.and.stars")
-            Text("Hello, world!")
-        }
-        .padding()
-
-    }
+@inline(__always)
+postfix
+public
+func |(data: Data) -> String {
+    String(data: data, encoding: .utf8)!
 }
 
-@available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
-#Preview {
-    ContentView()
+@inline(__always)
+public
+func |(data: Data, encoding: String.Encoding) -> String {
+    String(data: data, encoding: encoding)!
 }
+
+@inline(__always)
+postfix
+public
+func |(data: Data) -> String? {
+    String(data: data, encoding: .utf8)
+}
+
+@inline(__always)
+public
+func |(data: Data, encoding: String.Encoding) -> String? {
+    String(data: data, encoding: encoding)
+}
+
+#endif
