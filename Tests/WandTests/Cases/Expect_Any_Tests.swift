@@ -29,14 +29,14 @@ class Expect_Any_Tests: XCTestCase {
         let e = expectation(description: "event.any")
         e.assertForOverFulfill = false
 
-        let wand = Point.every | String.every | .any { _ in
+        let wand = Vector.every | String.every | .any { _ in
             e.fulfill()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak wand] in
 
             if .random() {
-                wand?.add(Point.any)
+                wand?.add(Vector.any)
             } else {
                 wand?.add(String.any)
             }
@@ -50,6 +50,7 @@ class Expect_Any_Tests: XCTestCase {
 
 extension String: Asking
 {
+    @inline(__always)
     public
     static
     func wand<T>(_ wand: Wand, asks ask: Ask<T>) {

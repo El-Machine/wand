@@ -25,7 +25,9 @@ open
 class Ask<T> {
 
     public
-    let once: Bool
+    var once: Bool {
+        false
+    }
 
     public
     var handler: (T)->(Bool)
@@ -62,46 +64,30 @@ class Ask<T> {
     @inline(__always)
     public
     required
-    init(key: String? = nil,
-         once: Bool = false,
+    init(for key: String? = nil,
          handler: @escaping (T) -> (Bool) ) {
 
         self._key = key
-        self.once = once
         self.handler = handler
     }
 
-    /// Ask?
-    /// .Optional Ask won't retain Wand
-    public
-    class Optional: Ask { //Opt
-
-        @inline(__always)
-        override
-        public
-        func set(wand: Wand) {
-        }
-
-        @inline(__always)
-        override
-        public
-        func optional() -> Ask {
-            self
-        }
-
-    }
+    //TODO: Move to `Optional`
+    //`instance methods declared in extensions cannot be overridden`
 
     @inline(__always)
     public
-    func optional() -> Ask {
-        type(of: self).Optional(key: key, handler: handler)
+    func option() -> Ask {
+        type(of: self).Option(for: key, handler: handler)
     }
 
     @inline(__always)
     public
     static
-    func optional(for key: String? = nil, handler: @escaping (T)->() ) -> Optional {
-        .Optional.once(false, for: key, handler: handler)
+    func option(_ key: String? = nil, handler: @escaping (T)->() ) -> Option {
+        .Option(for: key) {
+            handler($0)
+            return true
+        }
     }
 
 }
@@ -121,8 +107,8 @@ extension Ask {
     ///
     @inline(__always)
     static
-    func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
-        Self(key: key) {
+    func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Every {
+        Every(for: key) {
             handler?($0)
             return true
         }
@@ -136,8 +122,8 @@ extension Ask {
     ///
     @inline(__always)
     static 
-    func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
-        Self(key: key, once: true) { //.once
+    func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> One {
+        One(for: key) {
             handler?($0)
             return false
         }
@@ -152,23 +138,7 @@ extension Ask {
     @inline(__always)
     static 
     func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Self {
-        Self(key: key, handler: handler)
-    }
-
-    /// Ask
-    /// while true
-    ///
-    /// |.once(while) { T in
-    ///
-    /// }
-    ///
-    @inline(__always)
-    static
-    func once(_ once: Bool, for key: String? = nil, handler: ( (T)->() )? = nil ) -> Self {
-        self.init(key: key, once: once)  {
-            handler?($0)
-            return !once
-        }
+        Self(for: key, handler: handler)
     }
 
 }
@@ -176,10 +146,12 @@ extension Ask {
 /// Handle answer
 extension Ask {
 
+    public
     class One: Ask {
 
     }
 
+    public
     class Every: Ask {
 
     }

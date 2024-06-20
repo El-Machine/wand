@@ -23,19 +23,19 @@ import Foundation
 import Any_
 import Wand
 
-struct Point: Equatable, Any_ {
+struct Vector: Equatable, Any_ {
 
     let x, y, z, t: Double
 
     public
     static
-    var any: Point {
+    var any: Self {
         .init(x: .any, y: .any, z: .any, t: .any(in: 0...5))
     }
 
 }
 
-extension Point: AskingNil, Wanded {
+extension Vector: AskingNil, Wanded {
 
     public
     static

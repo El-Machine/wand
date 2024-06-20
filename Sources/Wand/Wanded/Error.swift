@@ -30,7 +30,7 @@ import Foundation
 @inline(__always)
 public
 func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
-    wand | .Optional.every(handler: handler)
+    wand | Ask.option(handler: handler)
 }
 
 /// Wait for Error
@@ -43,7 +43,7 @@ func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
 @inline(__always)
 public
 func | (wand: Wand, ask: Ask<Error>) -> Wand {
-    _ = wand.answer(the: ask.optional())
+    _ = wand.answer(the: ask.option())
     return wand
 }
 

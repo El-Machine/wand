@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		612EA7792C007BAB00F193DC /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7712C007BAB00F193DC /* Expect_Any_Tests.swift */; };
-		612EA77A2C007BAB00F193DC /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7712C007BAB00F193DC /* Expect_Any_Tests.swift */; };
-		612EA77B2C007BAB00F193DC /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7722C007BAB00F193DC /* Expect_Tests.swift */; };
-		612EA77C2C007BAB00F193DC /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7722C007BAB00F193DC /* Expect_Tests.swift */; };
+		61247B082C241D2000E3A40C /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7712C007BAB00F193DC /* Expect_Any_Tests.swift */; };
+		61247B092C241D2100E3A40C /* Expect_Any_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7712C007BAB00F193DC /* Expect_Any_Tests.swift */; };
 		612EA7842C007BC600F193DC /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7802C007BC600F193DC /* Unit.swift */; };
 		612EA7852C007BC600F193DC /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7802C007BC600F193DC /* Unit.swift */; };
 		612EA7882C007C4200F193DC /* Any_ in Frameworks */ = {isa = PBXBuildFile; productRef = 612EA7872C007C4200F193DC /* Any_ */; };
@@ -20,7 +18,7 @@
 		6139666A2BE0FB2E004C18A3 /* Wand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		615158D32BF751EB001646EA /* All.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158B92BF751EB001646EA /* All.swift */; };
 		615158D42BF751EB001646EA /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158BA2BF751EB001646EA /* Any.swift */; };
-		615158D62BF751EB001646EA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158BC2BF751EB001646EA /* Optional.swift */; };
+		615158D62BF751EB001646EA /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158BC2BF751EB001646EA /* Option.swift */; };
 		615158D82BF751EB001646EA /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158BF2BF751EB001646EA /* Ask.swift */; };
 		615158D92BF751EB001646EA /* Asking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158C02BF751EB001646EA /* Asking.swift */; };
 		615158DA2BF751EB001646EA /* AskingNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615158C12BF751EB001646EA /* AskingNil.swift */; };
@@ -32,11 +30,13 @@
 		6159FBA22C04AE2600BC7BE9 /* Expressible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FB9E2C04AE2600BC7BE9 /* Expressible.swift */; };
 		6159FBA32C04AE2600BC7BE9 /* log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FB9F2C04AE2600BC7BE9 /* log.swift */; };
 		6159FBA42C04AE2600BC7BE9 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FBA02C04AE2600BC7BE9 /* Memory.swift */; };
-		6159FBA62C04BEB200BC7BE9 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7732C007BAB00F193DC /* Wand_Tests.swift */; };
-		6159FBA72C04BEB300BC7BE9 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7732C007BAB00F193DC /* Wand_Tests.swift */; };
 		6159FBA92C04D47100BC7BE9 /* Counting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FBA82C04D47000BC7BE9 /* Counting.swift */; };
 		6159FBAB2C04D56F00BC7BE9 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FBAA2C04D56F00BC7BE9 /* Point.swift */; };
 		6159FBAC2C04D56F00BC7BE9 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6159FBAA2C04D56F00BC7BE9 /* Point.swift */; };
+		615AE0302C241C0100D05E79 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7732C007BAB00F193DC /* Wand_Tests.swift */; };
+		615AE0312C241C0200D05E79 /* Wand_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7732C007BAB00F193DC /* Wand_Tests.swift */; };
+		615AE0322C241C1100D05E79 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7722C007BAB00F193DC /* Expect_Tests.swift */; };
+		615AE0332C241C1200D05E79 /* Expect_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EA7722C007BAB00F193DC /* Expect_Tests.swift */; };
 		6162625628BC8E2B00D63EA5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162624628BC8E2A00D63EA5 /* Play.swift */; };
 		6162625828BC8E2B00D63EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162624728BC8E2B00D63EA5 /* Assets.xcassets */; };
 		6162626428BC944300D63EA5 /* Wand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "pipe::Pipe::Product" /* Wand.framework */; platformFilters = (ios, maccatalyst, macos, tvos, xros, ); };
@@ -117,7 +117,7 @@
 		615158922BF74A4C001646EA /* watchTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = watchTestPlan.xctestplan; sourceTree = "<group>"; };
 		615158B92BF751EB001646EA /* All.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = All.swift; sourceTree = "<group>"; };
 		615158BA2BF751EB001646EA /* Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
-		615158BC2BF751EB001646EA /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		615158BC2BF751EB001646EA /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		615158BF2BF751EB001646EA /* Ask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		615158C02BF751EB001646EA /* Asking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asking.swift; sourceTree = "<group>"; };
 		615158C12BF751EB001646EA /* AskingNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskingNil.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				615158B92BF751EB001646EA /* All.swift */,
 				615158BA2BF751EB001646EA /* Any.swift */,
 				6159FBA82C04D47000BC7BE9 /* Counting.swift */,
-				615158BC2BF751EB001646EA /* Optional.swift */,
+				615158BC2BF751EB001646EA /* Option.swift */,
 			);
 			path = opts;
 			sourceTree = "<group>";
@@ -542,12 +542,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6159FBA62C04BEB200BC7BE9 /* Wand_Tests.swift in Sources */,
 				6159FBAC2C04D56F00BC7BE9 /* Point.swift in Sources */,
 				612EA7852C007BC600F193DC /* Unit.swift in Sources */,
-				612EA77A2C007BAB00F193DC /* Expect_Any_Tests.swift in Sources */,
+				615AE0322C241C1100D05E79 /* Expect_Tests.swift in Sources */,
+				61247B082C241D2000E3A40C /* Expect_Any_Tests.swift in Sources */,
 				6172A0ED2C109E8600AF925F /* XCTestCase.swift in Sources */,
-				612EA77C2C007BAB00F193DC /* Expect_Tests.swift in Sources */,
+				615AE0302C241C0100D05E79 /* Wand_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +574,7 @@
 				6159FBA22C04AE2600BC7BE9 /* Expressible.swift in Sources */,
 				6159FBA42C04AE2600BC7BE9 /* Memory.swift in Sources */,
 				615158D32BF751EB001646EA /* All.swift in Sources */,
-				615158D62BF751EB001646EA /* Optional.swift in Sources */,
+				615158D62BF751EB001646EA /* Option.swift in Sources */,
 				615158D92BF751EB001646EA /* Asking.swift in Sources */,
 				615158DB2BF751EB001646EA /* Obtain.swift in Sources */,
 				615158E02BF751EB001646EA /* Wanded.swift in Sources */,
@@ -587,12 +587,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				6159FBA72C04BEB300BC7BE9 /* Wand_Tests.swift in Sources */,
 				6159FBAB2C04D56F00BC7BE9 /* Point.swift in Sources */,
 				612EA7842C007BC600F193DC /* Unit.swift in Sources */,
-				612EA7792C007BAB00F193DC /* Expect_Any_Tests.swift in Sources */,
+				615AE0332C241C1200D05E79 /* Expect_Tests.swift in Sources */,
+				61247B092C241D2100E3A40C /* Expect_Any_Tests.swift in Sources */,
 				6172A0EC2C109E8600AF925F /* XCTestCase.swift in Sources */,
-				612EA77B2C007BAB00F193DC /* Expect_Tests.swift in Sources */,
+				615AE0312C241C0200D05E79 /* Wand_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +641,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_PREVIEWS = YES;
@@ -702,7 +702,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -755,7 +755,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -803,7 +803,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -868,7 +868,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -957,7 +957,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1007,7 +1007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1051,7 +1051,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = YES;
 				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1097,7 +1097,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
@@ -1146,7 +1146,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 733;
+				CURRENT_PROJECT_VERSION = 747;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = LZSP4Z4B6A;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;

@@ -17,33 +17,29 @@
 /////
 ///// Created by Alex Kozin
 ///// 2020 El Machine
-//
-//import Foundation
-//
-///// Optional Ask
-///// Not retain Wand
-//public
-//extension Ask {
-//
-//    class Optional: Ask {
-//
-//        @inline(__always)
-//        override
-//        public
-//        func set(wand: Wand) {
-//        }
-//
-//        @inline(__always)
-//        override
-//        public
-//        func optional() -> Ask {
-//        }
-//
-//    }
-//
-//    @inline(__always)
-//    func optional() -> Ask {
-//        type(of: self).Optional(key: key, handler: handler)
-//    }
-//
-//}
+
+
+
+extension Ask {
+
+    /// Ask?
+    /// .Option Ask won't retain Wand
+    public
+    class Option: Ask {
+
+        @inline(__always)
+        override
+        public
+        func set(wand: Wand) {
+        }
+
+        @inline(__always)
+        override
+        public
+        func option() -> Ask {
+            self
+        }
+
+    }
+
+}

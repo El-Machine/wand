@@ -35,7 +35,7 @@ extension Ask {
     func `while`(key: String? = nil,
                  handler: @escaping (T, Int)->(Bool) ) -> Ask {
         var i = 0
-        return Ask(key: key) {
+        return Ask(for: key) {
             defer {
                 i += 1
             }

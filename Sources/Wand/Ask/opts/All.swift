@@ -29,19 +29,16 @@ import Foundation
 public
 extension Ask {
 
-    class All: Optional {
+    class All: Option {
 
         /// Ask.all
         @inline(__always)
         public
         required
-        init(key: String? = nil,
-             once: Bool = false,
-             handler: @escaping (T) -> (Bool) ) {
-
-            super.init(key: "All", once: false, handler: handler)
+        init(for key: String? = nil, handler: @escaping (T) -> (Bool)) {
+            super.init(for: "All", handler: handler)
         }
-
+        
     }
 
     /// .all
