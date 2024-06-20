@@ -24,7 +24,7 @@ extension Ask {
 
     /// Ask?
     /// .Option Ask won't retain Wand
-    public
+    open
     class Option: Ask {
 
         @inline(__always)

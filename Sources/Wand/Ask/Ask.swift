@@ -146,12 +146,12 @@ extension Ask {
 /// Handle answer
 extension Ask {
 
-    public
+    open
     class One: Ask {
 
     }
 
-    public
+    open
     class Every: Ask {
 
     }
