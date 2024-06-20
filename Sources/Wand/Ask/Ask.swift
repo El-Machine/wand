@@ -74,7 +74,7 @@ class Ask<T> {
     /// Ask?
     /// .Optional Ask won't retain Wand
     public
-    class Optional: Ask {
+    class Optional: Ask { //Opt
 
         @inline(__always)
         override
@@ -175,6 +175,14 @@ extension Ask {
 
 /// Handle answer
 extension Ask {
+
+    class One: Ask {
+
+    }
+
+    class Every: Ask {
+
+    }
 
     @discardableResult
     @inline(__always)

@@ -200,7 +200,7 @@ extension Wand {
 
     @discardableResult
     @inline(__always)
-    func contains(_ key: String) -> Any? {
+    func contains(_ key: String) -> Bool {
         context.keys.contains(key)
     }
 
