@@ -36,10 +36,35 @@ extension Ask {
         @inline(__always)
         override
         public
-        func option() -> Ask {
+        func optional() -> Self {
             self
         }
 
+        @inline(__always)
+        public
+        convenience
+        init(once: Bool,
+             for key: String? = nil,
+             handler: @escaping (T) -> () ) {
+
+            self.init(for: key) {
+                handler($0)
+                return !once
+            }
+        }
+
+    }
+
+    @inline(__always)
+    public
+    func option<U>(for key: String? = nil,
+                   handler: @escaping (U) -> () ) -> Ask<U>.Option {
+
+        let once = self.once
+        return Ask<U>.Option(for: key) {
+            handler($0)
+            return once
+        }
     }
 
 }
