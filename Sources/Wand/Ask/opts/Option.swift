@@ -24,8 +24,17 @@ extension Ask {
 
     /// Ask?
     /// .Option Ask won't retain Wand
-    open
+    public
     class Option: Ask {
+
+        private
+        var _once: Bool = false
+
+        override
+        public
+        var once: Bool {
+            _once
+        }
 
         @inline(__always)
         override
@@ -41,18 +50,35 @@ extension Ask {
         }
 
         @inline(__always)
-        public
+        internal
         convenience
-        init(once: Bool,
-             for key: String? = nil,
-             handler: @escaping (T) -> () ) {
+        init(for key: String? = nil, handler: @escaping (T) -> (), once: Bool) {
 
             self.init(for: key) {
                 handler($0)
+
                 return !once
             }
+
+            self._once = once
         }
 
+        @inline(__always)
+        internal
+        convenience
+        init(for key: String? = nil, handler: @escaping (T) -> (Bool), once: Bool) {
+            self.init(for: key, handler: handler)
+            self._once = once
+        }
+
+        
+        @inline(__always) 
+        internal
+        required
+        init(for key: String? = nil, handler: @escaping (T) -> (Bool)) {
+            super.init(for: key, handler: handler)
+        }
+        
     }
 
     @inline(__always)
@@ -60,11 +86,7 @@ extension Ask {
     func option<U>(for key: String? = nil,
                    handler: @escaping (U) -> () ) -> Ask<U>.Option {
 
-        let once = self.once
-        return Ask<U>.Option(for: key) {
-            handler($0)
-            return once
-        }
+        Ask<U>.Option.init(for: key, handler: handler, once: once)
     }
 
 }
