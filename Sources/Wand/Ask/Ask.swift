@@ -25,18 +25,18 @@ open
 class Ask<T> {
 
     public
-    var once: Bool {
-        false
-    }
-
-    public
     var handler: (T)->(Bool)
 
     public
     var next: Ask?
 
-    ///@synthesize key
-    private
+    public
+    var once: Bool {
+        false
+    }
+
+    ///@synthesize `key`
+    internal
     var _key: String?
 
     @inline(__always)
@@ -50,7 +50,7 @@ class Ask<T> {
         }
     }
 
-    ///@synthesize Wand
+    ///@synthesize `wand`
     private
     var wand: Wand?
 
@@ -71,23 +71,12 @@ class Ask<T> {
         self.handler = handler
     }
 
-    //TODO: Move to `Optional`
+    //TODO: Move to `Option`
     //`instance methods declared in extensions cannot be overridden`
-
     @inline(__always)
     public
-    func option() -> Ask {
-        type(of: self).Option(for: key, handler: handler)
-    }
-
-    @inline(__always)
-    public
-    static
-    func option(_ key: String? = nil, handler: @escaping (T)->() ) -> Option {
-        .Option(for: key) {
-            handler($0)
-            return true
-        }
+    func optional() -> Option {
+        Option(for: key, handler: handler)
     }
 
 }
@@ -149,10 +138,40 @@ extension Ask {
     open
     class One: Ask {
 
+        override
+        public
+        var once: Bool {
+            true
+        }
+
+        @inline(__always)
+        public
+        convenience
+        init(for key: String? = nil,
+             handler: @escaping (T) -> () ) {
+
+            self.init(for: key) {
+                handler($0)
+                return false
+            }
+        }
+
     }
 
     open
     class Every: Ask {
+
+        @inline(__always)
+        public
+        convenience
+        init(for key: String? = nil,
+             handler: @escaping (T) -> () ) {
+
+            self.init(for: key) {
+                handler($0)
+                return true
+            }
+        }
 
     }
 
@@ -182,6 +201,19 @@ extension Ask {
             return next?.handle(object)
         }
 
+    }
+
+}
+
+/// Nulify handler
+extension Ask {
+
+    @inline(__always)
+    public
+    func cancel() {
+        handler = { [weak self] _ in
+            self?.once == false
+        }
     }
 
 }
