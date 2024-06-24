@@ -30,6 +30,7 @@ class Ask<T> {
     public
     var next: Ask?
 
+    public
     let once: Bool
 
     ///@synthesize `key`
