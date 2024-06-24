@@ -43,4 +43,17 @@ func |(data: Data, encoding: String.Encoding) -> String? {
     String(data: data, encoding: encoding)
 }
 
+@inline(__always)
+postfix
+public
+func |(data: Data) -> String {
+    (data|)!
+}
+
+@inline(__always)
+public
+func |(data: Data, encoding: String.Encoding) -> String {
+    (data | encoding)!
+}
+
 #endif

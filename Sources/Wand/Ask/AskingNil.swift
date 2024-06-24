@@ -67,7 +67,7 @@ func |<T: Asking> (ask: Ask<T>) -> Wand {
 @discardableResult
 @inline(__always)
 public
-func |<T: Asking, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
+func |<T: AskingNil, E: Asking>(l: Ask<T>, r: Ask<E>) -> Wand {
     let wand = Wand()
     T.wand(wand, asks: l)
     E.wand(wand, asks: r)
