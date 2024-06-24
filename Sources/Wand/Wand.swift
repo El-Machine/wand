@@ -226,13 +226,6 @@ extension Wand {
 
     @discardableResult
     @inline(__always)
-    func save<T>(_ object: T, key: String? = nil) -> T {
-        store(object, key: key)
-        return object
-    }
-
-    @discardableResult
-    @inline(__always)
     func save<T: Sequence>(sequence: T) -> T {
 
         sequence.forEach { object in
@@ -243,6 +236,22 @@ extension Wand {
         }
 
         return sequence
+    }
+
+    @discardableResult
+    @inline(__always)
+    func save<T>(_ object: T, key: String? = nil) -> T {
+        store(object, key: key)
+        return object
+    }
+
+    @inline(__always)
+    func addDefault<T>(_ object: T, key: String? = nil) {
+
+        let result = key ?? T.self|
+        if !contains(result) {
+            wand.store(object, key: result)
+        }
     }
 
     @discardableResult
