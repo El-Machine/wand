@@ -37,12 +37,13 @@ func | (wand: Wand, handler: @escaping (Error?)->() ) -> Wand {
     }
 
     //Handle Error completion
-    return wand | all | Ask.Option(handler: { e in
+
+    let everyError = { (e: Error) in
         all.cancel()
         handler(e)
+    }
 
-        return false
-    }, once: true)
+    return wand | all | Ask.Option(once: false, handler: everyError)
 }
 
 /// Handle Error and Success

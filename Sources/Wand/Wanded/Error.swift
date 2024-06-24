@@ -30,7 +30,7 @@ import Foundation
 @inline(__always)
 public
 func | (wand: Wand, handler: @escaping (Error)->() ) -> Wand {
-    wand | Ask.Option(handler: handler, once: true)
+    wand | Ask.Option(once: false, handler: handler)
 }
 
 /// Handle Error

@@ -33,9 +33,8 @@ extension Ask {
     @inline(__always)
     static
     func any(handler: @escaping (Any)->() ) -> Ask<Any> {
-        .Option() {
+        .Option(once: false) {
             handler($0)
-            return true
         }
     }
 

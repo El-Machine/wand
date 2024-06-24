@@ -33,21 +33,21 @@ extension Ask {
 
         /// Ask.all
         @inline(__always)
+        
         public
         required
-        init(for key: String? = nil, handler: @escaping (T) -> (Bool)) {
-            super.init(for: "All", handler: handler)
+        init(once: Bool, for key: String? = nil, handler: @escaping (T) -> (Bool) ) {
+            super.init(once: true, for: "All", handler: handler)
         }
-        
+
     }
 
     /// .all
     @inline(__always)
     static
     func all(handler: @escaping (Wand)->() ) -> Ask<Wand> {
-        .All() {
+        .All(once: true) {
             handler($0)
-            return false
         }
     }
 

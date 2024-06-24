@@ -30,10 +30,7 @@ class Ask<T> {
     public
     var next: Ask?
 
-    public
-    var once: Bool {
-        false
-    }
+    let once: Bool
 
     ///@synthesize `key`
     internal
@@ -60,14 +57,26 @@ class Ask<T> {
         self.wand = wand
     }
 
-    ///.init
+    ///init
+    @inline(__always)
+    public
+    convenience
+    init(once: Bool, for key: String? = nil, handler: ( (T) -> () )? = nil ) {
+
+        self.init(once: once, for: key) {
+            handler?($0)
+            return !once
+        }
+    }
+
+    ///init
     @inline(__always)
     public
     required
-    init(for key: String? = nil,
-         handler: @escaping (T) -> (Bool) ) {
+    init(once: Bool = false, for key: String? = nil, handler: @escaping (T) -> (Bool) ) {
 
         self._key = key
+        self.once = once
         self.handler = handler
     }
 
@@ -76,7 +85,7 @@ class Ask<T> {
     @inline(__always)
     public
     func optional() -> Option {
-        Option(for: key, handler: handler)
+        Option(once: self.once, for: key, handler: handler)
     }
 
 }
@@ -97,10 +106,7 @@ extension Ask {
     @inline(__always)
     static
     func every(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> Every {
-        Every(for: key) {
-            handler?($0)
-            return true
-        }
+        .init(once: false, for: key, handler: handler)
     }
 
     /// Ask
@@ -112,10 +118,7 @@ extension Ask {
     @inline(__always)
     static 
     func one(_ key: String? = nil, handler: ( (T)->() )? = nil ) -> One {
-        One(for: key) {
-            handler?($0)
-            return false
-        }
+        .init(once: true, for: key, handler: handler)
     }
 
     /// Ask
@@ -127,7 +130,7 @@ extension Ask {
     @inline(__always)
     static 
     func `while`(_ key: String? = nil, handler: @escaping (T)->(Bool) ) -> Self {
-        Self(for: key, handler: handler)
+        .init(once: false, for: key, handler: handler)
     }
 
 }
@@ -138,22 +141,11 @@ extension Ask {
     open
     class One: Ask {
 
-        override
-        public
-        var once: Bool {
-            true
-        }
-
         @inline(__always)
         public
         convenience
-        init(for key: String? = nil,
-             handler: @escaping (T) -> () ) {
-
-            self.init(for: key) {
-                handler($0)
-                return false
-            }
+        init(for key: String? = nil, handler: @escaping (T) -> () ) {
+            self.init(once: true, for: key, handler: handler)
         }
 
     }
@@ -167,10 +159,7 @@ extension Ask {
         init(for key: String? = nil,
              handler: @escaping (T) -> () ) {
 
-            self.init(for: key) {
-                handler($0)
-                return true
-            }
+            self.init(once: false, for: key, handler: handler)
         }
 
     }
