@@ -22,7 +22,7 @@
 @inline(__always)
 postfix
 public
-func |(object: Any) -> String {
+func |<T>(object: T) -> String {
     String(describing: object)
 }
 
