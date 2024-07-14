@@ -23,7 +23,7 @@ import Wand
 
 @available(iOS 14, macOS 12, tvOS 14, watchOS 7, *)
 @main
-struct PlayApp: App {
+struct playApp: App {
 
     var body: some Scene {
         WindowGroup {
