@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) LICENSE file
+/// 1) .LICENSE
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -19,30 +19,20 @@
 /// 2020 El Machine
 
 import Foundation
-import XCTest
 
 import Wand
+import XCTest
 
-/// Test Unit
-//struct Unit {
-//
-//}
+class Wand_Tests: XCTestCase {
 
-extension TimeInterval {
+    func test|() throws {
+        let char: Character = 0x7C|
+        XCTAssertEqual("|", char)
+    }
 
-    static var `default` = 4.2
-
-}
-
-///Performance
-extension [XCTMetric] {
-
-    static
-    var `default`: Self = {[
-        XCTCPUMetric(),
-        XCTClockMetric(),
-        XCTMemoryMetric(),
-        XCTStorageMetric(),
-    ]}()
+    func test_() throws {
+        let char: Character = 0x5F|
+        XCTAssertEqual("_", char)
+    }
 
 }

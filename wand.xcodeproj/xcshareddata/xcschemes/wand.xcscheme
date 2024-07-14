@@ -16,8 +16,8 @@
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "pipe::Pipe"
                      BuildableName = "Wand.framework"
-                     BlueprintName = "Wand"
-                     ReferencedContainer = "container:Wand.xcodeproj">
+                     BlueprintName = "wand"
+                     ReferencedContainer = "container:wand.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "pipe::Pipe"
                BuildableName = "Wand.framework"
-               BlueprintName = "Wand"
-               ReferencedContainer = "container:Wand.xcodeproj">
+               BlueprintName = "wand"
+               ReferencedContainer = "container:wand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -52,8 +52,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "pipe::Pipe"
             BuildableName = "Wand.framework"
-            BlueprintName = "Wand"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            BlueprintName = "wand"
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -63,9 +63,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "pipe::PipeTests"
-               BuildableName = "WandTests.xctest"
+               BuildableName = "wandTests.xctest"
                BlueprintName = "wandTests"
-               ReferencedContainer = "container:Wand.xcodeproj">
+               ReferencedContainer = "container:wand.xcodeproj">
             </BuildableReference>
             <LocationScenarioReference
                identifier = "Tokyo, Japan"
@@ -91,7 +91,7 @@
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
             BuildableName = "Play.app"
             BlueprintName = "play"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
@@ -112,7 +112,7 @@
             BlueprintIdentifier = "6162624B28BC8E2B00D63EA5"
             BuildableName = "Play.app"
             BlueprintName = "play"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

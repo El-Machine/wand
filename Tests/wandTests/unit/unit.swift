@@ -6,7 +6,7 @@
 /// you may not use this file except in compliance with the License.
 /// You may obtain a copy of the License at
 ///
-/// 1) .LICENSE
+/// 1) LICENSE file
 /// 2) https://apache.org/licenses/LICENSE-2.0
 ///
 /// Unless required by applicable law or agreed to in writing, software
@@ -18,7 +18,31 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-/// Abstract interface
-prefix operator |
-postfix operator |
-infix operator | : AdditionPrecedence
+import Foundation
+import XCTest
+
+import Wand
+
+/// Test unit
+//struct Unit {
+//
+//}
+
+extension TimeInterval {
+
+    static var `default` = 4.2
+
+}
+
+///Performance
+extension [XCTMetric] {
+
+    static
+    var `default`: Self = {[
+        XCTCPUMetric(),
+        XCTClockMetric(),
+        XCTMemoryMetric(),
+        XCTStorageMetric(),
+    ]}()
+
+}

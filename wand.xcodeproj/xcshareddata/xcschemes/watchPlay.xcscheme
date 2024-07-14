@@ -18,7 +18,7 @@
                BlueprintIdentifier = "613966142BE0F4EF004C18A3"
                BuildableName = "watchPlay.app"
                BlueprintName = "watchPlay"
-               ReferencedContainer = "container:Wand.xcodeproj">
+               ReferencedContainer = "container:wand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -52,7 +52,7 @@
             BlueprintIdentifier = "613966142BE0F4EF004C18A3"
             BuildableName = "watchPlay.app"
             BlueprintName = "watchPlay"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
@@ -73,7 +73,7 @@
             BlueprintIdentifier = "613966142BE0F4EF004C18A3"
             BuildableName = "watchPlay.app"
             BlueprintName = "watchPlay"
-            ReferencedContainer = "container:Wand.xcodeproj">
+            ReferencedContainer = "container:wand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -18,49 +18,7 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
-
-/// Object that supports Wand
-public
-protocol Wanded {
-
-    @inline(__always)
-    var wand: Wand {get}
-
-    @inline(__always)
-    var isWanded: Wand? {get}
-
-}
-
-extension Wanded {
-
-    @inline(__always)
-    public
-    var wand: Wand {
-        isWanded ?? Wand(for: self)
-    }
-
-    @inline(__always)
-    public
-    var isWanded: Wand? {
-        Wand[self]
-    }
-
-}
-
-/// Any?: Wanded
-extension Optional: Wanded {
-
-    @inline(__always)
-    public
-    var wand: Wand {
-        isWanded ?? .to(self)
-    }
-
-    @inline(__always)
-    public
-    var isWanded: Wand? {
-        Wand[self]
-    }
-
-}
+///||e♟️
+prefix operator |
+postfix operator |
+infix operator | : AdditionPrecedence

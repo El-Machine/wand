@@ -18,42 +18,49 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-///<#Any#>
-@inline(__always)
-postfix
+import Foundation
+
+/// Object that supports Wand
 public
-func |<T>(object: T) -> String {
-    String(describing: object)
+protocol Wanded {
+
+    @inline(__always)
+    var wand: Wand {get}
+
+    @inline(__always)
+    var isWanded: Wand? {get}
+
 }
 
-///Data
-#if canImport(Foundation)
-import Foundation.NSData
+extension Wanded {
 
-@inline(__always)
-postfix
-public
-func |(data: Data) -> String? {
-    String(data: data, encoding: .utf8)
+    @inline(__always)
+    public
+    var wand: Wand {
+        isWanded ?? Wand(for: self)
+    }
+
+    @inline(__always)
+    public
+    var isWanded: Wand? {
+        Wand[self]
+    }
+
 }
 
-@inline(__always)
-public
-func |(data: Data, encoding: String.Encoding) -> String? {
-    String(data: data, encoding: encoding)
-}
+///Any?
+extension Optional {
 
-@inline(__always)
-postfix
-public
-func |(data: Data) -> String {
-    (data|)!
-}
+    @inline(__always)
+    public
+    var _w: Wand {
+        _is ??  .to(self)
+    }
 
-@inline(__always)
-public
-func |(data: Data, encoding: String.Encoding) -> String {
-    (data | encoding)!
-}
+    @inline(__always)
+    public
+    var _is: Wand? {
+        Wand[self]
+    }
 
-#endif
+}
