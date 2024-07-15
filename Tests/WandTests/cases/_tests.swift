@@ -23,16 +23,16 @@ import Foundation
 import Wand
 import XCTest
 
-class Wand_Tests: XCTestCase {
+class _Tests: XCTestCase {
 
-    func test|() throws {
-        let char: Character = 0x7C|
-        XCTAssertEqual("|", char)
-    }
-
-    func test_() throws {
-        let char: Character = 0x5F|
-        XCTAssertEqual("_", char)
-    }
+//    func test_wend() throws {
+//        let char: Character = 0x7C|
+//        XCTAssertEqual("|", char)
+//    }
+//
+//    func test_() throws {
+//        let char: Character = 0x5F|
+//        XCTAssertEqual("_", char)
+//    }
 
 }

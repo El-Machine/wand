@@ -53,13 +53,13 @@ extension Optional {
 
     @inline(__always)
     public
-    var _w: Wand {
-        _is ??  .to(self)
+    var wend: Wand {
+        isWend ??  .to(self)
     }
 
     @inline(__always)
     public
-    var _is: Wand? {
+    var isWend: Wand? {
         Wand[self]
     }
 

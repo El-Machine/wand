@@ -43,7 +43,7 @@ class Expect_T_Tests: XCTestCase {
             }
         }
 
-        //Put for 'count' Points
+        //Put for 'count' Vector
         var i = 0
         (0..<count).forEach { _ in
             let point = Vector.any
@@ -58,50 +58,50 @@ class Expect_T_Tests: XCTestCase {
 
         wand.close()
     }
-//
-//    func test_One() throws {
-//        let e = expectation()
-//
-//        let point = Point.any
-//
-//        weak var wand: Wand!
-//        wand = |.one { (point: Point) in
-//            e.fulfill()
-//        }
-//
-//        wand.add(point)
-//
-//        waitForExpectations()
-//        XCTAssertNil(wand)
-//    }
-//
-//    func test_While() throws {
-//
-//        func put() {
-//            DispatchQueue.main.async {
-//                wand.add(Point.any)
-//            }
-//        }
-//
-//        let e = expectation()
-//
-//        weak var wand: Wand!
-//        wand = |.while { (point: Point) in
-//
-//            if point.t > 2 {
-//                e.fulfill()
-//                return false
-//            } else {
-//                put()
-//                return true
-//            }
-//
-//        }
-//
-//        put()
-//
-//        waitForExpectations()
-//        XCTAssertNil(wand)
-//    }
+
+    func test_One() throws {
+        let e = expectation()
+
+        let point = Vector.any
+
+        weak var wand: Wand!
+        wand = |.one { (point: Vector) in
+            e.fulfill()
+        }
+
+        wand.add(point)
+
+        waitForExpectations()
+        XCTAssertNil(wand)
+    }
+
+    func test_While() throws {
+
+        func put() {
+            DispatchQueue.main.async {
+                wand.add(Vector.any)
+            }
+        }
+
+        let e = expectation()
+
+        weak var wand: Wand!
+        wand = |.while { (point: Vector) in
+
+            if point.t > 2 {
+                e.fulfill()
+                return false
+            } else {
+                put()
+                return true
+            }
+
+        }
+
+        put()
+
+        waitForExpectations()
+        XCTAssertNil(wand)
+    }
 
 }
