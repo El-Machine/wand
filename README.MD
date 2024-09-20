@@ -1,5 +1,22 @@
 
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
+
+### Swift Package Collection
+
+### ⚙️ Usage
+
+```bash
+
+#Request current Location
+|{ (location: CLLocation) in 
+
+}
+
+#Request .authorizedAlways permissions once
+CLAuthorizationStatus.authorizedAlways | .one { status in
+            
+}
+
 **📦 An ideal API acts as the [black box](https://wikipedia.org/wiki/Blackbox)**  
 **⚡️ It’s possible to incapsulate whole data receiving and memory managment duty to one symbol**  
 **?**   
@@ -9,40 +26,14 @@
   
 >In Unix-like computer operating systems, a [pipeline](https://wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
 
-### 💬 bash
 ```bash
 command1 | command2 | command3
 
 ls -l | grep key | less
 ```
 
-### 🕊️ swift
-```bash
-#Create handler  
-{ (bar: Bar) in
 
-}
-
-```
-
-```bash
-#Black box
-prefix func | (handler: @escaping (Bar)->() )
-
-#Call API
-| { (bar: Bar) in
-
-}
-
-```
-
-```bash
-#Retreive data (profit)
-handler(bar)
-
-``` 
-
-### ⚙️ usage
+### ⚙️ Usage
 
 ```bash
 
