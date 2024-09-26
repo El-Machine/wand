@@ -16,6 +16,7 @@
 CLAuthorizationStatus.authorizedAlways | .one { status in
             
 }
+```
 
 **📦 An ideal API acts as the [black box](https://wikipedia.org/wiki/Blackbox)**  
 **⚡️ It’s possible to incapsulate whole data receiving and memory managment duty to one symbol**  
