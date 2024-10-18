@@ -2,7 +2,7 @@
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
 
 ### Swift Package Collection
-[📦 |Packages](https://raw.githubusercontent.com/El-Machine/wand/main/Collection.json)  
+[📦 |Packages](https://raw.githubusercontent.com/El-Machine/wand/main/collection.json)  
 
 ### Packages
 [🔖 |CoreLocation](https://github.com/El-Machine/Wand_CoreLocation)   
