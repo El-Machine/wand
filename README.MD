@@ -2,6 +2,15 @@
 ## ![Wand 🪄](https://github.com/El-Machine/Wand/raw/main/App/Assets.xcassets/AppIcon.appiconset/magic-wand-transformed-20.png) API for Any (thing) |
 
 ### Swift Package Collection
+[📦 |Packages](https://raw.githubusercontent.com/El-Machine/wand/main/Collection.json)  
+
+### Packages
+[🔖 |CoreLocation](https://github.com/El-Machine/Wand_CoreLocation)   
+[🏃 |CoreMotion](https://github.com/El-Machine/Wand_CoreMotion)   
+[📡 |CoreNFC](https://github.com/El-Machine/Wand_CoreNFC)   
+[🏛️ |Foundation](https://github.com/El-Machine/Wand_Foundation)   
+[🌤️ |Weather](https://github.com/El-Machine/Wand_Weather)   
+[🖥️ |URL](https://github.com/El-Machine/WandURL)    
 
 ### ⚙️ Usage
 
