@@ -32,6 +32,7 @@ CLAuthorizationStatus.authorizedAlways | .one { status in
 **?**   
 
 [Medium.com](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)
+[YouTube.com](https://www.youtube.com/playlist?list=PLvprpeoOl6IoZ67BcD-t0rS1L5c5J4lPh)
 [Habr.com](https://habr.com/ru/post/674010/)
   
 >In Unix-like computer operating systems, a [pipeline](https://wikipedia.org/wiki/Pipeline_(Unix)) is a mechanism for inter-process communication using message passing. A pipeline is a set of processes chained together by their standard streams, so that the output text of each process (stdout) is passed directly as input (stdin) to the next one. The second process is started as the first process is still executing, and they are executed concurrently.
