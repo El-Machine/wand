@@ -18,21 +18,16 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
+@inline(__always)
+postfix
+public
+func | (value: Int) -> Character {
+    Character(UnicodeScalar(value)!)
+}
 
-import Wand
-import XCTest
-
-class _Tests: XCTestCase {
-
-//    func test_wend() throws {
-//        let char: Character = 0x7C|
-//        XCTAssertEqual("|", char)
-//    }
-//
-//    func test_() throws {
-//        let char: Character = 0x5F|
-//        XCTAssertEqual("_", char)
-//    }
-
+@inline(__always)
+postfix
+public
+func | (char: Character) -> UInt32 {
+    char.unicodeScalars.first!.value
 }

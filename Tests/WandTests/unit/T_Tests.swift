@@ -18,47 +18,34 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-import Foundation
-
-/// Object that supports Wand
-public
-protocol Wanded {
-
-    @inline(__always)
-    var wand: Wand {get}
-
-    @inline(__always)
-    var isWanded: Wand? {get}
-
-}
-
-public
-extension Wanded {
-
-    @inline(__always)
-    var wand: Wand {
-        isWanded ?? Wand(for: self)
-    }
-
-    @inline(__always)
-    var isWanded: Wand? {
-        Wand[self]
-    }
-
-}
-
-///Any?
-public
-extension Optional {
-
-    @inline(__always)
-    var wend: Wand {
-        isWend ?? .to(self)
-    }
-
-    @inline(__always)
-    var isWend: Wand? {
-        Wand[self]
-    }
-
-}
+//import Foundation
+//
+//import Wand
+//import XCTest
+//
+//class Expect_Any_Tests: XCTestCase {
+//
+//
+//    func test_<#T#>_once() {
+//        let e = expectation()
+//        e.assertForOverFulfill = true
+//
+//        |.one { (<#t#>: <#T#>) in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
+//
+//    func test_<#T#>_while() {
+//        let e = expectation()
+//        e.assertForOverFulfill = false
+//
+//        |.while { (<#t#>: <#T#>) in
+//            e.fulfill()
+//        }
+//
+//        waitForExpectations()
+//    }
+//
+//}

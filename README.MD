@@ -126,7 +126,7 @@ view.layer.addSublayer(preview!)
 Wand started from the idea about receiving anything in most efficient way. 
   
 Add one sign to completion handler and retreive the result 📦   
-ex [Pipe](https://medium.com/@al.kozin/universal-api-7ddc67bb0aa5)   
+ex [Pipe](https://github.com/El-Machine/Pipe)   
 ex [API](https://github.com/El-Machine/iOS-API-Wrapper)   
 
 [Feel free to contribute. You are welcome 🔬](https://github.com/El-Machine/Wand/graphs/contributors)
@@ -198,15 +198,17 @@ ex [API](https://github.com/El-Machine/iOS-API-Wrapper)
 
 - 🐢  Logo   
       Bolt, Beranek and Newman 1967   
-      Logo is a wonderful   
-      https://wikipedia.org/wiki/Macromedia
+      The language was conceived to teach concepts of programming related to Lisp   
+      and only later to enable what Papert called "body-syntonic reasoning", where   
+      students could understand, predict, and reason about the turtle's motion by   
+      imagining what they would do if they were the turtle.   
+      https://wikipedia.org/wiki/Logo_(programming_language)
 
 - 🐬  Flipper   
       Anna Prosvetova, Pavel Zhovner   
       Flipper Zero is a portable multi-tool for pentesters and hardware geeks   
       in a toy-like body. It loves to explore the digital world around:   
       radio protocols, access control systems, hardware, and more.   
-      The main idea behind the Flipper Zero is to combine all the research   
       https://flipperzero.one
 
 ## Tasks
@@ -222,4 +224,4 @@ ex [API](https://github.com/El-Machine/iOS-API-Wrapper)
 
 [Alex Kozin](mailto:al@el-machine.com)   
 [El Machine 🤖](https://el-machine.com)  
-since 2008
+App since 2008

@@ -26,7 +26,8 @@ import XCTest
 
 class Wand_Tests: XCTestCase {
 
-    weak var wand: Wand?
+    weak
+    var wand: Wand?
 
     func test_put() throws {
         let wand = Wand()

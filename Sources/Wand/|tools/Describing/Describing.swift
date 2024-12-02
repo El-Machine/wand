@@ -18,47 +18,10 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-///<#Any#>
+///<#Any#> to String
 @inline(__always)
 postfix
 public
 func |<T>(object: T) -> String {
     String(describing: object)
 }
-
-//postfix
-//func | (value: Int) -> String {
-//    String(format: "%u", value)
-//}
-//
-//@available(swift, introduced: 19.0, message: "_")
-//@inline(__always)
-//postfix
-//public
-//func | (value: Int) -> Character {
-//    .init(value)
-//}
-//
-//@available(swift, introduced: 19.0, message: "_")
-//@inline(__always)
-//postfix
-//public
-//func | (value: Int8) -> Character {
-//    .init(value)
-//}
-//
-//@available(swift, introduced: 19.0, message: "_")
-//@inline(__always)
-//postfix
-//public
-//func | (char: Character) -> Int {
-//    char.hexDigitValue!
-//}
-//
-//@available(swift, introduced: 19.0, message: "_")
-//@inline(__always)
-//postfix
-//public
-//func | (char: Character) -> UInt8 {
-//    UInt8(char.hexDigitValue!)
-//}

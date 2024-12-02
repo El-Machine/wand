@@ -23,38 +23,16 @@ import Foundation
 import Wand
 import XCTest
 
-class Expect_Any_Tests: XCTestCase {
+class Describing_Tests: XCTestCase {
 
-    func test_Any() throws {
-        let e = expectation(description: "event.any")
-        e.assertForOverFulfill = false
-
-        let wand = Vector.every | String.every | .any { _ in
-            e.fulfill()
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak wand] in
-
-            if .random() {
-                wand?.add(Vector.any)
-            } else {
-                wand?.add(String.any)
-            }
-
-        }
-
-        waitForExpectations()
+    func test_wand() throws {
+        let char: Character = 0x7C|
+        XCTAssertEqual("|", char)
     }
 
-}
-
-extension String: @retroactive Asking
-{
-    @inline(__always)
-    public
-    static
-    func wand<T>(_ wand: Wand, asks ask: Ask<T>) {
-        _ = wand.answer(the: ask)
+    func test_Any() throws {
+        let char: Character = 0x5F|
+        XCTAssertEqual("_", char)
     }
 
 }
