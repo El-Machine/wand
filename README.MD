@@ -222,6 +222,6 @@ ex [API](https://github.com/El-Machine/iOS-API-Wrapper)
 - [ ] Rest
 - [ ] MultipeerConnectivity
 
-[Alex Kozin](mailto:al@el-machine.com)   
+[Alex Kozin](mailto:al.kozin@gmail.com)   
 [El Machine 🤖](https://el-machine.com)  
-App since 2008
+Apps since 2008
